@@ -82,12 +82,12 @@ analytics:
 author:
   name             : "Anwar Hossain Zahid"
   avatar           : "profile.jpg"
-  bio              : "Phd Aspirant in Computer Science"
-  location         : "Dhaka"
+  bio              : "Software Engineer - REVE Systems - Dhaka, Bangladesh"
+  location         : "Dhaka, Bangladesh"
   employer         :
   pubmed           :
   googlescholar    :
-  email            :
+  email            : "mdahzahid@gmail.com"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -102,7 +102,7 @@ author:
   instagram        :
   impactstory      : # "https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         :
+  linkedin         : "in/anwar-hossain-zahid-a46195108"
   orcid            : # "http://orcid.org/yourorcidurl"
   pinterest        :
   soundcloud       :
