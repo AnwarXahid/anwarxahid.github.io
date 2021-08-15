@@ -8,7 +8,4 @@ redirect_from:
   - /about.html
 ---
 
-
-1. I am a Software Engineer.
-1. My research interest lie in the general area of System Design.
-1. I completed my graduation from BUET.
+I am Anwar Hossain Zahid, graduated from Bangladesh University of Engineering and Technology, currently working in REVE Systems as a software Engineer.
