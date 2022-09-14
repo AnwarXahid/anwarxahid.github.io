@@ -12,6 +12,7 @@ Education
 * B.Sc. in Computer Science & Engineering, Bangladesh University of Engineering & Technology, 2018
 * HSC (Higher Secondary School Certificate), Ananda Mohan College, 2013
 * SSC (Secondary School Certificate), Mymensingh Zilla School, 2011
+
 ---
 
 Technical Strengths
@@ -23,6 +24,7 @@ MATLAB, DialogFlow, Docker, Git <br>
 AngularJS, Node.js, vue.js, Bootstrap <br>
 * **Operating Systems:** Linux(Ubuntu, Mint and Fedora), Windows, Android, MacOS, iOS. <br>
 * **Hardware:** ATMega 32, Arduino, Hikey960, NeonKey
+
 ---
 
 
