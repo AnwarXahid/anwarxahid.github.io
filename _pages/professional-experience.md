@@ -7,8 +7,8 @@ author_profile: true
 
 Reve Systems
 ===
-Software Engineer <br>
-R&D (E-governance) <br>
+**Software Engineer** <br>
+*R&D (E-governance)* <br>
 >Projects:
 >* **Parliament Resource Planning**: An exclusive resource planning for day-to-day functional activities such as accounting,
    procurement, project management, risk management and compliance, and supply chain operations. <br>
@@ -19,8 +19,8 @@ R&D (E-governance) <br>
 
 ERA-Info Tech Ltd
 ===
-Software Engineer <br>
-R&D (Artificial Intelligence) <br>
+**Software Engineer** <br>
+*R&D (Artificial Intelligence)* <br>
 >Projects:
 >* **AVA ChatBot for Bank Asia Limited, Bangladesh**: Developed a Fin-Tech ChatBot for 
 Bank Asia Ltd, Bangladesh with cutting-edge interactive features like Account Opening, Balance Enquiry and other e-banking facilities. <br>
@@ -32,8 +32,8 @@ Bank Asia Ltd, Bangladesh with cutting-edge interactive features like Account Op
 
 Walton Digi-Tech Industries Limited
 ===
-Junior Software Engineer <br>
-R&D (Mobile) <br>
+**Junior Software Engineer** <br>
+*R&D (Mobile)* <br>
 >Projects:
 >* **Custom Android ROM for Walton Mobiles**: Developed custom Android ROM running on MTK6580 SoC. <br>
 >* **Tweaking Operating System of Walton Feature Phones**: Developed a Notification Feature for Walton Feature Phones.

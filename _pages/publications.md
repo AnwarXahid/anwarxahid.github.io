@@ -7,13 +7,12 @@ author_profile: true
 
 Virtual Internship System
 ====
-Supervisor: [Dr. Abu Sayed Md. Latiful Hoque](https://cse.buet.ac.bd/faculty/facdetail.php?id=asmlatifulhoque),<br>
+**Supervisor:** <br>
+[Dr. Abu Sayed Md. Latiful Hoque](https://cse.buet.ac.bd/faculty/facdetail.php?id=asmlatifulhoque),<br>
 Head and Chair<br>
-[E-system Research and Development Lab](http://www.epbl.org/homepage/),
-<address>
-Department of Computer Science and Engineering,<br>
-Bangladesh University of Engineering and Technology
-</address>
+[E-system Research and Development Lab](http://www.epbl.org/homepage/),<br>
+*Department of Computer Science and Engineering,<br>
+Bangladesh University of Engineering and Technology*
 
 #### Publication
 >Raihan Mia, Anwar Hossin Zahid, Bipul Chandra Dev Nath, and Abu Sayed Md Latiful Hoque.
@@ -24,11 +23,11 @@ ___
 
 Scene Reconstruction From Multiple Static CCTV Cameras
 ===
-Supervisor: [Dr. Md. Monirul Islam](https://cse.buet.ac.bd/faculty/facdetail.php?id=mmislam),<br>
-<address>
+**Supervisor:** <br>
+[Dr. Md. Monirul Islam](https://cse.buet.ac.bd/faculty/facdetail.php?id=mmislam),<br>
+*Professor <br>
 Department of Computer Science and Engineering,<br>
-Bangladesh University of Engineering and Technology
-</address>
+Bangladesh University of Engineering and Technology*
 
 #### Thesis
 > To read the full book, go to this [LINK](https://drive.google.com/file/d/1niLKHkkCZIC6RTYKvwPz33PSTk3ufMR-/view?usp=sharing)
@@ -37,11 +36,11 @@ ___
 
 A novel study on interaction between riders and ride-sharing Applications
 ===
-Supervisor: [Dr. Syed Ishtiaque Ahmed](https://www.ishtiaque.net/),<br>
-<address>
+**Supervisor:** <br>
+[Dr. Syed Ishtiaque Ahmed](https://www.ishtiaque.net/),<br>
+*Assistant Professor <br>
 Department of Computer Science,<br>
-University of Toronto, Human Technology Interaction
-</address>
+University of Toronto, Human Technology Interaction*
 
 
 
