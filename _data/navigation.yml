@@ -8,13 +8,16 @@ main:
 
   - title: "Professional Experience"
     url: /professional-experience/
-    
+
 #  - title: "Portfolio"
 #    url: /portfolio/
 #
 #  - title: "Blog Posts"
 #    url: /year-archive/
-    
+
+  - title: "About Me test"
+    url: /about-me-test/
+
   - title: "About Me"
     url: /about-me/
 
