@@ -10,5 +10,4 @@ author_profile: true
 
 ## Scene Reconstruction From Multiple Static CCTV Cameras
 
-
 ## Virtual Internship System
