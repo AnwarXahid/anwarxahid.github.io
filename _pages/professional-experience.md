@@ -5,9 +5,11 @@ permalink: /profession-experience/
 author_profile: true
 ---
 
-## A novel study on interaction between riders and ridesharing Applications
+{% include base_path %}
+
+## A novel study
 
 
-## Scene Reconstruction From Multiple Static CCTV Cameras
+## Scene 
 
-## Virtual Internship System
+## Virtual 
