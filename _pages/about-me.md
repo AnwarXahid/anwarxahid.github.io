@@ -65,7 +65,7 @@ Bangladesh and qualified for **Education Board Merit scholarships**
 Contact me
 ===
 
-If you like to play a blitz chess or have a cup of coffee, feel free to contact me.
+*If you like to play a blitz chess or have a cup of coffee, feel free to contact me.*
 
 ---
 
