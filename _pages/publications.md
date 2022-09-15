@@ -34,7 +34,7 @@ Bangladesh University of Engineering and Technology*
 
 ___
 
-A novel study on interaction between riders and ride-sharing Applications
+A novel study on interaction between riders and ride-sharing applications
 ===
 ### **Supervisor:** <br>
 [Dr. Syed Ishtiaque Ahmed](https://www.ishtiaque.net/),<br>
