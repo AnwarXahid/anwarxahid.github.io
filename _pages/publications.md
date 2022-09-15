@@ -7,14 +7,14 @@ author_profile: true
 
 Virtual Internship System
 ====
-**Supervisor:** <br>
+### **Supervisor:**
 [Dr. Abu Sayed Md. Latiful Hoque](https://cse.buet.ac.bd/faculty/facdetail.php?id=asmlatifulhoque),<br>
 Head and Chair<br>
 [E-system Research and Development Lab](http://www.epbl.org/homepage/),<br>
 *Department of Computer Science and Engineering,<br>
 Bangladesh University of Engineering and Technology*
 
-#### Publication
+### **Publications**
 >Raihan Mia, Anwar Hossin Zahid, Bipul Chandra Dev Nath, and Abu Sayed Md Latiful Hoque.
 A conceptual design of virtual internship system to benchmark software development skills in a
 blended learning environment. In 2020 23rd International Conference on Computer and Information Technology (ICCIT), pages 1{6. IEEE, 2020
@@ -23,20 +23,20 @@ ___
 
 Scene Reconstruction From Multiple Static CCTV Cameras
 ===
-**Supervisor:** <br>
+### **Supervisor:** <br>
 [Dr. Md. Monirul Islam](https://cse.buet.ac.bd/faculty/facdetail.php?id=mmislam),<br>
 *Professor <br>
 Department of Computer Science and Engineering,<br>
 Bangladesh University of Engineering and Technology*
 
-#### Thesis
+### **Thesis**
 > To read the full book, go to this [LINK](https://drive.google.com/file/d/1niLKHkkCZIC6RTYKvwPz33PSTk3ufMR-/view?usp=sharing)
 
 ___
 
 A novel study on interaction between riders and ride-sharing Applications
 ===
-**Supervisor:** <br>
+### **Supervisor:** <br>
 [Dr. Syed Ishtiaque Ahmed](https://www.ishtiaque.net/),<br>
 *Assistant Professor <br>
 Department of Computer Science,<br>

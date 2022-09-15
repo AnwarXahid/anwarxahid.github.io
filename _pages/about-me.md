@@ -9,7 +9,7 @@ redirect_from:
 
 Education
 ======
-* B.Sc. in Computer Science & Engineering, Bangladesh University of Engineering & Technology, 2018
+* **B.Sc. in Computer Science & Engineering**, Bangladesh University of Engineering & Technology, 2018
 * HSC (Higher Secondary School Certificate), Ananda Mohan College, 2013
 * SSC (Secondary School Certificate), Mymensingh Zilla School, 2011
 
