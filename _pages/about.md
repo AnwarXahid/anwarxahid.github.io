@@ -16,7 +16,7 @@ Software Development, Integration, Validation, Testing, and Deployment.
 I worked on a range of projects in domains such as operating systems, 
 data science, machine learning, computer vision and web development. 
 Under the guidance of **Dr. Abu Sayed Md. Latiful Hoque** of BUET, I was able 
-to get a respectable government fund. Our work was published at the **23rd ICCIT**.
+to get a respectable government fund back in 2020. Our work was published at the **23rd ICCIT**.
 
 Besides computer science, I have interest in history, religion, and philosophy. Reading something is 
 like drinking water to me, I can't live without read and think. I am a very good actor,
