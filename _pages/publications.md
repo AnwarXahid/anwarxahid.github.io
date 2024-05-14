@@ -5,11 +5,25 @@ permalink: /publications/
 author_profile: true
 ---
 
+SE for ML
+====
+### **Supervisor:**
+[Dr. Wei Le](https://weile.work/),<br>
+Head and Chair,<br>
+[Program Analysis & AI Lab](https://weile.work/lab.html),<br>
+*Department of Computer Science,<br>
+Iowa State University*
+
+### **Publications**
+> **Fuzzing with Neural Assertions to Detect Numerical Bugs in Machine Learning 
+> Applications** is submitted in ICSE'25
+___
+
 Virtual Internship System
 ====
 ### **Supervisor:**
 [Dr. Abu Sayed Md. Latiful Hoque](https://cse.buet.ac.bd/faculty/facdetail.php?id=asmlatifulhoque),<br>
-Head and Chair<br>
+Head and Chair,<br>
 [E-system Research and Development Lab](http://www.epbl.org/homepage/),<br>
 *Department of Computer Science and Engineering,<br>
 Bangladesh University of Engineering and Technology*
