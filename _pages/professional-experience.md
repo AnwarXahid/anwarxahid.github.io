@@ -5,6 +5,16 @@ permalink: /professional-experience/
 author_profile: true
 ---
 
+
+Lawrence Livermore National Laboratory
+===
+**Summer Intern**,<br>
+*[Parallel Systems Group](https://computing.llnl.gov/casc/parallel-systems-group)* <br>
+>Projects:
+>* **I will work on bug detection in ML code projects**
+
+
+
 Reve Systems
 ===
 **Software Engineer** <br>
