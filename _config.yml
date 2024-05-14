@@ -6,8 +6,8 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-locale                   : "bn-BD"
-title                    : "Zahid"
+locale                   : "en-US"
+title                    : "Anwar Hossain Zahid"
 title_separator          : "-"
 name                     : &name "Anwar Hossain Zahid"
 description              : &description "Phd Aspirant in Computer Science"
