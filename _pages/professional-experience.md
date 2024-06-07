@@ -12,7 +12,7 @@ Lawrence Livermore National Laboratory
 *Computing Graduate*,<br>
 *[Parallel Systems Group](https://computing.llnl.gov/casc/parallel-systems-group)* <br>
 >Projects:
->* **I will work on bug detection in ML code projects**
+>* **Cross-Platform Floating-Point Precision Analysis**: Investigating Discrepancies in Scientific Computations on NVIDIA and AMD Supercomputers.
 
 
 
