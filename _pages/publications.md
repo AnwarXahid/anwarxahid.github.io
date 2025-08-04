@@ -1,9 +1,7 @@
 ---
 layout: archive
 title: "Research"
-header:
-   overlay_filter: 0.0
-   show_title: false
+classes: no-header
 permalink: /research/
 author_profile: true
 ---
