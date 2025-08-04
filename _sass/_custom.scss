@@ -24,3 +24,14 @@
   margin-top: 0 !important;
 }
 
+/* Highlight the current navigation item */
+#site-nav .visible-links a {
+  transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+}
+
+#site-nav .visible-links a.active {
+  font-weight: bold;
+  color: $primary-color;
+  border-bottom: 0.25rem solid $primary-color;
+}
+
