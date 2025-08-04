@@ -5,6 +5,10 @@ permalink: /experience/
 author_profile: true
 ---
 
+# <span style="color:#2F4F4F;">Professional Experience</span>
+
+---
+
 ## <span style="color:#4682B4;">Lawrence Livermore National Laboratory</span>
 **Role:** *Computing Graduate Intern*  
 **Group:** [Parallel Systems Group](https://computing.llnl.gov/casc/parallel-systems-group)  
