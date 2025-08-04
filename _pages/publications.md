@@ -6,10 +6,6 @@ permalink: /research/
 author_profile: true
 ---
 
-# <span style="color:#2F4F4F;">Research Experience</span>
-
----
-
 ## <span style="color:#4682B4;">Differential Debugging Framework for ML Model Versions</span>
 **Duration:** *Fall 2023 – Present*  
 **Supervisor:** [<span style="color:#8B0000;">Dr. Wei Le</span>](https://weile.work/)  

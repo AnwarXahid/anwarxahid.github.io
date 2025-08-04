@@ -2,8 +2,9 @@
    Custom
    ========================================================================== */
 
-.no-header .page__title {
-  display: none;
+/* Hide all page titles globally */
+.page__title {
+  display: none !important;
 }
 
 /* Remove large top margin for first heading on pages */
