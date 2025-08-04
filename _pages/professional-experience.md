@@ -1,50 +1,69 @@
 ---
 layout: archive
-title: ""
+title: "Professional Experience"
 permalink: /professional-experience/
 author_profile: true
 ---
 
+# <span style="color:#2F4F4F;">Professional Experience</span>
 
-Lawrence Livermore National Laboratory
-===
-**Summer Intern**,<br>
-*Computing Graduate*,<br>
-*[Parallel Systems Group](https://computing.llnl.gov/casc/parallel-systems-group)* <br>
->Projects:
->* **Cross-Platform Floating-Point Precision Analysis**: Investigating Discrepancies in Scientific Computations on NVIDIA and AMD Supercomputers.
+---
 
+## <span style="color:#4682B4;">Lawrence Livermore National Laboratory</span>
+**Role:** *Computing Graduate Intern*  
+**Group:** [Parallel Systems Group](https://computing.llnl.gov/casc/parallel-systems-group)  
+**Duration:** *May 2024 – Aug 2024*
 
+**Key Project:**
+- **Cross-Platform Floating-Point Precision Analysis**  
+  Investigated **numerical discrepancies between NVIDIA and AMD GPUs** across different compiler toolchains for HPC and AI workloads.  
+  Developed automated comparison tools for detecting **floating-point inconsistencies at scale**, improving cross-platform reliability.  
+  This work resulted in the paper:  
+  **“[Testing GPU Numerics: Finding Numerical Differences Between NVIDIA and AMD GPUs](https://arxiv.org/abs/2410.09172)”** (arXiv 2024).
 
-Reve Systems
-===
-**Software Engineer** <br>
-*R&D (E-governance)* <br>
->Projects:
->* **Parliament Resource Planning**: An exclusive resource planning for day-to-day functional activities such as accounting,
-   procurement, project management, risk management and compliance, and supply chain operations. <br>
->* **Bond Management Automation Project - National Board of Revenue**: An ERP system for managing the bonds (domestic and international) of National Board
-   of Revenue (Govt. of the People’s Republic of Bangladesh)
+---
 
+## <span style="color:#4682B4;">Reve Systems</span>
+**Role:** *Software Engineer*  
+**Team:** R&D (E-Governance)  
+**Duration:** *Nov 2020 – May 2022*
 
+**Key Projects:**
+- **Parliament Resource Planning**  
+  Developed an enterprise resource planning solution for **accounting, procurement, and compliance** for government operations.
+- **Bond Management Automation – National Board of Revenue**  
+  Built an ERP system to automate **domestic and international bond management** for the Government of Bangladesh.
 
-ERA-Info Tech Ltd
-===
-**Software Engineer** <br>
-*R&D (Artificial Intelligence)* <br>
->Projects:
->* **AVA ChatBot for Bank Asia Limited, Bangladesh**: Developed a Fin-Tech ChatBot for 
-Bank Asia Ltd, Bangladesh with cutting-edge interactive features like Account Opening, Balance Enquiry and other e-banking facilities. <br>
->* **Face Recognition based Attendance System**: Real-time Attendance System with Spoof Detection. <br>
->* **Foreign Remittance System for Bank Asia Limited, Bangladesh**: Integration of different Money Transfer Companies APIs with the treasury of Core Banking System(CBS).<br>
->* **Robotic Process Automation for Agent Banking**: Automatic Transaction Verification of different Exchange Houses(Transfast, Western
-   Union etc).
+---
 
+## <span style="color:#4682B4;">ERA-InfoTech Ltd.</span>
+**Role:** *Software Engineer*  
+**Team:** R&D (Artificial Intelligence)  
+**Duration:** *Nov 2019 – Nov 2020*
 
-Walton Digi-Tech Industries Limited
-===
-**Junior Software Engineer** <br>
-*R&D (Mobile)* <br>
->Projects:
->* **Custom Android ROM for Walton Mobiles**: Developed custom Android ROM running on MTK6580 SoC. <br>
->* **Tweaking Operating System of Walton Feature Phones**: Developed a Notification Feature for Walton Feature Phones.
+**Key Projects:**
+- **AVA ChatBot for Bank Asia Limited**  
+  Designed an AI-driven **FinTech chatbot** with interactive banking features such as **account opening, balance inquiries, and transaction history**.
+- **Face Recognition-Based Attendance System**  
+  Built a **real-time attendance system** with **spoof detection** for secure workplace environments.
+- **Foreign Remittance System**  
+  Integrated APIs from multiple money transfer companies into **core banking systems**.
+- **Robotic Process Automation for Agent Banking**  
+  Automated **transaction verification workflows** for banking agents using RPA tools.
+
+---
+
+## <span style="color:#4682B4;">Walton Digi-Tech Industries Limited</span>
+**Role:** *Junior Software Developer*  
+**Team:** R&D (Mobile)  
+**Duration:** *Dec 2018 – Oct 2019*
+
+**Key Projects:**
+- **Custom Android ROM for Walton Mobiles**  
+  Developed custom Android ROM optimized for **MTK6580 SoC** devices.
+- **Feature Phone OS Enhancements**  
+  Implemented **notification and UI improvements** for Walton feature phones.
+
+---
+
+💡 *Across all roles, I worked extensively on **end-to-end software design, performance optimization, and AI-driven applications**, contributing to projects impacting **government, banking, and large-scale consumer systems**.*

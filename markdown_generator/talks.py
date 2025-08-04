@@ -50,10 +50,15 @@ html_escape_table = {
     }
 
 def html_escape(text):
-    if type(text) is str:
-        return "".join(html_escape_table.get(c,c) for c in text)
-    else:
-        return "False"
+    """Return text with HTML special characters escaped.
+
+    Falsy inputs (e.g. ``None`` or ``False``) yield an empty string to
+    avoid propagating spurious values, while other types are converted to
+    strings before escaping.
+    """
+    if not text:
+        return ""
+    return "".join(html_escape_table.get(c, c) for c in str(text))
 
 
 # ## Creating the markdown files
@@ -82,8 +87,11 @@ for row, item in talks.iterrows():
     
     if len(str(item.venue)) > 3:
         md += 'venue: "' + item.venue + '"\n'
-        
-    if len(str(item.location)) > 3:
+
+    # Add the event date if present. The previous check mistakenly used the
+    # location field which caused dates to be skipped when the location was
+    # empty.
+    if len(str(item.date)) > 3:
         md += "date: " + str(item.date) + "\n"
     
     if len(str(item.location)) > 3:

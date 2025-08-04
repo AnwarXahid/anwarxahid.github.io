@@ -1,74 +1,64 @@
 ---
 layout: archive
-title: ""
+title: "About Me"
 permalink: /about-me/
 author_profile: true
 redirect_from:
   - /resume
 ---
 
-Education
-======
-* **B.Sc. in Computer Science & Engineering**, Bangladesh University of Engineering & Technology, 2018
-* HSC (Higher Secondary School Certificate), Ananda Mohan College, 2013
-* SSC (Secondary School Certificate), Mymensingh Zilla School, 2011
+# <span style="color:#2F4F4F;">Education</span>
+🎓 **Ph.D. in Computer Science** (Ongoing)  
+[**Iowa State University**](https://www.cs.iastate.edu/), *Ames, Iowa* (Spring 2023 – Present)  
+Advisor: [**Dr. Wei Le**](https://weile.work/)
+
+🎓 **B.Sc. in Computer Science & Engineering**  
+[**Bangladesh University of Engineering & Technology (BUET)**](https://www.buet.ac.bd/), *2018*
+
+📚 **HSC (Higher Secondary School Certificate)**  
+*Ananda Mohan College, 2013*
+
+📚 **SSC (Secondary School Certificate)**  
+*Mymensingh Zilla School, 2011*
 
 ---
 
-Technical Strengths
-======
-* **Computer Languages**: Java 8, Python 3, JavaScript, C, C++, Oracle SQL, MySQL, Dart <br>
-* **Software & Tools:** HTML, CSS, Network Simulator-2, CISCO Packet Tracer, Latex,
-MATLAB, DialogFlow, Docker, Git <br>
-* **Frameworks:** Spring Boot, Flask, Django, Keras, Spring MVC, Flutter, React Native, 
-AngularJS, Node.js, vue.js, Bootstrap <br>
-* **Operating Systems:** Linux(Ubuntu, Mint and Fedora), Windows, Android, MacOS, iOS. <br>
-* **Hardware:** ATMega 32, Arduino, Hikey960, NeonKey
+# <span style="color:#2F4F4F;">Technical Strengths</span>
+💻 **Languages:** Java, Python, JavaScript, C, C++, Oracle SQL, MySQL, Dart  
+🛠 **Tools:** HTML, CSS, Docker, Git, DialogFlow, MATLAB, Network Simulator-2, CISCO Packet Tracer, LaTeX  
+⚡ **Frameworks:** Spring Boot, Flask, Django, Keras, Flutter, React Native, AngularJS, Node.js, Vue.js, Bootstrap  
+🖥 **Operating Systems:** Linux (Ubuntu, Mint, Fedora), Windows, macOS, Android, iOS  
+🔧 **Hardware:** ATMega32, Arduino, HiKey960, NeonKey
 
 ---
 
+# <span style="color:#2F4F4F;">Volunteer Experience</span>
+### **CSE Fest’18 – Technical & Cultural Festival**
+*Organizer & Student Coordinator, BUET (May 2018)*
+- Managed a 40-member team to conduct **professional competitions & exhibitions**.
+- Organized **10+ events**, including **Inter-University Programming Contest & Hackathon** for the first time at BUET.
 
-Volunteer Experience
-======
-### CSE Fest’18 - Technical and Cultural Festival, May 2018
->**Organizer and Student Coordinator, Department. of CSE, BUET**
->* Coordinated a 2-tier team of 40 people to successfully conduct professional competitions, exhibitions
-and programs.
->* Successfully organized over 10 events including Inter University Programming Contest & Hackathon
-together for the first time in CSE Festival, BUET.
+### **Student Association of Mymensingh (SAM), BUET**
+*General Secretary (2017 – 2018)*
+- Coordinated **200+ members & alumni**, organizing annual cultural events and networking activities.
 
-### Student Association of Mymensingh (SAM), BUET
+### **BUET Math Club**
+*Organizing Secretary*
 
->**General Secretary**
->* Coordinating over 200 active members, enthusiastic volunteers and Alumni for over an year and 
-successfully organized annual cultural events and picnic.
-
-
-### BUET Math Club
->**Organizing Secretary**
-
-
-### BUET System Analysis, Design and Development Community
->**Organizing Member**
+### **BUET System Analysis, Design & Development Community**
+*Organizing Member*
 
 ---
 
-
-Academic Achievement & Scholarship
-===
-* **Technical Scholarship** from BUET
-* Ranked in the top 2% in the most competitive BUET entry examination, 2013
-* Placed in top 1% of combined merit list in public examinations (SSC, HSC) by Ministry of Education,
-Bangladesh and qualified for **Education Board Merit scholarships**
-
-
-Contact me
-===
-
-*If you like to play a blitz chess or have a cup of coffee, feel free to contact me.*
+# <span style="color:#2F4F4F;">Academic Achievements & Scholarships</span>
+🏅 **Technical Scholarship** from BUET  
+🏅 Ranked **Top 2%** in BUET entry examination (2013)  
+🏅 Placed in **Top 1%** in SSC & HSC exams (Bangladesh), awarded **Education Board Merit Scholarships**
 
 ---
 
+# <span style="color:#2F4F4F;">Let’s Connect</span>
+📧 **Email:** [ahzahid@iastate.edu](mailto:ahzahid@iastate.edu)  
+💻 [**GitHub**](https://github.com/AnwarXahid) | 🔗 [**LinkedIn**](https://linkedin.com/in/anwarxahid) | 🌐 [**Google Scholar**](https://scholar.google.com/)
 
-
-
+💬 *If you’d like to play a blitz chess game or discuss research over coffee, feel free to reach out!* ☕ ♟  
