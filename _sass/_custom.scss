@@ -5,3 +5,21 @@
 .no-header .page__title {
   display: none;
 }
+
+/* Remove large top margin for first heading on pages */
+.page__content h1:first-of-type,
+.page__content h2:first-of-type,
+.page__content h3:first-of-type {
+  margin-top: 0 !important;
+}
+
+/* Adjust horizontal rule spacing if it's right after the heading */
+.page__content hr:first-of-type {
+  margin-top: 0 !important;
+}
+
+/* Optional: Tighten overall section spacing */
+.page__content > *:first-child {
+  margin-top: 0 !important;
+}
+
