@@ -1,11 +1,12 @@
 ---
 layout: archive
-title: "About Me"
+title: "About"
 permalink: /about-me/
 author_profile: true
 redirect_from:
   - /resume
 ---
+
 
 # <span style="color:#2F4F4F;">Education</span>
 🎓 **Ph.D. in Computer Science** (Ongoing)  
