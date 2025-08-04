@@ -29,7 +29,7 @@ author_profile: true
 
 ## <span style="color:#4682B4;">Virtual Internship System</span>
 **Duration:** *Jan 2020 – Jan 2021*  
-**Supervisor:** [<span style="color:#8B0000;">Dr. Abu Sayed Md. Latiful Hoque</span>](https://cse.buet.ac.bd/faculty/facdetail.php?id=asmlatifulhoque)  
+**Supervisor:** [<span style="color:#8B0000;">Dr. Abu Sayed Md. Latiful Hoque</span>](https://cse.buet.ac.bd/faculty/faculty_detail/asmlatifulhoque)  
 **Affiliation:** [E-system Research & Development Lab](https://esrdlab.cse.buet.ac.bd/), BUET
 
 > Designed a **virtual internship platform** to benchmark software development skills in a blended learning environment, adopted in academic and industry collaborations.  
@@ -39,7 +39,7 @@ author_profile: true
 
 ## <span style="color:#4682B4;">Scene Reconstruction from Multiple Static CCTV Cameras</span>
 **Duration:** *Dec 2018 – Oct 2019*  
-**Supervisor:** [<span style="color:#8B0000;">Dr. Md. Monirul Islam</span>](https://cse.buet.ac.bd/faculty/facdetail.php?id=mmislam)  
+**Supervisor:** [<span style="color:#8B0000;">Dr. Md. Monirul Islam</span>](https://cse.buet.ac.bd/faculty/faculty_detail/mmislam)  
 **Affiliation:** Department of CSE, BUET
 
 > Proposed a system to **reconstruct 3D scenes** from multiple static CCTV cameras for surveillance and smart city applications.  
