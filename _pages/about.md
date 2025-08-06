@@ -8,6 +8,9 @@ redirect_from:
   - /about.html
 ---
 
+[![GitHub Repo](https://img.shields.io/github/stars/anwarxahid/anwarxahid.github.io?style=social)](https://github.com/anwarxahid/anwarxahid.github.io)
+[![GitHub license](https://img.shields.io/github/license/anwarxahid/anwarxahid.github.io)](https://github.com/anwarxahid/anwarxahid.github.io/blob/master/LICENSE)
+
 ## <span style="color:#2F4F4F;">About Me</span>
 
 I'm **<span style="color:#4682B4;">Anwar Hossain Zahid</span>**, a **Ph.D. candidate in Computer Science at Iowa State University**, advised by [<span style="color:#8B0000;">Professor Wei Le</span>](https://weile.work/).
