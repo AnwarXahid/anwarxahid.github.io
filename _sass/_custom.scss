@@ -2,6 +2,59 @@
    Custom
    ========================================================================== */
 
+/* Brand variables */
+$brand-color: #005f73;
+$link-color: #0a9396;
+$nav-bg-color: lighten($brand-color, 40%);
+$spacing-unit: 1.25rem;
+
+/* Spacing utilities */
+.mt-spacing { margin-top: $spacing-unit; }
+.mb-spacing { margin-bottom: $spacing-unit; }
+
+/* Body text */
+body {
+  color: $brand-color;
+}
+
+/* Headers */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: darken($brand-color, 15%);
+}
+
+/* Links */
+a {
+  color: $link-color;
+}
+
+/* Navigation */
+#site-nav {
+  background-color: $nav-bg-color;
+  padding: $spacing-unit 0;
+}
+
+#site-nav .visible-links a {
+  transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+  color: darken($brand-color, 10%);
+  padding: 0 $spacing-unit / 2;
+}
+
+#site-nav .visible-links a.active {
+  font-weight: bold;
+  color: $brand-color;
+  border-bottom: 0.25rem solid $brand-color;
+}
+
+#site-nav .visible-links a:hover {
+  color: $link-color;
+  border-bottom-color: $link-color;
+}
+
 /* Hide all page titles globally */
 .page__title {
   display: none !important;
@@ -22,16 +75,5 @@
 /* Optional: Tighten overall section spacing */
 .page__content > *:first-child {
   margin-top: 0 !important;
-}
-
-/* Highlight the current navigation item */
-#site-nav .visible-links a {
-  transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-}
-
-#site-nav .visible-links a.active {
-  font-weight: bold;
-  color: $primary-color;
-  border-bottom: 0.25rem solid $primary-color;
 }
 
