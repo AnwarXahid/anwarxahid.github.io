@@ -8,8 +8,14 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   navLinks.forEach(function (link) {
-    var linkPath = link.getAttribute('href').replace(/\/$/, '');
-    if (linkPath !== '' && linkPath !== '/' && currentPath.startsWith(linkPath)) {
+    var sameOrigin = link.origin === window.location.origin;
+    var linkPath = link.pathname.replace(/\/$/, '');
+    if (
+      sameOrigin &&
+      linkPath !== '' &&
+      linkPath !== '/' &&
+      currentPath.startsWith(linkPath)
+    ) {
       link.classList.add('active');
       link.setAttribute('aria-current', 'page');
     }
