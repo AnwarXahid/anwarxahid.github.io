@@ -1,7 +1,11 @@
 main:
-  - title: "Research"
-    url: /research/
-  - title: "Experience"
-    url: /experience/
   - title: "About"
     url: /about-me/
+  - title: "Research"
+    url: /research/
+  - title: "Projects"
+    url: /portfolio/
+  - title: "Blog"
+    url: /year-archive/
+  - title: "Resume"
+    url: /files/resume.pdf
