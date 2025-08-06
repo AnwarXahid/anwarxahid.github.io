@@ -77,3 +77,21 @@ a {
   margin-top: 0 !important;
 }
 
+
+/* Portfolio cards */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $spacing-unit;
+}
+
+.portfolio-card {
+  border: 1px solid lighten($brand-color, 40%);
+  padding: $spacing-unit;
+  border-radius: 0.5rem;
+  background-color: #fff;
+}
+
+.portfolio-card h3 {
+  margin-top: 0;
+}
