@@ -1,10 +1,8 @@
 main:
   - title: "Summary"
     url: /about-me/
-  - title: "Research"
-    url: /research/
-  - title: "Projects"
-    url: /portfolio/
+  - title: "Research & Projects"
+    url: /research-projects/
   - title: "Blog"
     url: /blog/
   - title: "Resume"
