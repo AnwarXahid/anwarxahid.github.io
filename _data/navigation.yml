@@ -1,8 +1,8 @@
 main:
   - title: "Summary"
     url: /about-me/
-  - title: "Research & Projects"
-    url: /research-projects/
+  - title: "Works"
+    url: /works/
   - title: "Blog"
     url: /blog/
   - title: "Resume"

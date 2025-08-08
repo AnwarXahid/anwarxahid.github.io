@@ -1,8 +1,8 @@
 ---
 layout: archive
-title: "Research & Projects"
+title: "Works"
 classes: no-header
-permalink: /research-projects/
+permalink: /works/
 author_profile: true
 ---
 # <span style="color:#2E8B57;">Selected Publications</span>
