@@ -23,6 +23,7 @@ Advisor: [**Dr. Wei Le**](https://weile.work/)
 *Mymensingh Zilla School, 2011*
 
 ---
+<br><br>
 
 # <span style="color:#2F4F4F;">Research Experience</span>
 
@@ -61,7 +62,7 @@ Advisor: [**Dr. Wei Le**](https://weile.work/)
 [Read Thesis](https://drive.google.com/file/d/1niLKHkkCZIC6RTYKvwPz33PSTk3ufMR-/view)
 
 ---
-
+<br><br>
 # <span style="color:#2F4F4F;">Professional Experience</span>
 
 ## <span style="color:#4682B4;">Lawrence Livermore National Laboratory</span>
@@ -120,7 +121,7 @@ Advisor: [**Dr. Wei Le**](https://weile.work/)
 💡 *Across all roles, I worked extensively on **end-to-end software design, performance optimization, and AI-driven applications**, contributing to projects impacting **government, banking, and large-scale consumer systems**.*
 
 ---
-
+<br><br>
 # <span style="color:#2F4F4F;">Technical Strengths</span>
 💻 **Languages:** Java, Python, JavaScript, C, C++, Oracle SQL, MySQL, Dart  
 🛠 **Tools:** HTML, CSS, Docker, Git, DialogFlow, MATLAB, Network Simulator-2, CISCO Packet Tracer, LaTeX  
@@ -129,7 +130,7 @@ Advisor: [**Dr. Wei Le**](https://weile.work/)
 🔧 **Hardware:** ATMega32, Arduino, HiKey960, NeonKey
 
 ---
-
+<br><br>
 # <span style="color:#2F4F4F;">Volunteer Experience</span>
 ### **CSE Fest’18 – Technical & Cultural Festival**
 *Organizer & Student Coordinator, BUET (May 2018)*
@@ -147,14 +148,14 @@ Advisor: [**Dr. Wei Le**](https://weile.work/)
 *Organizing Member*
 
 ---
-
+<br><br>
 # <span style="color:#2F4F4F;">Academic Achievements & Scholarships</span>
 🏅 **Technical Scholarship** from BUET  
 🏅 Ranked **Top 2%** in BUET entry examination (2013)  
 🏅 Placed in **Top 1%** in SSC & HSC exams (Bangladesh), awarded **Education Board Merit Scholarships**
 
 ---
-
+<br><br>
 # <span style="color:#2F4F4F;">Let’s Connect</span>
 📧 **Email:** [ahzahid@iastate.edu](mailto:ahzahid@iastate.edu)  
 💻 [**GitHub**](https://github.com/AnwarXahid) | 🔗 [**LinkedIn**](https://linkedin.com/in/anwarxahid) | 🌐 [**Google Scholar**](https://scholar.google.com/)
