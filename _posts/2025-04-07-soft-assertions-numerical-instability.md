@@ -79,7 +79,12 @@ We tested our Soft Assertion Fuzzer on:
 > *After fix:*  
 > Confidence in “tumor” = 0.8874
 
-*(Add Figure from your paper here — the MRI image before/after fix will make this powerful.)*
+<p align="center">
+  <img src="/images/tumor_before_after.png" alt="Brain MRI before and after fix" width="600">
+  <br>
+  <em>Figure: Left — before fix, model incorrectly predicted “no tumor”; Right — after fix, correct “tumor” prediction.</em>
+</p>
+
 
 ---
 
