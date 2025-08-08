@@ -22,9 +22,9 @@ Advisor: [**Dr. Wei Le**](https://weile.work/)
 📚 **SSC (Secondary School Certificate)**
 *Mymensingh Zilla School, 2011*
 
-# <span style="color:#2F4F4F;">Research Experience</span>
-
 ---
+
+# <span style="color:#2F4F4F;">Research Experience</span>
 
 ## <span style="color:#4682B4;">Differential Debugging Framework for ML Model Versions</span>
 **Duration:** *Fall 2023 – Present*
@@ -33,7 +33,6 @@ Advisor: [**Dr. Wei Le**](https://weile.work/)
 
 > Researching methods to **debug and analyze inconsistencies across different ML model versions** by leveraging **differential testing and invariant learning**. This work aims to detect regressions in reliability, fairness, and numerical stability introduced during model evolution.
 
----
 
 ## <span style="color:#4682B4;">Floating-Point Arithmetic Across Compilers</span>
 **Duration:** *Summer 2024 – Fall 2024*
@@ -42,7 +41,6 @@ Advisor: [**Dr. Wei Le**](https://weile.work/)
 
 > Investigated **numerical differences between NVIDIA and AMD GPUs** under various compilers to identify **cross-platform floating-point inconsistencies**. Developed tools to compare computations at scale for high-performance computing and AI workloads.
 
----
 
 ## <span style="color:#4682B4;">Virtual Internship System</span>
 **Duration:** *Jan 2020 – Jan 2021*
@@ -52,7 +50,6 @@ Advisor: [**Dr. Wei Le**](https://weile.work/)
 > Designed a **virtual internship platform** to benchmark software development skills in a blended learning environment, adopted in academic and industry collaborations.
 **Publication:** [Conceptual Design of Virtual Internship System – ICCIT 2020](https://ieeexplore.ieee.org/document/9392713)
 
----
 
 ## <span style="color:#4682B4;">Scene Reconstruction from Multiple Static CCTV Cameras</span>
 **Duration:** *Dec 2018 – Oct 2019*
@@ -67,8 +64,6 @@ Advisor: [**Dr. Wei Le**](https://weile.work/)
 
 # <span style="color:#2F4F4F;">Professional Experience</span>
 
----
-
 ## <span style="color:#4682B4;">Lawrence Livermore National Laboratory</span>
 **Role:** *Computing Graduate Intern*
 **Group:** [Parallel Systems Group](https://computing.llnl.gov/casc/parallel-systems-group)
@@ -81,7 +76,6 @@ Advisor: [**Dr. Wei Le**](https://weile.work/)
   This work resulted in the paper:
   **“[Testing GPU Numerics: Finding Numerical Differences Between NVIDIA and AMD GPUs](https://arxiv.org/abs/2410.09172)”** (arXiv 2024).
 
----
 
 ## <span style="color:#4682B4;">Reve Systems</span>
 **Role:** *Software Engineer*
@@ -94,7 +88,6 @@ Advisor: [**Dr. Wei Le**](https://weile.work/)
 - **Bond Management Automation – National Board of Revenue**
   Built an ERP system to automate **domestic and international bond management** for the Government of Bangladesh.
 
----
 
 ## <span style="color:#4682B4;">ERA-InfoTech Ltd.</span>
 **Role:** *Software Engineer*
@@ -111,7 +104,6 @@ Advisor: [**Dr. Wei Le**](https://weile.work/)
 - **Robotic Process Automation for Agent Banking**
   Automated **transaction verification workflows** for banking agents using RPA tools.
 
----
 
 ## <span style="color:#4682B4;">Walton Digi-Tech Industries Limited</span>
 **Role:** *Junior Software Developer*
@@ -124,8 +116,7 @@ Advisor: [**Dr. Wei Le**](https://weile.work/)
 - **Feature Phone OS Enhancements**
   Implemented **notification and UI improvements** for Walton feature phones.
 
----
-
+<br><br>
 💡 *Across all roles, I worked extensively on **end-to-end software design, performance optimization, and AI-driven applications**, contributing to projects impacting **government, banking, and large-scale consumer systems**.*
 
 ---
