@@ -26,7 +26,7 @@ author_profile: true
    ICCIT 2020
    [[Paper]](https://ieeexplore.ieee.org/document/9392713)
 
-# <span style="color:#2E8B57;">Projects</span>
+# <span style="color:#2E8B57;">Selected Projects</span>
 {% include base_path %}
 
 <div class="portfolio-grid">
