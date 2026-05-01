@@ -10,8 +10,8 @@ locale                   : "en-US"
 title                    : "Anwar Hossain Zahid"
 title_separator          : "-"
 name                     : &name "Anwar Hossain Zahid"
-description              : &description "Phd Aspirant in Computer Science"
-keywords                 : "machine learning, debugging, software engineering, blog"
+description              : &description "Ph.D. candidate in Computer Science working on ML reliability, numerical debugging, and software engineering."
+keywords                 : "machine learning reliability, numerical debugging, software engineering, GPU numerics, program analysis"
 url                      : https://anwarxahid.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "anwarxahid/anwarxahid.github.io"
@@ -83,7 +83,7 @@ analytics:
 author:
   name             : "Anwar Zahid"
   avatar           : "profile.jpg"
-  bio              : "Ph.D. Student | ML Model Debugging | Software Engineer | Researcher"
+  bio              : "Ph.D. Candidate | ML Reliability | Numerical Debugging | Software Engineer"
   location         : "Ames, Iowa"
   employer         :
   pubmed           :
