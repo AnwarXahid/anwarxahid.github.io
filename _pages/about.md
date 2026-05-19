@@ -138,18 +138,18 @@ redirect_from:
 <section class="section" id="projects">
   <div class="section-heading">
     <div>
-      <p class="eyebrow">Featured Projects</p>
-      <h2>Research prototypes with production instincts.</h2>
+      <p class="eyebrow">Research Projects</p>
+      <h2>Research prototypes for reproducible evidence.</h2>
     </div>
     <p>
-      These projects emphasize measurable behavior, reproducible experiments, and usable tooling
-      rather than one-off demos.
+      These systems support measurable behavior, controlled experiments, and research workflows for
+      studying AI reliability in practice.
     </p>
   </div>
   <div class="project-showcase">
     <article class="project-card featured">
       <div>
-        <span class="index">FLAGSHIP SYSTEM</span>
+        <span class="index">NUMERICAL ML TESTING</span>
         <h3>Soft Assertion Fuzzer</h3>
         <p>
           A guided fuzzing system for detecting numerical instability bugs in ML applications using
@@ -164,25 +164,13 @@ redirect_from:
       <div class="visual-module" aria-hidden="true"></div>
     </article>
     <article class="project-card">
-      <span class="index">LLM RESEARCH</span>
-      <h3>PaperCrossExam</h3>
-      <p>AI-assisted research paper interrogation workflows for checking claims, assumptions, and evidence quality.</p>
-      <div class="tag-row"><span>LLMs</span><span>Research QA</span></div>
-    </article>
-    <article class="project-card">
-      <span class="index">AUTHORING</span>
-      <h3>PaperForge</h3>
-      <p>Research writing and paper-assembly tooling designed for structured technical argument development.</p>
-      <div class="tag-row"><span>Writing Systems</span><span>AI Tools</span></div>
-    </article>
-    <article class="project-card">
-      <span class="index">AI BRIEFING</span>
+      <span class="index">AI RESEARCH MONITORING</span>
       <h3>Today’s AI</h3>
       <p>A compact AI news and research tracking concept for following fast-moving model, tooling, and policy changes.</p>
       <div class="tag-row"><span>AI Trends</span><span>Knowledge Systems</span></div>
     </article>
     <article class="project-card">
-      <span class="index">EVALUATION</span>
+      <span class="index">LLM BEHAVIOR EVALUATION</span>
       <h3>LLM Evaluation Tools</h3>
       <p>Testing harnesses for social-good classification, geography-aware hate speech detection, and model behavior analysis.</p>
       <div class="tag-row"><span>HuggingFace</span><span>Transformers</span></div>
