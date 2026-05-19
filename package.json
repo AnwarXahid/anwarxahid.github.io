@@ -1,22 +1,22 @@
 {
-  "name": "minimal-mistakes",
-  "version": "3.4.2",
-  "description": "Minimal Mistakes Jekyll theme npm build scripts",
+  "name": "anwarxahid-research-lab",
+  "version": "1.0.0",
+  "description": "Static Jekyll-compatible personal research website for Anwar Hossain Zahid.",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mmistakes/minimal-mistakes.git"
+    "url": "git://github.com/AnwarXahid/anwarxahid.github.io.git"
   },
   "keywords": [
     "jekyll",
-    "theme",
-    "minimal"
+    "research",
+    "ai-reliability"
   ],
-  "author": "Michael Rose",
+  "author": "Anwar Hossain Zahid",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mmistakes/minimal-mistakes/issues"
+    "url": "https://github.com/AnwarXahid/anwarxahid.github.io/issues"
   },
-  "homepage": "https://mmistakes.github.io/minimal-mistakes/",
+  "homepage": "https://anwarxahid.github.io/",
   "engines": {
     "node": ">= 0.10.0"
   },

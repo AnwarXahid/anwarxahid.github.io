@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="a" cx="20%" cy="15%" r="70%">
+      <stop offset="0" stop-color="#58f3ff" stop-opacity=".55"/>
+      <stop offset=".45" stop-color="#6d8cff" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#05060b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="b" cx="86%" cy="52%" r="58%">
+      <stop offset="0" stop-color="#ff5d9e" stop-opacity=".38"/>
+      <stop offset="1" stop-color="#05060b" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#05060b"/>
+  <rect width="1200" height="630" fill="url(#a)"/>
+  <rect width="1200" height="630" fill="url(#b)"/>
+  <g opacity=".28" stroke="#58f3ff">
+    <path d="M0 480h1200M0 540h1200M0 600h1200"/>
+    <path d="M120 0v630M260 0v630M400 0v630M540 0v630M680 0v630M820 0v630M960 0v630M1100 0v630"/>
+  </g>
+  <text x="80" y="145" fill="#58f3ff" font-family="JetBrains Mono, monospace" font-size="25" font-weight="700" letter-spacing="5">AI RELIABILITY / SOFTWARE ENGINEERING</text>
+  <text x="78" y="290" fill="#f6f8ff" font-family="Inter, Arial, sans-serif" font-size="82" font-weight="900">Anwar Hossain Zahid</text>
+  <text x="82" y="372" fill="#d4dbeb" font-family="Inter, Arial, sans-serif" font-size="40" font-weight="700">Researching reliable AI systems through model behavior analysis.</text>
+  <rect x="82" y="452" width="390" height="58" rx="29" fill="none" stroke="#58f3ff" stroke-opacity=".62"/>
+  <text x="112" y="490" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800">ML Debugging · AI Evaluation · HPC</text>
+</svg>

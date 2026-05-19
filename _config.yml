@@ -10,8 +10,8 @@ locale                   : "en-US"
 title                    : "Anwar Hossain Zahid"
 title_separator          : "-"
 name                     : &name "Anwar Hossain Zahid"
-description              : &description "Ph.D. candidate in Computer Science working on ML reliability, numerical debugging, and software engineering."
-keywords                 : "machine learning reliability, numerical debugging, software engineering, GPU numerics, program analysis"
+description              : &description "PhD candidate at Iowa State University researching ML model debugging, AI reliability, LLM evaluation, numerical stability, and software engineering for trustworthy AI."
+keywords                 : "ML reliability, AI reliability, LLM hallucination detection, LLM evaluation, numerical stability, GPU numerics, software engineering for AI, trustworthy AI, HPC ML systems"
 url                      : https://anwarxahid.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "anwarxahid/anwarxahid.github.io"
@@ -63,7 +63,7 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 :  # Open Graph/Twitter default site image
+og_image                 : /images/social-preview.svg
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
@@ -83,7 +83,7 @@ analytics:
 author:
   name             : "Anwar Zahid"
   avatar           : "profile.jpg"
-  bio              : "Ph.D. Candidate | ML Reliability | Numerical Debugging | Software Engineer"
+  bio              : "PhD Candidate | ML Model Debugging | AI Reliability | Software Engineering"
   location         : "Ames, Iowa"
   employer         :
   pubmed           :
