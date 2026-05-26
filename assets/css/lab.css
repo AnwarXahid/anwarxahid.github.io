@@ -5,7 +5,7 @@
   --soft: #f7f9fb;
   --line: #e5e9ef;
   --accent: #1b6b68;
-  --max-width: 960px;
+  --max-width: 900px;
   --radius: 8px;
 }
 
@@ -22,8 +22,8 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  font-size: 17px;
-  line-height: 1.65;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 a {
@@ -62,7 +62,7 @@ p {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1.35rem 0;
+  padding: 1rem 0;
   border-bottom: 1px solid var(--line);
 }
 
@@ -92,12 +92,12 @@ p {
 }
 
 .page {
-  padding: 4.5rem 0 2.5rem;
+  padding: 3rem 0 2rem;
 }
 
 .intro {
-  max-width: 780px;
-  padding-bottom: 4rem;
+  max-width: 720px;
+  padding-bottom: 3rem;
 }
 
 .kicker {
@@ -108,9 +108,16 @@ p {
 }
 
 .intro h1 {
-  max-width: 780px;
-  font-size: clamp(2.25rem, 8vw, 4.8rem);
-  font-weight: 750;
+  max-width: 720px;
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 720;
+}
+
+.intro-summary {
+  max-width: 680px;
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 1.08rem;
 }
 
 .intro-links,
@@ -132,7 +139,7 @@ p {
 }
 
 .section {
-  padding: 3rem 0;
+  padding: 2.35rem 0;
   border-top: 1px solid var(--line);
 }
 
@@ -144,6 +151,10 @@ p {
 .section > p,
 .section-heading p {
   max-width: 720px;
+}
+
+.section > p + p {
+  margin-top: 0.9rem;
 }
 
 .section-heading {
@@ -168,15 +179,18 @@ p {
   color: var(--text);
 }
 
-.project-grid {
+.project-grid,
+.publication-list,
+.post-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
 }
 
-.project-card {
+.project-card,
+.publication-card,
+.post-card {
   display: flex;
-  min-height: 220px;
   flex-direction: column;
   justify-content: space-between;
   gap: 1rem;
@@ -186,18 +200,50 @@ p {
   background: #fff;
 }
 
-.project-card h3 {
+.project-card h3,
+.publication-card h3,
+.post-card h3 {
   margin-bottom: 0.55rem;
   font-size: 1.1rem;
 }
 
-.project-card p {
+.project-card p,
+.publication-card p,
+.post-card p {
   font-size: 0.98rem;
 }
 
-.project-links {
+.publication-meta,
+.post-card span {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.publication-authors {
+  color: var(--text);
+}
+
+.project-links,
+.publication-links {
   padding-top: 0.35rem;
   font-size: 0.95rem;
+}
+
+.publication-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1rem;
+}
+
+.post-card h3 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.post-card h3 a:hover {
+  color: var(--accent);
+  text-decoration: underline;
 }
 
 .contact {
@@ -233,15 +279,17 @@ p {
   }
 
   .page {
-    padding-top: 3rem;
+    padding-top: 2.25rem;
   }
 
   .intro {
-    padding-bottom: 3rem;
+    padding-bottom: 2.5rem;
   }
 
   .interest-list,
-  .project-grid {
+  .project-grid,
+  .publication-list,
+  .post-list {
     grid-template-columns: 1fr;
   }
 

@@ -23,30 +23,19 @@ excerpt: "Research papers, systems, and software projects by Anwar Hossain Zahid
     <p>Peer-reviewed and preprint work spanning reliable ML, model evaluation, and numerical correctness.</p>
   </div>
   <div class="publication-grid">
-    <article class="publication-card">
-      <span class="publication-meta">FSE 2025 · PACMSE</span>
-      <h3>Automatically Detecting Numerical Instability in Machine Learning Applications via Soft Assertions</h3>
-      <p>Shaila Sharmin, Anwar Hossain Zahid, et al. A method for finding hidden numerical instability bugs in ML applications.</p>
-      <div class="card-actions"><a class="btn" href="https://arxiv.org/pdf/2504.15507">Paper</a></div>
-    </article>
-    <article class="publication-card">
-      <span class="publication-meta">arXiv:2502.19612</span>
-      <h3>Evaluation of Hate Speech Detection Using Large Language Models and Geographical Contextualization</h3>
-      <p>Anwar Hossain Zahid, Monoshi Kumar Roy, et al. Evaluates context-sensitive LLM behavior for hate speech detection.</p>
-      <div class="card-actions"><a class="btn" href="https://arxiv.org/abs/2502.19612">Preprint</a></div>
-    </article>
-    <article class="publication-card">
-      <span class="publication-meta">arXiv:2410.09172</span>
-      <h3>Testing GPU Numerics: Finding Numerical Differences Between NVIDIA and AMD GPUs</h3>
-      <p>Anwar Hossain Zahid, Ignacio Laguna, Wei Le. Cross-platform GPU numerical analysis for heterogeneous systems.</p>
-      <div class="card-actions"><a class="btn" href="https://arxiv.org/abs/2410.09172">Preprint</a></div>
-    </article>
-    <article class="publication-card">
-      <span class="publication-meta">ICCIT 2020</span>
-      <h3>A Conceptual Design of Virtual Internship System</h3>
-      <p>Raihan Mia, Anwar Hossain Zahid, et al. A software engineering education and benchmarking platform concept.</p>
-      <div class="card-actions"><a class="btn" href="https://ieeexplore.ieee.org/document/9392713">Paper</a></div>
-    </article>
+    {% assign publications = site.publications | sort: "date" | reverse %}
+    {% for paper in publications %}
+      <article class="publication-card">
+        <span class="publication-meta">{{ paper.venue }}{% if paper.date %} - {{ paper.date | date: "%Y" }}{% endif %}</span>
+        <h3>{{ paper.title }}</h3>
+        {% if paper.authors %}<p>{{ paper.authors }}</p>{% endif %}
+        {% if paper.excerpt %}<p>{{ paper.excerpt }}</p>{% endif %}
+        <div class="card-actions">
+          {% if paper.paperurl %}<a class="btn" href="{{ paper.paperurl }}">Paper</a>{% endif %}
+          {% if paper.code %}<a class="btn" href="{{ paper.code }}">Code</a>{% endif %}
+        </div>
+      </article>
+    {% endfor %}
   </div>
 </section>
 

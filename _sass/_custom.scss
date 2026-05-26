@@ -164,6 +164,7 @@ h6 {
 
 .focus-grid,
 .portfolio-grid,
+.publication-grid,
 .home-posts {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -172,6 +173,7 @@ h6 {
 
 .focus-grid article,
 .portfolio-card,
+.publication-card,
 .blog-card,
 .publication-list article,
 .timeline article,
@@ -190,6 +192,7 @@ h6 {
 
 .focus-grid h3,
 .portfolio-card h3,
+.publication-card h3,
 .blog-card h2,
 .blog-card h3,
 .publication-list h3,
@@ -199,6 +202,7 @@ h6 {
 
 .focus-grid p,
 .portfolio-card p,
+.publication-card p,
 .blog-card p,
 .publication-list p,
 .timeline p {
@@ -276,6 +280,7 @@ h6 {
   font-weight: 700;
 }
 
+.publication-card,
 .portfolio-card {
   display: flex;
   flex-direction: column;

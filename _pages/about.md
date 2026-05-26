@@ -11,7 +11,11 @@ redirect_from:
 
 <section class="intro" id="home" aria-labelledby="intro-title">
   <p class="kicker">Anwar Zahid</p>
-  <h1 id="intro-title">Graduate student working on AI, software engineering, and LLM reliability.</h1>
+  <h1 id="intro-title">Ph.D. student working on reliable machine learning and software systems.</h1>
+  <p class="intro-summary">
+    I study how AI and numerical software fail in practice, then build testing and debugging tools
+    that make those failures easier to detect, reproduce, and fix.
+  </p>
   <nav class="intro-links" aria-label="Profile links">
     <a href="https://github.com/AnwarXahid">GitHub</a>
     <a href="https://scholar.google.com/citations?user=_ze57HEAAAAJ&hl=en">Google Scholar</a>
@@ -23,9 +27,15 @@ redirect_from:
 <section class="section" id="about" aria-labelledby="about-title">
   <h2 id="about-title">About</h2>
   <p>
-    I am a graduate student in computer science at Iowa State University. My work is centered on
-    reliable AI systems, with an emphasis on testing, debugging, and understanding how large
-    language models and machine learning systems behave in practice.
+    I am a Ph.D. student in Computer Science at Iowa State University, advised by
+    <a href="https://weile.work/">Prof. Wei Le</a> in the Program Analysis and AI Lab. My research
+    focuses on reliable AI systems, numerical debugging, and software engineering techniques for
+    machine learning systems.
+  </p>
+  <p>
+    Before starting my Ph.D., I worked as a software engineer on government, banking, AI, and mobile
+    platforms. That industry background shapes how I approach research: I care about methods that
+    can become practical tools for developers and researchers.
   </p>
 </section>
 
@@ -70,8 +80,47 @@ redirect_from:
 </section>
 
 <section class="section" id="publications" aria-labelledby="publications-title">
-  <h2 id="publications-title">Publications / Writing</h2>
-  <p>Selected writing and publications will be added here.</p>
+  <div class="section-heading">
+    <h2 id="publications-title">Publications</h2>
+    <p>Peer-reviewed and preprint work on ML reliability, LLM evaluation, and numerical correctness.</p>
+  </div>
+
+  <div class="publication-list">
+    {% assign publications = site.publications | sort: "date" | reverse %}
+    {% for paper in publications %}
+      <article class="publication-card">
+        <span class="publication-meta">{{ paper.venue }}{% if paper.date %} - {{ paper.date | date: "%Y" }}{% endif %}</span>
+        <h3>{{ paper.title }}</h3>
+        {% if paper.authors %}
+          <p class="publication-authors">{{ paper.authors }}</p>
+        {% endif %}
+        {% if paper.excerpt %}
+          <p>{{ paper.excerpt }}</p>
+        {% endif %}
+        <div class="publication-links">
+          {% if paper.paperurl %}<a href="{{ paper.paperurl }}">Paper</a>{% endif %}
+          {% if paper.code %}<a href="{{ paper.code }}">Code</a>{% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section" id="writing" aria-labelledby="writing-title">
+  <div class="section-heading">
+    <h2 id="writing-title">Writing</h2>
+    <p>Short research notes and engineering write-ups.</p>
+  </div>
+
+  <div class="post-list">
+    {% for post in site.posts limit:3 %}
+      <article class="post-card">
+        <span>{{ post.date | date: "%B %-d, %Y" }}</span>
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p>{{ post.excerpt | strip_html | truncate: 170 }}</p>
+      </article>
+    {% endfor %}
+  </div>
 </section>
 
 <section class="section contact" id="contact" aria-labelledby="contact-title">

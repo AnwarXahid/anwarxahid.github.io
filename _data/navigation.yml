@@ -5,7 +5,9 @@ main:
     url: /#research
   - title: "Projects"
     url: /#projects
-  - title: "Writing"
+  - title: "Publications"
     url: /#publications
+  - title: "Writing"
+    url: /#writing
   - title: "Contact"
     url: /#contact
