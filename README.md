@@ -1,8 +1,8 @@
-# Anwar Hossain Zahid Research Website
+# Anwar Zahid
 
 This repository powers [anwarxahid.github.io](https://anwarxahid.github.io/), a GitHub Pages-compatible personal academic and research website.
 
-The active site is a custom dark research-lab interface built with Jekyll layouts, static CSS, and lightweight JavaScript.
+The active homepage is a clean one-page Jekyll site for academic interests, selected projects, writing, and contact links.
 
 ## Local Preview
 

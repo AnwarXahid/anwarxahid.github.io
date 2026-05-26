@@ -7,11 +7,11 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Anwar Hossain Zahid"
+title                    : "Anwar Zahid"
 title_separator          : "-"
-name                     : &name "Anwar Hossain Zahid"
-description              : &description "PhD candidate at Iowa State University researching ML model debugging, AI reliability, LLM evaluation, numerical stability, and software engineering for trustworthy AI."
-keywords                 : "ML reliability, AI reliability, LLM hallucination detection, LLM evaluation, numerical stability, GPU numerics, software engineering for AI, trustworthy AI, HPC ML systems"
+name                     : &name "Anwar Zahid"
+description              : &description "Graduate student working on AI, software engineering, and LLM reliability."
+keywords                 : "AI reliability, LLM hallucination, LLM reliability, software engineering for AI, interpretable AI, human-centered AI"
 url                      : https://anwarxahid.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "anwarxahid/anwarxahid.github.io"

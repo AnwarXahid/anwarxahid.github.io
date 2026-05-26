@@ -1,9 +1,11 @@
 main:
   - title: "About"
-    url: /about-me/
-  - title: "Work"
-    url: /works/
-  - title: "Blog"
-    url: /blog/
-  - title: "Resume"
-    url: /files/resume.pdf
+    url: /#about
+  - title: "Research"
+    url: /#research
+  - title: "Projects"
+    url: /#projects
+  - title: "Writing"
+    url: /#publications
+  - title: "Contact"
+    url: /#contact
