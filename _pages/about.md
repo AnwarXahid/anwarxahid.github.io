@@ -17,10 +17,11 @@ redirect_from:
     that make those failures easier to detect, reproduce, and fix.
   </p>
   <nav class="intro-links" aria-label="Profile links">
+    <a class="primary-link" href="mailto:ahzahid@iastate.edu">Email Me</a>
+    <a class="primary-link" href="{{ '/files/resume.pdf' | relative_url }}">Download CV</a>
     <a href="https://github.com/AnwarXahid">GitHub</a>
     <a href="https://scholar.google.com/citations?user=_ze57HEAAAAJ&hl=en">Google Scholar</a>
     <a href="https://www.linkedin.com/in/anwar-hossain-zahid-a46195108/">LinkedIn</a>
-    <a href="mailto:ahzahid@iastate.edu">Email</a>
   </nav>
 </section>
 
@@ -130,7 +131,8 @@ redirect_from:
     the links below.
   </p>
   <nav class="contact-links" aria-label="Contact links">
-    <a href="mailto:ahzahid@iastate.edu">ahzahid@iastate.edu</a>
+    <a class="primary-link" href="mailto:ahzahid@iastate.edu">Email Me</a>
+    <a class="primary-link" href="{{ '/files/resume.pdf' | relative_url }}">Download CV</a>
     <a href="https://github.com/AnwarXahid">GitHub</a>
     <a href="https://scholar.google.com/citations?user=_ze57HEAAAAJ&hl=en">Google Scholar</a>
     <a href="https://www.linkedin.com/in/anwar-hossain-zahid-a46195108/">LinkedIn</a>
