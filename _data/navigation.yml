@@ -1,16 +1,14 @@
 main:
-  - title: "News"
-    url: /#news
   - title: "About"
     url: /#about
+  - title: "Research"
+    url: /#research
   - title: "Publications"
     url: /#publications
   - title: "Experience"
     url: /#experience
   - title: "Projects"
     url: /#projects
-  - title: "Teaching"
-    url: /#teaching
   - title: "Writing"
     url: /#writing
   - title: "Contact"
