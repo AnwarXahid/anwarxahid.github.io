@@ -1,6 +1,9 @@
 # News items shown on the homepage, most recent first.
 # Add a new entry at the top of this list — no HTML editing required.
 # `url` is optional; omit it for items with nothing to link to.
+- date: 2026-08-01
+  text: "Launched Today's AI, a platform for discovering AI tools and learning to use them, built with Prof. Wei Le for K-12, university, and self-directed learners."
+  url: "https://todaysai.ai/"
 - date: 2025-07-01
   text: "Paper on Soft Assertions for detecting numerical instability in ML applications accepted at FSE 2025."
   url: "https://arxiv.org/pdf/2504.15507"

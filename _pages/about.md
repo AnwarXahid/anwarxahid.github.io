@@ -210,12 +210,33 @@ redirect_from:
 </section>
 
 <section class="section" id="teaching" aria-labelledby="teaching-title">
-  <p class="section-label rv"><span class="mk">##</span> Teaching</p>
-  <h2 id="teaching-title" class="rv">Teaching</h2>
-  <p class="rv">
-    I am a teaching assistant for the AI course sequence in the
-    <a href="https://www.cs.iastate.edu/" rel="noopener">Department of Computer Science</a> at Iowa State University.
-  </p>
+  <div class="section-heading rv">
+    <p class="section-label"><span class="mk">##</span> Teaching</p>
+    <h2 id="teaching-title">Running labs, writing rubrics, covering lectures.</h2>
+    <p>
+      Teaching assistant in the
+      <a href="https://www.cs.iastate.edu/" rel="noopener">Department of Computer Science</a>
+      at Iowa State University, across the introductory programming and artificial-intelligence courses.
+    </p>
+  </div>
+  <ul class="timeline rv">
+    <li>
+      <span class="timeline-dates">Spring 2023 &ndash; present</span>
+      <div>
+        <h3>Teaching Assistant &middot; <a href="https://www.cs.iastate.edu/" rel="noopener">Iowa State University</a></h3>
+        <p>
+          Taught the lab and recitation sections for <strong>COM&nbsp;S&nbsp;127</strong> (introductory
+          programming) &mdash; running weekly labs, developing course and assessment materials, designing
+          grading rubrics, and grading assignments and exams.
+        </p>
+        <p>
+          Delivered lectures for <strong>COM&nbsp;S&nbsp;472/572</strong> (Principles of Artificial
+          Intelligence), covering for Prof. Jin Tian before he left the department and for
+          Prof. Yan-Bin Jia.
+        </p>
+      </div>
+    </li>
+  </ul>
 </section>
 
 <section class="section" id="writing" aria-labelledby="writing-title">

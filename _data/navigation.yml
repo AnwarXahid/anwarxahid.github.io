@@ -9,6 +9,8 @@ main:
     url: /#experience
   - title: "Projects"
     url: /#projects
+  - title: "Teaching"
+    url: /#teaching
   - title: "Writing"
     url: /#writing
   - title: "Contact"

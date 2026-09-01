@@ -82,6 +82,24 @@ redirect_from:
 
 <section class="section">
   <div class="section-heading">
+    <h2>Teaching</h2>
+  </div>
+  <ul class="timeline">
+    <li>
+      <span class="timeline-dates">Spring 2023 – Present</span>
+      <h3>Teaching Assistant · <a href="https://www.cs.iastate.edu/" rel="noopener">Iowa State University</a></h3>
+      <p>
+        Taught the lab and recitation sections for COM S 127 (introductory programming) — running weekly
+        labs, developing course and assessment materials, designing grading rubrics, and grading
+        assignments and exams. Delivered lectures for COM S 472/572 (Principles of Artificial
+        Intelligence), covering for Prof. Jin Tian before he left the department and for Prof. Yan-Bin Jia.
+      </p>
+    </li>
+  </ul>
+</section>
+
+<section class="section">
+  <div class="section-heading">
     <h2>Technical strengths</h2>
   </div>
   <ul class="chip-list">
