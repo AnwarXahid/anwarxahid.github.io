@@ -4,5 +4,6 @@ excerpt: "FSE 2025 paper introducing Soft Assertions to detect and trigger numer
 tech: "Python, PyTorch, TensorFlow"
 github: https://github.com/ISU-PAAL/soft-assertion-fuzzer
 demo: ""
+tier: featured
 collection: portfolio
 ---

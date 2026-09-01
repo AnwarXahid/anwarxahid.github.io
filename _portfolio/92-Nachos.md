@@ -4,5 +4,6 @@ excerpt: "Extended the Nachos instructional OS to implement thread scheduling, v
 tech: "C++, Operating Systems"
 github: https://github.com/AnwarXahid/Nachos-An-Instructional-Operation-System
 demo: ""
+tier: other
 collection: portfolio
 ---

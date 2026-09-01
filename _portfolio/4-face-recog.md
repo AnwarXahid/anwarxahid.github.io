@@ -4,5 +4,6 @@ excerpt: "Developed a real-time face recognition and spoof detection system for 
 tech: "Python, OpenCV, Dlib, FaceNet"
 github: https://github.com/AnwarXahid/face_recog_livliness
 demo: ""
+tier: featured
 collection: portfolio
 ---

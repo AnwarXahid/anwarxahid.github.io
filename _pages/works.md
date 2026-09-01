@@ -14,52 +14,69 @@ excerpt: "Research papers, systems, and software projects by Anwar Hossain Zahid
   </p>
 </section>
 
-<section class="content-band">
+<section class="section">
   <div class="section-heading">
-    <div>
-      <p class="eyebrow">Publications</p>
-      <h2>Selected papers.</h2>
-    </div>
+    <h2>Publications</h2>
     <p>Peer-reviewed and preprint work spanning reliable ML, model evaluation, and numerical correctness.</p>
   </div>
-  <div class="publication-grid">
+  <div class="publication-list">
     {% assign publications = site.publications | sort: "date" | reverse %}
     {% for paper in publications %}
       <article class="publication-card">
-        <span class="publication-meta">{{ paper.venue }}{% if paper.date %} - {{ paper.date | date: "%Y" }}{% endif %}</span>
+        <span class="badge">{{ paper.venue }}</span>
         <h3>{{ paper.title }}</h3>
-        {% if paper.authors %}<p>{{ paper.authors }}</p>{% endif %}
+        {% if paper.authors %}
+          <p class="publication-authors">{{ paper.authors | replace: "Anwar Hossain Zahid", "<strong>Anwar Hossain Zahid</strong>" }}</p>
+        {% endif %}
         {% if paper.excerpt %}<p>{{ paper.excerpt }}</p>{% endif %}
-        <div class="card-actions">
-          {% if paper.paperurl %}<a class="btn" href="{{ paper.paperurl }}">Paper</a>{% endif %}
-          {% if paper.code %}<a class="btn" href="{{ paper.code }}">Code</a>{% endif %}
+        <div class="publication-links">
+          {% if paper.paperurl %}<a href="{{ paper.paperurl }}" rel="noopener">Paper</a>{% endif %}
+          {% if paper.code %}<a href="{{ paper.code }}" rel="noopener">Code</a>{% endif %}
         </div>
       </article>
     {% endfor %}
   </div>
 </section>
 
-<section class="content-band">
+<section class="section">
   <div class="section-heading">
-    <div>
-      <p class="eyebrow">Projects</p>
-      <h2>Implementation work.</h2>
-    </div>
+    <h2>Projects</h2>
     <p>Systems and applied projects from research, national lab work, industry, and advanced coursework.</p>
   </div>
-  <div class="portfolio-grid">
-    {% for item in site.portfolio %}
+  <div class="project-grid">
+    {% assign featured = site.portfolio | where: "tier", "featured" | sort: "path" %}
+    {% for item in featured %}
       {% if item.title %}
-      <article class="portfolio-card">
-        <span class="publication-meta">{{ item.tech }}</span>
-        <h3>{{ item.title }}</h3>
-        <p>{{ item.excerpt }}</p>
-        <div class="card-actions">
-          {% if item.github %}<a class="btn" href="{{ item.github }}">GitHub</a>{% endif %}
-          {% if item.demo %}<a class="btn" href="{{ item.demo }}">Demo</a>{% endif %}
-        </div>
-      </article>
+        <article class="project-card">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.excerpt }}</p>
+          {% if item.tech %}
+            <ul class="chip-list">
+              {% assign chips = item.tech | split: ", " %}
+              {% for chip in chips %}<li class="chip">{{ chip }}</li>{% endfor %}
+            </ul>
+          {% endif %}
+          <div class="project-links">
+            {% if item.github and item.github != "" %}<a href="{{ item.github }}" rel="noopener">GitHub</a>{% endif %}
+            {% if item.demo and item.demo != "" %}<a href="{{ item.demo }}" rel="noopener">Demo</a>{% endif %}
+          </div>
+        </article>
       {% endif %}
     {% endfor %}
   </div>
+
+  <details class="other-repos">
+    <summary>Other repositories</summary>
+    <ul>
+      {% assign others = site.portfolio | where: "tier", "other" | sort: "path" %}
+      {% for item in others %}
+        {% if item.title %}
+          <li>
+            {% if item.github and item.github != "" %}<a href="{{ item.github }}" rel="noopener">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}
+            &mdash; {{ item.excerpt }}
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </details>
 </section>

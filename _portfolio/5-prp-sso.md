@@ -4,5 +4,6 @@ excerpt: "Implemented Single Sign-On authentication for PRP system, enabling sec
 tech: "Java, Spring Boot, OAuth 2.0, JWT"
 github: https://github.com/AnwarXahid/prp_sso
 demo: ""
+tier: other
 collection: portfolio
 ---

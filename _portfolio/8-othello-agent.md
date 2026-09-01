@@ -4,5 +4,6 @@ excerpt: "Developed an intelligent Othello game-playing agent using adversarial 
 tech: "Python, Minimax, Alpha-Beta Pruning"
 github: https://github.com/AnwarXahid/Othello-Agent
 demo: ""
+tier: other
 collection: portfolio
 ---

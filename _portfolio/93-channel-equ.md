@@ -4,6 +4,7 @@ excerpt: "Implemented and tested channel equalization algorithms to improve sign
 tech: "Python, NumPy, Signal Processing"
 github: https://github.com/AnwarXahid/Channel-Equalization
 demo: ""
+tier: other
 collection: portfolio
 ---
 

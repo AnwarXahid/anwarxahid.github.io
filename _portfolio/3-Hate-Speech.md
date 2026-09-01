@@ -4,5 +4,6 @@ excerpt: "Extended a class project to evaluate hate speech detection models usin
 tech: "Python, Transformers, HuggingFace, Scikit-learn"
 github: https://github.com/AnwarXahid/Hate-Speech-on-Geography
 demo: ""
+tier: featured
 collection: portfolio
 ---

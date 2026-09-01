@@ -3,20 +3,20 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% if page.title and page.title != "" %}{{ page.title }} {{ site.title_separator | default: "-" }} {% endif %}{{ site.title }}</title>
+    <title>{{ page.title }} {{ site.title_separator | default: "-" }} {{ site.title }}</title>
     <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace }}">
     <meta name="author" content="{{ site.name }}">
     <link rel="canonical" href="{{ page.url | absolute_url }}">
     <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#0b0d12" media="(prefers-color-scheme: dark)">
 
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="{% if page.title and page.title != "" %}{{ page.title }} {{ site.title_separator | default: "-" }} {% endif %}{{ site.title }}">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{ page.title }}">
     <meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace }}">
     <meta property="og:url" content="{{ page.url | absolute_url }}">
     <meta property="og:image" content="{{ site.og_image | absolute_url }}">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{% if page.title and page.title != "" %}{{ page.title }} {{ site.title_separator | default: "-" }} {% endif %}{{ site.title }}">
+    <meta name="twitter:title" content="{{ page.title }}">
     <meta name="twitter:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace }}">
     <meta name="twitter:image" content="{{ site.og_image | absolute_url }}">
     {% if site.twitter.username %}<meta name="twitter:site" content="@{{ site.twitter.username }}">{% endif %}
@@ -25,7 +25,6 @@
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/lab.css' | relative_url }}">
 
-    <!-- Applied before first paint so a saved theme preference doesn't flash. -->
     <script>
       (function () {
         try {
@@ -40,28 +39,15 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Anwar Hossain Zahid",
-        "url": "{{ site.url }}",
-        "email": "mailto:{{ site.author.email }}",
-        "jobTitle": "Ph.D. Student, Computer Science",
-        "affiliation": {
-          "@type": "CollegeOrUniversity",
-          "name": "Iowa State University",
-          "url": "https://www.cs.iastate.edu/"
-        },
-        "sameAs": [
-          "https://github.com/AnwarXahid",
-          "https://www.linkedin.com/in/anwar-hossain-zahid-a46195108/",
-          "https://scholar.google.com/citations?user=_ze57HEAAAAJ&hl=en"
-        ],
-        "knowsAbout": [
-          "LLM hallucination",
-          "AI reliability",
-          "Software engineering for AI systems",
-          "Interpretable analysis",
-          "Human-centered AI tools"
-        ]
+        "@type": "ScholarlyArticle",
+        "headline": {{ page.title | jsonify }},
+        "name": {{ page.title | jsonify }},
+        "url": "{{ page.url | absolute_url }}",
+        "datePublished": "{{ page.date | date: '%Y-%m-%d' }}",
+        {% if page.authors %}"author": {{ page.authors | jsonify }},{% endif %}
+        {% if page.venue %}"publisher": {{ page.venue | jsonify }},{% endif %}
+        "description": {{ page.excerpt | strip_html | normalize_whitespace | jsonify }}{% if page.paperurl %},
+        "sameAs": "{{ page.paperurl }}"{% endif %}
       }
     </script>
   </head>
@@ -76,7 +62,31 @@
     </header>
 
     <main class="page" id="main">
-      {{ content }}
+      <article class="publication-single">
+        {% if page.venue %}<span class="badge">{{ page.venue }}</span>{% endif %}
+        <h1>{{ page.title }}</h1>
+        {% if page.authors %}
+          <p class="publication-authors">{{ page.authors | replace: "Anwar Hossain Zahid", "<strong>Anwar Hossain Zahid</strong>" }}</p>
+        {% endif %}
+        <div class="publication-links">
+          {% if page.paperurl %}<a href="{{ page.paperurl }}" rel="noopener">Paper</a>{% endif %}
+          {% if page.code %}<a href="{{ page.code }}" rel="noopener">Code</a>{% endif %}
+        </div>
+
+        <div class="page__content">
+          {{ content }}
+        </div>
+
+        {% if page.bibtex %}
+          <details class="bibtex">
+            <summary>BibTeX</summary>
+            <pre id="bibtex-{{ page.permalink | slugify }}">{{ page.bibtex }}</pre>
+            <button type="button" class="copy-btn" data-copy-target="bibtex-{{ page.permalink | slugify }}">Copy</button>
+          </details>
+        {% endif %}
+
+        <p class="back-link"><a href="{{ '/#publications' | relative_url }}">&larr; Back to all publications</a></p>
+      </article>
     </main>
 
     <footer class="site-footer">

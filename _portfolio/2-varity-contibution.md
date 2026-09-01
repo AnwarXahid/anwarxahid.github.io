@@ -4,5 +4,6 @@ excerpt: "Contributed to the LLNL Varity project by implementing HIP backend gen
 tech: "C++, HIP, CUDA, LLVM"
 github: https://github.com/LLNL/Varity/tree/feature-hip-generation
 demo: ""
+tier: featured
 collection: portfolio
 ---

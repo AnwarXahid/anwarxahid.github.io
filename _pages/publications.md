@@ -3,7 +3,6 @@ layout: archive
 title: "Publications"
 permalink: /publications/
 excerpt: "Publications by Anwar Hossain Zahid."
-author_profile: true
 ---
 
 <section class="page-intro">
@@ -15,16 +14,22 @@ author_profile: true
   </p>
 </section>
 
-<section class="content-band">
+<section class="section">
   <div class="publication-list">
     {% assign publications = site.publications | sort: "date" | reverse %}
-    {% for post in publications %}
-      <article>
-        <span class="post-date">{{ post.venue }}{% if post.date %} - {{ post.date | date: "%Y" }}{% endif %}</span>
-        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-        {% if post.authors %}<p>{{ post.authors }}</p>{% endif %}
-        {% if post.excerpt %}<p>{{ post.excerpt }}</p>{% endif %}
-        {% if post.paperurl %}<a href="{{ post.paperurl }}">Paper</a>{% endif %}
+    {% for paper in publications %}
+      <article class="publication-card">
+        <span class="badge">{{ paper.venue }}</span>
+        <h3><a href="{{ paper.url | relative_url }}">{{ paper.title }}</a></h3>
+        {% if paper.authors %}
+          <p class="publication-authors">{{ paper.authors | replace: "Anwar Hossain Zahid", "<strong>Anwar Hossain Zahid</strong>" }}</p>
+        {% endif %}
+        {% if paper.excerpt %}<p>{{ paper.excerpt }}</p>{% endif %}
+        <div class="publication-links">
+          {% if paper.paperurl %}<a href="{{ paper.paperurl }}" rel="noopener">Paper</a>{% endif %}
+          {% if paper.code %}<a href="{{ paper.code }}" rel="noopener">Code</a>{% endif %}
+          <a href="{{ paper.url | relative_url }}">Details &amp; BibTeX</a>
+        </div>
       </article>
     {% endfor %}
   </div>

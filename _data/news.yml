@@ -1,0 +1,17 @@
+# News items shown on the homepage, most recent first.
+# Add a new entry at the top of this list — no HTML editing required.
+# `url` is optional; omit it for items with nothing to link to.
+- date: 2025-07-01
+  text: "Paper on Soft Assertions for detecting numerical instability in ML applications accepted at FSE 2025."
+  url: "https://arxiv.org/pdf/2504.15507"
+- date: 2025-02-26
+  text: "Preprint on hate speech detection with LLMs and geographical context posted to arXiv."
+  url: "https://arxiv.org/abs/2502.19612"
+- date: 2024-10-12
+  text: "Preprint on testing GPU numerics across NVIDIA and AMD posted to arXiv."
+  url: "https://arxiv.org/abs/2410.09172"
+- date: 2024-08-01
+  text: "Received Honorable Mention at the LLNL Summer SLAM & Poster Symposium 2024."
+- date: 2024-05-01
+  text: "Started a summer internship with the Parallel Systems Group at Lawrence Livermore National Laboratory."
+  url: "https://www.llnl.gov/"

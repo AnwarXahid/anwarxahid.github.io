@@ -4,5 +4,6 @@ excerpt: "Built a ray tracing engine from scratch to render 3D scenes with refle
 tech: "C++"
 github: https://github.com/AnwarXahid/Ray-Tracing
 demo: ""
+tier: other
 collection: portfolio
 ---
