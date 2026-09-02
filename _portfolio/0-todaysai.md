@@ -4,6 +4,7 @@ excerpt: "A web platform that helps K-12, undergraduate, and graduate learners â
 tech: "Web platform, LLM assistant, Search, AI literacy"
 github: ""
 demo: "https://todaysai.ai/"
+image: "/assets/img/todays-ai-thumbnail.webp"
 tier: featured
 collection: portfolio
 ---
