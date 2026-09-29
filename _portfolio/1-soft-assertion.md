@@ -1,4 +1,7 @@
 ---
+cover_label: "ML testing"
+cover_title: "Soft Assertions"
+cover_caption: "Detect numerical instability in ML."
 title: "Automatically Detecting Numerical Instability in Machine Learning Applications via Soft Assertions"
 excerpt: "FSE 2025 paper introducing Soft Assertions to detect and trigger numerical instability bugs in ML applications."
 tech: "Python, PyTorch, TensorFlow"

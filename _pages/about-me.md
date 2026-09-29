@@ -25,13 +25,17 @@ redirect_from:
   <ul class="timeline">
     <li>
       <span class="timeline-dates">Spring 2023 – Present</span>
-      <h3>Ph.D. in Computer Science</h3>
-      <p>Iowa State University, Ames, Iowa — Advisor: <a href="https://weile.work/" rel="noopener">Prof. Wei Le</a></p>
+      <div>
+        <h3>Ph.D. in Computer Science</h3>
+        <p>Iowa State University, Ames, Iowa — Advisor: <a href="https://weile.work/" rel="noopener">Prof. Wei Le</a></p>
+      </div>
     </li>
     <li>
       <span class="timeline-dates">2018</span>
-      <h3>B.Sc. in Computer Science and Engineering</h3>
-      <p>Bangladesh University of Engineering and Technology (BUET)</p>
+      <div>
+        <h3>B.Sc. in Computer Science and Engineering</h3>
+        <p>Bangladesh University of Engineering and Technology (BUET)</p>
+      </div>
     </li>
   </ul>
 </section>
@@ -43,23 +47,31 @@ redirect_from:
   <ul class="timeline">
     <li>
       <span class="timeline-dates">Fall 2023 – Present</span>
-      <h3>Differential Debugging Framework for ML Model Versions</h3>
-      <p>Developing methods to analyze behavioral inconsistencies across model versions using differential testing and invariant learning.</p>
+      <div>
+        <h3>Differential Debugging Framework for ML Model Versions</h3>
+        <p>Developing methods to analyze behavioral inconsistencies across model versions using differential testing and invariant learning.</p>
+      </div>
     </li>
     <li>
       <span class="timeline-dates">Summer 2024 – Fall 2024</span>
-      <h3>Floating-Point Arithmetic Across Compilers</h3>
-      <p>At <a href="https://www.llnl.gov/" rel="noopener">Lawrence Livermore National Laboratory</a>, investigated numerical differences between NVIDIA and AMD GPUs across compiler toolchains.</p>
+      <div>
+        <h3>Floating-Point Arithmetic Across Compilers</h3>
+        <p>At <a href="https://www.llnl.gov/" rel="noopener">Lawrence Livermore National Laboratory</a>, investigated numerical differences between NVIDIA and AMD GPUs across compiler toolchains.</p>
+      </div>
     </li>
     <li>
       <span class="timeline-dates">2020 – 2021</span>
-      <h3>Virtual Internship System</h3>
-      <p>Designed a virtual internship platform for benchmarking software development skills in blended academic and industry settings.</p>
+      <div>
+        <h3>Virtual Internship System</h3>
+        <p>Designed a virtual internship platform for benchmarking software development skills in blended academic and industry settings.</p>
+      </div>
     </li>
     <li>
       <span class="timeline-dates">2018 – 2019</span>
-      <h3>Scene Reconstruction from Static CCTV Cameras</h3>
-      <p>Proposed a multi-camera 3D scene reconstruction system for surveillance and smart-city applications.</p>
+      <div>
+        <h3>Scene Reconstruction from Static CCTV Cameras</h3>
+        <p>Proposed a multi-camera 3D scene reconstruction system for surveillance and smart-city applications.</p>
+      </div>
     </li>
   </ul>
 </section>
@@ -73,8 +85,10 @@ redirect_from:
     {% for job in site.data.experience %}
       <li>
         <span class="timeline-dates">{{ job.dates }}</span>
+        <div>
         <h3>{{ job.role }} &middot; {% if job.org_url %}<a href="{{ job.org_url }}" rel="noopener">{{ job.org }}</a>{% else %}{{ job.org }}{% endif %}</h3>
         <p>{{ job.note }}</p>
+      </div>
       </li>
     {% endfor %}
   </ul>
@@ -85,15 +99,18 @@ redirect_from:
     <h2>Teaching</h2>
   </div>
   <ul class="timeline">
+    {% include course-design.html %}
     <li>
       <span class="timeline-dates">Spring 2023 – Present</span>
-      <h3>Teaching Assistant · <a href="https://www.cs.iastate.edu/" rel="noopener">Iowa State University</a></h3>
-      <p>
+      <div>
+        <h3>Teaching Assistant · <a href="https://www.cs.iastate.edu/" rel="noopener">Iowa State University</a></h3>
+        <p>
         Taught the lab and recitation sections for COM S 127 (introductory programming) — running weekly
         labs, developing course and assessment materials, designing grading rubrics, and grading
         assignments and exams. Delivered lectures for COM S 472/572 (Principles of Artificial
         Intelligence), covering for Prof. Jin Tian before he left the department and for Prof. Yan-Bin Jia.
       </p>
+      </div>
     </li>
   </ul>
 </section>

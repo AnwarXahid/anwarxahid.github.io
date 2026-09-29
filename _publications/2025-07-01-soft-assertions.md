@@ -1,4 +1,7 @@
 ---
+cover_label: "ML reliability"
+cover_title: "Soft Assertions"
+cover_caption: "Find the bugs hidden in the numbers."
 title: "Automatically Detecting Numerical Instability in Machine Learning Applications via Soft Assertions"
 collection: publications
 permalink: /publication/soft-assertions/

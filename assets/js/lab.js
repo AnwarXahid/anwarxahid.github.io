@@ -46,7 +46,6 @@
   });
 
   /* ---------------- Dark mode toggle (persisted) ---------------- */
-  let redrawThumbs = () => {};
 
   safe(() => {
     const toggle = document.getElementById("theme-toggle");
@@ -73,7 +72,6 @@
         /* private mode — won't persist */
       }
       sync();
-      redrawThumbs();
     });
   });
 
@@ -173,182 +171,6 @@
       const a = nav.querySelector("a.active");
       if (a) movePill(a);
     }, 90);
-  });
-
-  /* ---------------- Generative "diagnostic" card thumbnails ---------------- */
-  safe(() => {
-    const seeded = (seed) => {
-      let s = (seed >>> 0) || 1;
-      return () => {
-        s = (s * 1664525 + 1013904223) >>> 0;
-        return s / 4294967296;
-      };
-    };
-
-    const draw = (canvas) => {
-      const ctx = canvas.getContext("2d");
-      if (!ctx) return;
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const w = canvas.clientWidth || 320;
-      const h = canvas.clientHeight || 180;
-      canvas.width = w * dpr;
-      canvas.height = h * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      ctx.clearRect(0, 0, w, h);
-
-      const line = css("--line");
-      const accent = css("--accent");
-      const warn = css("--warn");
-      const muted = css("--muted");
-      ctx.fillStyle = css("--surface-2");
-      ctx.fillRect(0, 0, w, h);
-
-      const seed = parseInt(canvas.dataset.seed, 10) || 7;
-      const mode = ((((parseInt(canvas.dataset.mode, 10) || 0) % 4) + 4) % 4);
-      const rnd = seeded(seed + mode * 97);
-      const pad = 16;
-      const iw = w - pad * 2;
-      const ih = h - pad * 2;
-
-      ctx.strokeStyle = line;
-      ctx.lineWidth = 1;
-      for (let gx = 0; gx <= 6; gx++) {
-        const x = pad + (iw * gx) / 6;
-        ctx.beginPath();
-        ctx.moveTo(x, pad);
-        ctx.lineTo(x, h - pad);
-        ctx.stroke();
-      }
-      for (let gy = 0; gy <= 4; gy++) {
-        const y = pad + (ih * gy) / 4;
-        ctx.beginPath();
-        ctx.moveTo(pad, y);
-        ctx.lineTo(w - pad, y);
-        ctx.stroke();
-      }
-
-      if (mode === 0) {
-        const n = 68;
-        const split = 0.32 + rnd() * 0.26;
-        const ref = [];
-        let y = pad + ih * 0.5;
-        ctx.strokeStyle = muted;
-        ctx.lineWidth = 1.6;
-        ctx.beginPath();
-        for (let i = 0; i <= n; i++) {
-          y += (rnd() - 0.5) * 7;
-          y = Math.max(pad + 4, Math.min(h - pad - 4, y));
-          const x = pad + (iw * i) / n;
-          ref.push([x, y]);
-          i ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
-        }
-        ctx.stroke();
-
-        ctx.strokeStyle = accent;
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        for (let i = 0; i <= n; i++) {
-          const t = i / n;
-          let yy = ref[i][1];
-          if (t > split) {
-            const k = (t - split) / (1 - split);
-            yy += (rnd() - 0.5) * k * k * ih * 1.1;
-          }
-          yy = Math.max(3, Math.min(h - 3, yy));
-          i ? ctx.lineTo(ref[i][0], yy) : ctx.moveTo(ref[i][0], yy);
-        }
-        ctx.stroke();
-
-        const sx = pad + iw * split;
-        ctx.strokeStyle = warn;
-        ctx.lineWidth = 1.2;
-        ctx.setLineDash([3, 3]);
-        ctx.beginPath();
-        ctx.moveTo(sx, pad);
-        ctx.lineTo(sx, h - pad);
-        ctx.stroke();
-        ctx.setLineDash([]);
-      } else if (mode === 1) {
-        const mid = pad + ih * 0.5;
-        ctx.strokeStyle = muted;
-        ctx.lineWidth = 1.4;
-        ctx.setLineDash([4, 4]);
-        ctx.beginPath();
-        ctx.moveTo(pad, mid);
-        ctx.lineTo(w - pad, mid);
-        ctx.stroke();
-        ctx.setLineDash([]);
-        for (let i = 0; i < 46; i++) {
-          const x = pad + rnd() * iw;
-          const outlier = rnd() > 0.86;
-          const spread = outlier ? ih * 0.42 : ih * 0.12;
-          const yy = mid + (rnd() - 0.5) * 2 * spread;
-          ctx.fillStyle = outlier ? warn : accent;
-          ctx.globalAlpha = outlier ? 0.95 : 0.55;
-          ctx.beginPath();
-          ctx.arc(x, yy, outlier ? 3 : 2, 0, Math.PI * 2);
-          ctx.fill();
-        }
-        ctx.globalAlpha = 1;
-      } else if (mode === 2) {
-        const bars = 11;
-        const gap = 5;
-        const bw = (iw - gap * (bars - 1)) / bars;
-        const thr = pad + ih * 0.32;
-        for (let i = 0; i < bars; i++) {
-          const center = Math.exp(-Math.pow((i - bars / 2) / 2.4, 2));
-          let bh = ih * (0.14 + center * 0.7 * (0.7 + rnd() * 0.6));
-          bh = Math.min(bh, ih);
-          const x = pad + i * (bw + gap);
-          const yTop = h - pad - bh;
-          const over = yTop < thr;
-          ctx.fillStyle = over ? warn : accent;
-          ctx.globalAlpha = over ? 0.9 : 0.45;
-          ctx.fillRect(x, yTop, bw, bh);
-        }
-        ctx.globalAlpha = 1;
-        ctx.strokeStyle = warn;
-        ctx.lineWidth = 1.2;
-        ctx.setLineDash([3, 3]);
-        ctx.beginPath();
-        ctx.moveTo(pad, thr);
-        ctx.lineTo(w - pad, thr);
-        ctx.stroke();
-        ctx.setLineDash([]);
-      } else {
-        const cols = 22;
-        const cw = iw / cols;
-        const rows = 4;
-        for (let i = 0; i < cols; i++) {
-          for (let r = 0; r < rows; r++) {
-            const v = rnd();
-            ctx.fillStyle = v > 0.8 ? warn : accent;
-            ctx.globalAlpha = 0.14 + v * 0.7;
-            ctx.fillRect(
-              pad + i * cw + 1,
-              pad + (ih * r) / rows + 1,
-              cw - 2,
-              ih / rows - 2
-            );
-          }
-        }
-        ctx.globalAlpha = 1;
-      }
-    };
-
-    const thumbs = Array.prototype.slice.call(
-      document.querySelectorAll("canvas.card-thumb")
-    );
-    if (!thumbs.length) return;
-
-    redrawThumbs = () => thumbs.forEach(draw);
-    redrawThumbs();
-
-    let t;
-    window.addEventListener("resize", () => {
-      clearTimeout(t);
-      t = window.setTimeout(redrawThumbs, 200);
-    });
   });
 
   /* ---------------- Hero field: lattice + instability wavefront ---------------- */

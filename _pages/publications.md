@@ -19,6 +19,7 @@ excerpt: "Publications by Anwar Hossain Zahid."
     {% assign publications = site.publications | sort: "date" | reverse %}
     {% for paper in publications %}
       <article class="publication-card">
+        {% include work-cover.html work=paper %}
         <span class="badge">{{ paper.venue }}</span>
         <h3><a href="{{ paper.url | relative_url }}">{{ paper.title }}</a></h3>
         {% if paper.authors %}

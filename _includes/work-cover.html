@@ -1,0 +1,7 @@
+{% if include.work.cover_title %}
+<div class="work-cover">
+  <span class="cover-label">{{ include.work.cover_label | escape }}</span>
+  <span class="cover-title">{{ include.work.cover_title | escape }}</span>
+  <span class="cover-caption">{{ include.work.cover_caption | escape }}</span>
+</div>
+{% endif %}

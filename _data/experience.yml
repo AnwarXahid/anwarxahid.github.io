@@ -1,5 +1,9 @@
 # Reverse-chronological work experience shown on the homepage.
 # org_url is optional.
+- role: "Visiting Scholar"
+  org: "Mayo Clinic, Rochester, Minnesota"
+  dates: "Fall 2026"
+  note: "Research internship through the visiting scholar program in the Department of Obstetrics and Gynecology, working on Research Database Expansion for Maternal-Fetal Record Linkage."
 - role: "Computing Graduate Intern, Parallel Systems Group"
   org: "Lawrence Livermore National Laboratory"
   org_url: "https://www.llnl.gov/"

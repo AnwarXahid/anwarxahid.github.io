@@ -101,13 +101,9 @@ redirect_from:
     {% assign publications = site.publications | sort: "date" | reverse %}
     {% for paper in publications %}
       <article class="publication-card rv">
-        {% if paper.image %}
-          <img class="card-thumb" src="{{ paper.image | relative_url }}" alt="" loading="lazy">
-        {% else %}
-          <canvas class="card-thumb" data-seed="{{ forloop.index | times: 17 }}" data-mode="{{ forloop.index0 | modulo: 4 }}" aria-hidden="true"></canvas>
-        {% endif %}
+        {% include work-cover.html work=paper %}
         <span class="badge">{{ paper.venue }}</span>
-        <h3>{{ paper.title }}</h3>
+        <h3><a href="{{ paper.url | relative_url }}">{{ paper.title }}</a></h3>
         {% if paper.authors %}
           <p class="publication-authors">{{ paper.authors | replace: "Anwar Hossain Zahid", "<strong>Anwar Hossain Zahid</strong>" }}</p>
         {% endif %}
@@ -133,8 +129,8 @@ redirect_from:
 <section class="section" id="experience" aria-labelledby="experience-title">
   <div class="section-heading rv">
     <p class="section-label"><span class="mk">##</span> Experience</p>
-    <h2 id="experience-title">Four years in industry, then a national lab.</h2>
-    <p>Software engineering across banking, e-governance, and mobile, plus a research internship at Lawrence Livermore.</p>
+    <h2 id="experience-title">Research grounded in real-world software.</h2>
+    <p>Experience across research, banking, e-governance, and mobile software.</p>
   </div>
   <ul class="timeline rv">
     {% for job in site.data.experience %}
@@ -161,11 +157,7 @@ redirect_from:
     {% for project in featured %}
       {% if project.title %}
         <article class="project-card rv">
-          {% if project.image %}
-            <img class="card-thumb" src="{{ project.image | relative_url }}" alt="" loading="lazy">
-          {% else %}
-            <canvas class="card-thumb" data-seed="{{ forloop.index | times: 23 | plus: 5 }}" data-mode="{{ forloop.index | modulo: 4 }}" aria-hidden="true"></canvas>
-          {% endif %}
+          {% include work-cover.html work=project %}
           <h3>{{ project.title }}</h3>
           {% if project.excerpt %}
             <p>{{ project.excerpt }}</p>
@@ -212,14 +204,15 @@ redirect_from:
 <section class="section" id="teaching" aria-labelledby="teaching-title">
   <div class="section-heading rv">
     <p class="section-label"><span class="mk">##</span> Teaching</p>
-    <h2 id="teaching-title">Running labs, writing rubrics, covering lectures.</h2>
+    <h2 id="teaching-title">Designing courses. Teaching through practice.</h2>
     <p>
       Teaching assistant in the
       <a href="https://www.cs.iastate.edu/" rel="noopener">Department of Computer Science</a>
-      at Iowa State University, across the introductory programming and artificial-intelligence courses.
+      at Iowa State University, contributing to course design, introductory programming, and artificial intelligence.
     </p>
   </div>
   <ul class="timeline rv">
+    {% include course-design.html %}
     <li>
       <span class="timeline-dates">Spring 2023 &ndash; present</span>
       <div>
@@ -259,6 +252,7 @@ redirect_from:
 
 <section class="section contact" id="contact" aria-labelledby="contact-title">
   <p class="section-label rv"><span class="mk">##</span> Contact</p>
+  <h2 id="contact-title" class="rv">Let’s connect.</h2>
   <p class="rv">The fastest way to reach me is <a href="mailto:ahzahid@iastate.edu">email</a>.</p>
   <nav class="contact-links rv" aria-label="Contact links">
     <a class="primary-link" href="mailto:ahzahid@iastate.edu">Email</a>

@@ -1,4 +1,7 @@
 ---
+cover_label: "Software engineering education"
+cover_title: "Learn by building."
+cover_caption: "A conceptual platform for virtual internships."
 title: "A Conceptual Design of Virtual Internship System"
 collection: publications
 permalink: /publication/virtual-internship-system/

@@ -659,20 +659,46 @@ main.page { padding-top: 0; }
   box-shadow: var(--shadow);
 }
 
-/* generative / real thumbnail */
-.card-thumb {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  display: block;
+/* Topic-specific typographic covers; content is readable without JavaScript. */
+.work-cover {
+  min-height: 210px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
   background: var(--surface-2);
   border-bottom: 1px solid var(--line);
+  border-top: 3px solid var(--accent);
 }
-
-.publication-card > :not(.card-thumb),
-.project-card > :not(.card-thumb),
-.post-card > :not(.card-thumb) {
+.cover-label {
+  color: var(--accent);
+  font-family: var(--f-mono);
+  font-size: .68rem;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+.cover-title {
+  font-family: var(--f-display);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 900;
+  letter-spacing: -.045em;
+  line-height: 1.05;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+.cover-caption {
+  color: var(--muted);
+  font-size: .88rem;
+  line-height: 1.4;
+}
+.publication-card > :not(.work-cover),
+.project-card > :not(.work-cover),
+.post-card > * {
   margin-inline: 22px;
 }
+.project-card > h3:first-child { margin-top: 22px; }
 
 .publication-card > .badge,
 .project-card > .badge { margin-top: 22px; }
@@ -819,6 +845,7 @@ main.page { padding-top: 0; }
 .timeline h3 { margin-bottom: 4px; font-size: 1.05rem; }
 .timeline h3 a { color: var(--accent); }
 .timeline p { font-size: .95rem; }
+.timeline p + p { margin-top: 12px; }
 
 @media (max-width: 620px) {
   .timeline li { grid-template-columns: 1fr; gap: 6px; }
@@ -1080,4 +1107,14 @@ main.page { padding-top: 0; }
 @media (max-width: 720px) {
   .page-intro,
   .intro { padding-top: 108px; }
+}
+
+@media (max-width: 640px) {
+  .site-header > .header-inner { height: auto; min-height: 92px; flex-wrap: wrap; padding-block: 10px; gap: 6px 12px; }
+  .site-nav { order: 3; flex-basis: 100%; min-width: 0; }
+  .theme-toggle { margin-left: auto; }
+  .hero-inner { padding-top: 140px; }
+  .page-intro, .intro, .publication-single { padding-top: 140px; }
+  html { scroll-padding-top: 120px; }
+  .work-cover { min-height: 190px; padding: 22px; }
 }

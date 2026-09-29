@@ -23,8 +23,9 @@ excerpt: "Research papers, systems, and software projects by Anwar Hossain Zahid
     {% assign publications = site.publications | sort: "date" | reverse %}
     {% for paper in publications %}
       <article class="publication-card">
+        {% include work-cover.html work=paper %}
         <span class="badge">{{ paper.venue }}</span>
-        <h3>{{ paper.title }}</h3>
+        <h3><a href="{{ paper.url | relative_url }}">{{ paper.title }}</a></h3>
         {% if paper.authors %}
           <p class="publication-authors">{{ paper.authors | replace: "Anwar Hossain Zahid", "<strong>Anwar Hossain Zahid</strong>" }}</p>
         {% endif %}
@@ -48,6 +49,7 @@ excerpt: "Research papers, systems, and software projects by Anwar Hossain Zahid
     {% for item in featured %}
       {% if item.title %}
         <article class="project-card">
+          {% include work-cover.html work=item %}
           <h3>{{ item.title }}</h3>
           <p>{{ item.excerpt }}</p>
           {% if item.tech %}

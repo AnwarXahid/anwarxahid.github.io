@@ -1,4 +1,7 @@
 ---
+cover_label: "GPU numerics"
+cover_title: "NVIDIA / AMD"
+cover_caption: "Same computation. Different results."
 title: "Testing GPU Numerics: Finding Numerical Differences Between NVIDIA and AMD GPUs"
 collection: publications
 permalink: /publication/testing-gpu-numerics/

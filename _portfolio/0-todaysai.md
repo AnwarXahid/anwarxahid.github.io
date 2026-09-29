@@ -1,4 +1,7 @@
 ---
+cover_label: "AI literacy"
+cover_title: "Today’s AI"
+cover_caption: "Discover tools. Learn how to use them."
 title: "Today's AI — Find AI tools and learn how to use them"
 excerpt: "A web platform that helps K-12, undergraduate, and graduate learners — and anyone curious about AI — discover the right AI tools and learn to use them, built as Creator & Lead Developer under the direction of Prof. Wei Le."
 tech: "Web platform, LLM assistant, Search, AI literacy"

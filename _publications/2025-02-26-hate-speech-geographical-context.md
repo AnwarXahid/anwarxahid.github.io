@@ -1,4 +1,7 @@
 ---
+cover_label: "LLM evaluation"
+cover_title: "Context matters."
+cover_caption: "Hate speech detection across geographies."
 title: "Evaluation of Hate Speech Detection Using Large Language Models and Geographical Contextualization"
 collection: publications
 permalink: /publication/hate-speech-geographical-context/

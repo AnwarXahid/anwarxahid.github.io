@@ -1,4 +1,7 @@
 ---
+cover_label: "LLNL / Varity"
+cover_title: "Across GPUs."
+cover_caption: "HIP code generation for numerical testing."
 title: "GPU Numerical Testing – HIP Code Generation in Varity"
 excerpt: "Contributed to the LLNL Varity project by implementing HIP backend generation for GPU kernel testing, enabling cross-platform numerical consistency evaluation."
 tech: "C++, HIP, CUDA, LLVM"
