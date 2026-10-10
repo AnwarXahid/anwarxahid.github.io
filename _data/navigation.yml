@@ -15,3 +15,5 @@ main:
     url: /#writing
   - title: "Contact"
     url: /#contact
+  - title: "Fun"
+    url: /fun/

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title }} · {{ site.title }}</title>
+    <meta name="description" content="{{ page.excerpt | escape }}">
+    <meta name="theme-color" content="#0a0c11">
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
+    <link rel="icon" href="{{ '/images/favicon.svg' | relative_url }}" type="image/svg+xml">
+    <link rel="stylesheet" href="{{ '/assets/css/lab.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/fun.css' | relative_url }}">
+    <script src="{{ '/assets/js/fun.js' | relative_url }}" defer></script>
+  </head>
+  <body class="fun-page">
+    <a class="skip-link" href="#main">Skip to the arcade</a>
+    <header class="fun-header">
+      <a class="site-title" href="{{ '/' | relative_url }}"><span class="dot" aria-hidden="true"></span>Anwar Zahid<span class="lab-tag">/ after hours</span></a>
+      <nav aria-label="Arcade navigation">
+        <button class="effects-toggle" id="effects-toggle" type="button" aria-pressed="true">Effects on</button>
+        <a class="back-link" href="{{ '/' | relative_url }}">← Back to portfolio</a>
+      </nav>
+    </header>
+    <main id="main" class="fun-shell">{{ content }}</main>
+    <footer class="fun-footer">
+      <span>© {{ site.time | date: '%Y' }} Anwar Hossain Zahid · Iowa State University</span>
+      <span>Scores stay in your browser. The stars remain unqualified.</span>
+    </footer>
+  </body>
+</html>
