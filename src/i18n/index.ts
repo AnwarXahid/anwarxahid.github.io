@@ -17,7 +17,14 @@ downloadQr|Download QR PNG|কিউআর PNG ডাউনলোড|Descargar P
 qrDownloaded|QR image downloaded.|কিউআর ছবি ডাউনলোড হয়েছে।|Imagen QR descargada.|क्यूआर छवि डाउनलोड हुई।|Image QR téléchargée.|تم تنزيل صورة رمز QR.
 qrDownloadError|Could not download the QR image. Try again.|কিউআর ছবি ডাউনলোড হয়নি। আবার চেষ্টা করুন।|No se pudo descargar el QR. Inténtalo de nuevo.|क्यूआर छवि डाउनलोड नहीं हुई। फिर कोशिश करें।|Impossible de télécharger le QR. Réessayez.|تعذر تنزيل صورة رمز QR. حاول مجددًا.
 qrContent|Link or short text|লিংক বা ছোট লেখা|Enlace o texto breve|लिंक या छोटा पाठ|Lien ou court texte|رابط أو نص قصير
+qrPresets|Quick examples|দ্রুত উদাহরণ|Ejemplos rápidos|त्वरित उदाहरण|Exemples rapides|أمثلة سريعة
+qrWebsite|Website|ওয়েবসাইট|Sitio web|वेबसाइट|Site web|موقع ويب
+qrWifi|Wi-Fi|ওয়াই-ফাই|Wi-Fi|वाई-फ़ाई|Wi-Fi|واي فاي
+qrEmail|Email|ইমেইল|Correo|ईमेल|E-mail|بريد إلكتروني
+qrPhone|Phone|ফোন|Teléfono|फ़ोन|Téléphone|هاتف
 qrColors|Color palette|রঙের প্যালেট|Paleta de colores|रंग संयोजन|Palette de couleurs|لوحة الألوان
+qrForeground|Code color|কোডের রঙ|Color del código|कोड का रंग|Couleur du code|لون الرمز
+qrBackground|Background color|পটভূমির রঙ|Color de fondo|पृष्ठभूमि का रंग|Couleur de fond|لون الخلفية
 qrSage|Sage|সেজ সবুজ|Salvia|सेज हरा|Sauge|أخضر مريمي
 qrClassic|Classic|চিরায়ত|Clásico|क्लासिक|Classique|كلاسيكي
 qrOcean|Ocean|সমুদ্র|Océano|समुद्र|Océan|محيط

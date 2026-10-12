@@ -1,6 +1,6 @@
 # Anwar Zahid's portfolio + Quizora
 
-An Astro static portfolio with a React quiz application at `/exam/` and a browser-only QR tool at `/exam/qr/`. Published quizzes show a scannable participant link. Quizora's Hono Worker and Cloudflare D1 backend store quizzes and submissions. AI is optional and hidden in the pilot build. No public deployment is performed by installing or running this repository.
+An Astro static portfolio with an Unsupervised Lab at `/lab/`. The Lab features Quizora at `/exam/`, a browser-only QR tool at `/exam/qr/`, and a preview of the upcoming PromptPilot v2 extension. Published quizzes show a scannable participant link. Quizora's Hono Worker and Cloudflare D1 backend store quizzes and submissions. AI is optional and hidden in the pilot build. No public deployment is performed by installing or running this repository.
 
 ## Local development
 
@@ -42,4 +42,4 @@ See [implementation progress](docs/PROGRESS.md) for actual verification results 
 
 The optional `local-ai/` service uses FastAPI and Ollama on loopback, plus an outbound HTTPS agent. It requires a locally installed model and provisioned secrets. Set `PUBLIC_ENABLE_AI=true` only after configuring that service and the Worker; the pilot defaults to `false`. Manual creation, QR codes, and participation work without AI. Uploaded originals are not retained; only selected source text is transmitted after consent when AI is enabled. Quizzes expire within 90 days, responses within 30 days after closure (capped by quiz expiry), and temporary AI data within an hour or acknowledged retrieval. Backups have separate retention.
 
-GitHub Pages deployment is a manual workflow restricted to `master`. Cloudflare account/database IDs, private secrets, Turnstile and the public API URL must be configured separately. Paid resources, remote load tests and public publication require authorization. The original portfolio and arcade sources remain intact for migration review and rollback.
+GitHub Pages deployment is a manual workflow restricted to `master`. Cloudflare account/database IDs, private secrets, Turnstile and the public API URL must be configured separately. Paid resources, remote load tests and public publication require authorization. The old Fun URL redirects to the Lab; the arcade source was removed from the active site.
