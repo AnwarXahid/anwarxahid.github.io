@@ -1,0 +1,251 @@
+{
+  "pages": [
+    {
+      "source": "_pages/404.md",
+      "url": "/404.html",
+      "title": "Page Not Found",
+      "redirects": []
+    },
+    {
+      "source": "_pages/about-me.md",
+      "url": "/about-me/",
+      "title": "About",
+      "redirects": [
+        "/resume"
+      ]
+    },
+    {
+      "source": "_pages/about.md",
+      "url": "/",
+      "title": "",
+      "redirects": [
+        "/about/",
+        "/about.html"
+      ]
+    },
+    {
+      "source": "_pages/blog.md",
+      "url": "/blog/",
+      "title": "Research Notes",
+      "redirects": []
+    },
+    {
+      "source": "_pages/fun.html",
+      "url": "/fun/",
+      "title": "The After-Hours Lab",
+      "redirects": []
+    },
+    {
+      "source": "_pages/publications.md",
+      "url": "/publications/",
+      "title": "Publications",
+      "redirects": []
+    },
+    {
+      "source": "_pages/works.md",
+      "url": "/works/",
+      "title": "Works",
+      "redirects": []
+    },
+    {
+      "source": "_posts/2025-07-07-GPU-Numerics.md",
+      "url": "/blog/GPU-Numerics/",
+      "title": "Testing GPU Numerics: Finding Numerical Differences Between NVIDIA and AMD GPUs",
+      "redirects": []
+    },
+    {
+      "source": "_posts/2025-07-08-soft-assertions-numerical-instability.md",
+      "url": "/blog/soft-assertions-numerical-instability/",
+      "title": "Automatically Detecting Numerical Instability in ML via Soft Assertions",
+      "redirects": []
+    },
+    {
+      "source": "_posts/2026-05-01-what-i-am-building-next.md",
+      "url": "/blog/what-i-am-building-next/",
+      "title": "What I Want This Blog to Become",
+      "redirects": []
+    },
+    {
+      "source": "_publications/2020-12-19-virtual-internship-system.md",
+      "url": "/publication/virtual-internship-system/",
+      "title": "A Conceptual Design of Virtual Internship System",
+      "redirects": []
+    },
+    {
+      "source": "_publications/2024-10-12-testing-gpu-numerics.md",
+      "url": "/publication/testing-gpu-numerics/",
+      "title": "Testing GPU Numerics: Finding Numerical Differences Between NVIDIA and AMD GPUs",
+      "redirects": []
+    },
+    {
+      "source": "_publications/2025-02-26-hate-speech-geographical-context.md",
+      "url": "/publication/hate-speech-geographical-context/",
+      "title": "Evaluation of Hate Speech Detection Using Large Language Models and Geographical Contextualization",
+      "redirects": []
+    },
+    {
+      "source": "_publications/2025-07-01-soft-assertions.md",
+      "url": "/publication/soft-assertions/",
+      "title": "Automatically Detecting Numerical Instability in Machine Learning Applications via Soft Assertions",
+      "redirects": []
+    },
+    {
+      "source": "_portfolio/0-todaysai.md",
+      "url": "/portfolio/0-todaysai/",
+      "title": "Today's AI — Find AI tools and learn how to use them",
+      "redirects": []
+    },
+    {
+      "source": "_portfolio/1-soft-assertion.md",
+      "url": "/portfolio/1-soft-assertion/",
+      "title": "Automatically Detecting Numerical Instability in Machine Learning Applications via Soft Assertions",
+      "redirects": []
+    },
+    {
+      "source": "_portfolio/2-varity-contibution.md",
+      "url": "/portfolio/2-varity-contibution/",
+      "title": "GPU Numerical Testing – HIP Code Generation in Varity",
+      "redirects": []
+    },
+    {
+      "source": "_portfolio/3-Hate-Speech.md",
+      "url": "/portfolio/3-Hate-Speech/",
+      "title": "Hate Speech Detection with Geographical Context",
+      "redirects": []
+    },
+    {
+      "source": "_portfolio/4-face-recog.md",
+      "url": "/portfolio/4-face-recog/",
+      "title": "Face Recognition with Liveliness Detection",
+      "redirects": []
+    },
+    {
+      "source": "_portfolio/5-prp-sso.md",
+      "url": "/portfolio/5-prp-sso/",
+      "title": "Parliament Resource Planning – SSO Integration",
+      "redirects": []
+    },
+    {
+      "source": "_portfolio/6-moneygram-soap-api.md",
+      "url": "/portfolio/6-moneygram-soap-api/",
+      "title": "MoneyGram SOAP API Integration",
+      "redirects": []
+    },
+    {
+      "source": "_portfolio/7-COM-S-572.md",
+      "url": "/portfolio/7-COM-S-572/",
+      "title": "COM S 572 – Machine Learning Project",
+      "redirects": []
+    },
+    {
+      "source": "_portfolio/8-othello-agent.md",
+      "url": "/portfolio/8-othello-agent/",
+      "title": "Othello AI Agent",
+      "redirects": []
+    },
+    {
+      "source": "_portfolio/9-mancala.md",
+      "url": "/portfolio/9-mancala/",
+      "title": "Mancala Game Simulation",
+      "redirects": []
+    },
+    {
+      "source": "_portfolio/91-Ray-tracing.md",
+      "url": "/portfolio/91-Ray-tracing/",
+      "title": "Ray Tracing Renderer",
+      "redirects": []
+    },
+    {
+      "source": "_portfolio/92-Nachos.md",
+      "url": "/portfolio/92-Nachos/",
+      "title": "Nachos – Instructional Operating System",
+      "redirects": []
+    },
+    {
+      "source": "_portfolio/93-channel-equ.md",
+      "url": "/portfolio/93-channel-equ/",
+      "title": "Channel Equalization for Wireless Communication",
+      "redirects": []
+    }
+  ],
+  "assets": {
+    "assets/css/academicons.css": "8ddb8378dd9ab6a0e67f4ba79ecd2e3909045168ecd19111d1ce62ead3e133d5",
+    "assets/css/academicons.min.css": "0c9212a44088b2629a25bf60cd4ac0ffc7dfff6ac57cd7af9389f91782269295",
+    "assets/css/collapse.css": "de3558705c2cb353f1ed702e3ea5b33efc19186fe5b2128f93ea52d30fd658d8",
+    "assets/css/fun.css": "98732c38bf5a9aa8a2183afa05e9557aaad76ce53daccd7a088eabb51174eafb",
+    "assets/css/lab.css": "6ad11942508c4897718bf95306c5f4e19c4c75c79d73083289a3636a12602fa9",
+    "assets/css/main.scss": "61270548a6a61d50503e51cc7874fb4f625f06260f7d919ac947529c48d998fc",
+    "assets/fonts/academicons.eot": "8682d641a9ad2c7f47417276608b91e9ede388ed86a59a5abb30c18be5c45f85",
+    "assets/fonts/academicons.svg": "157fc3285ce4a3ae8ab339d3f323dba24b1a9db27539af1df1bdf5383a019a47",
+    "assets/fonts/academicons.ttf": "4bd6a7a0f381d58523eea0e78c0f075fae0385581ed31dac1376127fc9dfe531",
+    "assets/fonts/academicons.woff": "40dc519d708cbb4b06ba3b0f6377e0f5972ed19464e5fd389b23102974eebf71",
+    "assets/fonts/fa-brands-400.eot": "9158ee2ef88ea648444ba1c9fcea310baa1e5e4e5fe86e338dcd29fcb081cfc7",
+    "assets/fonts/fa-brands-400.svg": "7aadbc4ac7f80413de00052694c1a44e0b0dbf0e2d7f739c628b88b28bb72bfa",
+    "assets/fonts/fa-brands-400.ttf": "dbd08d025602b79ce71910b2a68577959cbf2ef02fc664e243bf50277754fdfc",
+    "assets/fonts/fa-brands-400.woff": "ca441c07992a7160e4d2622e78f8970c9b92f176694c8dc07592326496a801d6",
+    "assets/fonts/fa-brands-400.woff2": "05dbc51654b96590d176c27efbcef2cf4ac0497499a9f28b731b73eea399070c",
+    "assets/fonts/fa-regular-400.eot": "169416887c9d3c310bf02a12eaf82269d4cf77b16af2e91745b1c152bba0061d",
+    "assets/fonts/fa-regular-400.svg": "59dc408283c57a47d27b2a2852726f43db3285cab7e3d6297e8da7c901857f7b",
+    "assets/fonts/fa-regular-400.ttf": "ecb5719eb6408359d91fd2530646064a3f251aed691fd48277289cc8d6d53dfa",
+    "assets/fonts/fa-regular-400.woff": "f101b8f70e36be2e9004222875e9fd45b263f72769c68e25e3c7525d3871728b",
+    "assets/fonts/fa-regular-400.woff2": "92ba7bfaa43a35c94353e96860d99376313ee9b5fce6124d4e64067280f9a841",
+    "assets/fonts/fa-solid-900.eot": "690be61fe58020511558ce4b04375178872629f6c737ed1b332aec65855fd937",
+    "assets/fonts/fa-solid-900.svg": "22f6af77ffeeb267c5270fa1e50681ae01a9a19f8e9ef976798e0196c941ade6",
+    "assets/fonts/fa-solid-900.ttf": "b97adad7ece9792af4122ae88103cad8fab54558a529c4ba79b5224c2b02ebe9",
+    "assets/fonts/fa-solid-900.woff": "8fb19633f125ca466a45da9e4cf291d8b9519dd74c214f99dde835ef83f3ab96",
+    "assets/fonts/fa-solid-900.woff2": "7798165ee5a3c6809310d8261dcbe7c8d0c12d795b7b09a71af3eb86ec8f33f2",
+    "assets/img/headshot.jpg": "c237357191833c4f7d7c4169f6bc367e735d5e641e732f5b6c3af950cbb19733",
+    "assets/img/headshot@2x.jpg": "9da57e57af6581fecc0b3a1207ee98bc9b7c8aac53f1ba9761ef32eebdb99b07",
+    "assets/img/todays-ai-thumbnail.webp": "6a1ecc46062dcb83e8af5baa0a8362f36da67612df749843c83f3800a9d2e242",
+    "assets/js/_main.js": "8f2c951de893f80cefaf8a04e435360d8aed0d49c962e253d0d61e375c781577",
+    "assets/js/active-nav.js": "05a014f2be8f5af7417bea9eed2bef3897374d9106e3092e95860dbf730561f3",
+    "assets/js/collapse.js": "50c837147a7517648fac3a901cb65f38d70bef3bed3f5374f849643d5183a2de",
+    "assets/js/fun.js": "4181205c803df6e7efd4ab596981405eb4a94f0dd169ecaaaa10ef9529c96b2f",
+    "assets/js/lab.js": "b039c6ebb9c4eb037ab91e5e5d75d2553f12e79e31a530ad23ba22474380765a",
+    "assets/js/likes.js": "54b16b3e563ebfd354b024e1e1f1bfb78941ee62e6aa0b3607b942b5488e19df",
+    "assets/js/main.min.js": "a095bd9fc67b743c81944eff8170335d82819b62c1d0dbb8fd672b440753f40e",
+    "assets/js/plugins/jquery.fitvids.js": "6ed21976d75c5cda23d8b4ddaadea659cea365a95d49e16a85f5ee7f41814d74",
+    "assets/js/plugins/jquery.greedy-navigation.js": "1c17cee1abd6f9ff360b757d5be37c4b5eaf4d7ed9ed47091f5d1e5647889fa7",
+    "assets/js/plugins/jquery.magnific-popup.js": "126ad68514f770cc32dc989eceddf38a81539e68f15229b56130063e1ee647a1",
+    "assets/js/plugins/jquery.smooth-scroll.min.js": "e32af58138714978e72d5af2cc687dc856883ba42fcac80350408baef0ba8a16",
+    "assets/js/plugins/stickyfill.min.js": "d354f58e183ed80cfd5f1e23cc3eba3913c3cc9b5e16ceef19adea6b68560336",
+    "assets/js/vendor/jquery/jquery-1.12.4.min.js": "8c2812ded6436715279f8fd8db58de307aa39ab0296fe3cf0e879067c51e9b18",
+    "files/paper1.pdf": "0fa3ddeabd3847bd77d9ce2ef0cf695ec3329a5e0bbbe84fa9f415721fb4593d",
+    "files/paper2.pdf": "f07e72c2f09821b5f5bf10eb8659858261ed534c1d4bd02ee90b33996a933da2",
+    "files/paper3.pdf": "d88074d5e623b09259e0ea46ac09a3b08460d811ad0f32e4e0ea77df7be9d5d6",
+    "files/resume.pdf": "8a66cd2caaea84261fab1d94cc85066901ef215a1aad14ed73e2474663296e59",
+    "images/3953273590_704e3899d5_m.jpg": "5c7bf21875d58fd659e9d776b67de8ed3a9987790d9796eaec19e398cf31761e",
+    "images/500x300.png": "979e1be830672c5888c1a8144c5b40b7244136f70028e457584ae3068f4596ae",
+    "images/bio-photo-2.jpg": "a6a33b1384aab43201fb97f301af47ce417e9af4d16582857f50320e47f42487",
+    "images/bio-photo.jpg": "619517dbf49b760aa3c433f0bb6de424d1919074777a1153d549284b7945c11a",
+    "images/browserconfig.xml": "d747da16010b583b6f0fb46b698cbd98e792bfb06963994034869c0c6ddcdba9",
+    "images/editing-talk.png": "3177d9b8696c73781bf6fe320aa92ae5aa500f29942d104583442b1a712d74f8",
+    "images/favicon.svg": "87362e84b9e03332629c21e14639ef7595b8a03f3fdceaa080df38c84f346cb7",
+    "images/foo-bar-identity-th.jpg": "78964e9d6c7399b4a3ff97ffe0a5e554c3215f207c35fabc70bc561e0bb60b82",
+    "images/foo-bar-identity.jpg": "8b315d6ae1e2adefc6683d070f9a29d05bd68cd41e3c291c054f21ca4d81030e",
+    "images/image-alignment-1200x4002.jpg": "5998988c2105c2d48274c512fc9edfc988770cc1546573957f40b97fa01c2eb9",
+    "images/image-alignment-150x150.jpg": "7325611dd32c839e7255eab043603846e6934893f6cd8db0be4e1087246a78e6",
+    "images/image-alignment-300x200.jpg": "645b8d1100d4a10f527b64dd05f2aaf4731a8f28149bb1cda61d6138bf0cc6f0",
+    "images/image-alignment-580x300.jpg": "b60ab421c545a35f6c1a672a55481867dfbd19ff5b4017c1b0dc4497b29a22d0",
+    "images/manifest.json": "4a0cc17cbeed804dc3fabfe39d6c1d72ad418a7b08eb469364ffe24bb391bdf2",
+    "images/mstile-144x144.png": "6d7b2e6b7ef6535977fbfbe05eaa5e801b00103d920c3e2c7ddc7c29ee904698",
+    "images/mstile-150x150.png": "a311dd950ab1c6359e86745a592f734f8a668142f5d5b9a818e56818755697c0",
+    "images/mstile-310x150.png": "8c99a8d250718b847b840b2922420e5b74a0df28ef1856dc96045883e323ad23",
+    "images/mstile-310x310.png": "84f8b2b20024cc501e49873d93b43b7750da127d008172466eb2673ca5b02944",
+    "images/mstile-70x70.png": "3c5ef6a88e4cc8486af6ec878357ea4979b6febbb9c2bfb05a475c8be5578279",
+    "images/og-image.png": "9b3e8140620013c5239d291b758fe55d629154fd8ae28b1f62d8729a525c8e05",
+    "images/paragraph-indent.png": "ff9d2d5a46514a8893e090e9d40a79b2a0f45e12711a5a74f8c58832bc0adf5c",
+    "images/paragraph-no-indent.png": "7228cb80a792d1b2817ee7c2f430bdc7c9166d2f06931a5a70661f8b6d282cc9",
+    "images/profile.jpg": "0997dbfd7539e9f1b6add923f20e3cce3101ab578c835cc3e3ffbe419eb6462a",
+    "images/safari-pinned-tab.svg": "8c12f1e89c965f4affefe5a14b49a9703326d2f47cbb6996e0074b29da0af5e9",
+    "images/site-logo.png": "2860aad66ffb7e54099624b71a1cc28f556a4c0a93c4332fc87cd070172c6d3d",
+    "images/social-preview.svg": "7c3c2437763ecec431b483f0e228839c507ba0cd223c9a1913f466e85654fc7a",
+    "images/tumor_before_after.png": "28c80c66cb422b9db08a78d4297ca6265bfab03d0461126a5a90859651b4f082",
+    "talkmap/leaflet_dist/MarkerCluster.Default.css": "f2f2cc133159476073016c74e84d32ec00d69733121dab18e377246550324911",
+    "talkmap/leaflet_dist/MarkerCluster.css": "f0596a4f11c3d4226b2b6a6df09b6190305ba18a66b388f909ad20265d610bb6",
+    "talkmap/leaflet_dist/leaflet.markercluster-src.js": "c935ebba5e9c79e272a1502d10614bd8e5196073e2960e360729c8a639265810",
+    "talkmap/leaflet_dist/leaflet.markercluster.js": "aac5dd13650ec1c549ea3d8bd8cf6664ce4cbaa93b0ed112997021800cf32418",
+    "talkmap/leaflet_dist/screen.css": "308465623af7d1bac55c0b681e1c3b6865e9beb9fac3f35b989771996eb207e0",
+    "talkmap/org-locations.js": "0ceadefda87f782e77930d30705e3911a7551b548b21c36d3f713d131509ae65"
+  }
+}

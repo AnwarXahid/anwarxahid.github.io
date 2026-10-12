@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-12T05:25:33.223Z",
+  "environment": {
+    "platform": "linux",
+    "cpu": "Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz",
+    "cores": 8,
+    "memoryGB": 30,
+    "node": "v22.22.1"
+  },
+  "remote": false,
+  "notes": "Local Miniflare/workerd + real D1 SQLite. Accelerated synchronized join/submit, three changed autosave rounds with jitter; not a 30-minute production-capacity measurement. D1 row metadata excludes publication batch and underlying index accounting may differ remotely.",
+  "runs": [
+    {
+      "participants": 25,
+      "durationSeconds": 5.91,
+      "requests": 228,
+      "p50Ms": 56.09,
+      "p95Ms": 174.03,
+      "failures": 0,
+      "failureExamples": [],
+      "rowsRead": 1481,
+      "rowsWritten": 482,
+      "correctResults": 25,
+      "uniqueAttempts": 25,
+      "pass": true
+    },
+    {
+      "participants": 50,
+      "durationSeconds": 6.38,
+      "requests": 453,
+      "p50Ms": 125.74,
+      "p95Ms": 242.85,
+      "failures": 0,
+      "failureExamples": [],
+      "rowsRead": 3583,
+      "rowsWritten": 953,
+      "correctResults": 50,
+      "uniqueAttempts": 50,
+      "pass": true
+    },
+    {
+      "participants": 100,
+      "durationSeconds": 7.33,
+      "requests": 903,
+      "p50Ms": 240.5,
+      "p95Ms": 446.47,
+      "failures": 0,
+      "failureExamples": [],
+      "rowsRead": 9658,
+      "rowsWritten": 1903,
+      "correctResults": 100,
+      "uniqueAttempts": 100,
+      "pass": true
+    },
+    {
+      "participants": 250,
+      "durationSeconds": 12.06,
+      "requests": 2253,
+      "p50Ms": 456.29,
+      "p95Ms": 1270.41,
+      "failures": 0,
+      "failureExamples": [],
+      "rowsRead": 42883,
+      "rowsWritten": 4753,
+      "correctResults": 250,
+      "uniqueAttempts": 250,
+      "pass": true
+    },
+    {
+      "participants": 500,
+      "durationSeconds": 19.58,
+      "requests": 4503,
+      "p50Ms": 1433.93,
+      "p95Ms": 2510.87,
+      "failures": 0,
+      "failureExamples": [],
+      "rowsRead": 148257,
+      "rowsWritten": 9505,
+      "correctResults": 500,
+      "uniqueAttempts": 500,
+      "pass": true
+    }
+  ]
+}

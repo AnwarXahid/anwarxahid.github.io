@@ -1,0 +1,6 @@
+# Copy to worker/.dev.vars, ignored by Git. Generate separate random secrets.
+# AI_CREATOR_SECRET gates optional AI generation. Agent key is never given to browsers.
+AI_CREATOR_SECRET=
+AGENT_SECRET=
+ADMIN_SECRET=
+TURNSTILE_SECRET=

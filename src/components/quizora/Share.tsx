@@ -1,0 +1,5 @@
+import {useI18n} from '../../i18n';
+import {download} from '../../lib/api';
+import {Copy,Field} from './common';
+import {QuizQr} from './QrTool';
+export default function Share({id,code,token}:{id:string;code:string;token:string}){const {t}=useI18n();const student=`${location.origin}/exam/take/?id=${id}`,manager=`${location.origin}/exam/manage/#token=${token}`;return <section className="card stack"><p className="eyebrow">{t('published')}</p><h2>{t('share')}</h2><div className="share-grid"><div className="stack"><Field label="code"><input readOnly value={code}/></Field><Field label="studentLink"><input readOnly value={student}/></Field><Copy value={student}/></div><QuizQr url={student} code={code}/></div><div className="private-share stack"><Field label="managementLink"><input readOnly type="password" value={manager}/></Field><Copy value={manager}/><p className="notice">{t('secretWarning')}</p><div className="row"><button onClick={()=>download('quizora-recovery.json',JSON.stringify({quizId:id,code,managementLink:manager},null,2))}>{t('recovery')}</button><a className="button secondary" href={manager}>{t('manage')}</a></div></div></section>;}
