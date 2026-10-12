@@ -1,4 +1,6 @@
 main:
+  - title: "Unsupervised Lab"
+    url: /lab/
   - title: "About"
     url: /#about
   - title: "Research"
@@ -15,5 +17,3 @@ main:
     url: /#writing
   - title: "Contact"
     url: /#contact
-  - title: "Fun"
-    url: /fun/

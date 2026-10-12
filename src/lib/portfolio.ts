@@ -29,7 +29,6 @@ export async function renderPortfolio(page:RecordPage, all:RecordPage[]){
  const site=parse(await fs.readFile('_config.yml','utf8'));
  site.time=new Date();site.data={};
  for(const file of (await fs.readdir('_data')).filter(s=>s.endsWith('.yml')))site.data[file.replace('.yml','')]=parse(await fs.readFile(`_data/${file}`,'utf8'));
- site.data.navigation.main.push({title:'Quizora',url:'/exam/'});
  site.posts=all.filter(p=>p.path.startsWith('_posts')).sort((a,b)=>String(b.date).localeCompare(String(a.date)));
  site.portfolio=all.filter(p=>p.path.startsWith('_portfolio'));
  site.publications=all.filter(p=>p.path.startsWith('_publications'));

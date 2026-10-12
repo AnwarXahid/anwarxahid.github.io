@@ -1,10 +1,17 @@
 # Quizora implementation record
 
-Baseline: clean `master`, Jekyll, origin AnwarXahid/anwarxahid.github.io. The work is on `feature/astro-quizora`. Original portfolio sources remain authoritative during migration. No public deployment or production mutation has been performed.
+This records the original Quizora implementation and its local verification. The portfolio is now deployed through GitHub Pages, and the current navigation groups tools under `/lab/`.
+
+## Unsupervised Lab update, 12 October 2026
+
+- Replaced the Fun and Quizora top navigation entries with Unsupervised Lab. `/fun/` redirects to `/lab/`; its arcade source and assets were removed.
+- Featured Quizora, the QR Code Generator, and a PromptPilot v2 preview, with space for a future project.
+- Brought preset content and custom color controls from `qr-code-generator` into the published `/exam/qr/` tool.
+- `npm run check`, `npm test`, `npm run build`, inventory verification, and targeted Lab/QR browser tests passed. The current inventory contains 27 content routes and redirects, 8 exam routes, and 77 assets.
 
 ## Implementation checklist
 
-- [x] Astro static portfolio adapter, URL and asset inventory, unchanged arcade, manual deployment configuration.
+- [x] Astro static portfolio adapter, URL and asset inventory, and manual deployment configuration.
 - [x] Shared strict schemas, deterministic grading, D1 migrations and manual publication.
 - [x] Participant capabilities, server timing, conditional saves and final submission, recovery.
 - [x] Management, manual grades, independent release, exports, deletion and retention.
@@ -21,7 +28,7 @@ Baseline: clean `master`, Jekyll, origin AnwarXahid/anwarxahid.github.io. The wo
 - `npm run inventory` and `node scripts/verify-build.mjs`: 27 content routes and redirects, 8 exam routes and 78 unchanged assets verified.
 - `npm run ai:schema`: passed. `local-ai/.venv/bin/python -m pytest -q local-ai`: 3 passed.
 - `npm run db:migrate`: 16 local D1 commands applied successfully.
-- `npm run test:e2e`: 5 passed in Chrome against local Astro and Wrangler, covering portfolio arcade, publication and recovery with participant QR, responsive locales/RTL/axe accessibility, file/editor flow, QR download and phone accessibility. The installed `/usr/bin/google-chrome` was used through `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH`.
+- `npm run test:e2e`: 5 passed in Chrome against local Astro and Wrangler at the original launch, including the former arcade. The current browser tests cover the Lab instead.
 - `npm run load`: all five local Miniflare/D1 runs passed at 25, 50, 100, 250 and 500 participants. At 500, 4,503 measured requests had zero errors and p95 latency of 2,510.87 ms. Detailed environment, row counts and limitations are in [load-results.json](load-results.json).
 
 ## Launch gates
