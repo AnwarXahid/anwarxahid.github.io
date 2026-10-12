@@ -1,0 +1,6 @@
+---
+import '../styles/quizora.css';
+import 'katex/dist/katex.min.css';
+const {title='Quizora — Create. Share. Learn.'}=Astro.props;
+---
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="referrer" content="no-referrer"/><title>{title}</title><meta name="description" content="Build quizzes and exams from your lessons and ideas. Create. Share. Learn."/><link rel="canonical" href={new URL(Astro.url.pathname,Astro.site)}/><link rel="icon" type="image/svg+xml" href="/quizora.svg"/><script is:inline>try{document.documentElement.dataset.theme=localStorage.getItem('quizora.theme')||'system';}catch{}</script></head><body><slot/><noscript><p>Quizora requires JavaScript for private quiz creation and participation. <a href="/">Return to the portfolio</a>.</p></noscript></body></html>

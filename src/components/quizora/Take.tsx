@@ -1,0 +1,46 @@
+import {useEffect,useRef,useState} from 'react';
+import type {Answer,Answers,PublicQuestion} from '../../../packages/shared/schema';
+import {api,newToken,storage,ApiError} from '../../lib/api';
+import {useI18n} from '../../i18n';
+import {ErrorBox,Field,useTask} from './common';
+import QuestionInput from './QuestionInput';
+interface Attempt {id:string;status:string;nickname:string;revision:number;answers:Answers;deadline:number|null;serverTime:number;questions:PublicQuestion[];quiz:{id:string;title:string;state:string;startsAt:number|null;endsAt:number|null;instructions:string}}
+interface Recovery {token:string;key:string;answers:Answers;dirty:Answers;revision:number;submitKey?:string}
+export default function Take(){
+ const {t,n,date,locale}=useI18n(),task=useTask();const [metadata,setMetadata]=useState<any>(null),[a,setA]=useState<Attempt|null>(null),[answers,setAnswers]=useState<Answers>({}),[nickname,setNickname]=useState(''),[index,setIndex]=useState(0),[flags,setFlags]=useState<string[]>([]),[dirty,setDirty]=useState(false),[seconds,setSeconds]=useState<number|null>(null),[confirm,setConfirm]=useState(false);
+ const recovery=useRef<Recovery|null>(null),saving=useRef(false),submitRequested=useRef(false),current=useRef<Attempt|null>(null),timerSample=useRef({server:0,mono:0});const id=typeof location==='undefined'?'':new URLSearchParams(location.search).get('id')||'';
+ function persist(){try{storage.set(`attempt.${id}`,recovery.current);}catch{task.setError('storageFailed');}}
+ async function refresh(){
+  if(!recovery.current)return;const r=await api<Attempt>('/attempt',recovery.current.token);if(r.revision<recovery.current.revision||(['submitted','expired'].includes(current.current?.status||'')&&r.status==='started'))return;timerSample.current={server:r.serverTime,mono:performance.now()};current.current=r;setA(r);
+  const local=recovery.current;if(!saving.current){local.revision=r.revision;local.answers={...r.answers,...local.dirty};setAnswers(local.answers);persist();}
+  if(['submitted','expired'].includes(r.status)){local.dirty={};local.answers={};persist();setDirty(false);storage.set('activeResult',local.token);}
+ }
+ useEffect(()=>{task.run(async()=>{const m=await api(`/quizzes/${encodeURIComponent(id)}`);setMetadata(m);const old=storage.get<Recovery|null>(`attempt.${id}`,null);if(old){recovery.current=old;setAnswers(old.answers);setDirty(Object.keys(old.dirty).length>0);await refresh();}});},[]);
+ useEffect(()=>{let live=true,timeout:ReturnType<typeof setTimeout>;const poll=async()=>{if(recovery.current&&!['submitted','expired'].includes(current.current?.status||'')){try{await refresh();}catch(e){task.setError(e instanceof Error?e.message:'offline');}}if(live)timeout=setTimeout(poll,(document.hidden?90000:30000)+Math.random()*3000);};timeout=setTimeout(poll,30000+Math.random()*3000);return()=>{live=false;clearTimeout(timeout);};},[]);
+ useEffect(()=>{const interval=setInterval(()=>{const deadline=current.current?.deadline;if(deadline){const remaining=Math.max(0,Math.ceil((deadline-(timerSample.current.server+performance.now()-timerSample.current.mono))/1000));setSeconds(remaining);if(!remaining&&current.current?.status==='started'&&performance.now()-timerSample.current.mono>30000){timerSample.current.mono=performance.now();timerSample.current.server=deadline;refresh().catch(()=>task.setError('offline'));}}},1000);return()=>clearInterval(interval);},[]);
+ async function save(submit=false){
+  const local=recovery.current,at=current.current;if(!local||!at||at.status!=='started')return;if(saving.current){if(submit)submitRequested.current=true;return;}
+  if(!submit&&!Object.keys(local.dirty).length)return;
+  saving.current=true;const sent={...local.dirty};const snapshot={...local.answers};const revision=local.revision+1;if(submit&&!local.submitKey)local.submitKey=newToken(16);persist();
+  try{
+   const r=await api<{revision:number;status:string;answers:Answers}>(submit?'/attempt/submit':'/attempt/answers',local.token,submit?'POST':'PATCH',{revision,answers:submit?snapshot:sent,...submit?{key:local.submitKey}:{}});
+   local.revision=r.revision;
+   for(const key of Object.keys(sent))if(JSON.stringify(local.dirty[key])===JSON.stringify(sent[key])&&JSON.stringify(r.answers[key])===JSON.stringify(sent[key]))delete local.dirty[key];
+   local.answers={...r.answers,...local.dirty};setAnswers(local.answers);setDirty(Object.keys(local.dirty).length>0);persist();task.setError('');
+   if(r.status!=='started'){local.dirty={};persist();storage.set('activeResult',local.token);await refresh();}
+  }catch(e){task.setError(e instanceof Error?e.message:'offline');if(e instanceof ApiError&&(e.status===409||e.status===410)){saving.current=false;await refresh().catch(()=>{});}}
+  finally{saving.current=false;if(submitRequested.current){submitRequested.current=false;void save(true);}}
+ }
+ useEffect(()=>{let live=true,timeout:ReturnType<typeof setTimeout>;const tick=async()=>{await save();if(live)timeout=setTimeout(tick,15000+Math.random()*3000);};timeout=setTimeout(tick,15000+Math.random()*3000);return()=>{live=false;clearTimeout(timeout);};},[]);
+ useEffect(()=>{const prevent=(e:BeforeUnloadEvent)=>{if(recovery.current&&Object.keys(recovery.current.dirty).length){e.preventDefault();}};window.addEventListener('beforeunload',prevent);return()=>window.removeEventListener('beforeunload',prevent);},[]);
+ function answer(q:string,value:Answer){const local=recovery.current!;local.answers={...local.answers,[q]:value};local.dirty={...local.dirty,[q]:value};setAnswers(local.answers);setDirty(true);persist();}
+ function leave(){storage.remove(`attempt.${id}`);storage.remove('activeResult');location.href='/exam/';}
+ if(!metadata)return <div className="narrow"><p>{t('loading')}</p><ErrorBox code={task.error}/><button className="secondary" onClick={()=>location.reload()}>{t('retry')}</button></div>;
+ const terminal=a&&['submitted','expired'].includes(a.status),q=a?.questions[index];
+ return <div className="workspace"><div className="page-heading"><p className="eyebrow">{t(metadata.mode)}</p><h1>{metadata.title}</h1><p>{metadata.instructions}</p><p className="muted">{metadata.startsAt?date(metadata.startsAt):''} {metadata.timezone}</p></div><ErrorBox code={task.error}/>
+ {!a&&<section className="card stack"><p>{t(metadata.state)}</p>{metadata.nicknameMode==='custom'&&<Field label="nickname"><input value={nickname} maxLength={40} onChange={e=>setNickname(e.target.value)}/></Field>}<p className="notice">{t('nickname')}</p><button disabled={task.busy} onClick={()=>task.run(async()=>{const local=recovery.current||{token:newToken(),key:newToken(16),answers:{},dirty:{},revision:0};recovery.current=local;persist();await api(`/quizzes/${id}/join`,local.token,'POST',{key:local.key,...nickname?{nickname}:{}});await refresh();})}>{t('join')}</button></section>}
+ {a?.status==='created'&&<section className="card stack"><h2>{t(a.quiz.state==='open'?'start':'waiting')}</h2><p>{a.nickname}</p>{a.quiz.startsAt&&<p>{date(a.quiz.startsAt)}</p>}<button disabled={a.quiz.state!=='open'||task.busy} onClick={()=>task.run(async()=>{await api('/attempt/start',recovery.current!.token,'POST');await refresh();})}>{t('start')}</button></section>}
+ {a?.status==='started'&&<><div className="attempt-toolbar"><p role="status">{t(dirty?'pending':'saved')}</p>{seconds!==null&&<p aria-live="off">{t('remaining')}: <strong dir="ltr">{n(Math.floor(seconds/60))}:{new Intl.NumberFormat(locale,{minimumIntegerDigits:2}).format(seconds%60)}</strong></p>}</div><progress max={a.questions.length} value={Object.keys(answers).filter(k=>answers[k]!=null).length} aria-label={t('responses')}/><nav className="question-nav" aria-label={t('question')}>{a.questions.map((item,i)=><button className={i===index?'':'secondary'} key={item.id} aria-current={i===index?'step':undefined} aria-label={`${t('question')} ${n(i+1)} ${flags.includes(item.id)?t('flag'):''}`} onClick={()=>{save();setIndex(i);}}>{n(i+1)}{flags.includes(item.id)?' ⚑':''}</button>)}</nav>{q&&<section className="card stack"><QuestionInput q={q} value={answers[q.id]} onChange={v=>answer(q.id,v)} disabled={seconds===0}/><label className="check"><input type="checkbox" checked={flags.includes(q.id)} onChange={e=>setFlags(e.target.checked?[...flags,q.id]:flags.filter(k=>k!==q.id))}/>{t('flag')}</label><div className="row"><button className="secondary" disabled={index===0} onClick={()=>{save();setIndex(index-1);}}>{t('back')}</button><button className="secondary" disabled={index>=a.questions.length-1} onClick={()=>{save();setIndex(index+1);}}>{t('next')}</button><button className="secondary" onClick={()=>save()}>{t('save')}</button></div></section>}<button onClick={()=>setConfirm(true)}>{t('submit')}</button>{confirm&&<section className="notice stack" role="alert"><p>{t('confirmSubmit')}</p><div className="row"><button onClick={()=>{save(true);setConfirm(false);}}>{t('submit')}</button><button className="secondary" onClick={()=>setConfirm(false)}>{t('cancel')}</button></div></section>}</>}
+ {terminal&&<section className="card stack"><h2>{t(a.status)}</h2><a className="button" href="/exam/results/">{t('results')}</a></section>}
+ {a&&<button className="text-button" onClick={leave}>{t('leave')}</button>}</div>;
+}

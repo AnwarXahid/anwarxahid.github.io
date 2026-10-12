@@ -1,33 +1,62 @@
 {
-  "name": "anwarxahid-research-lab",
-  "version": "1.0.0",
-  "description": "Static Jekyll-compatible personal research website for Anwar Hossain Zahid.",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/AnwarXahid/anwarxahid.github.io.git"
-  },
-  "keywords": [
-    "jekyll",
-    "research",
-    "ai-reliability"
-  ],
-  "author": "Anwar Hossain Zahid",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/AnwarXahid/anwarxahid.github.io/issues"
-  },
-  "homepage": "https://anwarxahid.github.io/",
+  "name": "portfolio-quizora",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
   "engines": {
-    "node": ">= 0.10.0"
-  },
-  "devDependencies": {
-    "npm-run-all": "^1.7.0",
-    "onchange": "^2.2.0",
-    "uglify-js": "^2.6.1"
+    "node": ">=22.12.0"
   },
   "scripts": {
-    "uglify": "uglifyjs assets/js/vendor/jquery/jquery-1.12.4.min.js assets/js/plugins/jquery.fitvids.js assets/js/plugins/jquery.greedy-navigation.js assets/js/plugins/jquery.magnific-popup.js assets/js/plugins/jquery.smooth-scroll.min.js assets/js/plugins/stickyfill.min.js assets/js/_main.js -c -m -o assets/js/main.min.js",
-    "watch:js": "onchange \"assets/js/**/*.js\" -e \"assets/js/main.min.js\" -- npm run build:js",
-    "build:js": "npm run uglify"
+    "prepare:assets": "node scripts/assets.mjs",
+    "dev": "npm run prepare:assets && astro dev --host 127.0.0.1",
+    "build": "npm run prepare:assets && astro build",
+    "preview": "astro preview --host 127.0.0.1",
+    "check": "astro check && tsc -p worker/tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "inventory": "node --import tsx scripts/inventory.ts",
+    "db:migrate": "wrangler d1 migrations apply quizora-local --local --config worker/wrangler.toml",
+    "worker:dev": "wrangler dev --config worker/wrangler.toml --ip 127.0.0.1 --port 8787",
+    "load": "node --import tsx tests/load.ts",
+    "format": "prettier --write src packages worker/src tests scripts docs *.json *.mjs",
+    "ai:schema": "node --import tsx scripts/ai-schema.ts"
+  },
+  "dependencies": {
+    "@astrojs/react": "^7.0.1",
+    "@js-temporal/polyfill": "^0.5.1",
+    "astro": "^7.3.8",
+    "gray-matter": "^4.0.3",
+    "hono": "^4.13.13",
+    "katex": "^0.19.0",
+    "liquidjs": "^10.30.0",
+    "lucide-react": "^1.55.0",
+    "mammoth": "^1.13.0",
+    "markdown-it": "^15.0.2",
+    "papaparse": "^5.7.0",
+    "pdfjs-dist": "^6.4.299",
+    "qrcode.react": "^4.2.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "yaml": "^2.9.1",
+    "zod": "^4.6.6"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "@axe-core/playwright": "4.13.0",
+    "@cloudflare/workers-types": "^5.20261011.1",
+    "@playwright/test": "1.64.0",
+    "@types/katex": "^0.16.0",
+    "@types/markdown-it": "^14.0.0",
+    "@types/node": "^22.0.0",
+    "@types/papaparse": "^5.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "esbuild": "^0.28.0",
+    "miniflare": "5.20261006.1-alpha",
+    "prettier": "3.9.10",
+    "tsx": "^4.0.0",
+    "typescript": "6.0.3",
+    "vitest": "5.0.3",
+    "wrangler": "4.149.0"
   }
 }

@@ -1,0 +1,26 @@
+# Copy to worker/wrangler.production.toml, then replace the D1 ID after creating the database.
+# Keep AI disabled for the pilot. Secrets are set with `wrangler secret put`.
+name = "quizora-api"
+main = "src/index.ts"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+[vars]
+ALLOWED_ORIGINS = "https://anwarxahid.github.io"
+ENVIRONMENT = "production"
+CREATION_ENABLED = "true"
+AI_ENABLED = "false"
+DAILY_CREATIONS = "25"
+MAX_ATTEMPTS = "100"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "quizora-production"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+migrations_dir = "migrations"
+
+[triggers]
+crons = ["*/15 * * * *"]
+
+[observability]
+enabled = false

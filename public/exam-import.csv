@@ -1,0 +1,2 @@
+question_json
+"{""id"": ""sample-1"", ""type"": ""single"", ""prompt"": ""Which is a planet?"", ""points"": 1, ""choices"": [{""id"": ""a"", ""text"": ""Earth""}, {""id"": ""b"", ""text"": ""Sun""}], ""correct"": ""a"", ""explanation"": ""Earth is a planet."", ""sourceRef"": """"}"
