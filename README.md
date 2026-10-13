@@ -1,6 +1,6 @@
 # Anwar Zahid's portfolio + Quizora
 
-An Astro static portfolio with an Unsupervised Lab at `/lab/`. The Lab features Quizora at `/exam/`, a browser-only QR tool at `/exam/qr/`, and a preview of the upcoming PromptPilot v2 extension. Published quizzes show a scannable participant link. Quizora's Hono Worker and Cloudflare D1 backend store quizzes and submissions. AI is optional and hidden in the pilot build. No public deployment is performed by installing or running this repository.
+An Astro static portfolio with an Unsupervised Lab at `/lab/`. The Lab features Quizora at `/exam/`, a browser-only QR tool at `/exam/qr/`, and [PromptDude](https://anwarxahid.github.io/PromptDude/), a browser extension available to download. Published quizzes show a scannable participant link. Quizora's Hono Worker and Cloudflare D1 backend store quizzes and submissions. AI is optional and hidden in the pilot build. No public deployment is performed by installing or running this repository.
 
 ## Local development
 
