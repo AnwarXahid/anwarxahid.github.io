@@ -11,26 +11,22 @@ redirect_from:
 
 <section class="hero" id="home">
   <canvas id="field" aria-hidden="true"></canvas>
+  <div class="hero-grain" aria-hidden="true"></div>
   <div class="hero-inner">
-    <div>
-      <p class="kicker">Ph.D. &middot; Iowa State University</p>
-      <h1 id="intro-title">I study how <span class="em">AI and numerical software</span> break.</h1>
+    <div class="hero-copy">
+      <p class="kicker"><span class="status-light" aria-hidden="true"></span> Researcher &amp; engineer <span class="kicker-sep" aria-hidden="true">/</span> Iowa State University</p>
+      <h1 id="intro-title">Finding the <span class="em">fault lines</span> in intelligent systems.</h1>
       <p class="intro-summary">
-        I build testing and debugging tools that make machine-learning failures &mdash;
-        numerical instability, hallucination, silent regressions &mdash; easier to detect,
-        reproduce, and fix.
+        I’m Anwar Zahid. I study how AI and numerical software fail, then build tools
+        to make those failures easier to detect, reproduce, and fix.
       </p>
       <nav class="intro-links" aria-label="Profile links">
-        <a class="primary-link" href="#publications">Publications &rarr;</a>
-        <a href="mailto:ahzahid@iastate.edu">Email</a>
-        <a href="{{ '/files/resume.pdf' | relative_url }}">CV</a>
-        <a href="https://github.com/AnwarXahid" rel="noopener">GitHub</a>
-        <a href="https://scholar.google.com/citations?user=_ze57HEAAAAJ&hl=en" rel="noopener">Google Scholar</a>
+        <a class="primary-link" href="#publications">Explore my research <span aria-hidden="true">↗</span></a>
+        <a href="mailto:ahzahid@iastate.edu">Get in touch <span aria-hidden="true">↗</span></a>
       </nav>
+      <p class="hero-keywords">AI reliability <span aria-hidden="true">/</span> Numerical debugging <span aria-hidden="true">/</span> Software engineering</p>
     </div>
     <div class="finder">
-      <span class="corner tl"></span><span class="corner tr"></span>
-      <span class="corner bl"></span><span class="corner br"></span>
       <div class="frame">
         <span class="ph">Anwar Hossain Zahid</span>
         <img class="headshot"
@@ -40,9 +36,10 @@ redirect_from:
              width="268" height="268"
              loading="eager" decoding="async">
       </div>
-      <span class="readout">sig&nbsp;<span id="ro">0.420</span> &nbsp;&middot;&nbsp; drift&nbsp;<b id="ro2">+0.00</b></span>
+      <span class="portrait-caption"><span class="caption-index">01 / PROFILE</span> Anwar Hossain Zahid</span>
     </div>
   </div>
+  <div class="hero-bottom"><span>Exploring reliability beneath the surface</span><a href="#news">Scroll to discover <span aria-hidden="true">↓</span></a></div>
 </section>
 
 <section class="section" id="news" aria-labelledby="news-title">
