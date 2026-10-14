@@ -79,7 +79,15 @@
         <a class="site-title" href="{{ '/' | relative_url }}"><span class="dot" aria-hidden="true"></span>Anwar&nbsp;Zahid</a>
         <nav class="site-nav" aria-label="Primary navigation">
           <span class="nav-pill" aria-hidden="true"></span>
+          {% if page.body_class == 'home' %}
+          <a href="#about">About</a>
+          <a href="#publications">Research</a>
+          <a href="#projects">Projects</a>
+          <a href="{{ '/lab/' | relative_url }}" aria-label="Unsupervised Lab">Lab <span aria-hidden="true">↗</span></a>
+          <a href="#contact">Contact</a>
+          {% else %}
           {% for item in site.data.navigation.main %}<a href="{{ item.url | relative_url }}">{{ item.title }}</a>{% endfor %}
+          {% endif %}
         </nav>
         <button type="button" id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Toggle colour theme">
           <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"></path></svg>
@@ -108,5 +116,6 @@
     </footer>
 
     <script src="{{ '/assets/js/lab.js' | relative_url }}" defer></script>
+    {% if page.body_class == 'home' %}<script src="{{ '/assets/js/home.js' | relative_url }}" defer></script>{% endif %}
   </body>
 </html>

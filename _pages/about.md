@@ -39,7 +39,11 @@ redirect_from:
       <span class="portrait-caption"><span class="caption-index">01 / PROFILE</span> Anwar Hossain Zahid</span>
     </div>
   </div>
-  <div class="hero-bottom"><span>Exploring reliability beneath the surface</span><a href="#news">Scroll to discover <span aria-hidden="true">↓</span></a></div>
+  <div class="hero-bottom">
+    <span class="hero-note">Exploring reliability beneath the surface</span>
+    <button class="motion-toggle" type="button" aria-pressed="false" hidden><span class="motion-symbol" aria-hidden="true">Ⅱ</span><span class="motion-label">Pause motion</span></button>
+    <a href="#news">Scroll to discover <span aria-hidden="true">↓</span></a>
+  </div>
 </section>
 
 <section class="section" id="news" aria-labelledby="news-title">
@@ -77,7 +81,27 @@ redirect_from:
 
 <section class="section" id="research" aria-labelledby="research-title">
   <p class="section-label rv"><span class="mk">##</span> Research interests</p>
-  <h2 id="research-title" class="rv">Research Interests</h2>
+  <h2 id="research-title" class="rv">What happens beneath the surface?</h2>
+  <div class="research-areas">
+    <article class="research-area rv">
+      <span class="area-number" aria-hidden="true">01</span>
+      <div class="area-symbol symbol-rings" aria-hidden="true"><i></i><i></i><i></i></div>
+      <h3>Can we trust the answer?</h3>
+      <p>Studying LLM hallucination and evaluating where intelligent systems lose their reliability.</p>
+    </article>
+    <article class="research-area rv">
+      <span class="area-number" aria-hidden="true">02</span>
+      <div class="area-symbol symbol-wave" aria-hidden="true"><i></i><i></i><i></i></div>
+      <h3>Where does a number go wrong?</h3>
+      <p>Tracing numerical instability and silent regressions through the software that powers machine learning.</p>
+    </article>
+    <article class="research-area rv">
+      <span class="area-number" aria-hidden="true">03</span>
+      <div class="area-symbol symbol-grid" aria-hidden="true"><i></i><i></i><i></i></div>
+      <h3>How do we make it useful?</h3>
+      <p>Building interpretable testing and debugging tools that help people understand and fix failures.</p>
+    </article>
+  </div>
   <ul class="interest-list rv">
     <li>LLM hallucination</li>
     <li>AI reliability</li>
