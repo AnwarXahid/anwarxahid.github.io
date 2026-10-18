@@ -7,7 +7,7 @@
     "node": ">=22.12.0"
   },
   "scripts": {
-    "prepare:assets": "node scripts/assets.mjs",
+    "prepare:assets": "node scripts/assets.mjs && node scripts/math-assets.mjs",
     "dev": "npm run prepare:assets && astro dev --host 127.0.0.1",
     "build": "npm run prepare:assets && astro build",
     "preview": "astro preview --host 127.0.0.1",
@@ -24,6 +24,7 @@
   "dependencies": {
     "@astrojs/react": "^7.0.1",
     "@js-temporal/polyfill": "^0.5.1",
+    "@tesseract.js-data/eng": "^1.0.0",
     "astro": "^7.3.8",
     "gray-matter": "^4.0.3",
     "hono": "^4.13.13",
@@ -32,11 +33,15 @@
     "lucide-react": "^1.55.0",
     "mammoth": "^1.13.0",
     "markdown-it": "^15.0.2",
+    "mathjs": "^15.2.0",
+    "mathlive": "^0.111.1",
     "papaparse": "^5.7.0",
     "pdfjs-dist": "^6.4.299",
+    "plotly.js-dist-min": "^4.1.2",
     "qrcode.react": "^4.2.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
+    "tesseract.js": "^7.0.0",
     "yaml": "^2.9.1",
     "zod": "^4.6.6"
   },
