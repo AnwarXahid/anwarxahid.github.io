@@ -1,0 +1,118 @@
+---
+const canonical = 'https://anwarxahid.github.io/game/save-my-bro/';
+const title = 'Save My Bro — Free Three-Round Sky Rescue Game';
+const description = 'Jump from a plane, catch falling bros, and help them float to safety in Save My Bro, a free three-round browser game for desktop and mobile.';
+const image = 'https://anwarxahid.github.io/game/save-my-bro/social-preview.png';
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': ['VideoGame', 'WebApplication'],
+  name: 'Save My Bro',
+  description,
+  url: canonical,
+  image,
+  applicationCategory: 'GameApplication',
+  operatingSystem: 'Any modern desktop or mobile browser',
+  gamePlatform: 'Web browser',
+  inLanguage: 'en',
+  isAccessibleForFree: true,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  author: { '@type': 'Person', name: 'Anwar Hossain Zahid', url: 'https://anwarxahid.github.io/' },
+};
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#111430" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Anwar's Unsupervised Lab" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Save My Bro title with a skydiver and colorful parachutes in a glowing sunset sky" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/game/save-my-bro/game.css" />
+    <script src="/game/save-my-bro/game.js" defer></script>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="/lab/#projects" aria-label="Back to Unsupervised Lab"><span class="brand-mark">A<span>×</span></span><span>the playground</span></a>
+        <span class="series">THE BROVERSE · GAME 02</span>
+        <button class="music-button" id="musicButton" type="button" aria-label="Turn music off" aria-pressed="true"><span aria-hidden="true">♫</span><span id="musicLabel">MUSIC ON</span></button>
+      </header>
+
+      <section class="layout" aria-label="Save My Bro game">
+        <div class="intro">
+          <p class="eyebrow"><span></span> A SKY-HIGH LITTLE ADVENTURE</p>
+          <h1>Save<br /><em>My Bro.</em></h1>
+          <p class="lede">One plane. A sky full of falling friends. Three chances to bring everyone home.</p>
+          <div class="rule"><span class="rule-icon" aria-hidden="true">↔</span><p><strong>Steer through the sky</strong><small>Move with ← → or A / D. On a phone, drag your finger or tap the arrow buttons.</small></p></div>
+          <div class="rule"><span class="rule-icon gold" aria-hidden="true">✦</span><p><strong>Catch the bros</strong><small>They grab a parachute and float to safety. Parachute bros also restore a heart.</small></p></div>
+          <div class="rule"><span class="rule-icon coral" aria-hidden="true">!</span><p><strong>Dodge the debris</strong><small>Rescue enough friends before the ground arrives. Missing the target means retrying that round.</small></p></div>
+          <div class="round-strip" aria-label="Three rescue rounds"><span>01 <b>Cloud Nine</b></span><span>02 <b>Golden Hour</b></span><span>03 <b>Homeward</b></span></div>
+        </div>
+
+        <div class="game-card">
+          <div class="game-topline"><span><i></i> THE DROP ZONE</span><span>HERO MODE: ON</span></div>
+          <div class="stage" id="stage">
+            <canvas id="skyCanvas" role="img" aria-label="Animated sky rescue game with a falling hero, friends, parachutes, and hazards"></canvas>
+            <div class="hud" id="hud" hidden>
+              <div class="hud-pill"><span>ROUND</span><strong id="roundValue">1 / 3</strong></div>
+              <div class="hud-pill"><span>RESCUED</span><strong id="rescueValue">0 / 2</strong></div>
+              <div class="hud-pill hearts"><span>HEARTS</span><strong id="heartValue" aria-label="3 hearts">♥ ♥ ♥</strong></div>
+              <button class="pause-button" id="pauseButton" type="button" aria-label="Pause game">Ⅱ</button>
+              <div class="time-track" aria-label="Time until ground"><div id="timeFill"></div></div>
+            </div>
+            <div class="game-message" id="gameMessage" role="status" aria-live="polite"></div>
+            <div class="screen" id="startScreen">
+              <div class="screen-card">
+                <span class="sticker">✦ THE CREW NEEDS YOU ✦</span>
+                <h2>Ready to<br /><em>drop in?</em></h2>
+                <p>Catch enough bros in each of three short rounds. They take a parachute. You keep falling.</p>
+                <div class="quick-controls"><span><b>←</b><b>→</b> steer</span><span><b>☝</b> drag on mobile</span></div>
+                <button class="primary-button" id="startButton" type="button">START THE RESCUE <span>↗</span></button>
+              </div>
+            </div>
+            <div class="screen hidden" id="resultScreen" role="dialog" aria-labelledby="resultTitle" aria-describedby="resultText">
+              <div class="screen-card">
+                <span class="sticker" id="resultSticker">✦ ROUND CLEAR ✦</span>
+                <h2 id="resultTitle">Nice catch!</h2>
+                <p id="resultText">Your friends are floating safely home.</p>
+                <div class="result-score"><span>BROS SAVED THIS ROUND</span><strong id="resultScore">2</strong></div>
+                <button class="primary-button" id="resultButton" type="button">NEXT ROUND <span>↗</span></button>
+              </div>
+            </div>
+            <div class="screen hidden" id="pauseScreen" role="dialog" aria-labelledby="pauseTitle">
+              <div class="screen-card">
+                <span class="sticker">✦ TAKE A BREATH ✦</span>
+                <h2 id="pauseTitle">Paused.</h2>
+                <p>Your crew is still right there in the sky.</p>
+                <button class="primary-button" id="resumeButton" type="button">KEEP FALLING <span>↗</span></button>
+              </div>
+            </div>
+            <div class="mobile-controls" id="mobileControls" hidden><button id="leftButton" type="button" aria-label="Move left">←</button><span>DRAG TO STEER</span><button id="rightButton" type="button" aria-label="Move right">→</button></div>
+          </div>
+          <div class="game-footer"><span>✦ CATCH THE CREW</span><span>✦ SHARE THE CHUTES</span><span>✦ MAKE IT HOME</span></div>
+        </div>
+      </section>
+      <footer class="page-footer"><span>MADE FOR THE BROS, BY ANWAR</span><a href="/game/">PLAY CARRY MY BRO ↗</a></footer>
+    </main>
+  </body>
+</html>

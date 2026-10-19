@@ -172,10 +172,10 @@ ui:
   notFound.notes: "Notas"
 
   lab.overline: "Proyectos paralelos / experimentos útiles"
-  lab.lede: "Un lugar para ideas que salieron del cuaderno y se convirtieron en herramientas o juegos. Hay cinco proyectos listos para probar."
+  lab.lede: "Un lugar para ideas que salieron del cuaderno y se convirtieron en herramientas o juegos. Hay seis proyectos listos para probar."
   lab.explore: "Ver los proyectos"
   lab.index.notes: "NOTAS DE CAMPO"
-  lab.index.count: "5 PROYECTOS"
+  lab.index.count: "6 PROYECTOS"
   lab.index.qr: "Generador QR"
   lab.index.motto: "Crear · probar · mejorar"
   lab.selected: "Trabajo seleccionado"
@@ -215,6 +215,16 @@ ui:
   lab.game.tag2: "Salva a tu equipo"
   lab.game.tag3: "Música original"
   lab.game.link: "Jugar Carry My Bro (en inglés)"
+  lab.math.kind: "04 / HERRAMIENTA MATEMÁTICA"
+  lab.math.tag1: "Pasos verificados"
+  lab.math.tag2: "Gráficas 2D y 3D"
+  lab.math.tag3: "Notas locales"
+  lab.save.kind: "06 / RESCATE AÉREO"
+  lab.save.text: "Salta de un avión, atrapa a tus amigos en caída y ayúdalos a volver a casa en paracaídas. Tres rondas cortas y una gran misión de rescate."
+  lab.save.tag1: "Tres rondas"
+  lab.save.tag2: "Rescate aéreo"
+  lab.save.tag3: "Música original"
+  lab.save.link: "Jugar Save My Bro (en inglés)"
 
 records:
   about:
@@ -232,7 +242,7 @@ records:
     title: "Trabajos"
     excerpt: "Artículos de investigación, sistemas y proyectos de software de Anwar Hossain Zahid."
   unsupervised-lab:
-    excerpt: "Experimentos y juegos: Quizora, OpenMath Studio, un generador de QR, PromptDude y Carry My Bro."
+    excerpt: "Experimentos y juegos: Quizora, OpenMath Studio, un generador de QR, PromptDude y Carry My Bro y Save My Bro."
   "404":
     title: "Página no encontrada"
     excerpt: "La página solicitada no existe."

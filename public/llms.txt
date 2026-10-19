@@ -15,6 +15,13 @@
 - Controls: left/right arrow keys or A/D to change lanes; Space or down arrow to duck; P to pause. On touch devices, swipe or use the on-screen controls.
 - The soundtrack and sound effects are optional and start only when the player turns sound on.
 
+## Save My Bro
+
+- [Play Save My Bro](https://anwarxahid.github.io/game/save-my-bro/): A free, three-round sky rescue browser game for desktop and mobile. The game interface is in English.
+- Move left and right to catch falling brothers; a parachute opens for each rescue while the player continues to fall. Catching a brother who already has a parachute also restores a heart.
+- Reach each round's rescue target before the ground arrives. Debris costs a heart; a missed target or empty health meter lets the player retry that round.
+- Controls: left/right arrow keys or A/D; drag across the game area or use the on-screen arrow buttons on touch devices. P pauses. Original music starts with the game and can be toggled.
+
 ## Other Lab projects
 
 - [Quizora](https://anwarxahid.github.io/exam/): Create and share quizzes.

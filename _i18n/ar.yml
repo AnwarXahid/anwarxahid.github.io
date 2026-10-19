@@ -170,10 +170,10 @@ ui:
   notFound.notes: "ملاحظات"
 
   lab.overline: "مشاريع جانبية / تجارب مفيدة"
-  lab.lede: "مكان لأفكار خرجت من دفتر الملاحظات وأصبحت أدوات أو ألعابًا. خمسة مشاريع جاهزة للتجربة."
+  lab.lede: "مكان لأفكار خرجت من دفتر الملاحظات وأصبحت أدوات أو ألعابًا. ستة مشاريع جاهزة للتجربة."
   lab.explore: "استكشف المشاريع"
   lab.index.notes: "ملاحظات ميدانية"
-  lab.index.count: "5 مشاريع"
+  lab.index.count: "6 مشاريع"
   lab.index.qr: "مولّد QR"
   lab.index.motto: "ابنِ · جرّب · حسّن"
   lab.selected: "أعمال مختارة"
@@ -213,6 +213,16 @@ ui:
   lab.game.tag2: "أنقذ فريقك"
   lab.game.tag3: "موسيقى أصلية"
   lab.game.link: "العب Carry My Bro (بالإنجليزية)"
+  lab.math.kind: "04 / أداة رياضيات"
+  lab.math.tag1: "خطوات موثوقة"
+  lab.math.tag2: "رسوم 2D و3D"
+  lab.math.tag3: "ملاحظات محلية"
+  lab.save.kind: "06 / إنقاذ جوي"
+  lab.save.text: "اقفز من طائرة، والتقط أصدقاءك الساقطين، وساعدهم على العودة بمظلاتهم. ثلاث جولات قصيرة ومهمة إنقاذ كبيرة."
+  lab.save.tag1: "ثلاث جولات"
+  lab.save.tag2: "إنقاذ جوي"
+  lab.save.tag3: "موسيقى أصلية"
+  lab.save.link: "العب Save My Bro (بالإنجليزية)"
 
 records:
   about:
@@ -230,7 +240,7 @@ records:
     title: "الأعمال"
     excerpt: "أوراق بحثية وأنظمة ومشاريع برمجية لـ Anwar Hossain Zahid."
   unsupervised-lab:
-    excerpt: "تجارب وألعاب: Quizora وOpenMath Studio ومولّد رموز QR وPromptDude وCarry My Bro."
+    excerpt: "تجارب وألعاب: Quizora وOpenMath Studio ومولّد رموز QR وPromptDude وCarry My Bro وSave My Bro."
   "404":
     title: "الصفحة غير موجودة"
     excerpt: "الصفحة المطلوبة غير موجودة."

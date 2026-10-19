@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Save My Bro game preview with a skydiver and colorful parachutes">
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#495b9b"/><stop offset=".55" stop-color="#bd8ab8"/><stop offset="1" stop-color="#f7b78c"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#fff5c8" stop-opacity=".85"/><stop offset="1" stop-color="#fff5c8" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#sky)"/>
+  <circle cx="947" cy="150" r="260" fill="url(#glow)"/><circle cx="947" cy="150" r="78" fill="#ffe4a3"/>
+  <g fill="#fff8ec" opacity=".65"><ellipse cx="785" cy="398" rx="120" ry="29"/><circle cx="737" cy="381" r="40"/><circle cx="806" cy="363" r="53"/><ellipse cx="1106" cy="375" rx="100" ry="28"/><circle cx="1082" cy="356" r="38"/></g>
+  <g transform="translate(888 320)">
+    <path d="M-112-93Q0-201 112-93Q74-112 42-93Q0-113-42-93Q-76-112-112-93Z" fill="#ff897e" stroke="#ffe9c4" stroke-width="5"/>
+    <path d="M-42-93Q0-183 42-93Q0-113-42-93Z" fill="#ffe1a0"/>
+    <path d="M-112-93L-20 10M112-93L20 10M0-110L0 7" fill="none" stroke="#fff7df" stroke-width="4"/>
+    <path d="M-18 11L-32 53M18 11L32 53M-14-5L-43 18M14-5L43 18" stroke="#253452" stroke-width="9" stroke-linecap="round"/>
+    <rect x="-25" y="-12" width="50" height="48" rx="13" fill="#4ed0be"/>
+    <circle cx="0" cy="-34" r="24" fill="#b47759"/><path d="M-24-37A24 24 0 0 1 24-37L16-51L-17-51Z" fill="#293550"/>
+  </g>
+  <g transform="translate(1055 486) scale(.78)">
+    <path d="M-95-90Q0-180 95-90Q50-112 0-95Q-49-110-95-90Z" fill="#ffd77f"/><path d="M-95-90L-15 15M95-90L15 15" fill="none" stroke="#fff5db" stroke-width="4"/>
+    <rect x="-22" y="-4" width="44" height="42" rx="12" fill="#a996ec"/><circle cx="0" cy="-28" r="21" fill="#e2a479"/>
+  </g>
+  <g transform="translate(720 470) rotate(-13)">
+    <path d="M-17-19L-40-73L-24-54L0-18Z" fill="#f46d67"/><path d="M15-18L30-69L24-43L10-15Z" fill="#ffd477"/>
+    <path d="M-22 22L-34 66M22 22L34 66M-25-4L-69 12M25-4L69 12" stroke="#243451" stroke-width="13" stroke-linecap="round"/>
+    <rect x="-31" y="-30" width="62" height="64" rx="19" fill="#ffcc77"/><circle cx="0" cy="-58" r="29" fill="#b77959"/>
+    <path d="M-28-63A29 29 0 0 1 28-63L18-79L-18-79Z" fill="#263452"/>
+    <circle cx="-9" cy="-55" r="3" fill="#263452"/><circle cx="9" cy="-55" r="3" fill="#263452"/>
+  </g>
+  <g fill="#fff8ec" font-family="Arial,sans-serif" font-weight="900">
+    <text x="65" y="98" font-size="25" letter-spacing="8">THE BROVERSE · GAME 02</text>
+    <text x="59" y="290" font-size="133" letter-spacing="-8">Save</text>
+    <text x="60" y="430" font-size="133" letter-spacing="-8">My Bro.</text>
+    <text x="66" y="504" font-size="27" font-weight="700">THREE ROUNDS. ONE RESCUE CREW.</text>
+  </g>
+  <rect x="66" y="535" width="440" height="51" rx="14" fill="#1b2545"/><text x="95" y="568" fill="#fff8ec" font-family="Arial,sans-serif" font-size="18" font-weight="900" letter-spacing="2">PLAY FREE IN YOUR BROWSER</text>
+</svg>

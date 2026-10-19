@@ -170,10 +170,10 @@ ui:
   notFound.notes: "নোট"
 
   lab.overline: "সাইড প্রজেক্ট / কাজের এক্সপেরিমেন্ট"
-  lab.lede: "নোটবুক থেকে বেরিয়ে ব্যবহারযোগ্য টুল বা খেলার মতো গেমে রূপ নেওয়া আইডিয়াগুলোর ঠিকানা। পাঁচটি প্রজেক্ট এখনই চেষ্টা করতে পারেন।"
+  lab.lede: "নোটবুক থেকে বেরিয়ে ব্যবহারযোগ্য টুল বা খেলার মতো গেমে রূপ নেওয়া আইডিয়াগুলোর ঠিকানা। ছয়টি প্রজেক্ট এখনই চেষ্টা করতে পারেন।"
   lab.explore: "প্রজেক্টগুলো দেখুন"
   lab.index.notes: "ফিল্ড নোট"
-  lab.index.count: "৫টি প্রজেক্ট"
+  lab.index.count: "৬টি প্রজেক্ট"
   lab.index.qr: "কিউআর জেনারেটর"
   lab.index.motto: "বানাও · চালাও · আরও ভালো করো"
   lab.selected: "বাছাই করা কাজ"
@@ -213,6 +213,16 @@ ui:
   lab.game.tag2: "দলকে বাঁচান"
   lab.game.tag3: "নিজস্ব সংগীত"
   lab.game.link: "Carry My Bro খেলুন (ইংরেজিতে)"
+  lab.math.kind: "০৪ / গণিত টুল"
+  lab.math.tag1: "যাচাই করা ধাপ"
+  lab.math.tag2: "2D ও 3D গ্রাফ"
+  lab.math.tag3: "স্থানীয় নোট"
+  lab.save.kind: "০৬ / আকাশ উদ্ধার"
+  lab.save.text: "বিমান থেকে ঝাঁপ দিয়ে পড়তে থাকা বন্ধুদের ধরুন এবং প্যারাশুটে নিরাপদে ফিরতে সাহায্য করুন। তিনটি ছোট রাউন্ডে একটি বড় উদ্ধার অভিযান।"
+  lab.save.tag1: "তিন রাউন্ড"
+  lab.save.tag2: "আকাশ উদ্ধার"
+  lab.save.tag3: "নিজস্ব সংগীত"
+  lab.save.link: "Save My Bro খেলুন (ইংরেজিতে)"
 
 records:
   about:
@@ -230,7 +240,7 @@ records:
     title: "কাজ"
     excerpt: "Anwar Hossain Zahid-এর গবেষণাপত্র, সিস্টেম ও সফটওয়্যার প্রজেক্ট।"
   unsupervised-lab:
-    excerpt: "ব্যবহারযোগ্য পরীক্ষা ও গেম: Quizora, OpenMath Studio, QR জেনারেটর, PromptDude এবং Carry My Bro।"
+    excerpt: "ব্যবহারযোগ্য পরীক্ষা ও গেম: Quizora, OpenMath Studio, QR জেনারেটর, PromptDude এবং Carry My Bro এবং Save My Bro।"
   "404":
     title: "পাতাটি পাওয়া যায়নি"
     excerpt: "আপনি যে পাতাটি চেয়েছেন সেটি নেই।"

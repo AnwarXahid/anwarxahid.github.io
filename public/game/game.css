@@ -917,6 +917,13 @@ h1 em {
 .page-footer {
   color: #5f6a66;
 }
+.page-footer a {
+  color: #b74720;
+  text-decoration: none;
+}
+.page-footer a:hover {
+  text-decoration: underline;
+}
 .game-topline-right,
 .tap-hint,
 .game-footer,

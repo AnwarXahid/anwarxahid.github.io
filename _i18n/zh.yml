@@ -167,10 +167,10 @@ ui:
   notFound.notes: "笔记"
 
   lab.overline: "业余项目 / 实用小实验"
-  lab.lede: "这里收纳那些从笔记本里跑出来、变成实用工具或游戏的想法。五个项目现在就能试用。"
+  lab.lede: "这里收纳那些从笔记本里跑出来、变成实用工具或游戏的想法。六个项目现在就能试用。"
   lab.explore: "浏览项目"
   lab.index.notes: "实验手记"
-  lab.index.count: "5 个项目"
+  lab.index.count: "6 个项目"
   lab.index.qr: "二维码生成器"
   lab.index.motto: "动手做 · 试一试 · 再改进"
   lab.selected: "精选作品"
@@ -210,6 +210,16 @@ ui:
   lab.game.tag2: "守护队友"
   lab.game.tag3: "原创音乐"
   lab.game.link: "玩 Carry My Bro（英文）"
+  lab.math.kind: "04 / 数学工具"
+  lab.math.tag1: "已验证步骤"
+  lab.math.tag2: "2D 与 3D 图形"
+  lab.math.tag3: "本地笔记"
+  lab.save.kind: "06 / 空中救援"
+  lab.save.text: "从飞机跳下，接住正在坠落的朋友，帮他们打开降落伞安全回家。三个短关卡，一次大救援。"
+  lab.save.tag1: "三个关卡"
+  lab.save.tag2: "空中救援"
+  lab.save.tag3: "原创音乐"
+  lab.save.link: "游玩 Save My Bro（英文）"
 
 records:
   about:
@@ -227,7 +237,7 @@ records:
     title: "作品"
     excerpt: "Anwar Hossain Zahid 的研究论文、系统和软件项目。"
   unsupervised-lab:
-    excerpt: "实用实验与游戏：Quizora、OpenMath Studio、二维码生成器、PromptDude 和 Carry My Bro。"
+    excerpt: "实用实验与游戏：Quizora、OpenMath Studio、二维码生成器、PromptDude 和 Carry My Bro 与 Save My Bro。"
   "404":
     title: "页面不存在"
     excerpt: "请求的页面不存在。"

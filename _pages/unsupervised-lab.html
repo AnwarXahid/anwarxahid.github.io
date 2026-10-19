@@ -2,7 +2,7 @@
 layout: lab
 permalink: /lab/
 title: "Unsupervised Lab"
-excerpt: "Useful experiments: Quizora, OpenMath Studio, a QR generator, PromptDude, and Carry My Bro."
+excerpt: "Useful experiments and games: Quizora, OpenMath Studio, a QR generator, PromptDude, Carry My Bro, and Save My Bro."
 body_class: lab-page
 lab_showcase: true
 redirect_from:
@@ -13,18 +13,19 @@ redirect_from:
   <div class="lab-hero-copy">
     <p class="lab-overline"><span class="lab-live-dot" aria-hidden="true"></span> {% t "lab.overline" %}Side projects / useful experiments{% endt %}</p>
     <h1 id="lab-title" lang="en">Unsupervised <span>Lab.</span></h1>
-    <p class="lab-lede">{% t "lab.lede" %}A place for ideas that escaped the notebook and became things you can use or play. Five projects are ready to try.{% endt %}</p>
+    <p class="lab-lede">{% t "lab.lede" %}A place for ideas that escaped the notebook and became things you can use or play. Six projects are ready to try.{% endt %}</p>
     <a class="lab-hero-link" href="#projects">{% t "lab.explore" %}Explore the projects{% endt %} <span aria-hidden="true">↘</span></a>
   </div>
-  <div class="lab-index" aria-hidden="true">
-    <div class="lab-index-top"><span>{% t "lab.index.notes" %}FIELD NOTES{% endt %}</span><span>{% t "lab.index.count" %}5 PROJECTS{% endt %}</span></div>
-    <div class="lab-index-row"><span>01</span><strong>Quizora</strong><i></i></div>
-    <div class="lab-index-row"><span>02</span><strong>{% t "lab.index.qr" %}QR Generator{% endt %}</strong><i></i></div>
-    <div class="lab-index-row"><span>03</span><strong>PromptDude</strong><i></i></div>
-    <div class="lab-index-row"><span>04</span><strong>OpenMath</strong><i></i></div>
-    <div class="lab-index-row"><span>05</span><strong>Carry My Bro</strong><i></i></div>
+  <nav class="lab-index" aria-label="Jump to a project">
+    <div class="lab-index-top"><span>{% t "lab.index.notes" %}FIELD NOTES{% endt %}</span><span>{% t "lab.index.count" %}6 PROJECTS{% endt %}</span></div>
+    <a class="lab-index-row" href="#quizora-project"><span>01</span><strong>Quizora</strong><i aria-hidden="true"></i></a>
+    <a class="lab-index-row" href="#qr-project"><span>02</span><strong>{% t "lab.index.qr" %}QR Generator{% endt %}</strong><i aria-hidden="true"></i></a>
+    <a class="lab-index-row" href="#prompt-project"><span>03</span><strong>PromptDude</strong><i aria-hidden="true"></i></a>
+    <a class="lab-index-row" href="#math-project"><span>04</span><strong>OpenMath</strong><i aria-hidden="true"></i></a>
+    <a class="lab-index-row" href="#carry-project"><span>05</span><strong>Carry My Bro</strong><i aria-hidden="true"></i></a>
+    <a class="lab-index-row" href="#save-project"><span>06</span><strong>Save My Bro</strong><i aria-hidden="true"></i></a>
     <div class="lab-index-bottom">{% t "lab.index.motto" %}Build · try · improve{% endt %} <span>↗</span></div>
-  </div>
+  </nav>
 </section>
 
 <section class="lab-projects" id="projects" aria-labelledby="projects-title">
@@ -34,7 +35,7 @@ redirect_from:
   </div>
 
   <div class="lab-grid">
-    <article class="lab-card lab-card-quizora" aria-labelledby="quizora-title">
+    <article class="lab-card lab-card-quizora" id="quizora-project" aria-labelledby="quizora-title">
       <div class="lab-card-meta"><span class="lab-number">{% t "lab.quizora.kind" %}01 / EDUCATION{% endt %}</span><span class="lab-status"><span aria-hidden="true"></span> {% t "lab.live" %}Live{% endt %}</span></div>
       <div class="lab-quiz-preview" aria-hidden="true">
         <div class="lab-preview-bar"><span></span><span></span><span></span><b>QUIZORA</b></div>
@@ -46,7 +47,7 @@ redirect_from:
       <a class="lab-card-link" href="{{ '/exam/' | relative_url }}">{% t "lab.quizora.link" %}Open Quizora{% endt %} <span aria-hidden="true">↗</span></a>
     </article>
 
-    <article class="lab-card lab-card-qr" aria-labelledby="qr-title">
+    <article class="lab-card lab-card-qr" id="qr-project" aria-labelledby="qr-title">
       <div class="lab-card-meta"><span class="lab-number">{% t "lab.qr.kind" %}02 / UTILITY{% endt %}</span><span class="lab-status"><span aria-hidden="true"></span> {% t "lab.live" %}Live{% endt %}</span></div>
       <div class="lab-qr-preview" aria-hidden="true">
         <div class="lab-qr-grid">
@@ -61,7 +62,7 @@ redirect_from:
       <a class="lab-card-link" href="{{ '/exam/qr/' | relative_url }}">{% t "lab.qr.link" %}Make a QR code{% endt %} <span aria-hidden="true">↗</span></a>
     </article>
 
-    <article class="lab-card lab-card-prompt" aria-labelledby="prompt-title">
+    <article class="lab-card lab-card-prompt" id="prompt-project" aria-labelledby="prompt-title">
       <div class="lab-prompt-copy">
         <div class="lab-card-meta"><span class="lab-number">{% t "lab.prompt.kind" %}03 / BROWSER EXTENSION{% endt %}</span><span class="lab-status"><span aria-hidden="true"></span> {% t "lab.prompt.status" %}Download available{% endt %}</span></div>
         <h3 id="prompt-title">PromptDude</h3>
@@ -83,12 +84,16 @@ redirect_from:
       </div>
     </article>
 
-    <article class="lab-next" aria-labelledby="openmath-title">
-      <div><span class="lab-next-plus" aria-hidden="true">∑</span><h3 id="openmath-title">OpenMath Studio</h3><p>{% t "lab.math.text" %}Solve checked algebra, graph in 2D and 3D, extract printed text, and keep local math notes.{% endt %}</p></div>
+    <article class="lab-card lab-card-math" id="math-project" aria-labelledby="openmath-title">
+      <div class="lab-card-meta"><span class="lab-number">{% t "lab.math.kind" %}04 / MATH TOOL{% endt %}</span><span class="lab-status"><span aria-hidden="true"></span> {% t "lab.live" %}Live{% endt %}</span></div>
+      <div class="lab-math-preview" aria-hidden="true"><span class="lab-math-formula">y = x² + 2x</span><span class="lab-math-graph"><i></i><b></b></span><span class="lab-math-check">✓ VERIFIED</span></div>
+      <h3 id="openmath-title">OpenMath Studio</h3>
+      <p>{% t "lab.math.text" %}Solve checked algebra, graph in 2D and 3D, extract printed text, and keep local math notes.{% endt %}</p>
+      <div class="lab-tags"><span>{% t "lab.math.tag1" %}Verified steps{% endt %}</span><span>{% t "lab.math.tag2" %}2D &amp; 3D graphs{% endt %}</span><span>{% t "lab.math.tag3" %}Local notes{% endt %}</span></div>
       <a class="lab-card-link" href="{{ '/math/' | relative_url }}">{% t "lab.math.link" %}Open the studio{% endt %} <span aria-hidden="true">↗</span></a>
     </article>
 
-    <article class="lab-card lab-card-game" aria-labelledby="game-title">
+    <article class="lab-card lab-card-game" id="carry-project" aria-labelledby="game-title">
       <div class="lab-game-copy">
         <div class="lab-card-meta"><span class="lab-number">{% t "lab.game.kind" %}05 / ENDLESS RUNNER{% endt %}</span><span class="lab-status"><span aria-hidden="true"></span> {% t "lab.live" %}Live{% endt %}</span></div>
         <h3 id="game-title">Carry My Bro</h3>
@@ -103,6 +108,21 @@ redirect_from:
         <div class="lab-game-bro bro-bottom"><i></i></div><div class="lab-game-bro bro-middle"><i></i></div><div class="lab-game-bro bro-top"><i></i></div>
         <span class="lab-game-score">BROS ON BOARD <strong>03</strong></span>
       </div>
+    </article>
+
+    <article class="lab-card lab-card-save" id="save-project" aria-labelledby="save-title">
+      <div class="lab-card-meta"><span class="lab-number">{% t "lab.save.kind" %}06 / SKY RESCUE{% endt %}</span><span class="lab-status"><span aria-hidden="true"></span> {% t "lab.live" %}Live{% endt %}</span></div>
+      <div class="lab-save-preview" aria-hidden="true">
+        <span class="lab-save-sun"></span><span class="lab-save-cloud cloud-a"></span><span class="lab-save-cloud cloud-b"></span>
+        <span class="lab-save-plane">✈</span>
+        <span class="lab-save-chute chute-a"><i></i></span><span class="lab-save-chute chute-b"><i></i></span>
+        <span class="lab-save-hero"><i></i></span>
+        <span class="lab-save-badge">02 / 03 SAVED</span>
+      </div>
+      <h3 id="save-title">Save My Bro</h3>
+      <p>{% t "lab.save.text" %}Jump from a plane, catch falling friends, and help them float home. Three short rounds, one big rescue mission.{% endt %}</p>
+      <div class="lab-tags"><span>{% t "lab.save.tag1" %}Three rounds{% endt %}</span><span>{% t "lab.save.tag2" %}Sky rescue{% endt %}</span><span>{% t "lab.save.tag3" %}Original music{% endt %}</span></div>
+      <a class="lab-card-link" href="{{ '/game/save-my-bro/' | relative_url }}">{% t "lab.save.link" %}Play Save My Bro{% endt %} <span aria-hidden="true">↗</span></a>
     </article>
   </div>
 </section>
