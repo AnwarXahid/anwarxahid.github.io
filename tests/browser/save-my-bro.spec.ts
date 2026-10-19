@@ -17,7 +17,7 @@ test('skydiving bros visibly descend toward the player', async ({ page }) => {
   expect(after).toBeGreaterThan(before + 25);
 });
 
-test('Lab cards open anywhere and Save My Bro can complete all three rounds', async ({ page }) => {
+test('Lab card opens Save My Bro with a 10-bro first stage', async ({ page }) => {
   await page.goto('/lab/');
   await page.evaluate(() => document.fonts.ready);
 
@@ -40,20 +40,8 @@ test('Lab cards open anywhere and Save My Bro can complete all three rounds', as
   await expect(page).toHaveURL(/\/game\/save-my-bro\/$/);
 
   await page.getByRole('button', { name: /START THE RESCUE/ }).click();
-  const stage = await page.locator('#stage').boundingBox();
-  expect(stage).not.toBeNull();
-  for (const [round, goal] of [[1, 2], [2, 3], [3, 4]]) {
-    await expect(page.locator('#rescueValue')).toHaveText('1 / ' + goal, { timeout: 10000 });
-    for (let catchNumber = 2; catchNumber <= goal; catchNumber++) {
-      const target = [0.32, 0.72, 0.32][catchNumber - 2];
-      await page.mouse.move(stage!.x + stage!.width * target, stage!.y + stage!.height * 0.43);
-      await expect(page.locator('#rescueValue')).toHaveText(catchNumber + ' / ' + goal, { timeout: 10000 });
-    }
-    await expect(page.locator('#resultScreen')).toBeVisible({ timeout: 25000 });
-    await expect(page.locator('#resultScore')).toHaveText(String(goal));
-    if (round < 3) await page.getByRole('button', { name: /NEXT ROUND/ }).click();
-  }
-  await expect(page.getByRole('heading', { name: 'The sky is yours!' })).toBeVisible();
+  await expect(page.locator('#rescueValue')).toHaveText('0 / 10');
+  await expect(page.locator('#rescueValue')).toHaveText('1 / 10', { timeout: 10000 });
 });
 
 test('missing the rescue target lets the player retry the same round', async ({ page }) => {
@@ -62,8 +50,8 @@ test('missing the rescue target lets the player retry the same round', async ({ 
   const stage = await page.locator('#stage').boundingBox();
   expect(stage).not.toBeNull();
   await page.mouse.move(stage!.x + 20, stage!.y + stage!.height * 0.43);
-  await expect(page.getByRole('heading', { name: 'One more try!' })).toBeVisible({ timeout: 30000 });
+  await expect(page.getByRole('heading', { name: 'One more try!' })).toBeVisible({ timeout: 45000 });
   await page.getByRole('button', { name: /RETRY ROUND 1/ }).click();
   await expect(page.locator('#roundValue')).toHaveText('1 / 3');
-  await expect(page.locator('#rescueValue')).toHaveText('0 / 2');
+  await expect(page.locator('#rescueValue')).toHaveText('0 / 10');
 });

@@ -14,9 +14,9 @@
     resultButton: $("resultButton"),
   };
   const rounds = [
-    { name: "Cloud Nine", goal: 2, duration: 19, waves: 7, sky: ["#5266a7", "#b18cc2", "#f7c09c"] },
-    { name: "Golden Hour", goal: 3, duration: 21, waves: 8, sky: ["#54689f", "#dc8aa9", "#f7c67e"] },
-    { name: "Homeward", goal: 4, duration: 23, waves: 9, sky: ["#324e87", "#ad77ae", "#f6ab8b"] },
+    { name: "Cloud Nine", goal: 10, duration: 37, waves: 18, waveGap: 1.48, debrisGap: 5.8, sky: ["#5266a7", "#b18cc2", "#f7c09c"] },
+    { name: "Golden Hour", goal: 20, duration: 48, waves: 33, waveGap: 1.17, debrisGap: 3.9, sky: ["#54689f", "#dc8aa9", "#f7c67e"] },
+    { name: "Homeward", goal: 30, duration: 61, waves: 48, waveGap: 0.95, debrisGap: 2.5, sky: ["#324e87", "#ad77ae", "#f6ab8b"] },
   ];
   const crew = [
     { skin: "#a96d52", shirt: "#4ed0be", hair: "#273553" },
@@ -30,6 +30,8 @@
     [0.82, 0.72, 0.8], [0.16, 0.89, 1.1], [0.62, 1.08, 0.75],
   ];
   const PLAYER_Y = 0.68;
+  const PLANE_CYCLE = 16;
+  const PLANE_BURSTS = [1.05, 7.1, 13.2];
   let width = 0, height = 0, dpr = 1;
   let state = "start", round = 0, elapsed = 0, ambientTime = 0, rescued = 0;
   let hearts = 3, nextWave = 0, nextHazard = 0, heroX = 0.5, targetX = 0.5;
@@ -172,7 +174,7 @@
     if (kind === "win") {
       ui.resultSticker.textContent = "✦ THREE ROUNDS. ALL HEART. ✦";
       ui.resultTitle.textContent = "The sky is yours!";
-      ui.resultText.textContent = "Three drops, one incredible rescue crew. Every bro made it home.";
+      ui.resultText.textContent = "Three drops, 60 bros rescued. Your whole crew made it home.";
       ui.resultButton.innerHTML = "PLAY AGAIN <span aria-hidden=\"true\">↗</span>";
       tone(880, 0.5, 0.055);
     } else if (kind === "clear") {
@@ -214,7 +216,7 @@
       vx: ((index + crewIndex) % 2 ? 1 : -1) * (type === "chute" ? 0.007 : 0.012),
       crew: crew[crewIndex % crew.length], phase: index * 1.6 + crewIndex,
     });
-    objects.push(makeBro(positions[index], index === 3 || (round === 2 && index === 7) ? "chute" : "falling", 0, index + round));
+    objects.push(makeBro(positions[index % positions.length], index % 6 === 3 ? "chute" : "falling", 0, index + round));
     // A second jumper keeps the sky busy and gives players another rescue route.
     const bonus = makeBro(index % 2 ? 0.82 : 0.23, index % 3 === 0 ? "chute" : "falling", 0.16, index + round + 2);
     bonus.bonus = true;
@@ -222,17 +224,18 @@
   }
   function spawnHazard(index) {
     objects.push({
-      type: "hazard", variant: ["engine", "crate", "wing"][index],
-      x: [0.22, 0.78, 0.18][index], y: -0.12, vy: 0.18,
+      type: "hazard", variant: ["engine", "crate", "wing"][index % 3],
+      x: [0.22, 0.78, 0.18, 0.82, 0.48, 0.35, 0.68, 0.25, 0.75, 0.5][index % 10], y: -0.12, vy: 0.18,
       gravity: 0.28, terminal: 0.58, vx: index % 2 ? -0.012 : 0.014,
       spin: index % 2 ? -1.8 : 2.1, angle: 0, phase: index,
     });
   }
   function burstPlane(index) {
-    const x = [0.5, 0.2, 0.79][index], y = [0.15, 0.18, 0.26][index];
+    const slot = index % 3;
+    const x = [0.5, 0.2, 0.79][slot], y = [0.15, 0.18, 0.26][slot];
     effects.push({ type: "burst", x, y, age: 0 });
     tone(110 + index * 18, 0.23, 0.024, "sawtooth");
-    const pieces = index === 0 ? 5 : 3;
+    const pieces = slot === 0 ? 5 : 3;
     for (let i = 0; i < pieces; i++) {
       objects.push({
         type: "wreckage", variant: ["wing", "engine", "crate"][i % 3],
@@ -276,9 +279,9 @@
     if (keys.right) targetX += dt * 0.7;
     targetX = clamp(targetX, 0.11, 0.89);
     heroX += clamp(targetX - heroX, -dt * 1.8, dt * 1.8);
-    while (burstIndex < 3 && elapsed >= [1.05, 7.1, 13.2][burstIndex]) burstPlane(burstIndex++);
-    while (nextWave < info.waves && elapsed >= 1.18 + nextWave * 1.65) spawnWave(nextWave++);
-    while (nextHazard < 3 && elapsed >= 5.7 + nextHazard * 5.8) spawnHazard(nextHazard++);
+    while (elapsed >= Math.floor(burstIndex / 3) * PLANE_CYCLE + PLANE_BURSTS[burstIndex % 3]) burstPlane(burstIndex++);
+    while (nextWave < info.waves && elapsed >= 1.18 + nextWave * info.waveGap) spawnWave(nextWave++);
+    while (elapsed < info.duration - 2 && elapsed >= 5.7 + nextHazard * info.debrisGap) spawnHazard(nextHazard++);
     invulnerable = Math.max(0, invulnerable - dt);
     for (const object of objects) {
       object.vy = Math.min(object.terminal, object.vy + object.gravity * dt);
@@ -359,7 +362,7 @@
   }
   function drawPlanes() {
     const scale = Math.min(width / 700, 1.1);
-    const flight = state === "start" ? 0 : elapsed;
+    const flight = state === "start" ? 0 : elapsed % PLANE_CYCLE;
     if (flight < 1.05) drawPlaneAt(0.5 + flight * 0.012, 0.15, scale, 1);
     if (flight < 7.1) drawPlaneAt(0.18 + flight * 0.004, 0.2, scale * 0.49, -1);
     if (flight < 13.2) drawPlaneAt(0.81 - flight * 0.003, 0.28, scale * 0.43, 1);
