@@ -167,10 +167,10 @@ ui:
   notFound.notes: "笔记"
 
   lab.overline: "业余项目 / 实用小实验"
-  lab.lede: "这里收纳那些从笔记本里跑出来、变成实用工具或游戏的想法。六个项目现在就能试用。"
+  lab.lede: "这里收纳那些从笔记本里跑出来、变成实用工具或游戏的想法。七个项目现在就能试用。"
   lab.explore: "浏览项目"
   lab.index.notes: "实验手记"
-  lab.index.count: "6 个项目"
+  lab.index.count: "7 个项目"
   lab.index.qr: "二维码生成器"
   lab.index.motto: "动手做 · 试一试 · 再改进"
   lab.selected: "精选作品"
@@ -220,6 +220,12 @@ ui:
   lab.save.tag2: "空中救援"
   lab.save.tag3: "原创音乐"
   lab.save.link: "游玩 Save My Bro（英文）"
+  lab.respect.kind: "07 / 街头游戏"
+  lab.respect.text: "留意路人：长辈走近时藏起香烟，年轻朋友和孩子经过时保持好心情。被发现三次就得回家。"
+  lab.respect.tag1: "快速反应"
+  lab.respect.tag2: "三次机会"
+  lab.respect.tag3: "原创音乐"
+  lab.respect.link: "游玩 Respect the Elder Bro（英文）"
 
 records:
   about:

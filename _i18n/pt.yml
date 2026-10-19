@@ -171,10 +171,10 @@ ui:
   notFound.notes: "Notas"
 
   lab.overline: "Projetos paralelos / experimentos úteis"
-  lab.lede: "Um lugar para ideias que saíram do caderno e viraram ferramentas ou jogos. Seis projetos estão prontos para você testar."
+  lab.lede: "Um lugar para ideias que saíram do caderno e viraram ferramentas ou jogos. Sete projetos estão prontos para você testar."
   lab.explore: "Ver os projetos"
   lab.index.notes: "NOTAS DE CAMPO"
-  lab.index.count: "6 PROJETOS"
+  lab.index.count: "7 PROJETOS"
   lab.index.qr: "Gerador de QR"
   lab.index.motto: "Criar · testar · melhorar"
   lab.selected: "Destaques"
@@ -224,6 +224,12 @@ ui:
   lab.save.tag2: "Resgate aéreo"
   lab.save.tag3: "Música original"
   lab.save.link: "Jogar Save My Bro (em inglês)"
+  lab.respect.kind: "07 / JOGO DE RUA"
+  lab.respect.text: "Observe quem passa: esconda o cigarro quando um idoso se aproxima e mantenha a boa vibe com jovens e crianças. Três broncas e é hora de ir para casa."
+  lab.respect.tag1: "Reflexos rápidos"
+  lab.respect.tag2: "Três broncas"
+  lab.respect.tag3: "Música original"
+  lab.respect.link: "Jogar Respect the Elder Bro (em inglês)"
 
 records:
   about:

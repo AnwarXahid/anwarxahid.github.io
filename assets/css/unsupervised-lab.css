@@ -154,3 +154,27 @@
 .lab-save-badge { position: absolute; z-index: 3; top: 14px; left: 14px; padding: 8px 10px; border-radius: 7px; background: #fff9ec; color: #3f4169; box-shadow: 0 4px 0 #28335326; font: 800 .58rem var(--f-mono); letter-spacing: .08em; }
 @media (max-width: 850px) { .lab-grid { grid-template-columns: 1fr; grid-auto-rows: auto; }.lab-grid > .lab-card { min-height: 495px; }.lab-card-prompt .lab-prompt-preview, .lab-card-game .lab-game-preview { height: 213px; min-height: 213px; } }
 @media (max-width: 640px) { .lab-grid > .lab-card { min-height: 465px; }.lab-card-prompt,.lab-card-game { padding: 22px; }.lab-card-prompt .lab-card-meta,.lab-card-game .lab-card-meta { margin-bottom: 24px; }.lab-index-row { margin: 0 -6px; padding-left: 6px; padding-right: 6px; } }
+
+/* Respect the Elder Bro: the newest game gets a wide street-scene card. */
+.lab-card-respect { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr); gap: clamp(24px,5vw,70px); }
+.lab-respect-copy { min-width: 0; display: flex; flex-direction: column; }
+.lab-card-respect h3 { margin-top: 58px; font-size: clamp(2.2rem,4.7vw,4rem); }
+.lab-card-respect .lab-card-link { margin-top: auto; }
+.lab-respect-preview { position: relative; min-height: 420px; overflow: hidden; border: 1px solid #8c81a1; border-radius: 14px; background: linear-gradient(#34416e 0%,#9a7492 58%,#efad94 72%,#2b3654 73%); isolation: isolate; }
+.lab-respect-preview::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 83% 24%,#ffe0aa94,transparent 24%); }
+.lab-respect-moon { position: absolute; top: 12%; right: 12%; width: 77px; height: 77px; border-radius: 50%; background: #ffe1a7; box-shadow: 0 0 25px #ffe1a766; }
+.lab-respect-building { position: absolute; bottom: 28%; background: #48476d; }.lab-respect-building::after { content: ""; position: absolute; inset: 14px; opacity: .7; background: repeating-linear-gradient(90deg,#ffdcaa 0 7px,transparent 7px 19px) 0 0 / 75px 37px; mask-image: repeating-linear-gradient(#000 0 11px,transparent 11px 31px); }
+.lab-respect-building.building-a { left: 0; width: 27%; height: 47%; }.lab-respect-building.building-b { left: 40%; width: 24%; height: 60%; }.lab-respect-building.building-c { right: 0; width: 24%; height: 48%; }
+.lab-respect-road { position: absolute; inset: 72% 0 0; background: #2b3553; border-top: 7px solid #e8bea2; }.lab-respect-road::after { content: ""; position: absolute; bottom: 23%; left: 54%; width: 21%; height: 4px; border-radius: 4px; background: #f1d2afaa; box-shadow: 120px 0 #f1d2afaa; }
+.lab-respect-wall { position: absolute; left: 0; bottom: 11%; width: 55%; height: 35%; border-top: 13px solid #e8c3af; background: repeating-linear-gradient(0deg,transparent 0 27px,#604e69 27px 31px),repeating-linear-gradient(90deg,#a38990 0 56px,#68536d 56px 61px); }
+.lab-respect-hero { position: absolute; z-index: 2; left: 27%; bottom: 41%; width: 59px; height: 77px; border-radius: 16px 16px 10px 10px; background: #586da8; box-shadow: inset 0 -18px #394978; }
+.lab-respect-hero::before { content: ""; position: absolute; left: 7px; top: -50px; width: 45px; height: 47px; border-radius: 50%; background: #aa735c; box-shadow: inset 0 10px #292f4a; }
+.lab-respect-hero::after { content: ""; position: absolute; left: -11px; bottom: -38px; width: 13px; height: 48px; border-radius: 8px; background: #293853; transform: rotate(17deg); box-shadow: 45px -17px #293853; }
+.lab-respect-hero i { position: absolute; right: -20px; top: 16px; width: 30px; height: 9px; border-radius: 9px; background: #aa735c; transform: rotate(-35deg); }.lab-respect-hero i::after { content: ""; position: absolute; right: -14px; top: 1px; width: 17px; height: 3px; background: #fff4dc; }
+.lab-respect-elder { position: absolute; z-index: 3; right: 16%; bottom: 17%; width: 52px; height: 72px; border-radius: 15px 15px 8px 8px; background: #ffdcaa; }
+.lab-respect-elder::before { content: ""; position: absolute; top: -38px; left: 7px; width: 37px; height: 39px; border-radius: 50%; background: #b98971; box-shadow: inset 0 10px #f5f2ef; }
+.lab-respect-elder::after { content: ""; position: absolute; left: 5px; bottom: -35px; width: 10px; height: 38px; border-radius: 7px; background: #2c3651; box-shadow: 28px 0 #2c3651; }.lab-respect-elder i { position: absolute; right: -10px; top: 18px; width: 4px; height: 89px; border-radius: 5px; background: #624f60; }
+.lab-respect-alert { position: absolute; z-index: 4; top: 13%; left: 42%; padding: 9px 12px; border-radius: 20px; background: #ffe0c7; color: #2e3a55; font: 900 .7rem var(--f-mono); letter-spacing: .02em; box-shadow: 0 6px 0 #2b294835; }.lab-respect-alert::after { content: ""; position: absolute; bottom: -12px; left: 43%; border: 7px solid transparent; border-top-color: #ffe0c7; }
+.lab-respect-note { position: absolute; z-index: 3; top: 32%; left: 21%; color: #8be9da; font: 900 2rem var(--f-display); transform: rotate(-13deg); }
+@media (max-width: 850px) { .lab-card-respect { grid-template-columns: 1fr; }.lab-card-respect h3 { margin-top: 24px; }.lab-card-respect .lab-card-link { margin-top: 0; }.lab-respect-preview { min-height: 235px; } }
+@media (max-width: 640px) { .lab-card-respect { padding: 22px; }.lab-respect-preview { min-height: 213px; }.lab-respect-hero,.lab-respect-elder { transform: scale(.8); transform-origin: bottom; } }

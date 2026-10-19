@@ -170,10 +170,10 @@ ui:
   notFound.notes: "Notes"
 
   lab.overline: "Projets annexes / expériences utiles"
-  lab.lede: "Un lieu pour les idées sorties du carnet et devenues des outils ou des jeux. Six projets sont prêts à être essayés."
+  lab.lede: "Un lieu pour les idées sorties du carnet et devenues des outils ou des jeux. Sept projets sont prêts à être essayés."
   lab.explore: "Voir les projets"
   lab.index.notes: "CARNET DE TERRAIN"
-  lab.index.count: "6 PROJETS"
+  lab.index.count: "7 PROJETS"
   lab.index.qr: "Générateur QR"
   lab.index.motto: "Construire · essayer · améliorer"
   lab.selected: "Sélection"
@@ -223,6 +223,12 @@ ui:
   lab.save.tag2: "Sauvetage aérien"
   lab.save.tag3: "Musique originale"
   lab.save.link: "Jouer à Save My Bro (en anglais)"
+  lab.respect.kind: "07 / JEU DE RUE"
+  lab.respect.text: "Observez les passants : cachez la cigarette devant les aînés et gardez la bonne humeur avec les jeunes et les enfants. Trois rappels à l'ordre et retour à la maison."
+  lab.respect.tag1: "Réflexes rapides"
+  lab.respect.tag2: "Trois avertissements"
+  lab.respect.tag3: "Musique originale"
+  lab.respect.link: "Jouer à Respect the Elder Bro (en anglais)"
 
 records:
   about:

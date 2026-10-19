@@ -171,10 +171,10 @@ ui:
   notFound.notes: "نوٹس"
 
   lab.overline: "سائیڈ پروجیکٹس / کارآمد تجربات"
-  lab.lede: "ان خیالات کا ٹھکانہ جو نوٹ بک سے نکل کر استعمال کے قابل ٹولز یا کھیل بن گئے۔ چھ پروجیکٹس آزمانے کے لیے تیار ہیں۔"
+  lab.lede: "ان خیالات کا ٹھکانہ جو نوٹ بک سے نکل کر استعمال کے قابل ٹولز یا کھیل بن گئے۔ سات پروجیکٹس آزمانے کے لیے تیار ہیں۔"
   lab.explore: "پروجیکٹس دیکھیں"
   lab.index.notes: "فیلڈ نوٹس"
-  lab.index.count: "6 پروجیکٹس"
+  lab.index.count: "7 پروجیکٹس"
   lab.index.qr: "QR جنریٹر"
   lab.index.motto: "بناؤ · آزماؤ · نکھارو"
   lab.selected: "منتخب کام"
@@ -224,6 +224,12 @@ ui:
   lab.save.tag2: "فضائی بچاؤ"
   lab.save.tag3: "اصل موسیقی"
   lab.save.link: "Save My Bro کھیلیں (انگریزی میں)"
+  lab.respect.kind: "07 / گلی کا کھیل"
+  lab.respect.text: "راہگیروں کو دیکھیں: بزرگ آئیں تو سگریٹ چھپائیں، نوجوان دوستوں اور بچوں کے لیے اچھا ماحول رکھیں۔ تین بار پکڑے گئے تو گھر جانا ہوگا۔"
+  lab.respect.tag1: "تیز ردعمل"
+  lab.respect.tag2: "تین مواقع"
+  lab.respect.tag3: "اصل موسیقی"
+  lab.respect.link: "Respect the Elder Bro کھیلیں (انگریزی میں)"
 
 records:
   about:

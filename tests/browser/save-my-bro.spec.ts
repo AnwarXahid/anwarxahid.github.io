@@ -27,12 +27,13 @@ test('Lab card opens Save My Bro with a 10-bro first stage', async ({ page }) =>
       height: Math.round(node.getBoundingClientRect().height),
     })),
   );
-  expect(cards).toHaveLength(6);
+  expect(cards).toHaveLength(7);
   expect(cards.every((card) => card.height === cards[0].height)).toBe(true);
-  for (let index = 0; index < cards.length; index += 2) {
+  for (let index = 0; index < cards.length - 1; index += 2) {
     expect(cards[index].width).toBe(cards[index + 1].width);
     expect(cards[index].height).toBe(cards[index + 1].height);
   }
+  expect(cards[6].width).toBeGreaterThan(cards[0].width);
 
   await page.getByRole('navigation', { name: 'Jump to a project' }).getByRole('link', { name: /Save My Bro/ }).click();
   await expect(page).toHaveURL(/#save-project$/);

@@ -170,10 +170,10 @@ ui:
   notFound.notes: "ملاحظات"
 
   lab.overline: "مشاريع جانبية / تجارب مفيدة"
-  lab.lede: "مكان لأفكار خرجت من دفتر الملاحظات وأصبحت أدوات أو ألعابًا. ستة مشاريع جاهزة للتجربة."
+  lab.lede: "مكان لأفكار خرجت من دفتر الملاحظات وأصبحت أدوات أو ألعابًا. سبعة مشاريع جاهزة للتجربة."
   lab.explore: "استكشف المشاريع"
   lab.index.notes: "ملاحظات ميدانية"
-  lab.index.count: "6 مشاريع"
+  lab.index.count: "7 مشاريع"
   lab.index.qr: "مولّد QR"
   lab.index.motto: "ابنِ · جرّب · حسّن"
   lab.selected: "أعمال مختارة"
@@ -223,6 +223,12 @@ ui:
   lab.save.tag2: "إنقاذ جوي"
   lab.save.tag3: "موسيقى أصلية"
   lab.save.link: "العب Save My Bro (بالإنجليزية)"
+  lab.respect.kind: "07 / لعبة شارع"
+  lab.respect.text: "راقب المارة: أخفِ السيجارة عند اقتراب أحد الكبار، وحافظ على المرح مع الأصدقاء الصغار والأطفال قبل أن تُعاقَب."
+  lab.respect.tag1: "ردود فعل سريعة"
+  lab.respect.tag2: "ثلاث مخالفات"
+  lab.respect.tag3: "موسيقى أصلية"
+  lab.respect.link: "العب Respect the Elder Bro (بالإنجليزية)"
 
 records:
   about:

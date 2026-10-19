@@ -1,0 +1,120 @@
+---
+const canonical = 'https://anwarxahid.github.io/game/respect-the-elder-bro/';
+const title = 'Respect the Elder Bro — Free Street Timing Browser Game';
+const description = 'Keep the vibe alive, hide the cigarette when an elder passes, and avoid getting grounded in Respect the Elder Bro, a free street timing game for desktop and mobile.';
+const image = 'https://anwarxahid.github.io/game/respect-the-elder-bro/social-preview.png';
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': ['VideoGame', 'WebApplication'],
+  name: 'Respect the Elder Bro',
+  description,
+  url: canonical,
+  image,
+  applicationCategory: 'GameApplication',
+  operatingSystem: 'Any modern desktop or mobile browser',
+  gamePlatform: 'Web browser',
+  inLanguage: 'en',
+  isAccessibleForFree: true,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  author: { '@type': 'Person', name: 'Anwar Hossain Zahid', url: 'https://anwarxahid.github.io/' },
+};
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#10152e" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Anwar's Unsupervised Lab" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Respect the Elder Bro game scene with a seated bro, an approaching elder, and neon street lights" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/game/respect-the-elder-bro/game.css" />
+    <script src="/game/respect-the-elder-bro/game.js" defer></script>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="/lab/#projects" aria-label="Back to Unsupervised Lab"><span class="brand-mark">A<span>×</span></span><span>the playground</span></a>
+        <span class="series">THE BROVERSE · GAME 03</span>
+        <button class="music-button" id="musicButton" type="button" aria-label="Turn music off" aria-pressed="true"><span aria-hidden="true">♫</span><span id="musicLabel">MUSIC ON</span></button>
+      </header>
+
+      <section class="layout" aria-label="Respect the Elder Bro game">
+        <div class="intro">
+          <p class="eyebrow"><span></span> A SIDEWALK STORY WITH CONSEQUENCES</p>
+          <h1>Respect<br />the <em>Elder Bro.</em></h1>
+          <p class="lede">One half wall. One questionable cigarette. A whole neighborhood watching.</p>
+          <div class="rule"><span class="rule-icon coral" aria-hidden="true">✋</span><p><strong>Elder coming? Hide.</strong><small>Put the cigarette out before they reach the wall. Three call-outs and bro is grounded.</small></p></div>
+          <div class="rule"><span class="rule-icon mint" aria-hidden="true">✦</span><p><strong>Younger bro or kid? Vibe.</strong><small>Keep the good energy going. Around kids, bro puts the cigarette away and waves.</small></p></div>
+          <div class="rule"><span class="rule-icon gold" aria-hidden="true">×</span><p><strong>Build a streak.</strong><small>Correct calls score points. The street gets busier the longer you last.</small></p></div>
+          <div class="key-strip"><span><b>H</b> / <b>←</b> HIDE</span><span><b>V</b> / <b>→</b> VIBE</span><span><b>P</b> PAUSE</span></div>
+        </div>
+
+        <div class="game-card">
+          <div class="game-topline"><span><i></i> BRO BLOCK · 6:42 PM</span><span>THE NEIGHBORHOOD KNOWS</span></div>
+          <div class="stage" id="stage" tabindex="-1">
+            <canvas id="streetCanvas" role="img" aria-label="Animated street timing game with a bro on a half wall and people walking past"></canvas>
+            <div class="hud" id="hud" hidden>
+              <div class="hud-pill"><span>VIBE POINTS</span><strong id="scoreValue">0</strong></div>
+              <div class="hud-pill"><span>STREAK</span><strong id="streakValue">0 ×1</strong></div>
+              <div class="hud-pill caught"><span>CALLED OUT</span><strong id="caughtValue">0 / 3</strong></div>
+              <button class="pause-button" id="pauseButton" type="button" aria-label="Pause game">Ⅱ</button>
+            </div>
+            <div class="toast" id="gameToast" role="status" aria-live="polite"></div>
+            <div class="screen" id="startScreen">
+              <div class="screen-card">
+                <span class="sticker">✦ RULE NO. 01 · READ THE STREET ✦</span>
+                <h2>Can bro<br /><em>play it cool?</em></h2>
+                <p>Watch who is approaching. Hide for elders. Vibe for younger bros and kids. Three call-outs and it is straight home.</p>
+                <div class="tutorial"><span><b>✋</b><strong>ELDER</strong><small>HIDE</small></span><span><b>✦</b><strong>BRO / KID</strong><small>VIBE</small></span></div>
+                <button class="primary-button" id="startButton" type="button">START THE VIBE <span aria-hidden="true">↗</span></button>
+              </div>
+            </div>
+            <div class="screen hidden" id="resultScreen" role="dialog" aria-labelledby="resultTitle" aria-describedby="resultText">
+              <div class="screen-card">
+                <span class="sticker">✦ THE STREET HAS SPOKEN ✦</span>
+                <h2 id="resultTitle">Bro got<br /><em>grounded.</em></h2>
+                <p id="resultText">Three elders caught the vibe. Time to practice the innocent face.</p>
+                <div class="result-score"><span>THIS RUN <strong id="resultScore">0</strong></span><span>BEST <strong id="bestValue">0</strong></span></div>
+                <button class="primary-button" id="retryButton" type="button">TRY AGAIN <span aria-hidden="true">↗</span></button>
+              </div>
+            </div>
+            <div class="screen hidden" id="pauseScreen" role="dialog" aria-labelledby="pauseTitle">
+              <div class="screen-card">
+                <span class="sticker">✦ TAKE A BREATH ✦</span>
+                <h2 id="pauseTitle">Street's<br /><em>on pause.</em></h2>
+                <p>Everybody is waiting for your next move.</p>
+                <button class="primary-button" id="resumeButton" type="button">BACK TO THE BLOCK <span aria-hidden="true">↗</span></button>
+              </div>
+            </div>
+          </div>
+          <div class="game-controls" id="gameControls" hidden>
+            <button id="hideButton" class="action-button hide" type="button" aria-pressed="false"><span aria-hidden="true">✋</span><span>HIDE IT<small>ELDER NEARBY</small></span></button>
+            <span class="control-note">WATCH THE WALKERS <i aria-hidden="true">↗</i></span>
+            <button id="vibeButton" class="action-button vibe active" type="button" aria-pressed="true"><span aria-hidden="true">✦</span><span>VIBE ON<small>BRO OR KID</small></span></button>
+          </div>
+        </div>
+      </section>
+      <footer class="page-footer"><span>MADE FOR THE BROS, BY ANWAR</span><nav aria-label="Other Broverse games"><a href="/game/">CARRY MY BRO ↗</a><a href="/game/save-my-bro/">SAVE MY BRO ↗</a></nav></footer>
+    </main>
+  </body>
+</html>

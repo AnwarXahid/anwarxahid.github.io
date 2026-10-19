@@ -22,6 +22,12 @@
 - Reach each round's rescue target before the ground arrives. Debris costs a heart; a missed target or empty health meter lets the player retry that round.
 - Controls: left/right arrow keys or A/D; drag across the game area or use the on-screen arrow buttons on touch devices. P pauses. Original music starts with the game and can be toggled.
 
+## Respect the Elder Bro
+
+- [Play Respect the Elder Bro](https://anwarxahid.github.io/game/respect-the-elder-bro/): A free, single-player street timing browser game for desktop and mobile. The game interface is in English.
+- Hide the cigarette before an elder reaches the wall. Keep the vibe going for younger bros and kids; bro puts the cigarette away and waves when a kid passes. Three elder call-outs end the run.
+- Controls: H, left arrow, or Space to hide; V or right arrow to vibe. Use the on-screen buttons on touch devices. P pauses. Original music starts with the game and can be toggled.
+
 ## Other Lab projects
 
 - [Quizora](https://anwarxahid.github.io/exam/): Create and share quizzes.
