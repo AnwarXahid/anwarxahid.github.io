@@ -3,15 +3,15 @@ layout: lab
 ---
 
 <article class="page-intro">
-  <p class="eyebrow">{{ page.date | date: "%B %-d, %Y" | default: "Research Note" }}</p>
-  <h1>{{ page.title }}</h1>
+  <p class="eyebrow">{% if page.date %}{{ page.date | ldate: "long" }}{% else %}{% t "post.note" %}Research Note{% endt %}{% endif %}</p>
+  <h1{{ english_only }}>{{ page.title }}</h1>
   {% if page.excerpt %}
-    <p>{{ page.excerpt | strip_html }}</p>
+    <p{{ english_only }}>{{ page.excerpt | strip_html }}</p>
   {% endif %}
 </article>
 
-<section class="post-content prose">
+<section class="post-content prose"{{ english_only }}>
   {{ content }}
 </section>
 
-<p class="writing-more"><a href="{{ '/blog/' | relative_url }}">&larr; All posts</a></p>
+<p class="writing-more"><a href="{{ '/blog/' | lurl }}">{% t "post.all" %}&larr; All posts{% endt %}</a></p>

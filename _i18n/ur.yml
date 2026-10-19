@@ -1,0 +1,308 @@
+# اردو — the register of Pakistani tech and academic writing: everyday English loanwords
+# in Urdu script (سافٹ ویئر، ڈیبگنگ) rather than coined terms. Set in Nastaliq.
+# Right-to-left arrows as in Arabic. Urdu verbs carry gender, so first-person lines
+# use perfective (میں نے … کیا) or nominal forms that don't.
+ui:
+  common.skip: "مرکزی مواد پر جائیں"
+  common.copy: "کاپی کریں"
+  common.copied: "کاپی ہو گیا"
+  common.copyFailed: "کاپی نہیں ہو سکا"
+  nav.label: "مرکزی مینو"
+  nav.about: "تعارف"
+  nav.research: "تحقیق"
+  nav.projects: "پروجیکٹس"
+  nav.lab: "Unsupervised Lab"
+  nav.labShort: "لیب"
+  nav.contact: "رابطہ"
+  nav.publications: "اشاعتیں"
+  nav.experience: "تجربہ"
+  nav.teaching: "تدریس"
+  nav.writing: "تحریریں"
+  lang.menu: "زبان بدلیں"
+  lang.englishOnly: "اس صفحے کا مواد صرف انگریزی میں دستیاب ہے۔"
+  theme.toggle: "لائٹ اور ڈارک تھیم کے درمیان بدلیں"
+  theme.dark: "ڈارک"
+  theme.light: "لائٹ"
+  footer.email: "ای میل"
+  footer.cv: "سی وی"
+  pub.paper: "مقالہ"
+  pub.code: "کوڈ"
+  pub.details: "تفصیل اور BibTeX"
+  pub.back: "&rarr; تمام اشاعتیں"
+  post.note: "تحقیقی نوٹ"
+  post.all: "&rarr; تمام تحریریں"
+  project.demo: "ڈیمو"
+  project.others: "دیگر ریپوزٹریز"
+
+  home.kicker.role: "تحقیق اور انجینئرنگ"
+  home.kicker.org: "آئیووا اسٹیٹ یونیورسٹی"
+  home.hero.title: "ذہین نظاموں میں چھپی <span class=\"em\">دراڑوں</span> کی تلاش۔"
+  home.hero.summary: "میں Anwar Zahid ہوں۔ میری تحقیق اس سوال پر ہے کہ مصنوعی ذہانت اور عددی سافٹ ویئر کہاں اور کیوں چوکتے ہیں — اور پھر ایسے ٹولز بنانا جن سے ان خرابیوں کو پکڑنا، دہرانا اور ٹھیک کرنا آسان ہو جائے۔"
+  home.hero.linksLabel: "پروفائل کے لنکس"
+  home.hero.explore: "میری تحقیق دیکھیں"
+  home.hero.contact: "رابطہ کریں"
+  home.hero.kw1: "AI کی قابلِ اعتمادی"
+  home.hero.kw2: "عددی ڈیبگنگ"
+  home.hero.kw3: "سافٹ ویئر انجینئرنگ"
+  home.portraitAlt: "Anwar Hossain Zahid کی تصویر"
+  home.portraitIndex: "01 / پروفائل"
+  home.hero.note: "سطح کے نیچے قابلِ اعتمادی کی کھوج"
+  home.motion.play: "اینیمیشن چلائیں"
+  home.motion.pause: "اینیمیشن روکیں"
+  home.scroll: "مزید دیکھنے کے لیے نیچے جائیں"
+  home.news.label: "خبریں · تازہ ترین"
+  home.news.title: "خبریں"
+  home.news.link: "تفصیل &larr;"
+  home.about.label: "تعارف"
+  home.about.title: "سافٹ ویئر بنانے سے اس کی ناکامی کی وجوہات کی تحقیق تک۔"
+  home.about.p1: >-
+    آئیووا اسٹیٹ یونیورسٹی میں کمپیوٹر سائنس میں میری پی ایچ ڈی جاری ہے، جہاں پروگرام اینالیسس اینڈ AI لیب میں
+    میرے نگران <a href="https://weile.work/" rel="noopener">پروفیسر Wei Le</a> ہیں۔ میری تحقیق کا مرکز قابلِ اعتماد
+    AI نظام، عددی ڈیبگنگ اور مشین لرننگ نظاموں کے لیے سافٹ ویئر انجینئرنگ کی تکنیکیں ہیں۔
+  home.about.p2: >-
+    پی ایچ ڈی شروع کرنے سے پہلے میں نے چار سال سافٹ ویئر انجینئرنگ میں بینکاری، ای گورننس، AI اور موبائل
+    پلیٹ فارمز پر کام کیا۔ انڈسٹری کا یہی تجربہ میری تحقیق کا رخ طے کرتا ہے: مجھے ایسے طریقوں سے دلچسپی ہے جو
+    ڈویلپرز اور محققین کے لیے واقعی کارآمد ٹولز بن سکیں۔ مکمل سفر
+    <a href="{{ '/about-me/' | lurl }}">تفصیلی تعارف کے صفحے</a> پر ہے۔
+  home.research.label: "تحقیقی دلچسپیاں"
+  home.research.title: "سطح کے نیچے آخر ہوتا کیا ہے؟"
+  home.research.q1: "کیا جواب پر بھروسا کیا جا سکتا ہے؟"
+  home.research.a1: "LLM کی ہیلوسینیشن کا مطالعہ، اور یہ جانچنا کہ ذہین نظام کہاں اپنی قابلِ اعتمادی کھو دیتے ہیں۔"
+  home.research.q2: "کوئی عدد غلط کہاں ہوتا ہے؟"
+  home.research.a2: "مشین لرننگ کو چلانے والے سافٹ ویئر میں عددی عدم استحکام اور خاموشی سے در آنے والی ریگریشنز کا سراغ لگانا۔"
+  home.research.q3: "اسے کارآمد کیسے بنائیں؟"
+  home.research.a3: "قابلِ فہم ٹیسٹنگ اور ڈیبگنگ ٹولز بنانا، جن کی مدد سے لوگ خرابیوں کو سمجھ اور ٹھیک کر سکیں۔"
+  interest.hallucination: "LLM ہیلوسینیشن"
+  interest.reliability: "AI کی قابلِ اعتمادی"
+  interest.se4ai: "AI نظاموں کے لیے سافٹ ویئر انجینئرنگ"
+  interest.whitebox: "قابلِ تشریح / وائٹ باکس تجزیہ"
+  interest.humanCentered: "انسان مرکز AI ٹولز"
+  home.pubs.label: "اشاعتیں"
+  home.pubs.title: "ہم منصب جائزہ شدہ اور پری پرنٹ تحقیق"
+  home.pubs.intro: "ML کی قابلِ اعتمادی، LLM کی جانچ اور عددی درستی پر۔ مقالے انگریزی میں شائع ہوئے ہیں۔"
+  home.exp.label: "تجربہ"
+  home.exp.title: "حقیقی سافٹ ویئر کی زمین سے جڑی تحقیق۔"
+  home.exp.intro: "تحقیق، بینکاری، ای گورننس اور موبائل سافٹ ویئر میں کام کا تجربہ۔"
+  home.projects.label: "پروجیکٹس"
+  home.projects.title: "منتخب نظام اور عملی کام"
+  home.projects.intro: "کورس ورک اور چھوٹی ریپوزٹریز نیچے سمیٹ کر رکھی گئی ہیں۔"
+  home.teaching.label: "تدریس"
+  home.teaching.title: "کورس ترتیب دینا، عمل سے سکھانا۔"
+  home.teaching.intro: >-
+    آئیووا اسٹیٹ یونیورسٹی کے <a href="https://www.cs.iastate.edu/" rel="noopener">شعبۂ کمپیوٹر سائنس</a> میں
+    ٹیچنگ اسسٹنٹ کے طور پر کورس ڈیزائن، پروگرامنگ کے ابتدائی کورس اور مصنوعی ذہانت میں حصہ۔
+  home.writing.label: "تحریریں"
+  home.writing.title: "تحقیقی نوٹس اور انجینئرنگ کے تجربات"
+  home.writing.englishNote: "تحریریں انگریزی میں ہیں۔"
+  home.writing.all: "تمام تحریریں &larr;"
+  home.contact.label: "رابطہ"
+  home.contact.title: "آئیے بات کریں۔"
+  home.contact.text: "مجھ سے رابطے کا سب سے تیز ذریعہ <a href=\"mailto:ahzahid@iastate.edu\">ای میل</a> ہے۔"
+  home.contact.linksLabel: "رابطے کے لنکس"
+
+  course.dates: "کورس ڈیزائن"
+  course.role: "نصاب سازی &middot; آئیووا اسٹیٹ یونیورسٹی"
+  course.text: >-
+    شعبۂ کمپیوٹر سائنس میں <strong>پروفیسر Wei Le</strong> اور <strong>پروفیسر Qi Li</strong> کے ساتھ
+    <strong>COMS 3710X: Introduction to Foundation Models I</strong> اور
+    <strong>COMS 3720X: Introduction to Foundation Models II</strong> کورسز کی تیاری میں ہاتھ بٹایا۔
+  ta.dates: "بہار 2023 &ndash; تاحال"
+  ta.role: "ٹیچنگ اسسٹنٹ"
+  ta.p1: >-
+    <strong>COM&nbsp;S&nbsp;127</strong> (پروگرامنگ کا ابتدائی کورس) کے لیب اور ریسیٹیشن سیکشن پڑھائے &mdash;
+    ہفتہ وار لیب، کورس اور جانچ کا مواد، گریڈنگ روبرک اور اسائنمنٹس و امتحانات کی جانچ۔
+  ta.p2: >-
+    <strong>COM&nbsp;S&nbsp;472/572</strong> (Principles of Artificial Intelligence) میں لیکچر دیے: پروفیسر Jin Tian
+    کے شعبہ چھوڑنے سے پہلے ان کی جگہ، اور پروفیسر Yan-Bin Jia کی جگہ۔
+
+  aboutMe.eyebrow: "تعارف"
+  aboutMe.title: "قابلِ اعتماد ML اور بھروسے کے لائق سافٹ ویئر نظاموں پر مرکوز کمپیوٹر سائنس۔"
+  aboutMe.intro: >-
+    آئیووا اسٹیٹ یونیورسٹی میں میری پی ایچ ڈی جاری ہے، اور پروگرام اینالیسس اینڈ AI لیب میں میرے نگران
+    <a href="https://weile.work/" rel="noopener">پروفیسر Wei Le</a> ہیں۔ گریجویٹ اسکول سے پہلے میں نے چار سال
+    سرکاری اداروں، بینکاری، AI اور موبائل پلیٹ فارمز کے لیے سافٹ ویئر بنایا۔ یہ صفحہ
+    <a href="{{ '/#about' | lurl }}">ہوم پیج کے مختصر تعارف</a> کی تفصیلی صورت ہے۔
+  aboutMe.education: "تعلیم"
+  aboutMe.phd.dates: "بہار 2023 – تاحال"
+  aboutMe.phd.degree: "کمپیوٹر سائنس میں پی ایچ ڈی"
+  aboutMe.phd.where: "آئیووا اسٹیٹ یونیورسٹی، ایمز، آئیووا — نگران: <a href=\"https://weile.work/\" rel=\"noopener\">پروفیسر Wei Le</a>"
+  aboutMe.bsc.dates: "2018"
+  aboutMe.bsc.degree: "کمپیوٹر سائنس اینڈ انجینئرنگ میں بی ایس سی"
+  aboutMe.bsc.where: "بنگلہ دیش یونیورسٹی آف انجینئرنگ اینڈ ٹیکنالوجی (BUET)"
+  aboutMe.research: "تحقیقی تجربہ"
+  aboutMe.r1.dates: "خزاں 2023 – تاحال"
+  aboutMe.r1.title: "ML ماڈل کے مختلف ورژنز کے لیے ڈیفرینشل ڈیبگنگ فریم ورک"
+  aboutMe.r1.text: "ڈیفرینشل ٹیسٹنگ اور انویریئنٹ لرننگ کی مدد سے ایسے طریقوں کی تیاری جو بتائیں کہ ماڈل کے ایک ورژن سے دوسرے میں رویہ کہاں بدل جاتا ہے۔"
+  aboutMe.r2.dates: "گرمیاں 2024 – خزاں 2024"
+  aboutMe.r2.title: "مختلف کمپائلرز میں فلوٹنگ پوائنٹ حساب"
+  aboutMe.r2.text: "<a href=\"https://www.llnl.gov/\" rel=\"noopener\">لارنس لیورمور نیشنل لیبارٹری</a> میں یہ جانچا کہ مختلف کمپائلر ٹول چینز پر NVIDIA اور AMD کے GPU کے نتائج کہاں مختلف ہو جاتے ہیں۔"
+  aboutMe.r3.dates: "2020 – 2021"
+  aboutMe.r3.title: "ورچوئل انٹرن شپ سسٹم"
+  aboutMe.r3.text: "تعلیمی اداروں اور انڈسٹری کے ملے جلے ماحول میں سافٹ ویئر ڈویلپمنٹ کی مہارت جانچنے کے لیے ورچوئل انٹرن شپ پلیٹ فارم ڈیزائن کیا۔"
+  aboutMe.r4.dates: "2018 – 2019"
+  aboutMe.r4.title: "ساکن سی سی ٹی وی کیمروں سے منظر کی تعمیرِ نو"
+  aboutMe.r4.text: "نگرانی اور اسمارٹ سٹی کے لیے کئی کیمروں کی مدد سے منظر کی سہ جہتی تعمیرِ نو کا نظام تجویز کیا۔"
+  aboutMe.work: "پیشہ ورانہ تجربہ"
+  aboutMe.workIntro: "مختصر خاکے کے لیے <a href=\"{{ '/#experience' | lurl }}\">ہوم پیج</a> دیکھیں۔"
+  aboutMe.teaching: "تدریس"
+  aboutMe.skills: "تکنیکی مہارتیں"
+  aboutMe.skill.pa: "پروگرام اینالیسس"
+  aboutMe.skill.mlt: "ML ٹیسٹنگ"
+
+  blog.eyebrow: "نوٹس"
+  blog.title: "تحقیقی نوٹس، انجینئرنگ کے سبق اور زیرِ غور خیالات۔"
+  blog.intro: "ML کی قابلِ اعتمادی، عددی ڈیبگنگ، GPU پورٹیبلٹی، سافٹ ویئر انجینئرنگ اور تحقیقی نظام بناتے وقت کیے گئے عملی فیصلوں پر مختصر تکنیکی تحریریں۔"
+  blog.read: "نوٹ پڑھیں &larr;"
+  pubs.eyebrow: "اشاعتیں"
+  pubs.title: "قابلِ اعتماد ML، عددی ڈیبگنگ اور AI کی جانچ پر تحقیق۔"
+  pubs.intro: "مشین لرننگ کی قابلِ اعتمادی، GPU پر حساب کی درستی، LLM کی جانچ اور سافٹ ویئر انجینئرنگ کی تعلیم پر ہم منصب جائزہ شدہ اور پری پرنٹ کام۔ مقالے انگریزی میں شائع ہوئے ہیں۔"
+  works.eyebrow: "کام"
+  works.title: "تحقیقی مقالے، نظام اور عملی سافٹ ویئر پروجیکٹس۔"
+  works.intro: "AI کی قابلِ اعتمادی، عددی ڈیبگنگ، LLM کی جانچ، GPU نیومیرکس اور پروڈکشن سافٹ ویئر انجینئرنگ میں میرے کام کی ایک جھلک۔"
+  works.pubs: "اشاعتیں"
+  works.pubsIntro: "قابلِ اعتماد ML، ماڈل کی جانچ اور عددی درستی پر ہم منصب جائزہ شدہ اور پری پرنٹ کام۔"
+  works.projects: "پروجیکٹس"
+  works.projectsIntro: "تحقیق، نیشنل لیب، انڈسٹری اور اعلیٰ سطحی کورسز سے نکلے نظام اور عملی پروجیکٹس۔"
+  notFound.title: "صفحہ نہیں ملا۔"
+  notFound.text: "آپ جو صفحہ تلاش کر رہے ہیں وہ دستیاب نہیں۔ ہوم پیج پر واپس جائیں یا حالیہ کام دیکھیں۔"
+  notFound.linksLabel: "تجویز کردہ لنکس"
+  notFound.home: "ہوم"
+  notFound.works: "کام"
+  notFound.notes: "نوٹس"
+
+  lab.overline: "سائیڈ پروجیکٹس / کارآمد تجربات"
+  lab.lede: "ان خیالات کا ٹھکانہ جو نوٹ بک سے نکل کر قابلِ استعمال ٹولز بن گئے۔ چار پروجیکٹس آزمانے کے لیے تیار ہیں۔"
+  lab.explore: "پروجیکٹس دیکھیں"
+  lab.index.notes: "فیلڈ نوٹس"
+  lab.index.count: "4 پروجیکٹس"
+  lab.index.qr: "QR جنریٹر"
+  lab.index.motto: "بناؤ · آزماؤ · نکھارو"
+  lab.selected: "منتخب کام"
+  lab.title: "لیب کی سیر کریں"
+  lab.intro: "واضح مقصد والے چھوٹے ٹولز۔"
+  lab.live: "دستیاب"
+  lab.quizora.kind: "01 / تعلیم"
+  lab.quizora.previewKicker: "سوال 01 / 04"
+  lab.quizora.previewQ: "آج آپ کیا سیکھیں گے؟"
+  lab.quizora.previewA1: "کچھ ایسا جو بانٹنے کے لائق ہو"
+  lab.quizora.previewA2: "اوپر والے سبھی"
+  lab.quizora.text: "کوئز بنائیں، اسے لنک یا QR کوڈ سے شیئر کریں، اور دیکھیں کہ سیکھنے والے کیا جواب دیتے ہیں۔ کلاس میں پڑھانے اور مشق کے لیے بنایا گیا۔"
+  lab.quizora.tag1: "کوئز سازی"
+  lab.quizora.tag2: "براہِ راست جوابات"
+  lab.quizora.tag3: "QR سے شیئر"
+  lab.quizora.link: "Quizora کھولیں"
+  lab.qr.kind: "02 / یوٹیلیٹی"
+  lab.qr.title: "QR کوڈ جنریٹر"
+  lab.qr.text: "کسی بھی لنک یا متن کو اپنی پسند کے QR کوڈ میں بدلیں۔ رنگ چنیں، سائز طے کریں اور صاف ستھری PNG ڈاؤن لوڈ کریں — سب کچھ آپ کے براؤزر ہی میں۔"
+  lab.qr.tag1: "من پسند رنگ"
+  lab.qr.tag2: "فوری پیش منظر"
+  lab.qr.tag3: "PNG ڈاؤن لوڈ"
+  lab.qr.link: "QR کوڈ بنائیں"
+  lab.prompt.kind: "03 / براؤزر ایکسٹینشن"
+  lab.prompt.status: "ڈاؤن لوڈ کے لیے دستیاب"
+  lab.prompt.text: "جواب کتنا تفصیلی ہو، کس لہجے اور کس فارمیٹ میں — یہ چنیں، پھر معاون AI چیٹ سائٹس پر اپنا پرامپٹ نکھار کر بھیجیں۔ مفت Chromium ایکسٹینشن اس کے ڈاؤن لوڈ صفحے سے انسٹال کریں (ایکسٹینشن انگریزی میں ہے)۔"
+  lab.prompt.tag1: "الفاظ کی حد"
+  lab.prompt.tag2: "لہجہ اور فارمیٹ"
+  lab.prompt.tag3: "فوری بہتریاں"
+  lab.prompt.get: "PromptDude حاصل کریں"
+  lab.prompt.source: "سورس کوڈ دیکھیں"
+  lab.math.text: "جانچے ہوئے الجبری حل، دو اور سہ جہتی گراف، چھپے متن کو اسکین کر کے نکالنا، اور اپنے آلے پر ریاضی کے نوٹس۔"
+  lab.math.link: "اسٹوڈیو کھولیں (انگریزی میں)"
+
+records:
+  about:
+    excerpt: "AI، سافٹ ویئر انجینئرنگ اور LLM کی قابلِ اعتمادی پر تحقیق۔"
+  about-me:
+    title: "تعارف"
+    excerpt: "Anwar Hossain Zahid کی تعلیم، تحقیق، انڈسٹری کا تجربہ اور تدریس — آئیووا اسٹیٹ یونیورسٹی میں کمپیوٹر سائنس میں پی ایچ ڈی۔"
+  blog:
+    title: "تحقیقی نوٹس"
+    excerpt: "ML کی قابلِ اعتمادی، عددی ڈیبگنگ، GPU پورٹیبلٹی اور AI کی جانچ پر تحقیقی نوٹس۔"
+  publications:
+    title: "اشاعتیں"
+    excerpt: "Anwar Hossain Zahid کی اشاعتیں۔"
+  works:
+    title: "کام"
+    excerpt: "Anwar Hossain Zahid کے تحقیقی مقالے، نظام اور سافٹ ویئر پروجیکٹس۔"
+  unsupervised-lab:
+    excerpt: "کارآمد تجربات: Quizora، OpenMath Studio، QR جنریٹر اور PromptDude ایکسٹینشن۔"
+  "404":
+    title: "صفحہ نہیں ملا"
+    excerpt: "مطلوبہ صفحہ موجود نہیں۔"
+
+  2025-07-01-soft-assertions:
+    excerpt: "Soft Assertions پیش کرتا ہے — مشین لرننگ ایپلیکیشنز میں چھپے عددی عدم استحکام کے بگ ڈھونڈنے اور انہیں سامنے لانے کا طریقہ۔"
+    cover_label: "ML کی قابلِ اعتمادی"
+    cover_caption: "اعداد میں چھپے بگ ڈھونڈیں۔"
+  2025-02-26-hate-speech-geographical-context:
+    excerpt: "جغرافیائی اور سماجی سیاق شامل کرنے پر بڑے لسانی ماڈل نفرت انگیز تقریر پہچاننے میں کیسی کارکردگی دکھاتے ہیں، اس کی جانچ۔"
+    cover_label: "LLM کی جانچ"
+    cover_title: "سیاق ہی سب کچھ ہے۔"
+    cover_caption: "مختلف خطوں میں نفرت انگیز تقریر کی پہچان۔"
+  2024-10-12-testing-gpu-numerics:
+    excerpt: "NVIDIA اور AMD کے GPU پر ایک ہی حساب کے نتائج میں عددی فرق، اور دہرائے جانے کی صلاحیت اور پورٹیبلٹی پر اس کے اثرات کا مطالعہ۔"
+    cover_label: "GPU نیومیرکس"
+    cover_caption: "ایک ہی حساب۔ مختلف نتائج۔"
+  2020-12-19-virtual-internship-system:
+    excerpt: "ورچوئل انٹرن شپ چلانے اور سافٹ ویئر ڈویلپمنٹ کی مہارت جانچنے والے سافٹ ویئر پلیٹ فارم کا تصوراتی خاکہ۔"
+    cover_label: "سافٹ ویئر انجینئرنگ کی تعلیم"
+    cover_title: "بناتے بناتے سیکھیں۔"
+    cover_caption: "ورچوئل انٹرن شپ کا ایک تصوراتی پلیٹ فارم۔"
+
+  0-todaysai:
+    title: "Today's AI — درست AI ٹولز تلاش کریں، انہیں استعمال کرنا سیکھیں"
+    excerpt: "اسکول، انڈرگریجویٹ اور گریجویٹ طلبہ — اور AI میں دلچسپی رکھنے والے ہر شخص — کے لیے ایک ویب پلیٹ فارم، جہاں درست AI ٹولز تلاش کیے اور انہیں استعمال کرنا سیکھا جا سکتا ہے۔ پروفیسر Wei Le کی رہنمائی میں اس کی تخلیق اور مرکزی ڈویلپمنٹ میں نے کی۔"
+    cover_label: "AI خواندگی"
+    cover_caption: "ٹولز تلاش کریں۔ استعمال کرنا سیکھیں۔"
+  1-soft-assertion:
+    excerpt: "FSE 2025 کا مقالہ، جو ML ایپلیکیشنز میں عددی عدم استحکام کے بگ پکڑنے اور سامنے لانے کے لیے Soft Assertions پیش کرتا ہے۔"
+    cover_label: "ML ٹیسٹنگ"
+    cover_caption: "ML میں عددی عدم استحکام پکڑیں۔"
+  2-varity-contibution:
+    title: "GPU عددی ٹیسٹنگ – Varity میں HIP کوڈ جنریشن"
+    excerpt: "LLNL کے Varity پروجیکٹ میں GPU کرنل ٹیسٹنگ کے لیے HIP بیک اینڈ جنریشن کا اضافہ کیا، تاکہ مختلف پلیٹ فارمز پر حساب کے نتائج کی یکسانیت جانچی جا سکے۔"
+    cover_label: "LLNL / Varity"
+    cover_title: "ہر GPU پر۔"
+    cover_caption: "عددی ٹیسٹنگ کے لیے HIP کوڈ جنریشن۔"
+  3-Hate-Speech:
+    title: "جغرافیائی سیاق کے ساتھ نفرت انگیز تقریر کی پہچان"
+    excerpt: "ایک کلاس پروجیکٹ کو آگے بڑھا کر جغرافیائی میٹا ڈیٹا کے ساتھ نفرت انگیز تقریر پہچاننے والے ماڈلز کی جانچ کی۔ بعد میں اسے بڑے لسانی ماڈلز کی ٹیسٹنگ کے لیے ڈھالا گیا اور 2025 میں شائع کیا گیا۔"
+    cover_label: "زبان + جغرافیہ"
+    cover_title: "سیاق میں الفاظ۔"
+    cover_caption: "LLM سے نفرت انگیز تقریر کی پہچان کی جانچ۔"
+  4-face-recog:
+    title: "لائیونیس ڈیٹیکشن کے ساتھ فیس ریکگنیشن"
+    excerpt: "فن ٹیک ایپلیکیشنز کے لیے ریئل ٹائم فیس ریکگنیشن اور جعل سازی پہچاننے کا نظام بنایا، جس سے دور بیٹھے بینکاری تصدیق زیادہ محفوظ ہوئی۔"
+    cover_label: "کمپیوٹر وژن"
+    cover_title: "چہرہ + لائیونیس"
+    cover_caption: "بینکاری کے لیے چہرے کی پہچان اور جعل سازی کی روک تھام۔"
+
+news:
+  "2026-05-01": "Today's AI لانچ کیا — AI ٹولز تلاش کرنے اور انہیں استعمال کرنا سیکھنے کا پلیٹ فارم، جو پروفیسر Wei Le کے ساتھ اسکول، یونیورسٹی اور خود سیکھنے والوں کے لیے بنایا ہے۔"
+  "2025-07-01": "مشین لرننگ ایپلیکیشنز میں عددی عدم استحکام پکڑنے والے Soft Assertions پر ہمارا مقالہ FSE 2025 میں منظور ہوا۔"
+  "2025-02-26": "جغرافیائی سیاق کے ساتھ LLM سے نفرت انگیز تقریر کی پہچان پر پری پرنٹ arXiv پر شائع ہوا۔"
+  "2024-10-12": "NVIDIA اور AMD کے GPU کی عددی ٹیسٹنگ پر پری پرنٹ arXiv پر شائع ہوا۔"
+  "2024-08-01": "LLNL Summer SLAM & Poster Symposium 2024 میں آنریبل مینشن ملا۔"
+  "2024-05-01": "لارنس لیورمور نیشنل لیبارٹری کے پیرالل سسٹمز گروپ میں سمر انٹرن شپ کا آغاز۔"
+
+experience:
+  mayo:
+    role: "وزٹنگ اسکالر"
+    dates: "خزاں 2026"
+    note: "شعبۂ زچگی و امراضِ نسواں کے وزٹنگ اسکالر پروگرام کے تحت تحقیقی انٹرن شپ؛ ماں اور شکمِ مادر میں بچے کے ریکارڈز جوڑنے کے لیے ریسرچ ڈیٹا بیس کی توسیع پر کام۔"
+  llnl:
+    role: "کمپیوٹنگ گریجویٹ انٹرن، پیرالل سسٹمز گروپ"
+    dates: "مئی 2024 – اگست 2024"
+    note: "مختلف قسم کے GPU آرکیٹیکچرز میں فلوٹنگ پوائنٹ درستی کے تجزیے کے ٹولز بنائے، جن میں Varity پروجیکٹ کے لیے HIP بیک اینڈ کوڈ جنریشن شامل ہے؛ LLNL Summer SLAM & Poster Symposium میں آنریبل مینشن ملا۔"
+  reve:
+    role: "سافٹ ویئر انجینئر"
+    dates: "نومبر 2020 – مئی 2022"
+    note: "سرکاری امور کے لیے ERP، خریداری، اکاؤنٹنگ اور کمپلائنس سسٹمز پر کام کیا۔"
+  era:
+    role: "سافٹ ویئر انجینئر"
+    dates: "نومبر 2019 – نومبر 2020"
+    note: "بینکاری کے لیے فن ٹیک چیٹ بوٹ، فیس ریکگنیشن، ترسیلاتِ زر کا انضمام اور RPA سسٹمز بنائے۔"
+  walton:
+    role: "جونیئر سافٹ ویئر ڈویلپر"
+    dates: "دسمبر 2018 – اکتوبر 2019"
+    note: "صارفین کے آلات کے لیے اینڈرائیڈ ROM اور فیچر فون کے آپریٹنگ سسٹم میں بہتریاں کیں۔"

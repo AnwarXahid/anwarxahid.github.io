@@ -1,0 +1,304 @@
+# 简体中文 — written in the register of mainland Chinese tech and academic sites.
+# Established terms (大语言模型, 数值稳定性, 幻觉) follow common usage; English acronyms stay.
+ui:
+  common.skip: "跳到正文"
+  common.copy: "复制"
+  common.copied: "已复制"
+  common.copyFailed: "复制失败"
+  nav.label: "主导航"
+  nav.about: "关于"
+  nav.research: "研究"
+  nav.projects: "项目"
+  nav.lab: "Unsupervised Lab"
+  nav.labShort: "实验室"
+  nav.contact: "联系"
+  nav.publications: "论文"
+  nav.experience: "经历"
+  nav.teaching: "教学"
+  nav.writing: "文章"
+  lang.menu: "切换语言"
+  lang.englishOnly: "本页正文仅提供英文版。"
+  theme.toggle: "切换浅色/深色主题"
+  theme.dark: "深色"
+  theme.light: "浅色"
+  footer.email: "邮箱"
+  footer.cv: "简历"
+  pub.paper: "论文"
+  pub.code: "代码"
+  pub.details: "详情与 BibTeX"
+  pub.back: "&larr; 返回全部论文"
+  post.note: "研究笔记"
+  post.all: "&larr; 全部文章"
+  project.demo: "演示"
+  project.others: "其他代码仓库"
+
+  home.kicker.role: "研究者 &amp; 工程师"
+  home.kicker.org: "爱荷华州立大学"
+  home.hero.title: "寻找智能系统中的<span class=\"em\">隐秘裂痕</span>。"
+  home.hero.summary: "我是 Anwar Zahid。我研究 AI 与数值软件为何会出错、在哪里出错，并开发工具，让这些故障更容易被发现、复现和修复。"
+  home.hero.linksLabel: "个人链接"
+  home.hero.explore: "了解我的研究"
+  home.hero.contact: "与我联系"
+  home.hero.kw1: "AI 可靠性"
+  home.hero.kw2: "数值调试"
+  home.hero.kw3: "软件工程"
+  home.portraitAlt: "Anwar Hossain Zahid 的照片"
+  home.portraitIndex: "01 / 个人简介"
+  home.hero.note: "探寻表象之下的可靠性"
+  home.motion.play: "播放动画"
+  home.motion.pause: "暂停动画"
+  home.scroll: "向下浏览"
+  home.news.label: "动态 · 近期记录"
+  home.news.title: "动态"
+  home.news.link: "查看 &rarr;"
+  home.about.label: "关于"
+  home.about.title: "从开发软件，到研究软件为何失效。"
+  home.about.p1: >-
+    我在爱荷华州立大学攻读计算机科学博士学位，师从程序分析与人工智能实验室（Program Analysis and AI Lab）的
+    <a href="https://weile.work/" rel="noopener">Wei Le 教授</a>。我的研究方向包括可靠的 AI 系统、数值调试，
+    以及面向机器学习系统的软件工程技术。
+  home.about.p2: >-
+    读博之前，我做了四年软件工程师，参与过银行、电子政务、AI 和移动平台的开发。这段工业界经历塑造了我做研究的方式：
+    我更看重那些能真正变成开发者和研究者手中实用工具的方法。更完整的经历请见
+    <a href="{{ '/about-me/' | lurl }}">详细介绍页</a>。
+  home.research.label: "研究兴趣"
+  home.research.title: "表象之下，究竟发生了什么？"
+  home.research.q1: "这个答案可信吗？"
+  home.research.a1: "研究大语言模型的幻觉问题，评估智能系统在哪些环节失去可靠性。"
+  home.research.q2: "数字是在哪里出错的？"
+  home.research.a2: "在支撑机器学习的软件中，追踪数值不稳定和悄无声息的性能退化。"
+  home.research.q3: "怎样让它真正有用？"
+  home.research.a3: "开发可解释的测试与调试工具，帮助人们理解并修复故障。"
+  interest.hallucination: "大语言模型幻觉"
+  interest.reliability: "AI 可靠性"
+  interest.se4ai: "面向 AI 系统的软件工程"
+  interest.whitebox: "可解释 / 白盒分析"
+  interest.humanCentered: "以人为本的 AI 工具"
+  home.pubs.label: "论文"
+  home.pubs.title: "同行评审论文与预印本"
+  home.pubs.intro: "涉及机器学习可靠性、大语言模型评估与数值正确性。论文均以英文发表。"
+  home.exp.label: "经历"
+  home.exp.title: "扎根于真实软件的研究。"
+  home.exp.intro: "涵盖科研、银行、电子政务和移动软件。"
+  home.projects.label: "项目"
+  home.projects.title: "精选系统与应用项目"
+  home.projects.intro: "课程作业和较小的代码仓库收在下方。"
+  home.teaching.label: "教学"
+  home.teaching.title: "设计课程，在实践中教学。"
+  home.teaching.intro: >-
+    在爱荷华州立大学<a href="https://www.cs.iastate.edu/" rel="noopener">计算机科学系</a>担任助教，
+    参与课程设计、编程入门和人工智能课程的教学。
+  home.writing.label: "文章"
+  home.writing.title: "研究笔记与工程手记"
+  home.writing.englishNote: "文章正文为英文。"
+  home.writing.all: "全部文章 &rarr;"
+  home.contact.label: "联系"
+  home.contact.title: "欢迎交流。"
+  home.contact.text: "联系我最快的方式是<a href=\"mailto:ahzahid@iastate.edu\">发邮件</a>。"
+  home.contact.linksLabel: "联系方式"
+
+  course.dates: "课程设计"
+  course.role: "课程开发 &middot; 爱荷华州立大学"
+  course.text: >-
+    与计算机科学系的 <strong>Wei Le 教授</strong>和 <strong>Qi Li 教授</strong>一起，参与设计了
+    <strong>COMS 3710X: Introduction to Foundation Models I</strong> 和
+    <strong>COMS 3720X: Introduction to Foundation Models II</strong> 两门课程。
+  ta.dates: "2023 年春季 &ndash; 至今"
+  ta.role: "助教"
+  ta.p1: >-
+    负责 <strong>COM&nbsp;S&nbsp;127</strong>（编程入门）的实验课和习题课：带每周的实验、编写课程与考核材料、
+    设计评分标准，并批改作业和试卷。
+  ta.p2: >-
+    为 <strong>COM&nbsp;S&nbsp;472/572</strong>（人工智能原理）代课讲授：Jin Tian 教授离开系里之前曾为其代课，
+    也曾为 Yan-Bin Jia 教授代课。
+
+  aboutMe.eyebrow: "关于"
+  aboutMe.title: "专注于可靠机器学习与可信软件系统的计算机科学研究者。"
+  aboutMe.intro: >-
+    我是爱荷华州立大学的博士候选人，在程序分析与人工智能实验室跟随
+    <a href="https://weile.work/" rel="noopener">Wei Le 教授</a>从事研究。读研之前，我花了四年时间为政府、银行、
+    AI 和移动平台开发软件。本页是<a href="{{ '/#about' | lurl }}">主页简介</a>的详细版。
+  aboutMe.education: "教育背景"
+  aboutMe.phd.dates: "2023 年春季 – 至今"
+  aboutMe.phd.degree: "计算机科学博士"
+  aboutMe.phd.where: "爱荷华州立大学，艾姆斯，爱荷华州 — 导师：<a href=\"https://weile.work/\" rel=\"noopener\">Wei Le 教授</a>"
+  aboutMe.bsc.dates: "2018"
+  aboutMe.bsc.degree: "计算机科学与工程学士"
+  aboutMe.bsc.where: "孟加拉国工程技术大学（BUET）"
+  aboutMe.research: "科研经历"
+  aboutMe.r1.dates: "2023 年秋季 – 至今"
+  aboutMe.r1.title: "面向机器学习模型版本的差分调试框架"
+  aboutMe.r1.text: "利用差分测试与不变量学习，研究分析模型不同版本之间行为不一致的方法。"
+  aboutMe.r2.dates: "2024 年夏季 – 2024 年秋季"
+  aboutMe.r2.title: "跨编译器的浮点运算"
+  aboutMe.r2.text: "在<a href=\"https://www.llnl.gov/\" rel=\"noopener\">劳伦斯利弗莫尔国家实验室</a>，研究 NVIDIA 与 AMD GPU 在不同编译器工具链下的数值差异。"
+  aboutMe.r3.dates: "2020 – 2021"
+  aboutMe.r3.title: "虚拟实习系统"
+  aboutMe.r3.text: "设计了一个虚拟实习平台，用于在学术与产业结合的环境中评测软件开发技能。"
+  aboutMe.r4.dates: "2018 – 2019"
+  aboutMe.r4.title: "基于固定监控摄像头的场景重建"
+  aboutMe.r4.text: "提出了一套多摄像头三维场景重建系统，面向安防监控与智慧城市应用。"
+  aboutMe.work: "工作经历"
+  aboutMe.workIntro: "精简版请见<a href=\"{{ '/#experience' | lurl }}\">主页</a>。"
+  aboutMe.teaching: "教学"
+  aboutMe.skills: "技术专长"
+  aboutMe.skill.pa: "程序分析"
+  aboutMe.skill.mlt: "机器学习测试"
+
+  blog.eyebrow: "笔记"
+  blog.title: "研究笔记、工程经验与进行中的想法。"
+  blog.intro: "关于机器学习可靠性、数值调试、GPU 可移植性、软件工程，以及搭建科研系统时实际取舍的简短技术文章。"
+  blog.read: "阅读笔记 &rarr;"
+  pubs.eyebrow: "论文"
+  pubs.title: "关于可靠机器学习、数值调试与 AI 评估的研究。"
+  pubs.intro: "同行评审论文与预印本，涵盖机器学习可靠性、GPU 数值正确性、大语言模型评估以及软件工程教育。论文均以英文发表。"
+  works.eyebrow: "作品"
+  works.title: "研究论文、系统与应用软件项目。"
+  works.intro: "集中展示我在 AI 可靠性、数值调试、大语言模型评估、GPU 数值计算和生产级软件工程方面的工作。"
+  works.pubs: "论文"
+  works.pubsIntro: "同行评审论文与预印本，涉及可靠机器学习、模型评估与数值正确性。"
+  works.projects: "项目"
+  works.projectsIntro: "来自科研、国家实验室、工业界和高阶课程的系统与应用项目。"
+  notFound.title: "页面不存在。"
+  notFound.text: "你要找的页面不存在。可以返回主页，或看看近期的作品。"
+  notFound.linksLabel: "推荐链接"
+  notFound.home: "主页"
+  notFound.works: "作品"
+  notFound.notes: "笔记"
+
+  lab.overline: "业余项目 / 实用小实验"
+  lab.lede: "这里收纳那些从笔记本里跑出来、变成真正可用工具的想法。四个项目现在就能试用。"
+  lab.explore: "浏览项目"
+  lab.index.notes: "实验手记"
+  lab.index.count: "4 个项目"
+  lab.index.qr: "二维码生成器"
+  lab.index.motto: "动手做 · 试一试 · 再改进"
+  lab.selected: "精选作品"
+  lab.title: "逛逛实验室"
+  lab.intro: "目标明确的小工具。"
+  lab.live: "已上线"
+  lab.quizora.kind: "01 / 教育"
+  lab.quizora.previewKicker: "第 01 / 04 题"
+  lab.quizora.previewQ: "今天你想学点什么？"
+  lab.quizora.previewA1: "值得分享的东西"
+  lab.quizora.previewA2: "以上全部"
+  lab.quizora.text: "创建测验，通过链接或二维码分享，再看看学习者如何作答。专为课堂教学和日常练习打造。"
+  lab.quizora.tag1: "创建测验"
+  lab.quizora.tag2: "实时作答"
+  lab.quizora.tag3: "扫码分享"
+  lab.quizora.link: "打开 Quizora"
+  lab.qr.kind: "02 / 实用工具"
+  lab.qr.title: "二维码生成器"
+  lab.qr.text: "把链接或文字变成个性化二维码。选颜色、调尺寸，下载清晰的 PNG 图片，全程在浏览器里完成。"
+  lab.qr.tag1: "自定义颜色"
+  lab.qr.tag2: "实时预览"
+  lab.qr.tag3: "导出 PNG"
+  lab.qr.link: "生成二维码"
+  lab.prompt.kind: "03 / 浏览器扩展"
+  lab.prompt.status: "可下载"
+  lab.prompt.text: "选好想要的回答深度、语气和格式，然后在支持的 AI 聊天网站上一键润色并发送提示词。免费的 Chromium 扩展可从下载页安装（界面为英文）。"
+  lab.prompt.tag1: "字数预算"
+  lab.prompt.tag2: "语气与格式"
+  lab.prompt.tag3: "快捷增强"
+  lab.prompt.get: "获取 PromptDude"
+  lab.prompt.source: "查看源码"
+  lab.math.text: "可验证的代数求解、二维与三维绘图、印刷文字识别，以及保存在本地的数学笔记。"
+  lab.math.link: "打开工作室（英文界面）"
+
+records:
+  about:
+    excerpt: "研究 AI、软件工程与大语言模型可靠性的博士研究者。"
+  about-me:
+    title: "关于"
+    excerpt: "Anwar Hossain Zahid 的教育背景、科研、工业界经历与教学。爱荷华州立大学计算机科学博士候选人。"
+  blog:
+    title: "研究笔记"
+    excerpt: "关于机器学习可靠性、数值调试、GPU 可移植性和 AI 评估的研究笔记。"
+  publications:
+    title: "论文"
+    excerpt: "Anwar Hossain Zahid 的论文。"
+  works:
+    title: "作品"
+    excerpt: "Anwar Hossain Zahid 的研究论文、系统和软件项目。"
+  unsupervised-lab:
+    excerpt: "实用小实验：Quizora、OpenMath Studio、二维码生成器和 PromptDude 扩展。"
+  "404":
+    title: "页面不存在"
+    excerpt: "请求的页面不存在。"
+
+  2025-07-01-soft-assertions:
+    excerpt: "提出 Soft Assertions 方法，用于检测并触发机器学习应用中隐藏的数值不稳定缺陷。"
+    cover_label: "机器学习可靠性"
+    cover_caption: "揪出藏在数字里的 bug。"
+  2025-02-26-hate-speech-geographical-context:
+    excerpt: "评估在加入地理与社会背景后，大语言模型检测仇恨言论的表现。"
+    cover_label: "大语言模型评估"
+    cover_title: "语境决定一切。"
+    cover_caption: "跨地域的仇恨言论检测。"
+  2024-10-12-testing-gpu-numerics:
+    excerpt: "研究 NVIDIA 与 AMD GPU 执行同一计算时的数值差异，以及它对可复现性和可移植性的影响。"
+    cover_label: "GPU 数值计算"
+    cover_caption: "同样的计算，不同的结果。"
+  2020-12-19-virtual-internship-system:
+    excerpt: "提出一个用于开展虚拟实习、评测软件开发技能的软件平台概念设计。"
+    cover_label: "软件工程教育"
+    cover_title: "在动手中学习。"
+    cover_caption: "虚拟实习的概念平台。"
+
+  0-todaysai:
+    title: "Today's AI — 发现 AI 工具，学会用好它们"
+    excerpt: "一个帮助中小学生、本科生、研究生以及所有对 AI 感兴趣的人找到合适 AI 工具并学会使用的网站。在 Wei Le 教授指导下，由我担任创建者和首席开发者。"
+    cover_label: "AI 素养"
+    cover_caption: "发现工具，学会使用。"
+  1-soft-assertion:
+    excerpt: "FSE 2025 论文，提出 Soft Assertions，用于检测并触发机器学习应用中的数值不稳定缺陷。"
+    cover_label: "机器学习测试"
+    cover_caption: "发现机器学习中的数值不稳定。"
+  2-varity-contibution:
+    title: "GPU 数值测试 – 为 Varity 实现 HIP 代码生成"
+    excerpt: "为 LLNL 的 Varity 项目实现了 HIP 后端代码生成，用于 GPU 内核测试，从而评估不同平台间的数值一致性。"
+    cover_label: "LLNL / Varity"
+    cover_title: "跨越 GPU。"
+    cover_caption: "面向数值测试的 HIP 代码生成。"
+  3-Hate-Speech:
+    title: "结合地理语境的仇恨言论检测"
+    excerpt: "将一个课程项目扩展为利用地理元数据评估仇恨言论检测模型的研究，后来又改造用于大语言模型测试，并于 2025 年发表。"
+    cover_label: "语言 + 地理"
+    cover_title: "语境中的词语。"
+    cover_caption: "评估大语言模型的仇恨言论检测能力。"
+  4-face-recog:
+    title: "带活体检测的人脸识别"
+    excerpt: "为金融科技应用开发了实时人脸识别与防伪检测系统，提升远程银行身份验证的安全性。"
+    cover_label: "计算机视觉"
+    cover_title: "人脸 + 活体"
+    cover_caption: "面向银行业务的人脸识别与防伪。"
+
+news:
+  "2026-05-01": "上线 Today's AI：一个帮助人们发现 AI 工具并学会使用的平台，与 Wei Le 教授共同为中小学、大学和自学者打造。"
+  "2025-07-01": "关于用 Soft Assertions 检测机器学习应用数值不稳定的论文被 FSE 2025 录用。"
+  "2025-02-26": "关于结合地理语境、用大语言模型检测仇恨言论的预印本已发布在 arXiv。"
+  "2024-10-12": "关于测试 NVIDIA 与 AMD GPU 数值差异的预印本已发布在 arXiv。"
+  "2024-08-01": "在 LLNL Summer SLAM & Poster Symposium 2024 获得荣誉提名。"
+  "2024-05-01": "开始在劳伦斯利弗莫尔国家实验室并行系统组进行暑期实习。"
+
+experience:
+  mayo:
+    role: "访问学者"
+    dates: "2026 年秋季"
+    note: "通过妇产科访问学者项目进行科研实习，参与母婴记录关联研究数据库的扩展工作。"
+  llnl:
+    role: "计算方向研究生实习生，并行系统组"
+    dates: "2024 年 5 月 – 2024 年 8 月"
+    note: "开发了跨异构 GPU 架构的浮点精度分析工具，包括为 Varity 项目实现 HIP 后端代码生成；在 LLNL Summer SLAM & Poster Symposium 获得荣誉提名。"
+  reve:
+    role: "软件工程师"
+    dates: "2020 年 11 月 – 2022 年 5 月"
+    note: "参与面向政府业务的 ERP、采购、会计和合规系统开发。"
+  era:
+    role: "软件工程师"
+    dates: "2019 年 11 月 – 2020 年 11 月"
+    note: "为银行业务开发了金融科技聊天机器人、人脸识别、汇款对接和 RPA 系统。"
+  walton:
+    role: "初级软件开发工程师"
+    dates: "2018 年 12 月 – 2019 年 10 月"
+    note: "为消费电子设备开发 Android ROM，并改进功能机操作系统。"

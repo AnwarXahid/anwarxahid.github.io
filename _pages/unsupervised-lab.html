@@ -11,42 +11,42 @@ redirect_from:
 
 <section class="lab-hero" aria-labelledby="lab-title">
   <div class="lab-hero-copy">
-    <p class="lab-overline"><span class="lab-live-dot" aria-hidden="true"></span> Side projects / useful experiments</p>
-    <h1 id="lab-title">Unsupervised <span>Lab.</span></h1>
-    <p class="lab-lede">A place for ideas that escaped the notebook and became tools you can use. Four projects are ready to try.</p>
-    <a class="lab-hero-link" href="#projects">Explore the projects <span aria-hidden="true">↘</span></a>
+    <p class="lab-overline"><span class="lab-live-dot" aria-hidden="true"></span> {% t "lab.overline" %}Side projects / useful experiments{% endt %}</p>
+    <h1 id="lab-title" lang="en">Unsupervised <span>Lab.</span></h1>
+    <p class="lab-lede">{% t "lab.lede" %}A place for ideas that escaped the notebook and became tools you can use. Four projects are ready to try.{% endt %}</p>
+    <a class="lab-hero-link" href="#projects">{% t "lab.explore" %}Explore the projects{% endt %} <span aria-hidden="true">↘</span></a>
   </div>
   <div class="lab-index" aria-hidden="true">
-    <div class="lab-index-top"><span>FIELD NOTES</span><span>4 PROJECTS</span></div>
+    <div class="lab-index-top"><span>{% t "lab.index.notes" %}FIELD NOTES{% endt %}</span><span>{% t "lab.index.count" %}4 PROJECTS{% endt %}</span></div>
     <div class="lab-index-row"><span>01</span><strong>Quizora</strong><i></i></div>
-    <div class="lab-index-row"><span>02</span><strong>QR Generator</strong><i></i></div>
+    <div class="lab-index-row"><span>02</span><strong>{% t "lab.index.qr" %}QR Generator{% endt %}</strong><i></i></div>
     <div class="lab-index-row"><span>03</span><strong>PromptDude</strong><i></i></div>
     <div class="lab-index-row"><span>04</span><strong>OpenMath</strong><i></i></div>
-    <div class="lab-index-bottom">Build · try · improve <span>↗</span></div>
+    <div class="lab-index-bottom">{% t "lab.index.motto" %}Build · try · improve{% endt %} <span>↗</span></div>
   </div>
 </section>
 
 <section class="lab-projects" id="projects" aria-labelledby="projects-title">
   <div class="lab-section-heading">
-    <div><p class="lab-overline">Selected work</p><h2 id="projects-title">Explore the lab</h2></div>
-    <p>Small tools with a clear purpose.</p>
+    <div><p class="lab-overline">{% t "lab.selected" %}Selected work{% endt %}</p><h2 id="projects-title">{% t "lab.title" %}Explore the lab{% endt %}</h2></div>
+    <p>{% t "lab.intro" %}Small tools with a clear purpose.{% endt %}</p>
   </div>
 
   <div class="lab-grid">
     <article class="lab-card lab-card-quizora" aria-labelledby="quizora-title">
-      <div class="lab-card-meta"><span class="lab-number">01 / EDUCATION</span><span class="lab-status"><span aria-hidden="true"></span> Live</span></div>
+      <div class="lab-card-meta"><span class="lab-number">{% t "lab.quizora.kind" %}01 / EDUCATION{% endt %}</span><span class="lab-status"><span aria-hidden="true"></span> {% t "lab.live" %}Live{% endt %}</span></div>
       <div class="lab-quiz-preview" aria-hidden="true">
         <div class="lab-preview-bar"><span></span><span></span><span></span><b>QUIZORA</b></div>
-        <div class="lab-preview-body"><span class="lab-preview-kicker">QUESTION 01 / 04</span><strong>What will you learn today?</strong><div class="lab-answer"><i></i><span>Something worth sharing</span></div><div class="lab-answer selected"><i></i><span>Everything above</span><b>✓</b></div></div>
+        <div class="lab-preview-body"><span class="lab-preview-kicker">{% t "lab.quizora.previewKicker" %}QUESTION 01 / 04{% endt %}</span><strong>{% t "lab.quizora.previewQ" %}What will you learn today?{% endt %}</strong><div class="lab-answer"><i></i><span>{% t "lab.quizora.previewA1" %}Something worth sharing{% endt %}</span></div><div class="lab-answer selected"><i></i><span>{% t "lab.quizora.previewA2" %}Everything above{% endt %}</span><b>✓</b></div></div>
       </div>
       <h3 id="quizora-title">Quizora</h3>
-      <p>Create a quiz, share it by link or QR code, and see how learners respond. Built for practical teaching and practice.</p>
-      <div class="lab-tags"><span>Quiz creation</span><span>Live responses</span><span>Share by QR</span></div>
-      <a class="lab-card-link" href="{{ '/exam/' | relative_url }}">Open Quizora <span aria-hidden="true">↗</span></a>
+      <p>{% t "lab.quizora.text" %}Create a quiz, share it by link or QR code, and see how learners respond. Built for practical teaching and practice.{% endt %}</p>
+      <div class="lab-tags"><span>{% t "lab.quizora.tag1" %}Quiz creation{% endt %}</span><span>{% t "lab.quizora.tag2" %}Live responses{% endt %}</span><span>{% t "lab.quizora.tag3" %}Share by QR{% endt %}</span></div>
+      <a class="lab-card-link" href="{{ '/exam/' | relative_url }}">{% t "lab.quizora.link" %}Open Quizora{% endt %} <span aria-hidden="true">↗</span></a>
     </article>
 
     <article class="lab-card lab-card-qr" aria-labelledby="qr-title">
-      <div class="lab-card-meta"><span class="lab-number">02 / UTILITY</span><span class="lab-status"><span aria-hidden="true"></span> Live</span></div>
+      <div class="lab-card-meta"><span class="lab-number">{% t "lab.qr.kind" %}02 / UTILITY{% endt %}</span><span class="lab-status"><span aria-hidden="true"></span> {% t "lab.live" %}Live{% endt %}</span></div>
       <div class="lab-qr-preview" aria-hidden="true">
         <div class="lab-qr-grid">
           <span class="finder one"></span><span class="finder two"></span><span class="finder three"></span>
@@ -54,24 +54,24 @@ redirect_from:
         </div>
         <span class="lab-qr-download">PNG <span>↓</span></span>
       </div>
-      <h3 id="qr-title">QR Code Generator</h3>
-      <p>Turn a link or text into a custom QR code. Choose a color, adjust the size, and download a crisp PNG, all in your browser.</p>
-      <div class="lab-tags"><span>Custom colors</span><span>Instant preview</span><span>PNG export</span></div>
-      <a class="lab-card-link" href="{{ '/exam/qr/' | relative_url }}">Make a QR code <span aria-hidden="true">↗</span></a>
+      <h3 id="qr-title">{% t "lab.qr.title" %}QR Code Generator{% endt %}</h3>
+      <p>{% t "lab.qr.text" %}Turn a link or text into a custom QR code. Choose a color, adjust the size, and download a crisp PNG, all in your browser.{% endt %}</p>
+      <div class="lab-tags"><span>{% t "lab.qr.tag1" %}Custom colors{% endt %}</span><span>{% t "lab.qr.tag2" %}Instant preview{% endt %}</span><span>{% t "lab.qr.tag3" %}PNG export{% endt %}</span></div>
+      <a class="lab-card-link" href="{{ '/exam/qr/' | relative_url }}">{% t "lab.qr.link" %}Make a QR code{% endt %} <span aria-hidden="true">↗</span></a>
     </article>
 
     <article class="lab-card lab-card-prompt" aria-labelledby="prompt-title">
       <div class="lab-prompt-copy">
-        <div class="lab-card-meta"><span class="lab-number">03 / BROWSER EXTENSION</span><span class="lab-status"><span aria-hidden="true"></span> Download available</span></div>
+        <div class="lab-card-meta"><span class="lab-number">{% t "lab.prompt.kind" %}03 / BROWSER EXTENSION{% endt %}</span><span class="lab-status"><span aria-hidden="true"></span> {% t "lab.prompt.status" %}Download available{% endt %}</span></div>
         <h3 id="prompt-title">PromptDude</h3>
-        <p>Choose the depth, tone, and format you want, then enhance and send your prompt on supported AI chat sites. Install the free Chromium extension from its download page.</p>
-        <div class="lab-tags"><span>Word budget</span><span>Tone &amp; format</span><span>Quick boosters</span></div>
+        <p>{% t "lab.prompt.text" %}Choose the depth, tone, and format you want, then enhance and send your prompt on supported AI chat sites. Install the free Chromium extension from its download page.{% endt %}</p>
+        <div class="lab-tags"><span>{% t "lab.prompt.tag1" %}Word budget{% endt %}</span><span>{% t "lab.prompt.tag2" %}Tone &amp; format{% endt %}</span><span>{% t "lab.prompt.tag3" %}Quick boosters{% endt %}</span></div>
         <div class="lab-prompt-links">
-          <a class="lab-card-link" href="https://anwarxahid.github.io/PromptDude/">Get PromptDude <span aria-hidden="true">↗</span></a>
-          <a class="lab-card-link lab-card-link-secondary" href="https://github.com/AnwarXahid/PromptDude">View source <span aria-hidden="true">↗</span></a>
+          <a class="lab-card-link" href="https://anwarxahid.github.io/PromptDude/">{% t "lab.prompt.get" %}Get PromptDude{% endt %} <span aria-hidden="true">↗</span></a>
+          <a class="lab-card-link lab-card-link-secondary" href="https://github.com/AnwarXahid/PromptDude">{% t "lab.prompt.source" %}View source{% endt %} <span aria-hidden="true">↗</span></a>
         </div>
       </div>
-      <div class="lab-prompt-preview" role="group" aria-label="Preview of PromptDude settings">
+      <div class="lab-prompt-preview" role="group" aria-label="Preview of PromptDude settings" lang="en" dir="ltr">
         <div class="lab-prompt-preview-head"><span class="lab-prompt-icon">✦</span><strong>PromptDude</strong><span>Browser extension</span></div>
         <div class="lab-prompt-group"><small>RESPONSE DEPTH</small><div><span class="active">⚡ Brief</span><span>📖 In-Depth</span></div></div>
         <div class="lab-prompt-group"><small>OPTIONAL WORD BUDGET</small><div><span>~100w</span><span class="active">~300w</span><span>~500w+</span></div></div>
@@ -83,8 +83,8 @@ redirect_from:
     </article>
 
     <article class="lab-next" aria-labelledby="openmath-title">
-      <div><span class="lab-next-plus" aria-hidden="true">∑</span><h3 id="openmath-title">OpenMath Studio</h3><p>Solve checked algebra, graph in 2D and 3D, extract printed text, and keep local math notes.</p></div>
-      <a class="lab-card-link" href="{{ '/math/' | relative_url }}">Open the studio <span aria-hidden="true">↗</span></a>
+      <div><span class="lab-next-plus" aria-hidden="true">∑</span><h3 id="openmath-title">OpenMath Studio</h3><p>{% t "lab.math.text" %}Solve checked algebra, graph in 2D and 3D, extract printed text, and keep local math notes.{% endt %}</p></div>
+      <a class="lab-card-link" href="{{ '/math/' | relative_url }}">{% t "lab.math.link" %}Open the studio{% endt %} <span aria-hidden="true">↗</span></a>
     </article>
   </div>
 </section>

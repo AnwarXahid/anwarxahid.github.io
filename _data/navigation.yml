@@ -1,19 +1,28 @@
 main:
   - title: "Unsupervised Lab"
+    key: lab
     url: /lab/
   - title: "About"
+    key: about
     url: /#about
   - title: "Research"
+    key: research
     url: /#research
   - title: "Publications"
+    key: publications
     url: /#publications
   - title: "Experience"
+    key: experience
     url: /#experience
   - title: "Projects"
+    key: projects
     url: /#projects
   - title: "Teaching"
+    key: teaching
     url: /#teaching
   - title: "Writing"
+    key: writing
     url: /#writing
   - title: "Contact"
+    key: contact
     url: /#contact

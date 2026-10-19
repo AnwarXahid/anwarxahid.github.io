@@ -1,23 +1,28 @@
 # Reverse-chronological work experience shown on the homepage.
-# org_url is optional.
-- role: "Visiting Scholar"
+# org_url is optional. `id` keys the translations in _i18n/<code>.yml under `experience`.
+- id: mayo
+  role: "Visiting Scholar"
   org: "Mayo Clinic, Rochester, Minnesota"
   dates: "Fall 2026"
   note: "Research internship through the visiting scholar program in the Department of Obstetrics and Gynecology, working on Research Database Expansion for Maternal-Fetal Record Linkage."
-- role: "Computing Graduate Intern, Parallel Systems Group"
+- id: llnl
+  role: "Computing Graduate Intern, Parallel Systems Group"
   org: "Lawrence Livermore National Laboratory"
   org_url: "https://www.llnl.gov/"
   dates: "May 2024 – Aug 2024"
   note: "Built tooling for cross-platform floating-point precision analysis across heterogeneous GPU architectures, including HIP backend code generation for the Varity project; earned an Honorable Mention at the LLNL Summer SLAM & Poster Symposium."
-- role: "Software Engineer"
+- id: reve
+  role: "Software Engineer"
   org: "Reve Systems"
   dates: "Nov 2020 – May 2022"
   note: "Worked on ERP, procurement, accounting, and compliance systems for government operations."
-- role: "Software Engineer"
+- id: era
+  role: "Software Engineer"
   org: "ERA-InfoTech Ltd."
   dates: "Nov 2019 – Nov 2020"
   note: "Built a FinTech chatbot, face recognition, remittance integration, and RPA systems for banking workflows."
-- role: "Junior Software Developer"
+- id: walton
+  role: "Junior Software Developer"
   org: "Walton Digi-Tech Industries Limited"
   dates: "Dec 2018 – Oct 2019"
   note: "Developed Android ROM and feature-phone OS enhancements for consumer devices."

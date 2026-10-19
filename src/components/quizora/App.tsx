@@ -1,6 +1,7 @@
 import {useEffect,useState,lazy,Suspense} from 'react';
 import {ArrowUpRight,BookOpen,FlaskConical,Globe2,PenLine,ScanLine,Sparkles} from 'lucide-react';
-import {LocaleContext,detectLocale,languages,useI18n,type Locale} from '../../i18n';
+import {LocaleContext,detectLocale,languages,rememberLocale,useI18n,type Locale} from '../../i18n';
+import {isLocale,locales} from '../../i18n/locales';
 import {clearDevice} from '../../lib/api';
 import QuestionInput from './QuestionInput';
 import {sampleQuiz} from '../../lib/samples';
@@ -13,4 +14,10 @@ function Shell({page,locale,setLocale}:{page:string;locale:Locale;setLocale:(l:L
  useEffect(()=>{document.documentElement.dataset.theme=theme;try{localStorage.setItem('quizora.theme',theme);}catch{}},[theme]);
  return <div className={simple?'quizora simple':'quizora'}><a className="skip-link" href="#main">{t('skip')}</a><header className="app-header"><a className="brand" href="/exam/"><span className="brand-mark">Q</span>Quizora<span className="brand-dot">.</span></a><nav aria-label={t('home')}><a href="/exam/create/">{t('create')}</a><a href="/exam/join/">{t('join')}</a><a href="/exam/qr/">{t('qrTool')}</a></nav><div className="preferences"><label><span className="sr-only">{t('language')}</span><select value={locale} onChange={e=>setLocale(e.target.value as Locale)}>{Object.entries(languages).map(([code,label])=><option value={code} key={code}>{label}</option>)}</select></label><label><span className="sr-only">{t('theme')}</span><select value={theme} onChange={e=>setTheme(e.target.value)}>{['system','light','dark'].map(x=><option value={x} key={x}>{t(x)}</option>)}</select></label></div></header><main id="main"><Suspense fallback={<p role="status">{t('loading')}</p>}>{page==='create'?<Create/>:page==='join'?<Join/>:page==='take'?<Take/>:page==='manage'?<Manage/>:page==='results'?<Results/>:page==='qr'?<QrTool/>:page==='privacy'?<section className="narrow card stack"><h1>{t('privacy')}</h1><p>{t('privacyText')}</p><button className="secondary" onClick={()=>{clearDevice();location.reload();}}>{t('clearDevice')}</button></section>:<Landing/>}</Suspense></main><footer className="app-footer"><div><a className="brand" href="/exam/">Quizora.</a><p>{t('tagline')}</p></div><div className="footer-links"><a href="/exam/qr/">{t('qrTool')}</a><a href="/exam/privacy/">{t('privacy')}</a><a href="/">Anwar Zahid</a><label className="check"><input type="checkbox" checked={simple} onChange={e=>{setSimple(e.target.checked);try{localStorage.setItem('quizora.simple',String(e.target.checked));}catch{}}}/>{t('simple')}</label></div></footer></div>;
 }
-export default function App({page='home'}:{page?:string}){const [locale,setLocale]=useState<Locale>('en');useEffect(()=>setLocale(detectLocale()),[]);useEffect(()=>{document.documentElement.lang=locale;document.documentElement.dir=locale==='ar'?'rtl':'ltr';},[locale]);return <LocaleContext.Provider value={locale}><Shell page={page} locale={locale} setLocale={l=>{setLocale(l);try{localStorage.setItem('quizora.locale',l);}catch{}}}/></LocaleContext.Provider>;}
+export default function App({page='home'}:{page?:string}){const [locale,setLocale]=useState<Locale>('en');
+ useEffect(()=>{setLocale(detectLocale());
+  // The site-wide language suggestion (/i18n.js) switches Quizora in place.
+  const onChoice=(e:Event)=>{const l=(e as CustomEvent).detail;if(isLocale(l))setLocale(l);};
+  addEventListener('site:locale',onChoice);return ()=>removeEventListener('site:locale',onChoice);},[]);
+ useEffect(()=>{const root=document.documentElement;root.lang=locales[locale].lang;root.dir=locales[locale].dir;root.dataset.locale=locale;},[locale]);
+ return <LocaleContext.Provider value={locale}><Shell page={page} locale={locale} setLocale={l=>{setLocale(l);rememberLocale(l);}}/></LocaleContext.Provider>;}

@@ -59,7 +59,11 @@
 
     const sync = () => {
       const isDark = currentTheme() === "dark";
-      if (label) label.textContent = isDark ? "Light" : "Dark";
+      if (label) {
+        label.textContent = isDark
+          ? toggle.dataset.labelLight || "Light"
+          : toggle.dataset.labelDark || "Dark";
+      }
       toggle.setAttribute("aria-pressed", String(isDark));
     };
 
@@ -87,9 +91,9 @@
         const original = btn.textContent;
         try {
           await navigator.clipboard.writeText(text);
-          btn.textContent = "Copied";
+          btn.textContent = btn.dataset.copied || "Copied";
         } catch (e) {
-          btn.textContent = "Copy failed";
+          btn.textContent = btn.dataset.copyFailed || "Copy failed";
         }
         window.setTimeout(() => {
           btn.textContent = original;

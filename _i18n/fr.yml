@@ -1,0 +1,307 @@
+# Français — idiomatic French with French typography (espaces fines avant ; ! ?).
+# First-person lines describe the work rather than the person, so no gendered titles.
+ui:
+  common.skip: "Aller au contenu"
+  common.copy: "Copier"
+  common.copied: "Copié"
+  common.copyFailed: "Échec de la copie"
+  nav.label: "Navigation principale"
+  nav.about: "À propos"
+  nav.research: "Recherche"
+  nav.projects: "Projets"
+  nav.lab: "Unsupervised Lab"
+  nav.labShort: "Lab"
+  nav.contact: "Contact"
+  nav.publications: "Publications"
+  nav.experience: "Parcours"
+  nav.teaching: "Enseignement"
+  nav.writing: "Articles"
+  lang.menu: "Changer de langue"
+  lang.englishOnly: "Le contenu de cette page n’existe qu’en anglais."
+  theme.toggle: "Basculer entre thème clair et sombre"
+  theme.dark: "Sombre"
+  theme.light: "Clair"
+  footer.email: "E-mail"
+  footer.cv: "CV"
+  pub.paper: "Article"
+  pub.code: "Code"
+  pub.details: "Détails et BibTeX"
+  pub.back: "&larr; Toutes les publications"
+  post.note: "Note de recherche"
+  post.all: "&larr; Tous les articles"
+  project.demo: "Démo"
+  project.others: "Autres dépôts"
+
+  home.kicker.role: "Recherche &amp; ingénierie"
+  home.kicker.org: "Iowa State University"
+  home.hero.title: "Traquer les <span class=\"em\">failles</span> des systèmes intelligents."
+  home.hero.summary: "Je m’appelle Anwar Zahid. J’étudie comment et pourquoi l’IA et les logiciels numériques se trompent, puis je conçois des outils pour que ces défaillances soient plus faciles à détecter, à reproduire et à corriger."
+  home.hero.linksLabel: "Liens du profil"
+  home.hero.explore: "Découvrir mes recherches"
+  home.hero.contact: "Me contacter"
+  home.hero.kw1: "Fiabilité de l’IA"
+  home.hero.kw2: "Débogage numérique"
+  home.hero.kw3: "Génie logiciel"
+  home.portraitAlt: "Portrait d’Anwar Hossain Zahid"
+  home.portraitIndex: "01 / PROFIL"
+  home.hero.note: "Sonder la fiabilité sous la surface"
+  home.motion.play: "Lancer l’animation"
+  home.motion.pause: "Mettre en pause"
+  home.scroll: "Défiler pour découvrir"
+  home.news.label: "Actualités · journal récent"
+  home.news.title: "Actualités"
+  home.news.link: "voir &rarr;"
+  home.about.label: "À propos"
+  home.about.title: "Du logiciel en production à l’étude de ses défaillances."
+  home.about.p1: >-
+    Je prépare un doctorat en informatique à Iowa State University, sous la direction de
+    <a href="https://weile.work/" rel="noopener">Wei Le</a>, au sein du Program Analysis and AI Lab. Mes recherches
+    portent sur la fiabilité des systèmes d’IA, le débogage numérique et les techniques de génie logiciel appliquées
+    aux systèmes d’apprentissage automatique.
+  home.about.p2: >-
+    Avant ce doctorat, j’ai passé quatre ans en ingénierie logicielle, sur des plateformes bancaires,
+    d’administration électronique, d’IA et mobiles. Cette expérience du terrain oriente ma façon de chercher&#8239;:
+    je m’intéresse aux méthodes qui peuvent devenir de vrais outils pour les développeurs et les chercheurs.
+    Le parcours complet se trouve sur la <a href="{{ '/about-me/' | lurl }}">page «&nbsp;À propos&nbsp;» détaillée</a>.
+  home.research.label: "Thèmes de recherche"
+  home.research.title: "Que se passe-t-il sous la surface&#8239;?"
+  home.research.q1: "Peut-on se fier à la réponse&#8239;?"
+  home.research.a1: "J’étudie les hallucinations des LLM et j’évalue à quel moment les systèmes intelligents cessent d’être fiables."
+  home.research.q2: "Où un nombre déraille-t-il&#8239;?"
+  home.research.a2: "Je traque l’instabilité numérique et les régressions silencieuses dans les logiciels qui font tourner l’apprentissage automatique."
+  home.research.q3: "Comment rendre tout cela utile&#8239;?"
+  home.research.a3: "Je conçois des outils de test et de débogage interprétables qui aident à comprendre les défaillances et à les corriger."
+  interest.hallucination: "Hallucinations des LLM"
+  interest.reliability: "Fiabilité de l’IA"
+  interest.se4ai: "Génie logiciel pour les systèmes d’IA"
+  interest.whitebox: "Analyse interprétable / en boîte blanche"
+  interest.humanCentered: "Outils d’IA centrés sur l’humain"
+  home.pubs.label: "Publications"
+  home.pubs.title: "Travaux évalués par les pairs &amp; prépublications"
+  home.pubs.intro: "Sur la fiabilité du ML, l’évaluation des LLM et la justesse numérique. Les articles sont publiés en anglais."
+  home.exp.label: "Parcours"
+  home.exp.title: "Une recherche ancrée dans le logiciel réel."
+  home.exp.intro: "Recherche, banque, administration électronique et logiciels mobiles."
+  home.projects.label: "Projets"
+  home.projects.title: "Systèmes et travaux appliqués choisis"
+  home.projects.intro: "Les projets de cours et les petits dépôts sont repliés plus bas."
+  home.teaching.label: "Enseignement"
+  home.teaching.title: "Concevoir des cours. Enseigner par la pratique."
+  home.teaching.intro: >-
+    Auxiliaire d’enseignement au <a href="https://www.cs.iastate.edu/" rel="noopener">département d’informatique</a>
+    d’Iowa State University&#8239;: conception de cours, initiation à la programmation et intelligence artificielle.
+  home.writing.label: "Articles"
+  home.writing.title: "Notes de recherche &amp; retours d’ingénierie"
+  home.writing.englishNote: "Les articles eux-mêmes sont rédigés en anglais."
+  home.writing.all: "Tous les articles &rarr;"
+  home.contact.label: "Contact"
+  home.contact.title: "Échangeons."
+  home.contact.text: "Le plus simple pour me joindre, c’est l’<a href=\"mailto:ahzahid@iastate.edu\">e-mail</a>."
+  home.contact.linksLabel: "Liens de contact"
+
+  course.dates: "Conception de cours"
+  course.role: "Élaboration de programmes &middot; Iowa State University"
+  course.text: >-
+    Participation à la conception de <strong>COMS 3710X: Introduction to Foundation Models I</strong> et de
+    <strong>COMS 3720X: Introduction to Foundation Models II</strong>, avec <strong>Wei Le</strong> et
+    <strong>Qi Li</strong>, au département d’informatique.
+  ta.dates: "Printemps 2023 &ndash; aujourd’hui"
+  ta.role: "Auxiliaire d’enseignement"
+  ta.p1: >-
+    Encadrement des TP et des TD de <strong>COM&nbsp;S&nbsp;127</strong> (initiation à la programmation)&nbsp;&mdash;
+    séances de TP hebdomadaires, supports de cours et d’évaluation, grilles de notation, correction des devoirs et des examens.
+  ta.p2: >-
+    Cours magistraux de <strong>COM&nbsp;S&nbsp;472/572</strong> (Principles of Artificial Intelligence), en
+    remplacement de Jin Tian avant son départ du département, puis de Yan-Bin Jia.
+
+  aboutMe.eyebrow: "À propos"
+  aboutMe.title: "L’informatique au service d’un ML fiable et de logiciels dignes de confiance."
+  aboutMe.intro: >-
+    Je prépare un doctorat à Iowa State University avec <a href="https://weile.work/" rel="noopener">Wei Le</a>,
+    au sein du Program Analysis and AI Lab. Avant les études doctorales, j’ai passé quatre ans à développer des
+    logiciels pour le secteur public, la banque, l’IA et les plateformes mobiles. Cette page est la version longue du
+    <a href="{{ '/#about' | lurl }}">résumé de l’accueil</a>.
+  aboutMe.education: "Formation"
+  aboutMe.phd.dates: "Printemps 2023 – aujourd’hui"
+  aboutMe.phd.degree: "Doctorat en informatique"
+  aboutMe.phd.where: "Iowa State University, Ames (Iowa) — Direction&#8239;: <a href=\"https://weile.work/\" rel=\"noopener\">Wei Le</a>"
+  aboutMe.bsc.dates: "2018"
+  aboutMe.bsc.degree: "Licence (B.Sc.) en informatique et ingénierie"
+  aboutMe.bsc.where: "Université d’ingénierie et de technologie du Bangladesh (BUET)"
+  aboutMe.research: "Expérience de recherche"
+  aboutMe.r1.dates: "Automne 2023 – aujourd’hui"
+  aboutMe.r1.title: "Cadre de débogage différentiel pour les versions de modèles de ML"
+  aboutMe.r1.text: "Développement de méthodes pour analyser les incohérences de comportement d’une version de modèle à l’autre, grâce aux tests différentiels et à l’apprentissage d’invariants."
+  aboutMe.r2.dates: "Été 2024 – automne 2024"
+  aboutMe.r2.title: "Arithmétique flottante d’un compilateur à l’autre"
+  aboutMe.r2.text: "Au <a href=\"https://www.llnl.gov/\" rel=\"noopener\">Lawrence Livermore National Laboratory</a>, étude des écarts numériques entre GPU NVIDIA et AMD selon les chaînes de compilation."
+  aboutMe.r3.dates: "2020 – 2021"
+  aboutMe.r3.title: "Système de stages virtuels"
+  aboutMe.r3.text: "Conception d’une plateforme de stages virtuels pour évaluer les compétences en développement logiciel dans un cadre mêlant université et entreprise."
+  aboutMe.r4.dates: "2018 – 2019"
+  aboutMe.r4.title: "Reconstruction de scènes à partir de caméras de surveillance fixes"
+  aboutMe.r4.text: "Proposition d’un système de reconstruction 3D multicaméra pour la vidéosurveillance et la ville intelligente."
+  aboutMe.work: "Expérience professionnelle"
+  aboutMe.workIntro: "La version condensée se trouve sur la <a href=\"{{ '/#experience' | lurl }}\">page d’accueil</a>."
+  aboutMe.teaching: "Enseignement"
+  aboutMe.skills: "Compétences techniques"
+  aboutMe.skill.pa: "Analyse de programmes"
+  aboutMe.skill.mlt: "Test de ML"
+
+  blog.eyebrow: "Notes"
+  blog.title: "Notes de recherche, leçons d’ingénierie et idées en chantier."
+  blog.intro: "De courts textes techniques sur la fiabilité du ML, le débogage numérique, la portabilité entre GPU, le génie logiciel et les choix concrets derrière les systèmes de recherche."
+  blog.read: "Lire la note &rarr;"
+  pubs.eyebrow: "Publications"
+  pubs.title: "Recherches sur le ML fiable, le débogage numérique et l’évaluation de l’IA."
+  pubs.intro: "Travaux évalués par les pairs et prépublications sur la fiabilité de l’apprentissage automatique, la justesse numérique sur GPU, l’évaluation des LLM et l’enseignement du génie logiciel. Les articles sont publiés en anglais."
+  works.eyebrow: "Travaux"
+  works.title: "Articles de recherche, systèmes et projets logiciels appliqués."
+  works.intro: "Une vue d’ensemble de mon travail&#8239;: fiabilité de l’IA, débogage numérique, évaluation des LLM, calcul numérique sur GPU et génie logiciel en production."
+  works.pubs: "Publications"
+  works.pubsIntro: "Travaux évalués par les pairs et prépublications sur le ML fiable, l’évaluation de modèles et la justesse numérique."
+  works.projects: "Projets"
+  works.projectsIntro: "Systèmes et projets appliqués issus de la recherche, d’un laboratoire national, de l’industrie et de cours avancés."
+  notFound.title: "Page introuvable."
+  notFound.text: "La page demandée n’est pas disponible. Revenez à l’accueil ou parcourez les travaux récents."
+  notFound.linksLabel: "Liens suggérés"
+  notFound.home: "Accueil"
+  notFound.works: "Travaux"
+  notFound.notes: "Notes"
+
+  lab.overline: "Projets annexes / expériences utiles"
+  lab.lede: "Un lieu pour les idées sorties du carnet de notes et devenues des outils utilisables. Quatre projets sont prêts à être essayés."
+  lab.explore: "Voir les projets"
+  lab.index.notes: "CARNET DE TERRAIN"
+  lab.index.count: "4 PROJETS"
+  lab.index.qr: "Générateur QR"
+  lab.index.motto: "Construire · essayer · améliorer"
+  lab.selected: "Sélection"
+  lab.title: "Explorer le lab"
+  lab.intro: "De petits outils, chacun avec un but précis."
+  lab.live: "En ligne"
+  lab.quizora.kind: "01 / ÉDUCATION"
+  lab.quizora.previewKicker: "QUESTION 01 / 04"
+  lab.quizora.previewQ: "Qu’allez-vous apprendre aujourd’hui&#8239;?"
+  lab.quizora.previewA1: "Quelque chose qui mérite d’être partagé"
+  lab.quizora.previewA2: "Tout ce qui précède"
+  lab.quizora.text: "Créez un quiz, partagez-le par lien ou par code QR et voyez comment les apprenants répondent. Pensé pour enseigner et s’entraîner au quotidien."
+  lab.quizora.tag1: "Création de quiz"
+  lab.quizora.tag2: "Réponses en direct"
+  lab.quizora.tag3: "Partage par QR"
+  lab.quizora.link: "Ouvrir Quizora"
+  lab.qr.kind: "02 / UTILITAIRE"
+  lab.qr.title: "Générateur de codes QR"
+  lab.qr.text: "Transformez un lien ou un texte en code QR personnalisé. Choisissez une couleur, ajustez la taille et téléchargez un PNG net, le tout dans votre navigateur."
+  lab.qr.tag1: "Couleurs au choix"
+  lab.qr.tag2: "Aperçu immédiat"
+  lab.qr.tag3: "Export PNG"
+  lab.qr.link: "Créer un code QR"
+  lab.prompt.kind: "03 / EXTENSION DE NAVIGATEUR"
+  lab.prompt.status: "Téléchargement disponible"
+  lab.prompt.text: "Choisissez la profondeur, le ton et le format souhaités, puis améliorez et envoyez votre prompt sur les sites de chat IA compatibles. Installez gratuitement l’extension Chromium depuis sa page de téléchargement (l’extension est en anglais)."
+  lab.prompt.tag1: "Budget de mots"
+  lab.prompt.tag2: "Ton &amp; format"
+  lab.prompt.tag3: "Coups de pouce rapides"
+  lab.prompt.get: "Obtenir PromptDude"
+  lab.prompt.source: "Voir le code source"
+  lab.math.text: "Résolution d’algèbre vérifiée, graphiques 2D et 3D, extraction de texte imprimé et notes de maths conservées sur votre appareil."
+  lab.math.link: "Ouvrir le studio (en anglais)"
+
+records:
+  about:
+    excerpt: "Recherche sur l’IA, le génie logiciel et la fiabilité des LLM."
+  about-me:
+    title: "À propos"
+    excerpt: "Formation, recherche, expérience en entreprise et enseignement d’Anwar Hossain Zahid, en doctorat d’informatique à Iowa State University."
+  blog:
+    title: "Notes de recherche"
+    excerpt: "Notes de recherche sur la fiabilité du ML, le débogage numérique, la portabilité entre GPU et l’évaluation de l’IA."
+  publications:
+    title: "Publications"
+    excerpt: "Publications d’Anwar Hossain Zahid."
+  works:
+    title: "Travaux"
+    excerpt: "Articles de recherche, systèmes et projets logiciels d’Anwar Hossain Zahid."
+  unsupervised-lab:
+    excerpt: "Expériences utiles&#8239;: Quizora, OpenMath Studio, un générateur de QR et l’extension PromptDude."
+  "404":
+    title: "Page introuvable"
+    excerpt: "La page demandée n’existe pas."
+
+  2025-07-01-soft-assertions:
+    excerpt: "Présente Soft Assertions, une méthode pour détecter et déclencher les bugs cachés d’instabilité numérique dans les applications d’apprentissage automatique."
+    cover_label: "Fiabilité du ML"
+    cover_caption: "Débusquer les bugs cachés dans les nombres."
+  2025-02-26-hate-speech-geographical-context:
+    excerpt: "Évalue les performances des grands modèles de langage pour détecter les discours haineux lorsqu’on leur fournit un contexte géographique et social."
+    cover_label: "Évaluation des LLM"
+    cover_title: "Tout est affaire de contexte."
+    cover_caption: "Détecter les discours haineux selon les régions."
+  2024-10-12-testing-gpu-numerics:
+    excerpt: "Étudie les écarts numériques entre exécutions sur GPU NVIDIA et AMD, et leurs conséquences sur la reproductibilité et la portabilité."
+    cover_label: "Calcul numérique sur GPU"
+    cover_caption: "Même calcul. Résultats différents."
+  2020-12-19-virtual-internship-system:
+    excerpt: "Propose la conception d’une plateforme logicielle pour organiser des stages virtuels et évaluer les compétences en développement logiciel."
+    cover_label: "Enseignement du génie logiciel"
+    cover_title: "Apprendre en construisant."
+    cover_caption: "Une plateforme conceptuelle de stages virtuels."
+
+  0-todaysai:
+    title: "Today's AI — Trouver les bons outils d’IA et apprendre à s’en servir"
+    excerpt: "Une plateforme web qui aide élèves, étudiants de licence et de master — et toute personne curieuse de l’IA — à trouver les outils d’IA adaptés et à apprendre à les utiliser. Création et développement principal sous la direction de Wei Le."
+    cover_label: "Culture de l’IA"
+    cover_caption: "Découvrir les outils. Apprendre à s’en servir."
+  1-soft-assertion:
+    excerpt: "Article de FSE 2025 présentant Soft Assertions pour détecter et déclencher les bugs d’instabilité numérique dans les applications de ML."
+    cover_label: "Test de ML"
+    cover_caption: "Détecter l’instabilité numérique en ML."
+  2-varity-contibution:
+    title: "Tests numériques sur GPU – Génération de code HIP dans Varity"
+    excerpt: "Contribution au projet Varity du LLNL&#8239;: génération d’un backend HIP pour tester les noyaux GPU et évaluer la cohérence numérique d’une plateforme à l’autre."
+    cover_label: "LLNL / Varity"
+    cover_title: "D’un GPU à l’autre."
+    cover_caption: "Génération de code HIP pour les tests numériques."
+  3-Hate-Speech:
+    title: "Détection des discours haineux avec contexte géographique"
+    excerpt: "Un projet de cours prolongé pour évaluer des modèles de détection des discours haineux à l’aide de métadonnées géographiques, adapté ensuite au test des grands modèles de langage et publié en 2025."
+    cover_label: "Langue + géographie"
+    cover_title: "Les mots en contexte."
+    cover_caption: "Évaluer la détection des discours haineux par les LLM."
+  4-face-recog:
+    title: "Reconnaissance faciale avec détection du vivant"
+    excerpt: "Système de reconnaissance faciale et de détection d’usurpation en temps réel pour la fintech, afin de sécuriser la vérification bancaire à distance."
+    cover_label: "Vision par ordinateur"
+    cover_title: "Visage + vivant"
+    cover_caption: "Reconnaissance et anti-usurpation pour la banque."
+
+news:
+  "2026-05-01": "Lancement de Today's AI, une plateforme pour découvrir des outils d’IA et apprendre à s’en servir, créée avec Wei Le pour les élèves, les étudiants et les autodidactes."
+  "2025-07-01": "Notre article sur Soft Assertions, pour détecter l’instabilité numérique dans les applications de ML, est accepté à FSE 2025."
+  "2025-02-26": "Prépublication sur arXiv&#8239;: détection des discours haineux par les LLM avec contexte géographique."
+  "2024-10-12": "Prépublication sur arXiv&#8239;: tester le calcul numérique sur GPU NVIDIA et AMD."
+  "2024-08-01": "Mention honorable au LLNL Summer SLAM &amp; Poster Symposium 2024."
+  "2024-05-01": "Début d’un stage d’été au sein du Parallel Systems Group du Lawrence Livermore National Laboratory."
+
+experience:
+  mayo:
+    role: "Séjour de recherche (Visiting Scholar)"
+    dates: "Automne 2026"
+    note: "Stage de recherche dans le cadre du programme Visiting Scholar du département d’obstétrique et de gynécologie, sur l’extension d’une base de données de recherche pour l’appariement des dossiers mère-enfant."
+  llnl:
+    role: "Stagiaire en informatique (cycle supérieur), Parallel Systems Group"
+    dates: "Mai 2024 – août 2024"
+    note: "Outils d’analyse de la précision flottante sur des architectures GPU hétérogènes, dont la génération de code pour un backend HIP du projet Varity&#8239;; mention honorable au LLNL Summer SLAM &amp; Poster Symposium."
+  reve:
+    role: "Ingénierie logicielle"
+    dates: "Nov. 2020 – mai 2022"
+    note: "Systèmes d’ERP, d’achats, de comptabilité et de conformité pour l’administration publique."
+  era:
+    role: "Ingénierie logicielle"
+    dates: "Nov. 2019 – nov. 2020"
+    note: "Chatbot fintech, reconnaissance faciale, intégration de transferts de fonds et systèmes RPA pour les processus bancaires."
+  walton:
+    role: "Développement logiciel (junior)"
+    dates: "Déc. 2018 – oct. 2019"
+    note: "Améliorations de ROM Android et du système d’exploitation de téléphones basiques grand public."

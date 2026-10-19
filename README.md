@@ -43,6 +43,14 @@ See [implementation progress](docs/PROGRESS.md) for actual verification results 
 
 A failing test stops the run before anything is merged or deployed. GitHub does not let Actions push changes to `.github/workflows/`, so a branch that edits the pipeline itself must be pushed with `git push origin <branch>:master`; the run says so if this happens. To redeploy without a change, use **Actions → Test and deploy → Run workflow** on `master`. The Cloudflare Worker and D1 database are still deployed separately (see [operations](docs/OPERATIONS.md)).
 
+## Languages
+
+The portfolio and Lab are available in the ten most spoken languages: English (default, at `/`), 简体中文 `/zh/`, हिन्दी `/hi/`, Español `/es/`, العربية `/ar/`, Français `/fr/`, বাংলা `/bn/`, Português `/pt/`, Русский `/ru/` and اردو `/ur/`. Quizora switches in place. Every page has a language menu, and a visitor whose browser languages or time zone point to one of these languages is asked once, in that language, whether to switch. The choice is remembered. Detection runs entirely in the browser; no location lookup or tracking request is made. OpenMath Studio, blog posts and paper pages stay in English and say so.
+
+- Page text is written in English inline in the templates as `{% t "key" %}English{% endt %}`; each language's version lives in `_i18n/<code>.yml` under the same key. Front-matter text (`records`), news items (keyed by date) and experience entries (keyed by `id`) are translated in the same files.
+- Translations are written for readers of that language, not word for word. Personal names, paper titles, course codes and product names are left as published, and first-person text avoids grammatical gender.
+- `npm test` fails if any page in any language is missing a translation or carries an unused one. Locale names, text direction, the suggestion prompt and the time-zone map are in `src/i18n/locales.ts`; Quizora's interface strings are in `src/i18n/index.ts`.
+
 ## Documentation
 
 - [Architecture, state, authorization and privacy](docs/ARCHITECTURE.md)

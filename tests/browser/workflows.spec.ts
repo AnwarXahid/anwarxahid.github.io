@@ -8,7 +8,7 @@ test('actual local API publication, participant recovery, release and results',a
  const context=await browser.newContext();const student=await context.newPage();await student.goto(link);await student.getByRole('button',{name:'Join a Quiz',exact:true}).click();await student.getByRole('button',{name:'Start',exact:true}).click();await student.getByLabel('Roots',{exact:true}).check();await student.getByRole('button',{name:'Save',exact:true}).click();await expect(student.getByText('Saved on the server',{exact:true})).toBeVisible();await student.reload();await expect(student.getByLabel('Roots',{exact:true})).toBeChecked();await student.getByRole('button',{name:'Submit answers',exact:true}).click();await student.getByRole('alert').getByRole('button',{name:'Submit answers',exact:true}).click();await student.getByRole('link',{name:'Results',exact:true}).click();await expect(student.locator('.score')).toContainText('1 / 1');
  await page.goto(manager);await expect(page.getByRole('heading',{name:'Browser science quiz'})).toBeVisible();await expect(page).not.toHaveURL(/#token/);await page.getByRole('button',{name:'Delete quiz and responses',exact:true}).click();await page.getByRole('button',{name:'Delete quiz and responses',exact:true}).last().click();await context.close();
 });
-test('responsive landing, six locales, themes and accessibility',async({page})=>{
+test('responsive landing, interface languages, themes and accessibility',async({page})=>{
  for(const [name,width,height] of [['phone',390,844],['tablet',768,1024],['desktop',1440,1000]] as const){await page.setViewportSize({width,height});await page.goto('/exam/');await expect(page.getByRole('heading',{name:'Make learning a little more exciting.'})).toBeVisible();expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await page.screenshot({path:`test-results/quizora-${name}.png`,fullPage:true});}
  const results=await new AxeBuilder({page}).analyze();expect(results.violations).toEqual([]);
  await page.getByLabel('Interface language').selectOption('bn');await expect(page.locator('html')).toHaveAttribute('lang','bn');await expect(page.getByText('Which part of a plant takes in water?')).toBeVisible();await page.getByRole('combobox').first().selectOption('ar');await expect(page.locator('html')).toHaveAttribute('dir','rtl');await page.getByRole('combobox').nth(1).selectOption('dark');await page.setViewportSize({width:390,height:844});await page.screenshot({path:'test-results/quizora-arabic-dark.png',fullPage:true});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
@@ -18,4 +18,27 @@ test('local file extraction and keyboard-friendly matching/ordering editor',asyn
 });
 test('QR tool creates and downloads a private browser-only image',async({page})=>{
  await page.setViewportSize({width:390,height:844});await page.goto('/exam/qr/');await expect(page.getByRole('heading',{name:'Make a QR code in seconds.'})).toBeVisible();await expect(page.getByText('Enter a link or text to see your code.')).toBeVisible();await page.getByRole('button',{name:'Wi-Fi'}).click();await expect(page.getByRole('textbox',{name:'Link or short text'})).toHaveValue('WIFI:T:WPA;S:NetworkName;P:YourPassword;;');await page.getByRole('textbox',{name:'Link or short text'}).fill('https://example.com/class');await page.getByRole('button',{name:'Ocean'}).click();await expect(page.getByRole('button',{name:'Ocean'})).toHaveAttribute('aria-pressed','true');await page.getByLabel('Code color').fill('#334455');await expect(page.getByRole('button',{name:'Ocean'})).toHaveAttribute('aria-pressed','false');await expect(page.getByRole('img',{name:'QR preview'})).toBeVisible();const downloadPromise=page.waitForEvent('download');await page.getByRole('button',{name:'Download QR PNG'}).click();const download=await downloadPromise;expect(download.suggestedFilename()).toBe('qr-code.png');expect(await download.failure()).toBeNull();expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await page.screenshot({path:'test-results/quizora-qr-phone.png',fullPage:true});const results=await new AxeBuilder({page}).analyze();expect(results.violations).toEqual([]);await page.getByRole('textbox',{name:'Link or short text'}).fill('😀'.repeat(300));await expect(page.getByText('This text is too long for a reliable QR code. Shorten it and try again.')).toBeVisible();await expect(page.getByRole('button',{name:'Download QR PNG'})).toBeDisabled();
+});
+
+test.describe('location-aware language suggestion',()=>{
+ test.use({timezoneId:'Asia/Dhaka',locale:'en-US'});
+ test('offers Bengali in Dhaka, remembers the choice, and switches back',async({page})=>{
+  await page.goto('/');const prompt=page.getByRole('dialog',{name:'সাইটটি বাংলায় পড়তে চান?'});await expect(prompt).toBeVisible();
+  await prompt.getByRole('button',{name:'বাংলায় দেখুন'}).click();await expect(page).toHaveURL(/\/bn\/$/);await expect(page.locator('html')).toHaveAttribute('lang','bn');await expect(page.getByRole('heading',{level:1})).toContainText('লুকোনো ফাটল');
+  await page.goto('/lab/');await expect(page).toHaveURL(/\/bn\/lab\/$/);await expect(page.getByRole('dialog')).toHaveCount(0);
+  await page.goto('/exam/');await expect(page.locator('html')).toHaveAttribute('lang','bn');await expect(page.getByRole('heading',{level:1})).toHaveText('শেখাকে করুন আরও আনন্দময়।');
+  await page.goto('/bn/lab/');await page.locator('.lang-menu summary').click();await page.getByRole('link',{name:'English',exact:true}).click();await expect(page).toHaveURL(/127\.0\.0\.1:4321\/lab\/$/);await expect(page.locator('html')).toHaveAttribute('lang','en');
+  await page.goto('/');await expect(page).toHaveURL(/4321\/$/);await expect(page.getByRole('dialog')).toHaveCount(0);
+ });
+ test('switches Quizora in place and can be dismissed for good',async({page})=>{
+  await page.goto('/exam/');const prompt=page.getByRole('dialog',{name:'সাইটটি বাংলায় পড়তে চান?'});await prompt.getByRole('button',{name:'বাংলায় দেখুন'}).click();
+  await expect(page).toHaveURL(/\/exam\/$/);await expect(page.locator('html')).toHaveAttribute('lang','bn');await expect(page.getByLabel('ইন্টারফেসের ভাষা')).toHaveValue('bn');
+  await page.evaluate(()=>localStorage.clear());await page.goto('/about-me/');await page.getByRole('dialog').getByRole('button',{name:'Stay in English'}).click();await expect(page.getByRole('dialog')).toHaveCount(0);
+  await page.reload();await page.waitForTimeout(1500);await expect(page.getByRole('dialog')).toHaveCount(0);await expect(page.locator('html')).toHaveAttribute('lang','en');
+ });
+});
+test('Arabic and Urdu read right to left and stay accessible',async({page})=>{
+ for(const [path,width] of [['/ar/',1280],['/ur/',390],['/ar/lab/',390]] as const){await page.setViewportSize({width,height:900});await page.goto(path);await expect(page.locator('html')).toHaveAttribute('dir','rtl');expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);}
+ const a11y=await new AxeBuilder({page}).analyze();expect(a11y.violations).toEqual([]);
+ await page.goto('/ar/blog/');await expect(page.locator('.blog-card h2').first()).toHaveAttribute('lang','en');
 });

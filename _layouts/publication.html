@@ -1,118 +1,29 @@
-<!doctype html>
-<html lang="{{ site.locale | default: 'en-US' }}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ page.title }} {{ site.title_separator | default: "-" }} {{ site.title }}</title>
-    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace }}">
-    <meta name="author" content="{{ site.name }}">
-    <link rel="canonical" href="{{ page.url | absolute_url }}">
-    <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#0b0d12" media="(prefers-color-scheme: dark)">
+---
+layout: lab
+---
 
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="{{ page.title }}">
-    <meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace }}">
-    <meta property="og:url" content="{{ page.url | absolute_url }}">
-    <meta property="og:image" content="{{ site.og_image | absolute_url }}">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ page.title }}">
-    <meta name="twitter:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace }}">
-    <meta name="twitter:image" content="{{ site.og_image | absolute_url }}">
-    {% if site.twitter.username %}<meta name="twitter:site" content="@{{ site.twitter.username }}">{% endif %}
+<article class="publication-single">
+  {% if page.venue %}<span class="badge">{{ page.venue }}</span>{% endif %}
+  <h1{{ english_only }}>{{ page.title }}</h1>
+  {% if page.authors %}
+    <p class="publication-authors" lang="en">{{ page.authors | replace: "Anwar Hossain Zahid", "<strong>Anwar Hossain Zahid</strong>" }}</p>
+  {% endif %}
+  <div class="publication-links">
+    {% if page.paperurl %}<a href="{{ page.paperurl }}" rel="noopener">{% t "pub.paper" %}Paper{% endt %}</a>{% endif %}
+    {% if page.code %}<a href="{{ page.code }}" rel="noopener">{% t "pub.code" %}Code{% endt %}</a>{% endif %}
+  </div>
 
-    <link rel="icon" href="{{ '/images/favicon.svg' | relative_url }}" type="image/svg+xml">
-    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chivo:wght@600;700;900&family=JetBrains+Mono:wght@400;500;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
-    <link rel="stylesheet" href="{{ '/assets/css/lab.css' | relative_url }}">
+  <div class="page__content"{{ english_only }}>
+    {{ content }}
+  </div>
 
-    <script>
-      (function () {
-        try {
-          var stored = localStorage.getItem("theme");
-          if (stored === "dark" || stored === "light") {
-            document.documentElement.setAttribute("data-theme", stored);
-          }
-        } catch (e) {}
-      })();
-    </script>
+  {% if page.bibtex %}
+    <details class="bibtex">
+      <summary>BibTeX</summary>
+      <pre id="bibtex-{{ page.permalink | slugify }}" dir="ltr">{{ page.bibtex }}</pre>
+      <button type="button" class="copy-btn" data-copy-target="bibtex-{{ page.permalink | slugify }}" data-copied="{% t "common.copied" %}Copied{% endt %}" data-copy-failed="{% t "common.copyFailed" %}Copy failed{% endt %}">{% t "common.copy" %}Copy{% endt %}</button>
+    </details>
+  {% endif %}
 
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "ScholarlyArticle",
-        "headline": {{ page.title | jsonify }},
-        "name": {{ page.title | jsonify }},
-        "url": "{{ page.url | absolute_url }}",
-        "datePublished": "{{ page.date | date: '%Y-%m-%d' }}",
-        {% if page.authors %}"author": {{ page.authors | jsonify }},{% endif %}
-        {% if page.venue %}"publisher": {{ page.venue | jsonify }},{% endif %}
-        "description": {{ page.excerpt | strip_html | normalize_whitespace | jsonify }}{% if page.paperurl %},
-        "sameAs": "{{ page.paperurl }}"{% endif %}
-      }
-    </script>
-  </head>
-  <body class="{{ page.body_class | default: 'personal-page' }}">
-    <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header">
-      <div class="header-inner">
-        <a class="site-title" href="{{ '/' | relative_url }}"><span class="dot" aria-hidden="true"></span>Anwar&nbsp;Zahid</a>
-        <nav class="site-nav" aria-label="Primary navigation">
-          <span class="nav-pill" aria-hidden="true"></span>
-          {% for item in site.data.navigation.main %}<a href="{{ item.url | relative_url }}">{{ item.title }}</a>{% endfor %}
-        </nav>
-        <button type="button" id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Toggle colour theme">
-          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"></path></svg>
-          <span class="label">Dark</span>
-        </button>
-      </div>
-    </header>
-
-    <main class="page" id="main">
-      <article class="publication-single">
-        {% if page.venue %}<span class="badge">{{ page.venue }}</span>{% endif %}
-        <h1>{{ page.title }}</h1>
-        {% if page.authors %}
-          <p class="publication-authors">{{ page.authors | replace: "Anwar Hossain Zahid", "<strong>Anwar Hossain Zahid</strong>" }}</p>
-        {% endif %}
-        <div class="publication-links">
-          {% if page.paperurl %}<a href="{{ page.paperurl }}" rel="noopener">Paper</a>{% endif %}
-          {% if page.code %}<a href="{{ page.code }}" rel="noopener">Code</a>{% endif %}
-        </div>
-
-        <div class="page__content">
-          {{ content }}
-        </div>
-
-        {% if page.bibtex %}
-          <details class="bibtex">
-            <summary>BibTeX</summary>
-            <pre id="bibtex-{{ page.permalink | slugify }}">{{ page.bibtex }}</pre>
-            <button type="button" class="copy-btn" data-copy-target="bibtex-{{ page.permalink | slugify }}">Copy</button>
-          </details>
-        {% endif %}
-
-        <p class="back-link"><a href="{{ '/#publications' | relative_url }}">&larr; Back to all publications</a></p>
-      </article>
-    </main>
-
-    <footer class="site-footer">
-      <div class="footer-links">
-        <a href="mailto:{{ site.author.email }}">Email</a>
-        <a href="{{ '/files/resume.pdf' | relative_url }}">CV</a>
-        <a href="https://github.com/AnwarXahid" rel="noopener">GitHub</a>
-        <a href="https://scholar.google.com/citations?user=_ze57HEAAAAJ&hl=en" rel="noopener">Google Scholar</a>
-        <a href="https://www.linkedin.com/in/anwar-hossain-zahid-a46195108/" rel="noopener">LinkedIn</a>
-        <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
-        <!-- TODO: add ORCID profile link, e.g. https://orcid.org/XXXX-XXXX-XXXX-XXXX -->
-        <!-- TODO: add DBLP profile link -->
-        <!-- TODO: add Semantic Scholar profile link -->
-      </div>
-      <span>&copy; {{ site.time | date: '%Y' }} Anwar Hossain Zahid</span>
-    </footer>
-
-    <script src="{{ '/assets/js/lab.js' | relative_url }}" defer></script>
-  </body>
-</html>
+  <p class="back-link"><a href="{{ '/#publications' | lurl }}">{% t "pub.back" %}&larr; Back to all publications{% endt %}</a></p>
+</article>

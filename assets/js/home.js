@@ -14,7 +14,9 @@
     if (!toggle) return;
     toggle.hidden = false;
     toggle.setAttribute("aria-pressed", String(paused));
-    toggle.querySelector(".motion-label").textContent = paused ? "Play motion" : "Pause motion";
+    toggle.querySelector(".motion-label").textContent = paused
+      ? toggle.dataset.labelPlay || "Play motion"
+      : toggle.dataset.labelPause || "Pause motion";
     toggle.querySelector(".motion-symbol").textContent = paused ? "▷" : "Ⅱ";
     document.dispatchEvent(new Event("portfolio:motion"));
   };

@@ -1,0 +1,222 @@
+/* ==========================================================================
+   i18n.css — language menu, script-aware typography and right-to-left layout.
+   Loaded after lab.css / home.css on every portfolio page.
+   ========================================================================== */
+
+/* ---------------- LANGUAGE MENU ---------------- */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.lang-menu { position: relative; flex-shrink: 0; }
+
+.lang-menu > summary {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  list-style: none;
+  font-family: var(--f-body);
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: 6px 11px;
+  cursor: pointer;
+  user-select: none;
+  transition: border-color .2s ease, background-color .2s ease;
+}
+
+.lang-menu > summary::-webkit-details-marker { display: none; }
+.lang-menu > summary .ico { width: 14px; height: 14px; display: block; }
+.lang-menu > summary:hover,
+.lang-menu[open] > summary { border-color: var(--accent); background: var(--surface); }
+
+.lang-list {
+  position: absolute;
+  z-index: 120;
+  top: calc(100% + 8px);
+  inset-inline-end: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2px;
+  width: max-content;
+  min-width: 230px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: var(--shadow), 0 18px 40px -20px rgba(0, 0, 0, .45);
+}
+
+.lang-list a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 7px;
+  color: var(--text);
+  font-family: var(--f-body);
+  font-size: .95rem;
+  line-height: 1.5;
+  letter-spacing: 0;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.lang-list a:hover { background: var(--surface-2); color: var(--accent); }
+.lang-list a[aria-current] { background: var(--accent); color: var(--accent-ink); }
+
+/* Every language name is shown in its own script with a font that has it. */
+.lang-list a:lang(bn) { font-family: "Noto Sans Bengali", var(--f-body); }
+.lang-list a:lang(hi) { font-family: "Noto Sans Devanagari", var(--f-body); }
+.lang-list a:lang(zh) { font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", var(--f-body); }
+.lang-list a:lang(ar) { font-family: "IBM Plex Sans Arabic", "Noto Sans Arabic", var(--f-body); }
+.lang-list a:lang(ur) { font-family: "Noto Nastaliq Urdu", "Noto Sans Arabic", var(--f-body); line-height: 1.9; padding-block: 2px; }
+
+@media (max-width: 640px) {
+  .lang-menu > summary .label { display: none; }
+  .lang-menu { margin-inline-start: auto; }
+  .lang-menu + .theme-toggle { margin-left: 0; margin-inline-start: 0; }
+}
+
+/* Detail pages whose body is still English say so, in the reader's language. */
+.i18n-notice {
+  position: absolute;
+  top: 76px;
+  inset-inline: 0;
+  width: min(100% - 2.5rem, var(--max-width));
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: .86rem;
+}
+.i18n-notice::before { content: "ⓘ"; margin-inline-end: 8px; color: var(--accent); }
+@media (max-width: 640px) { .i18n-notice { top: 100px; font-size: .8rem; } }
+
+/* ---------------- SCRIPT-AWARE TYPOGRAPHY ----------------
+   Latin fonts stay first so names, paper titles and code keep their look; the
+   script font picks up every character the Latin fonts don't have. */
+:root:lang(bn) {
+  --f-display: "Chivo", "Noto Sans Bengali", sans-serif;
+  --f-body: "Source Sans 3", "Noto Sans Bengali", sans-serif;
+  --f-mono: "JetBrains Mono", "Noto Sans Bengali", monospace;
+}
+:root:lang(hi) {
+  --f-display: "Chivo", "Noto Sans Devanagari", sans-serif;
+  --f-body: "Source Sans 3", "Noto Sans Devanagari", sans-serif;
+  --f-mono: "JetBrains Mono", "Noto Sans Devanagari", monospace;
+}
+:root:lang(zh) {
+  --f-display: "Chivo", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --f-body: "Source Sans 3", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --f-mono: "JetBrains Mono", "Noto Sans SC", "PingFang SC", monospace;
+}
+:root:lang(ar) {
+  --f-display: "Chivo", "Noto Kufi Arabic", sans-serif;
+  --f-body: "Source Sans 3", "IBM Plex Sans Arabic", sans-serif;
+  --f-mono: "JetBrains Mono", "IBM Plex Sans Arabic", monospace;
+}
+:root:lang(ur) {
+  --f-display: "Chivo", "Noto Nastaliq Urdu", serif;
+  --f-body: "Source Sans 3", "Noto Nastaliq Urdu", serif;
+  --f-mono: "JetBrains Mono", "Noto Nastaliq Urdu", serif;
+  font-synthesis: none; /* Nastaliq has no heavy weights; a faked bold smears the strokes */
+}
+/* Chivo has no Cyrillic; Inter Tight keeps the same tight, heavy display voice. */
+:root:lang(ru) { --f-display: "Inter Tight", "Chivo", sans-serif; }
+
+/* Tracking and slanting are Latin habits: spacing letters breaks Arabic joins and
+   Indic conjuncts, and there is no true italic in these scripts. */
+:lang(bn), :lang(hi), :lang(zh), :lang(ar), :lang(ur) { letter-spacing: 0 !important; }
+:root:lang(bn) .em, :root:lang(hi) .em, :root:lang(zh) .em,
+:root:lang(ar) .em, :root:lang(ur) .em { font-style: normal !important; }
+
+/* Tall scripts need room above and below the line. */
+:root:lang(bn) body, :root:lang(hi) body { line-height: 1.75; }
+:root:lang(ar) body { line-height: 1.8; }
+:root:lang(ur) body { line-height: 2.1; }
+:root:lang(zh) body { line-height: 1.8; }
+
+:root:lang(bn) :is(h1, h2, h3, h4), :root:lang(hi) :is(h1, h2, h3, h4) { line-height: 1.3; }
+:root:lang(ar) :is(h1, h2, h3, h4) { line-height: 1.45; }
+:root:lang(ur) :is(h1, h2, h3, h4) { line-height: 1.9; font-weight: 600; }
+:root:lang(zh) :is(h1, h2, h3, h4) { line-height: 1.3; }
+
+/* Homepage hero: a little smaller and wider, since these words run longer. */
+:root:lang(bn) .home .hero h1,
+:root:lang(hi) .home .hero h1 { font-size: clamp(2.7rem, 5vw, 5.4rem); line-height: 1.22; max-width: 15ch; }
+:root:lang(ar) .home .hero h1 { font-size: clamp(2.7rem, 5.2vw, 5.6rem); line-height: 1.32; max-width: 14ch; }
+:root:lang(ur) .home .hero h1 { font-size: clamp(2.2rem, 4.1vw, 4.3rem); line-height: 1.85; max-width: 16ch; }
+:root:lang(zh) .home .hero h1 { font-size: clamp(3rem, 5.6vw, 6.2rem); line-height: 1.18; }
+:root:lang(ru) .home .hero h1,
+:root:lang(fr) .home .hero h1,
+:root:lang(es) .home .hero h1,
+:root:lang(pt) .home .hero h1 { font-size: clamp(3.1rem, 5.4vw, 6.4rem); max-width: 15ch; }
+:root:lang(ru) .home .hero h1 { letter-spacing: -.045em; }
+:root:lang(bn) .home .section h2, :root:lang(hi) .home .section h2,
+:root:lang(ar) .home .section h2 { line-height: 1.32; }
+:root:lang(ur) .home .section h2 { line-height: 1.95; font-size: clamp(1.9rem, 3.4vw, 3.4rem); }
+:root:lang(ur) .home .research-area h3 { line-height: 1.9; }
+
+/* Tiny mono labels are unreadable in these scripts at Latin sizes. */
+:root:is(:lang(bn), :lang(hi), :lang(zh), :lang(ar)) :is(.home .kicker, .home .section-label, .home .hero-keywords, .home .hero-bottom, .home .caption-index, .home .site-nav a, .theme-toggle, .lab-overline, .lab-number, .lab-status, .lab-tags span, .lab-index, .timeline-dates, .eyebrow) { font-size: max(.8rem, 1em); }
+:root:lang(ur) :is(.home .kicker, .home .section-label, .home .hero-keywords, .home .hero-bottom, .home .caption-index, .home .site-nav a, .theme-toggle, .lab-overline, .lab-number, .lab-status, .lab-tags span, .lab-index, .timeline-dates, .eyebrow) { font-size: max(.9rem, 1em); line-height: 2; }
+:root:is(:lang(bn), :lang(hi), :lang(zh), :lang(ar), :lang(ur)) .home .intro-links a { font-size: .9rem; }
+
+/* ---------------- RIGHT-TO-LEFT ----------------
+   The stylesheets were written left-to-right; these rules mirror the
+   physical offsets so Arabic and Urdu pages read naturally. */
+[dir="rtl"] .skip-link { left: auto; right: 12px; }
+[dir="rtl"] .site-nav { margin-left: 0; margin-right: auto; }
+[dir="rtl"] .news-list li { border-left: 0; border-right: 2px solid var(--line); padding: 14px 16px 14px 14px; }
+[dir="rtl"] .news-list li:hover { border-right-color: var(--accent); }
+[dir="rtl"] :is(.prose, .post-content) :is(ul, ol) { padding-left: 0; padding-right: 1.4em; }
+[dir="rtl"] :is(.prose, .post-content) blockquote { padding-left: 0; padding-right: 16px; border-left: 0; border-right: 3px solid var(--accent); }
+[dir="rtl"] .finder .readout { left: auto; right: 0; }
+
+/* Arrows point the way the reader is reading. */
+[dir="rtl"] :is(.intro-links a, .lab-card-link, .lab-hero-link, .site-nav a, .lab-index-bottom) > span[aria-hidden="true"],
+[dir="rtl"] .lab-index-bottom > span { display: inline-block; transform: scaleX(-1); }
+
+[dir="rtl"] .home .site-header::after { transform-origin: right; }
+[dir="rtl"] .home .portrait-caption { left: auto; right: -34px; }
+[dir="rtl"] .home .hero-bottom a span { margin-left: 0; margin-right: 14px; }
+[dir="rtl"] .home .motion-toggle { margin-left: 0; margin-right: auto; }
+[dir="rtl"] .home .research-area + .research-area { border-left: 0; border-right: 1px solid var(--line); }
+[dir="rtl"] .home .project-card:first-child > .work-cover { border-right: 0; border-left: 1px solid var(--line); }
+[dir="rtl"] .home .intro-links a:hover span { transform: translate(-2px, -2px); }
+[dir="rtl"] .lab-preview-bar b,
+[dir="rtl"] .lab-answer b { margin-left: 0; margin-right: auto; }
+
+@media (max-width: 900px) {
+  [dir="rtl"] .home .finder { margin-right: 0; margin-left: 30px; }
+  [dir="rtl"] .home .hero-bottom .motion-toggle { margin-right: 0; }
+}
+@media (max-width: 780px) {
+  [dir="rtl"] .home .project-card:first-child > .work-cover { border-left: 0; }
+}
+@media (max-width: 640px) {
+  [dir="rtl"] .lang-menu + .theme-toggle { margin-right: 0; }
+  [dir="rtl"] .home .finder { margin-left: 20px; }
+  [dir="rtl"] .home .portrait-caption { right: -18px; }
+  [dir="rtl"] .home .hero-bottom a span { margin-right: 5px; }
+  [dir="rtl"] .home .research-area { padding: 26px 125px 30px 0; }
+  [dir="rtl"] .home .research-area + .research-area { border-right: 0; }
+  [dir="rtl"] .home .area-number { left: auto; right: 0; }
+  [dir="rtl"] .home .area-symbol { left: auto; right: 0; transform-origin: right; }
+}
+
+/* Nastaliq stacks its letters diagonally; paragraphs need extra leading. */
+:root:lang(ur) :is(p, li, .intro-summary, .timeline p, .lab-lede) { line-height: 2.05; }
+:root:lang(ur) .home .hero-keywords { line-height: 2.2; }
+
+/* English passages inside Arabic/Urdu pages keep English word and punctuation order. */
+[dir="rtl"] [lang="en"]:not([dir]) { unicode-bidi: plaintext; text-align: right; }
