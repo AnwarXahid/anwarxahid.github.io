@@ -381,6 +381,84 @@ canvas {
   margin: 0 auto 17px;
   max-width: 310px;
 }
+.tutorial-content {
+  max-width: 490px;
+  padding: 18px 22px;
+  transform: rotate(0);
+}
+.tutorial-content h2 {
+  font-size: clamp(36px, 4vw, 43px);
+  margin: 7px 0 5px;
+}
+.tutorial-content > p {
+  margin-bottom: 11px;
+}
+.tutorial-steps {
+  display: grid;
+  gap: 7px;
+  margin-bottom: 14px;
+  text-align: left;
+}
+.tutorial-step {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 8px 11px;
+  background: #fff;
+  border: 2px solid #e8e6da;
+  border-radius: 15px;
+}
+.tutorial-icon {
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  display: grid;
+  place-items: center;
+  background: #dff2ed;
+  color: #1d7273;
+  border-radius: 13px;
+  font-family: Outfit, sans-serif;
+  font-size: 27px;
+  font-weight: 900;
+}
+.tutorial-icon.duck-icon {
+  background: #ffebd7;
+  color: #b74720;
+}
+.tutorial-step strong,
+.tutorial-step small {
+  display: block;
+}
+.tutorial-step strong {
+  font-family: Outfit, sans-serif;
+  font-size: 16px;
+}
+.tutorial-step small {
+  color: #68736f;
+  font-size: 11px;
+  margin-top: 4px;
+}
+.tutorial-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 5px;
+  color: #394c50;
+  font-size: 11px;
+  font-weight: 700;
+}
+.tutorial-controls kbd {
+  min-width: 24px;
+  padding: 3px 5px;
+  border: 1px solid #c6d5d2;
+  border-bottom-width: 3px;
+  border-radius: 5px;
+  background: #f2f8f5;
+  font-family: Outfit, sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  text-align: center;
+}
 .character-picker {
   display: flex;
   justify-content: center;
@@ -749,6 +827,29 @@ canvas {
   }
   .screen h2 {
     font-size: 47px;
+  }
+  .tutorial-content {
+    padding: 16px;
+  }
+  .tutorial-content h2 {
+    font-size: 37px;
+  }
+  .tutorial-step {
+    padding: 9px;
+    gap: 9px;
+  }
+  .tutorial-icon {
+    width: 46px;
+    height: 46px;
+    flex-basis: 46px;
+    font-size: 25px;
+  }
+  .tutorial-step strong {
+    font-size: 14px;
+  }
+  .tutorial-controls,
+  .tutorial-step small {
+    font-size: 10px;
   }
   .character-picker {
     margin: 15px 0;

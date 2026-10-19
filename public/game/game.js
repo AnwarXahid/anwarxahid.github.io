@@ -5,6 +5,7 @@
   const $ = (id) => document.getElementById(id);
   const ui = {
     start: $("startScreen"),
+    tutorial: $("tutorialScreen"),
     pause: $("pauseScreen"),
     end: $("endScreen"),
     hud: $("gameHud"),
@@ -35,6 +36,8 @@
   ];
   const WORLD = 1200;
   const COLLISION = 230;
+  const START_SPEED = 250;
+  const MAX_SPEED = 620;
   const MAX_STACK = 9;
   const DUCK_TIME = 1.15;
   const DUCK_COOLDOWN = 2.4;
@@ -45,10 +48,11 @@
     lane = 0,
     selected = 0,
     riders = [],
-    entities = [];
+    entities = [],
+    pickupEffects = [];
   let distance = 0,
     picked = 0,
-    speed = 370,
+    speed = START_SPEED,
     spawnTravel = 0,
     row = 0;
   let duckTime = 0,
@@ -70,6 +74,7 @@
   const bassNotes = [131, 110, 87, 98];
   let best = Number(localStorage.getItem("carry-my-bro-best") || 0);
   let touchStart = null;
+  let tutorialSeen = false;
 
   function resize() {
     const rect = stage.getBoundingClientRect();
@@ -213,17 +218,19 @@
     lane = 0;
     riders = [];
     entities = [];
+    pickupEffects = [];
     distance = 0;
     picked = 0;
-    speed = 370;
+    speed = START_SPEED;
     spawnTravel = 0;
     row = 0;
     duckTime = 0;
     duckCooldown = 0;
     time = 0;
-    entities.push({ type: "bro", lane: 0, z: 540, buddy: buddies[0] });
-    entities.push({ type: "bro", lane: -1, z: 850, buddy: buddies[1] });
+    entities.push({ type: "bro", lane: 0, z: 680, buddy: buddies[0] });
+    entities.push({ type: "bro", lane: -1, z: 980, buddy: buddies[1] });
     ui.start.classList.add("hidden");
+    ui.tutorial.classList.add("hidden");
     ui.pause.classList.add("hidden");
     ui.end.classList.add("hidden");
     ui.hud.hidden = false;
@@ -235,6 +242,31 @@
     sound(490, 0.12);
     syncMusic();
     lastTime = performance.now();
+  }
+  function requestStart() {
+    if (!tutorialSeen) {
+      try {
+        tutorialSeen = sessionStorage.getItem("carry-my-bro-tutorial-seen") === "1";
+      } catch (_) {
+        /* The tutorial still works when storage is unavailable. */
+      }
+    }
+    if (tutorialSeen) {
+      start();
+      return;
+    }
+    ui.start.classList.add("hidden");
+    ui.tutorial.classList.remove("hidden");
+    $("tutorialButton").focus();
+  }
+  function finishTutorial() {
+    tutorialSeen = true;
+    try {
+      sessionStorage.setItem("carry-my-bro-tutorial-seen", "1");
+    } catch (_) {
+      /* Keep the guide dismissed for this page even without storage. */
+    }
+    start();
   }
   function setPause(paused) {
     if (paused && state === "running") {
@@ -327,6 +359,12 @@
   function hit(entity) {
     if (entity.type === "bro") {
       if (entity.lane !== lane) return;
+      entity.collected = true;
+      pickupEffects.push({
+        x: project(COLLISION, lane).x,
+        y: height * 0.835 - 48,
+        age: 0,
+      });
       picked++;
       if (riders.length < MAX_STACK) riders.push(entity.buddy);
       else distance += 25;
@@ -368,7 +406,7 @@
     time += dt;
     const travel = speed * dt;
     distance += travel / 12;
-    speed = Math.min(680, 370 + distance * 0.12);
+    speed = Math.min(MAX_SPEED, START_SPEED + distance * 0.18);
     spawnTravel += travel;
     while (spawnTravel >= 260) {
       spawnTravel -= 260;
@@ -376,6 +414,8 @@
     }
     duckTime = Math.max(0, duckTime - dt);
     duckCooldown = Math.max(0, duckCooldown - dt);
+    for (const effect of pickupEffects) effect.age += dt;
+    pickupEffects = pickupEffects.filter((effect) => effect.age < 0.55);
     for (const entity of entities) {
       entity.z -= travel;
       if (!entity.hit && entity.z < COLLISION) {
@@ -384,7 +424,7 @@
         if (state !== "running") break;
       }
     }
-    entities = entities.filter((e) => e.z > -100);
+    entities = entities.filter((e) => e.z > -100 && !e.collected);
     ui.distance.innerHTML = `${Math.floor(distance)}<span>m</span>`;
     ui.meterFill.style.transform = `scaleX(${duckTime > 0 ? duckTime / DUCK_TIME : 1 - duckCooldown / DUCK_COOLDOWN})`;
     ui.duckStatus.textContent =
@@ -682,6 +722,21 @@
     }
     ctx.restore();
   }
+  function drawPickupEffects() {
+    for (const effect of pickupEffects) {
+      const progress = effect.age / 0.55;
+      const spread = 12 + progress * 32;
+      ctx.save();
+      ctx.globalAlpha = 1 - progress;
+      for (let i = 0; i < 7; i++) {
+        const angle = (i / 7) * Math.PI * 2;
+        const x = effect.x + Math.cos(angle) * spread;
+        const y = effect.y + Math.sin(angle) * spread * 0.65 - progress * 14;
+        oval(x, y, (8 + (i % 3) * 2) * (1 - progress * 0.55), 6 * (1 - progress * 0.55), i % 2 ? "#ffffff" : "#d5f7e9");
+      }
+      ctx.restore();
+    }
+  }
   function render() {
     if (!width || !height) return;
     ctx.clearRect(0, 0, width, height);
@@ -696,6 +751,7 @@
       else drawBarrier(entity);
     }
     drawPlayer();
+    drawPickupEffects();
     if (state === "start") {
       const p = project(700, -1);
       drawPerson(p.x, p.y, 32, buddies[1], 0);
@@ -722,7 +778,8 @@
       sound(440 + selected * 90, 0.09);
     }),
   );
-  $("startButton").addEventListener("click", start);
+  $("startButton").addEventListener("click", requestStart);
+  $("tutorialButton").addEventListener("click", finishTutorial);
   $("againButton").addEventListener("click", start);
   $("pauseButton").addEventListener("click", () => setPause(true));
   $("resumeButton").addEventListener("click", () => setPause(false));
@@ -767,7 +824,7 @@
     if (["Space", "ArrowDown", "ArrowUp", "KeyS", "KeyW"].includes(e.code))
       duck();
     if (e.code === "KeyP" || e.code === "Escape") setPause(state === "running");
-    if (e.code === "Enter" && state === "start") start();
+    if (e.code === "Enter" && state === "start") requestStart();
     else if (e.code === "Enter" && state === "ended") start();
   });
   stage.addEventListener("pointerdown", (e) => {

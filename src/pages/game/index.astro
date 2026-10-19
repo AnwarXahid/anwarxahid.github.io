@@ -92,6 +92,24 @@ const gameStructuredData = {
                 <span class="tap-hint">SWIPE TO MOVE · TAP DUCK TO SLIDE</span>
               </div>
             </div>
+            <div class="screen hidden" id="tutorialScreen" role="dialog" aria-modal="true" aria-labelledby="tutorialTitle" aria-describedby="tutorialDescription">
+              <div class="screen-content tutorial-content">
+                <div class="screen-sticker">✦ FIRST RUN FIELD GUIDE ✦</div>
+                <h2 id="tutorialTitle">You got this,<br /><span>bro.</span></h2>
+                <p id="tutorialDescription">Catch bros. Save the stack.</p>
+                <div class="tutorial-steps">
+                  <div class="tutorial-step">
+                    <span class="tutorial-icon" aria-hidden="true">↔</span>
+                    <div><strong>Switch lanes</strong><span class="tutorial-controls"><kbd>←</kbd><kbd>→</kbd><span>or A / D · swipe sideways</span></span><small>Pick up bros. Dodge barriers.</small></div>
+                  </div>
+                  <div class="tutorial-step">
+                    <span class="tutorial-icon duck-icon" aria-hidden="true">↧</span>
+                    <div><strong>Duck under bridges</strong><span class="tutorial-controls"><kbd>SPACE</kbd><span>or tap DUCK</span></span><small>Save your stack when a bridge comes.</small></div>
+                  </div>
+                </div>
+                <button class="primary-button" id="tutorialButton" type="button">GOT IT — PLAY <span>↗</span></button>
+              </div>
+            </div>
             <div class="screen hidden" id="pauseScreen">
               <div class="screen-content compact-content"><div class="screen-sticker">✦ TAKE A BREATHER ✦</div><h2>Paused.</h2><p>Your crew is right where you left them.</p><button class="primary-button" id="resumeButton" type="button">KEEP RUNNING <span>↗</span></button></div>
             </div>
