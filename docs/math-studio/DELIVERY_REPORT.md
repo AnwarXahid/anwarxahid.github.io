@@ -1,6 +1,6 @@
 # OpenMath Studio — tested release boundary
 
-This branch adds a real static `/math/` workspace and a Lab link. It does not change Quizora's Worker, D1 data, or the manual Pages deployment workflow. The first release is useful for local math solving, graphing, printed text extraction, visual editing, and notebook work. Equation photo OCR and pen-stroke recognition remain explicit product gaps.
+This branch adds a real static `/math/` workspace and a Lab link. It does not change Quizora's Worker or D1 data. The first release is useful for local math solving, graphing, printed text extraction, visual editing, and notebook work. Equation photo OCR and pen-stroke recognition remain explicit product gaps.
 
 | Capability | Status | Evidence or limit |
 | --- | --- | --- |
@@ -26,4 +26,4 @@ No formula OCR model is shipped, so formula OCR accuracy, latency and download s
 
 ## Release and rollback
 
-Run `npm ci`, `npm run dev`, then open `http://127.0.0.1:4321/math/`. No new secret or paid service is needed. After review and merge into `master`, `.github/workflows/pages.yml` now runs automatically; `workflow_dispatch` remains available for a manual retry. Confirm `https://anwarxahid.github.io/math/` and the original routes after that workflow succeeds. Reverting the branch commit and pushing the revert to `master` rolls back the feature; browser-local notebooks are independent of repository rollback. See `OPERATIONS.md` and `THIRD_PARTY_NOTICES.md`.
+Run `npm ci`, `npm run dev`, then open `http://127.0.0.1:4321/math/`. No new secret or paid service is needed. Any push now runs `.github/workflows/ship.yml`, which tests, merges into `master` and deploys; `workflow_dispatch` on `master` remains available for a manual retry. Confirm `https://anwarxahid.github.io/math/` and the original routes after that workflow succeeds. Reverting the branch commit and pushing the revert to `master` rolls back the feature; browser-local notebooks are independent of repository rollback. See `OPERATIONS.md` and `THIRD_PARTY_NOTICES.md`.

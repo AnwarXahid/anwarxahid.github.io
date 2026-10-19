@@ -1,0 +1,147 @@
+# One pipeline for every push: test it, then put it live.
+#
+#   push to master        -> test -> deploy to GitHub Pages
+#   push to any branch    -> test -> merge into master -> deploy
+#   push to wip/<name>    -> test only (never merged or deployed)
+#
+# GitHub does not let the built-in token push changes to files under
+# .github/workflows, so a branch that edits this pipeline must be pushed to
+# master directly (git push origin HEAD:master); the run explains this if it happens.
+name: Test and deploy
+
+on:
+  push:
+    branches: ['**']
+  workflow_dispatch:
+    inputs:
+      verified_sha:
+        description: Commit that already passed tests on its branch (skips re-testing it)
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ship-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
+
+jobs:
+  test:
+    name: Test
+    if: github.event.inputs.verified_sha != github.sha
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npm test
+      - run: npm run build
+      - run: npm run inventory && node scripts/verify-build.mjs
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+
+  promote:
+    name: Merge into master
+    needs: test
+    if: github.event_name == 'push' && github.ref != 'refs/heads/master' && !startsWith(github.ref_name, 'wip/')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Merge tested commit into master
+        id: merge
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898088+github-actions[bot]@users.noreply.github.com"
+          for attempt in 1 2 3; do
+            git fetch --quiet origin master
+            if git merge-base --is-ancestor "$GITHUB_SHA" origin/master; then
+              echo "master already contains $GITHUB_SHA; nothing to ship."
+              echo "changed=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            if ! git diff --quiet origin/master "$GITHUB_SHA" -- .github/workflows; then
+              msg="This branch changes .github/workflows, which GitHub does not let Actions push. Ship it with: git push origin $GITHUB_REF_NAME:master"
+              echo "::error::$msg"
+              echo "$msg" >> "$GITHUB_STEP_SUMMARY"
+              exit 1
+            fi
+            git checkout --quiet -B master origin/master
+            if git merge-base --is-ancestor origin/master "$GITHUB_SHA"; then
+              git merge --ff-only "$GITHUB_SHA"
+              echo "verified_sha=$GITHUB_SHA" >> "$GITHUB_OUTPUT"
+            else
+              git merge --no-ff "$GITHUB_SHA" -m "Ship $GITHUB_REF_NAME"
+              echo "verified_sha=" >> "$GITHUB_OUTPUT"
+            fi
+            if git push origin master; then
+              echo "changed=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "master moved while merging; retrying ($attempt/3)."
+            sleep 5
+          done
+          echo "::error::Could not update master after 3 attempts."
+          exit 1
+      # Pushes made with the built-in token do not start new runs, so start the
+      # master run explicitly. A fast-forward reuses this run's test result;
+      # a merge commit is new code and is tested again before deploying.
+      - name: Deploy master
+        if: steps.merge.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run ship.yml --ref master -f verified_sha="${{ steps.merge.outputs.verified_sha }}"
+
+  build:
+    name: Build site
+    needs: test
+    if: >-
+      always() && github.ref == 'refs/heads/master' &&
+      (needs.test.result == 'success' ||
+       (needs.test.result == 'skipped' && github.event.inputs.verified_sha == github.sha))
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+        env:
+          PUBLIC_API_BASE: ${{ vars.PUBLIC_API_BASE || 'https://quizora-api.portfolio-quizora.workers.dev/v1' }}
+          PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.PUBLIC_TURNSTILE_SITE_KEY || '0x4AAAAAAFVB06VBKC2ivaJr' }}
+          PUBLIC_ENABLE_AI: 'false'
+      - run: npm run inventory && node scripts/verify-build.mjs
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    if: always() && needs.build.result == 'success'
+    runs-on: ubuntu-latest
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

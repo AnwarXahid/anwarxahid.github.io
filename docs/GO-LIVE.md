@@ -1,6 +1,6 @@
 # Put the pilot online
 
-**Pushing this branch alone will not launch Quizora.** GitHub Pages serves the static portfolio and UI; Cloudflare Workers and D1 serve published quizzes, submissions, and results. The repository's Pages workflow is manual and runs only from `master`. AI stays off.
+**Pushing alone will not launch the Quizora backend.** GitHub Pages serves the static portfolio and UI; Cloudflare Workers and D1 serve published quizzes, submissions, and results. The repository's Pages workflow is manual and runs only from `master`. AI stays off.
 
 ## 1. Prepare the Cloudflare API
 
@@ -22,14 +22,14 @@ Cloudflare documents [D1 creation and remote migrations](https://developers.clou
 ## 2. Configure GitHub Pages
 
 1. The Pages workflow includes the public Worker URL and Turnstile site key as defaults. You can override them with `PUBLIC_API_BASE` and `PUBLIC_TURNSTILE_SITE_KEY` repository variables under **Settings → Secrets and variables → Actions → Variables**. These are public build values, not secrets. `PUBLIC_ENABLE_AI` is fixed to `false` in the pilot workflow.
-2. Merge `feature/astro-quizora` into `master` and push `master`. Wait for the **Verify** workflow to pass. This push does not run the manual Pages deployment workflow.
-3. In **Settings → Pages → Build and deployment**, select **GitHub Actions** as the source. Then open **Actions → Deploy static site (manual) → Run workflow**, select `master`, and run it. This replaces the old branch-based Jekyll publishing path when the workflow completes.
+2. In **Settings → Pages → Build and deployment**, select **GitHub Actions** as the source.
+3. Push. The **Test and deploy** workflow tests the commit, merges a feature branch into `master` when needed, and deploys Pages (see the README).
 4. Visit `https://anwarxahid.github.io/`, `/exam/`, and `/exam/qr/`. Create a small test quiz, scan its participant QR code in a separate browser, submit an answer, open the private management link, and delete the test quiz afterward.
 
 GitHub documents the [Pages source setting](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site) and [repository Actions variables](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-variables).
 
 ## Later updates
 
-Pushes to `master` run checks. To publish a changed frontend, run **Deploy static site (manual)** again. Worker code changes require a separate reviewed `wrangler deploy`; D1 schema changes require a separate reviewed remote migration. A GitHub push by itself never deploys the Worker or database.
+Every push is tested and, when green, deployed to Pages automatically (branches named `wip/…` are only tested). Worker code changes require a separate reviewed `wrangler deploy`; D1 schema changes require a separate reviewed remote migration. A GitHub push by itself never deploys the Worker or database.
 
 The QR generator and portfolio are static; they can load even if the API is down. Creation, joining, saving, and results need the Worker and D1. Hosted CPU and quota use, Turnstile, translations, privacy, and school use should be reviewed before inviting a broad audience. Keep this GitHub Pages pilot noncommercial; [GitHub Pages limits](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits) restrict sites primarily serving commercial SaaS.

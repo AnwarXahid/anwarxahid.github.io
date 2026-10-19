@@ -31,6 +31,18 @@ npm run load
 
 See [implementation progress](docs/PROGRESS.md) for actual verification results and remaining gates. This is an implementation under review, not a claim of production readiness or unlimited free capacity.
 
+## Deploying: just push
+
+`.github/workflows/ship.yml` tests every push and puts it live on GitHub Pages; nothing needs to be clicked.
+
+| You push to | What happens |
+| --- | --- |
+| `master` | type check, unit tests, build + build verification, browser tests → deploy |
+| any other branch | the same tests → merged into `master` (fast-forward when possible) → deploy |
+| `wip/<name>` | the same tests only; never merged or deployed |
+
+A failing test stops the run before anything is merged or deployed. GitHub does not let Actions push changes to `.github/workflows/`, so a branch that edits the pipeline itself must be pushed with `git push origin <branch>:master`; the run says so if this happens. To redeploy without a change, use **Actions → Test and deploy → Run workflow** on `master`. The Cloudflare Worker and D1 database are still deployed separately (see [operations](docs/OPERATIONS.md)).
+
 ## Documentation
 
 - [Architecture, state, authorization and privacy](docs/ARCHITECTURE.md)
@@ -42,4 +54,4 @@ See [implementation progress](docs/PROGRESS.md) for actual verification results 
 
 The optional `local-ai/` service uses FastAPI and Ollama on loopback, plus an outbound HTTPS agent. It requires a locally installed model and provisioned secrets. Set `PUBLIC_ENABLE_AI=true` only after configuring that service and the Worker; the pilot defaults to `false`. Manual creation, QR codes, and participation work without AI. Uploaded originals are not retained; only selected source text is transmitted after consent when AI is enabled. Quizzes expire within 90 days, responses within 30 days after closure (capped by quiz expiry), and temporary AI data within an hour or acknowledged retrieval. Backups have separate retention.
 
-GitHub Pages deployment is a manual workflow restricted to `master`. Cloudflare account/database IDs, private secrets, Turnstile and the public API URL must be configured separately. Paid resources, remote load tests and public publication require authorization. The old Fun URL redirects to the Lab; the arcade source was removed from the active site.
+Cloudflare account/database IDs, private secrets, Turnstile and the public API URL must be configured separately. Paid resources, remote load tests and public publication require authorization. The old Fun URL redirects to the Lab; the arcade source was removed from the active site.

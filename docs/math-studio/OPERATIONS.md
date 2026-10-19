@@ -11,6 +11,6 @@ node scripts/verify-build.mjs
 npm run test:e2e
 ```
 
-Inspect `dist/math/index.html` and open the built site through `npm run preview` before deployment. This repo's `.github/workflows/pages.yml` deploys after a push to `master` and still supports `workflow_dispatch` for a manual retry. The owner must review and merge the pull request; the merge automatically starts the same checks and Pages deployment. After Pages finishes, check `https://anwarxahid.github.io/math/` plus `/lab/`, `/exam/`, `/exam/qr/`, resume, blog and publication routes. Test OCR resource downloads and PDF rendering under GitHub Pages.
+Inspect `dist/math/index.html` and open the built site through `npm run preview` before deployment. `.github/workflows/ship.yml` tests every push and deploys it to Pages once the tests pass (feature branches are merged into `master` first); `workflow_dispatch` on `master` redeploys. After Pages finishes, check `https://anwarxahid.github.io/math/` plus `/lab/`, `/exam/`, `/exam/qr/`, resume, blog and publication routes. Test OCR resource downloads and PDF rendering under GitHub Pages.
 
 Rollback is a normal code revert/redeploy of the commit containing `/math/` and the Lab link. No Cloudflare Worker, D1 schema, or portfolio content migration is involved. Existing browser notebooks remain local until users delete site data.
