@@ -1,5 +1,7 @@
-name: Deploy static site (manual)
+name: Deploy static site
 on:
+  push:
+    branches: [master]
   workflow_dispatch:
 permissions:
   contents: read
