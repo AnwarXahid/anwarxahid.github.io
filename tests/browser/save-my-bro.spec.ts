@@ -1,5 +1,22 @@
 import { expect, test } from '@playwright/test';
 
+test('skydiving bros visibly descend toward the player', async ({ page }) => {
+  await page.addInitScript(() => {
+    const original = CanvasRenderingContext2D.prototype.fillText;
+    CanvasRenderingContext2D.prototype.fillText = function (text, x, y, maxWidth) {
+      if (text === 'BRO!') (window as Window & { __broY?: number }).__broY = y;
+      return original.call(this, text, x, y, maxWidth);
+    };
+  });
+  await page.goto('/game/save-my-bro/');
+  await page.getByRole('button', { name: /START THE RESCUE/ }).click();
+  await page.waitForFunction(() => ((window as Window & { __broY?: number }).__broY ?? 0) > 30);
+  const before = await page.evaluate(() => (window as Window & { __broY?: number }).__broY!);
+  await page.waitForTimeout(300);
+  const after = await page.evaluate(() => (window as Window & { __broY?: number }).__broY!);
+  expect(after).toBeGreaterThan(before + 25);
+});
+
 test('Lab cards open anywhere and Save My Bro can complete all three rounds', async ({ page }) => {
   await page.goto('/lab/');
   await page.evaluate(() => document.fonts.ready);

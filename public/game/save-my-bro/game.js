@@ -29,11 +29,11 @@
     [0.11, 0.16, 0.9], [0.7, 0.24, 0.65], [0.33, 0.49, 1.2],
     [0.82, 0.72, 0.8], [0.16, 0.89, 1.1], [0.62, 1.08, 0.75],
   ];
-  const PLAYER_Y = 0.43;
+  const PLAYER_Y = 0.68;
   let width = 0, height = 0, dpr = 1;
   let state = "start", round = 0, elapsed = 0, ambientTime = 0, rescued = 0;
   let hearts = 3, nextWave = 0, nextHazard = 0, heroX = 0.5, targetX = 0.5;
-  let objects = [], effects = [], invulnerable = 0, messageTime = 0;
+  let objects = [], effects = [], invulnerable = 0, messageTime = 0, burstIndex = 0;
   let resultType = "clear", lastFrame = 0, pointerActive = false;
   const keys = { left: false, right: false };
   let musicOn = true, audio = null, musicTimer = null, musicStep = 0;
@@ -137,6 +137,7 @@
     hearts = 3;
     nextWave = 0;
     nextHazard = 0;
+    burstIndex = 0;
     heroX = 0.5;
     targetX = 0.5;
     invulnerable = 0;
@@ -206,14 +207,41 @@
     stage.focus();
   }
   function spawnWave(index) {
-    const type = index === 3 || (round === 2 && index === 7) ? "chute" : "falling";
-    objects.push({
-      type, x: positions[index], y: 1.13,
-      crew: crew[(index + round) % crew.length], phase: index * 1.6,
+    const makeBro = (x, type, offset, crewIndex) => ({
+      type, x, y: -0.09 - offset, vy: type === "chute" ? 0.12 : 0.16,
+      gravity: type === "chute" ? 0.055 : 0.25,
+      terminal: type === "chute" ? 0.25 : 0.51,
+      vx: ((index + crewIndex) % 2 ? 1 : -1) * (type === "chute" ? 0.007 : 0.012),
+      crew: crew[crewIndex % crew.length], phase: index * 1.6 + crewIndex,
     });
+    objects.push(makeBro(positions[index], index === 3 || (round === 2 && index === 7) ? "chute" : "falling", 0, index + round));
+    // A second jumper keeps the sky busy and gives players another rescue route.
+    const bonus = makeBro(index % 2 ? 0.82 : 0.23, index % 3 === 0 ? "chute" : "falling", 0.16, index + round + 2);
+    bonus.bonus = true;
+    objects.push(bonus);
   }
   function spawnHazard(index) {
-    objects.push({ type: "hazard", x: [0.22, 0.78, 0.18][index], y: 1.14, phase: index });
+    objects.push({
+      type: "hazard", variant: ["engine", "crate", "wing"][index],
+      x: [0.22, 0.78, 0.18][index], y: -0.12, vy: 0.18,
+      gravity: 0.28, terminal: 0.58, vx: index % 2 ? -0.012 : 0.014,
+      spin: index % 2 ? -1.8 : 2.1, angle: 0, phase: index,
+    });
+  }
+  function burstPlane(index) {
+    const x = [0.5, 0.2, 0.79][index], y = [0.15, 0.18, 0.26][index];
+    effects.push({ type: "burst", x, y, age: 0 });
+    tone(110 + index * 18, 0.23, 0.024, "sawtooth");
+    const pieces = index === 0 ? 5 : 3;
+    for (let i = 0; i < pieces; i++) {
+      objects.push({
+        type: "wreckage", variant: ["wing", "engine", "crate"][i % 3],
+        x, y, vx: (i - (pieces - 1) / 2) * 0.075 + (i === Math.floor(pieces / 2) ? 0.1 : 0),
+        vy: -0.11 - (i % 2) * 0.05, gravity: 0.34,
+        terminal: 0.62, spin: (i % 2 ? -1 : 1) * (2.1 + i * 0.25),
+        angle: i, phase: i,
+      });
+    }
   }
   function rescue(object) {
     object.done = true;
@@ -248,21 +276,25 @@
     if (keys.right) targetX += dt * 0.7;
     targetX = clamp(targetX, 0.11, 0.89);
     heroX += clamp(targetX - heroX, -dt * 1.8, dt * 1.8);
-    while (nextWave < info.waves && elapsed >= 1.15 + nextWave * 2.05) spawnWave(nextWave++);
+    while (burstIndex < 3 && elapsed >= [1.05, 7.1, 13.2][burstIndex]) burstPlane(burstIndex++);
+    while (nextWave < info.waves && elapsed >= 1.18 + nextWave * 1.65) spawnWave(nextWave++);
     while (nextHazard < 3 && elapsed >= 5.7 + nextHazard * 5.8) spawnHazard(nextHazard++);
     invulnerable = Math.max(0, invulnerable - dt);
     for (const object of objects) {
-      object.y -= dt * (object.type === "chute" ? 0.285 : 0.32);
-      if (object.done || Math.abs(object.y - PLAYER_Y) > 0.075) continue;
-      if (Math.abs(object.x - heroX) < (object.type === "hazard" ? 0.09 : 0.15)) {
+      object.vy = Math.min(object.terminal, object.vy + object.gravity * dt);
+      object.y += object.vy * dt;
+      object.x = clamp(object.x + object.vx * dt, 0.07, 0.93);
+      if (object.angle !== undefined) object.angle += object.spin * dt;
+      if (object.done || object.type === "wreckage" || Math.abs(object.y - PLAYER_Y) > 0.069) continue;
+      if (Math.abs(object.x - heroX) < (object.type === "hazard" ? 0.085 : object.bonus ? 0.05 : 0.15)) {
         if (object.type === "hazard") hitHazard(object);
         else rescue(object);
         if (state !== "running") break;
       }
     }
-    objects = objects.filter((object) => !object.done && object.y > -0.18);
+    objects = objects.filter((object) => !object.done && object.y < 1.2);
     for (const effect of effects) effect.age += dt;
-    effects = effects.filter((effect) => effect.age < (effect.type === "rescue" ? 1.4 : 0.55));
+    effects = effects.filter((effect) => effect.age < (effect.type === "rescue" ? 1.4 : effect.type === "burst" ? 1.8 : 0.55));
     syncHud();
     if (state === "running" && elapsed >= info.duration) endRound("fail");
   }
@@ -309,22 +341,28 @@
       polygon([[0, height], [0, top + 105], [px(.2), top + 70], [px(.39), top + 112], [px(.66), top + 58], [width, top + 90], [width, height]], "#4a6485");
     }
   }
-  function drawPlane() {
-    if (state !== "start" && elapsed > 3.2) return;
-    const progress = state === "start" ? 0 : elapsed / 3.2;
-    const scale = Math.min(width / 700, 1.1) * (1 - progress * 0.55);
-    const x = px(0.5), y = py(0.16 - progress * 0.21);
+  function drawPlaneAt(x, y, scale, direction) {
     ctx.save();
-    ctx.translate(x, y);
-    ctx.scale(scale, scale);
+    ctx.translate(px(x), py(y));
+    ctx.scale(scale * direction, scale);
     oval(0, 28, 104, 14, "#1e234d22");
     polygon([[-120, 0], [-32, -13], [18, -17], [120, -3], [50, 10], [-40, 14]], "#edf3f1");
     polygon([[-27, -12], [14, -42], [49, -41], [32, 2]], "#fff9ed");
     polygon([[-14, 8], [20, 38], [50, 37], [30, 2]], "#d8e4e9");
     rounded(-99, -8, 49, 11, 5, "#324568");
-    for (let i = 0; i < 5; i++) oval(-34 + i * 19, -3, 4, 4, "#6ca6bd");
+    for (let i = 0; i < 5; i++) {
+      oval(-34 + i * 19, -3, 5, 5, "#496c8a");
+      oval(-34 + i * 19, -3, 2.8, 3.1, crew[i % crew.length].skin);
+    }
     polygon([[76, -5], [91, -27], [103, -25], [104, 0]], "#f19378");
     ctx.restore();
+  }
+  function drawPlanes() {
+    const scale = Math.min(width / 700, 1.1);
+    const flight = state === "start" ? 0 : elapsed;
+    if (flight < 1.05) drawPlaneAt(0.5 + flight * 0.012, 0.15, scale, 1);
+    if (flight < 7.1) drawPlaneAt(0.18 + flight * 0.004, 0.2, scale * 0.49, -1);
+    if (flight < 13.2) drawPlaneAt(0.81 - flight * 0.003, 0.28, scale * 0.43, 1);
   }
   function drawHuman(x, y, size, character, hero) {
     const s = size / 70;
@@ -384,43 +422,64 @@
   }
   function drawObject(object) {
     const x = px(object.x), y = py(object.y);
-    const scale = clamp((1.18 - object.y) * 0.9, 0.43, 1.08);
+    const scale = clamp((object.y + 0.32) * 0.95, 0.38, 1.14);
     const size = 52 * scale;
-    if (object.type === "hazard") {
+    if (object.type === "hazard" || object.type === "wreckage") {
       ctx.save();
       ctx.translate(x, y);
-      ctx.rotate(Math.sin(ambientTime * 3 + object.phase) * 0.12);
-      rounded(-27*scale, -27*scale, 54*scale, 54*scale, 7*scale, "#583e65");
-      rounded(-22*scale, -22*scale, 44*scale, 44*scale, 4*scale, "#f78770");
-      for (let i = -1; i <= 1; i++) line((-12+i*12)*scale, 15*scale, (i*12+8)*scale, -15*scale, "#ffe5a3", 6*scale);
+      ctx.rotate(object.angle || 0);
+      if (object.variant === "engine") {
+        oval(0, 0, 25*scale, 24*scale, "#38516a");
+        oval(0, 0, 18*scale, 17*scale, "#a2b4c3");
+        oval(0, 0, 11*scale, 10*scale, "#e66659");
+        for (let i = 0; i < 6; i++) {
+          const a = i * Math.PI / 3;
+          line(0, 0, Math.cos(a)*16*scale, Math.sin(a)*16*scale, "#526780", 4*scale);
+        }
+      } else if (object.variant === "wing") {
+        polygon([[-32*scale,-10*scale],[28*scale,-19*scale],[17*scale,4*scale],[-22*scale,16*scale]], "#d8e4e9");
+        line(-22*scale, 5*scale, 17*scale, -5*scale, "#f19378", 6*scale);
+      } else {
+        rounded(-24*scale, -24*scale, 48*scale, 48*scale, 5*scale, "#583e65");
+        rounded(-20*scale, -20*scale, 40*scale, 40*scale, 3*scale, "#f78770");
+        for (let i = -1; i <= 1; i++) line((-11+i*11)*scale, 13*scale, (i*11+7)*scale, -13*scale, "#ffe5a3", 5*scale);
+      }
       ctx.restore();
-      if (object.y < .75) label("DODGE!", x, y-36*scale, 11*scale, "#fff7ec");
+      if (object.type === "hazard" && object.y > 0.38 && object.y < 0.67) label("DODGE!", x, y-42*scale, 11*scale, "#fff7ec");
       return;
     }
     if (object.type === "chute") drawParachute(x, y, size*.85, ["#ff8d82", "#ffe2a3"], 1);
     else {
       oval(x, y-size*.3, size*.69, size*.86, "#fff7e043");
+      for (let i = -1; i <= 1; i++) {
+        const offset = i * size * .38;
+        line(x + offset, y - size * (1.7 + i%2*.25), x + offset - 2, y - size * (2.15 + i%2*.25), "#ffffff75", 1.6);
+      }
       if (object.y < .8) label("BRO!", x, y-size*1.15, 12*scale, "#fff8e9");
     }
-    drawHuman(x, y, size*.65, object.crew, false);
+    ctx.save();
+    ctx.translate(x, y);
+    if (object.type !== "chute") ctx.rotate(Math.sin(ambientTime * 5 + object.phase) * 0.09);
+    drawHuman(0, 0, size*.88, object.crew, false);
+    ctx.restore();
   }
   function drawEffects() {
     for (const effect of effects) {
       const x = px(effect.x), y = py(effect.y);
       if (effect.type === "rescue") {
         const progress = effect.age / 1.4;
-        const lift = progress * height * 0.28;
+        const descent = progress * height * 0.15;
         ctx.save();
         ctx.globalAlpha = 1 - progress;
         for (let i = 0; i < 10; i++) {
           const angle = i * Math.PI * 2 / 10;
-          oval(x + Math.cos(angle)*(25+progress*55), y-lift + Math.sin(angle)*(20+progress*35), 4+i%3, 4+i%3, i%2 ? "#ffe4a0" : "#f9faf2");
+          oval(x + Math.cos(angle)*(25+progress*55), y+descent + Math.sin(angle)*(20+progress*35), 4+i%3, 4+i%3, i%2 ? "#ffe4a0" : "#f9faf2");
         }
-        drawParachute(x, y-lift, 46, ["#ffdc88", "#ff8d82"], clamp(effect.age*4, 0.12, 1));
-        drawHuman(x, y-lift, 36, effect.crew, false);
-        if (effect.age < 0.8) label("+1 SAVED", x, y-lift-95, 16, "#fffdf1");
+        drawParachute(x, y+descent, 46, ["#ffdc88", "#ff8d82"], clamp(effect.age*4, 0.12, 1));
+        drawHuman(x, y+descent, 36, effect.crew, false);
+        if (effect.age < 0.8) label("+1 SAVED", x, y+descent-95, 16, "#fffdf1");
         ctx.restore();
-      } else {
+      } else if (effect.type === "hit") {
         const progress = effect.age / .55;
         ctx.save();
         ctx.globalAlpha = 1-progress;
@@ -432,11 +491,29 @@
       }
     }
   }
+  function drawBursts() {
+    for (const effect of effects) {
+      if (effect.type !== "burst") continue;
+      const x = px(effect.x), y = py(effect.y), age = effect.age;
+      const fade = 1 - age / 1.8;
+      ctx.save();
+      ctx.globalAlpha = fade;
+      oval(x, y, (30+age*75)*fade, (30+age*65)*fade, "#ffdf99");
+      oval(x, y, (21+age*55)*fade, (21+age*48)*fade, "#ff876c");
+      for (let i = 0; i < 11; i++) {
+        const a = i * Math.PI * 2 / 11;
+        const radius = 28 + age * (65 + i%3*15);
+        oval(x + Math.cos(a)*radius, y + Math.sin(a)*radius + age*age*22, 8+age*9, 8+age*9, i%2 ? "#6b5578" : "#ed9b7d");
+      }
+      ctx.restore();
+    }
+  }
   function render() {
     if (!width || !height) return;
     ctx.clearRect(0, 0, width, height);
     drawBackdrop();
-    drawPlane();
+    drawPlanes();
+    drawBursts();
     const visible = objects.slice().sort((a,b) => a.y - b.y);
     for (const object of visible) drawObject(object);
     if (state === "start" || state === "running" || state === "paused") {
