@@ -171,15 +171,15 @@ ui:
   notFound.notes: "نوٹس"
 
   lab.overline: "سائیڈ پروجیکٹس / کارآمد تجربات"
-  lab.lede: "ان خیالات کا ٹھکانہ جو نوٹ بک سے نکل کر قابلِ استعمال ٹولز بن گئے۔ چار پروجیکٹس آزمانے کے لیے تیار ہیں۔"
+  lab.lede: "ان خیالات کا ٹھکانہ جو نوٹ بک سے نکل کر استعمال کے قابل ٹولز یا کھیل بن گئے۔ پانچ پروجیکٹس آزمانے کے لیے تیار ہیں۔"
   lab.explore: "پروجیکٹس دیکھیں"
   lab.index.notes: "فیلڈ نوٹس"
-  lab.index.count: "4 پروجیکٹس"
+  lab.index.count: "5 پروجیکٹس"
   lab.index.qr: "QR جنریٹر"
   lab.index.motto: "بناؤ · آزماؤ · نکھارو"
   lab.selected: "منتخب کام"
   lab.title: "لیب کی سیر کریں"
-  lab.intro: "واضح مقصد والے چھوٹے ٹولز۔"
+  lab.intro: "براؤزر میں آزمانے کے لیے ٹولز اور تجربات۔"
   lab.live: "دستیاب"
   lab.quizora.kind: "01 / تعلیم"
   lab.quizora.previewKicker: "سوال 01 / 04"
@@ -208,6 +208,12 @@ ui:
   lab.prompt.source: "سورس کوڈ دیکھیں"
   lab.math.text: "جانچے ہوئے الجبری حل، دو اور سہ جہتی گراف، چھپے متن کو اسکین کر کے نکالنا، اور اپنے آلے پر ریاضی کے نوٹس۔"
   lab.math.link: "اسٹوڈیو کھولیں (انگریزی میں)"
+  lab.game.kind: "05 / نہ ختم ہونے والی دوڑ"
+  lab.game.text: "دوستوں کو ساتھ لے کر انسانی مینار بنائیں۔ لین بدلیں، رکاوٹوں سے بچیں اور پلوں کے نیچے جھک کر اپنی ٹیم کو محفوظ رکھیں۔ کھیل فی الحال انگریزی میں ہے۔"
+  lab.game.tag1: "تین لین"
+  lab.game.tag2: "ٹیم کو بچائیں"
+  lab.game.tag3: "اصل موسیقی"
+  lab.game.link: "Carry My Bro کھیلیں (انگریزی میں)"
 
 records:
   about:
@@ -225,7 +231,7 @@ records:
     title: "کام"
     excerpt: "Anwar Hossain Zahid کے تحقیقی مقالے، نظام اور سافٹ ویئر پروجیکٹس۔"
   unsupervised-lab:
-    excerpt: "کارآمد تجربات: Quizora، OpenMath Studio، QR جنریٹر اور PromptDude ایکسٹینشن۔"
+    excerpt: "تجربات اور کھیل: Quizora، OpenMath Studio، QR جنریٹر، PromptDude اور Carry My Bro۔"
   "404":
     title: "صفحہ نہیں ملا"
     excerpt: "مطلوبہ صفحہ موجود نہیں۔"

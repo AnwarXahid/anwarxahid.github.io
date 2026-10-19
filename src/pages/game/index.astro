@@ -1,0 +1,110 @@
+---
+const gameStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': ['VideoGame', 'WebApplication'],
+  name: 'Carry My Bro',
+  description: 'A free browser endless runner. Collect brothers to build a human tower, switch lanes around barriers, and duck under bridges to save the crew.',
+  url: 'https://anwarxahid.github.io/game/',
+  image: 'https://anwarxahid.github.io/game/social-preview.png',
+  applicationCategory: 'GameApplication',
+  operatingSystem: 'Any modern desktop or mobile browser',
+  browserRequirements: 'JavaScript and HTML Canvas',
+  gamePlatform: 'Web browser',
+  inLanguage: 'en',
+  isAccessibleForFree: true,
+  offers: {'@type': 'Offer', price: '0', priceCurrency: 'USD'},
+  author: {'@type': 'Person', name: 'Anwar Hossain Zahid', url: 'https://anwarxahid.github.io/'},
+};
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#10192d" />
+    <meta name="description" content="Play Carry My Bro, a free endless runner in your browser. Collect friends to build a tower, dodge roadblocks, and duck under bridges to save your crew." />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <title>Carry My Bro — Free Browser Endless Runner Game</title>
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <link rel="canonical" href="https://anwarxahid.github.io/game/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Anwar's Unsupervised Lab" />
+    <meta property="og:title" content="Carry My Bro — Free Browser Endless Runner Game" />
+    <meta property="og:description" content="Pick up bros. Build a human tower. Duck under bridges. Play the free browser runner on desktop or mobile." />
+    <meta property="og:url" content="https://anwarxahid.github.io/game/" />
+    <meta property="og:image" content="https://anwarxahid.github.io/game/social-preview.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Carry My Bro title beside a colorful road with a stack of three cartoon runners" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Carry My Bro — Free Browser Endless Runner Game" />
+    <meta name="twitter:description" content="Collect bros, dodge barriers, and duck under bridges in a free browser game." />
+    <meta name="twitter:image" content="https://anwarxahid.github.io/game/social-preview.png" />
+    <script type="application/ld+json" set:html={JSON.stringify(gameStructuredData)} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/game/game.css" />
+    <script src="/game/game.js" defer></script>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="/lab/" aria-label="Back to Unsupervised Lab"><span class="brand-mark">A<span>×</span></span><span>the playground</span></a>
+        <span class="topbar-note">ONE MORE RUN?</span>
+        <button class="sound-button" id="soundButton" type="button" aria-label="Turn sound on" aria-pressed="false"><span id="soundIcon">♪</span><span class="sound-label">SOUND OFF</span></button>
+      </header>
+
+      <section class="game-layout" aria-label="Carry My Bro game">
+        <div class="intro">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> AN ENDLESS LITTLE ADVENTURE</p>
+          <h1>Carry<br /> <em>My Bro.</em></h1>
+          <p class="intro-copy">The more bros you pick up, the higher you climb. Keep your crew together when the bridges come.</p>
+          <div class="tiny-rule"></div>
+          <div class="how-to">
+            <div class="how-icon">↔</div><p><strong>Switch lanes</strong><span>Catch bros and dodge barriers</span></p>
+            <div class="how-icon duck-icon">↧</div><p><strong>Duck together</strong><span>Slide beneath bridges to save the stack</span></p>
+          </div>
+          <p class="desktop-hint">ARROW KEYS OR A / D TO MOVE <span>·</span> SPACE TO DUCK <span>·</span> P TO PAUSE</p>
+        </div>
+
+        <div class="game-card">
+          <div class="game-topline"><span class="live-indicator"><span></span> THE RUN</span><span class="game-topline-right">HOW FAR CAN YOU CARRY THEM?</span></div>
+          <div class="stage" id="stage">
+            <canvas id="gameCanvas" aria-label="Three-lane endless runner game" role="img"></canvas>
+            <div class="game-hud" id="gameHud" hidden>
+              <div class="hud-pill"><span>DISTANCE</span><strong id="distanceValue">0<span>m</span></strong></div>
+              <div class="hud-pill bros-pill"><span>BROS ON BOARD</span><strong id="brosValue">0</strong></div>
+              <button class="pause-button" id="pauseButton" type="button" aria-label="Pause game">Ⅱ</button>
+            </div>
+            <div class="duck-meter" id="duckMeter" hidden><span>DUCK</span><div class="meter-track"><div id="meterFill"></div></div><span id="duckStatus">READY</span></div>
+            <div class="screen" id="startScreen">
+              <div class="screen-content start-content">
+                <div class="screen-sticker">✦ THE CREW IS WAITING ✦</div>
+                <h2>Grab a bro.<br /><span>Go, go, go!</span></h2>
+                <p>Choose your runner and see how far your friendship goes.</p>
+                <div class="character-picker" role="group" aria-label="Choose your runner">
+                  <button class="character selected" data-character="0" aria-pressed="true" type="button"><span class="avatar avatar-1"><i></i></span><strong>JAX</strong></button>
+                  <button class="character" data-character="1" aria-pressed="false" type="button"><span class="avatar avatar-2"><i></i></span><strong>MILO</strong></button>
+                  <button class="character" data-character="2" aria-pressed="false" type="button"><span class="avatar avatar-3"><i></i></span><strong>BEAU</strong></button>
+                </div>
+                <button class="primary-button" id="startButton" type="button">START RUNNING <span>↗</span></button>
+                <span class="tap-hint">SWIPE TO MOVE · TAP DUCK TO SLIDE</span>
+              </div>
+            </div>
+            <div class="screen hidden" id="pauseScreen">
+              <div class="screen-content compact-content"><div class="screen-sticker">✦ TAKE A BREATHER ✦</div><h2>Paused.</h2><p>Your crew is right where you left them.</p><button class="primary-button" id="resumeButton" type="button">KEEP RUNNING <span>↗</span></button></div>
+            </div>
+            <div class="screen hidden" id="endScreen">
+              <div class="screen-content compact-content"><div class="screen-sticker" id="endSticker">✦ NICE RUN ✦</div><h2 id="endTitle">What a ride!</h2><p id="endMessage">Your bros will remember that one.</p><div class="result-row"><div><span>DISTANCE</span><strong id="finalDistance">0m</strong></div><div><span>BROS PICKED UP</span><strong id="finalBros">0</strong></div><div><span>PERSONAL BEST</span><strong id="bestDistance">0m</strong></div></div><button class="primary-button" id="againButton" type="button">RUN IT BACK <span>↗</span></button></div>
+            </div>
+            <div class="mobile-controls" id="mobileControls" hidden><button id="leftButton" type="button" aria-label="Move left">←</button><button id="duckButton" class="duck-control" type="button" aria-label="Duck under bridge">DUCK <span>↧</span></button><button id="rightButton" type="button" aria-label="Move right">→</button></div>
+            <div class="announcement" id="announcement" role="status" aria-live="polite"></div>
+          </div>
+          <div class="game-footer"><span>✦ COLLECT FRIENDS</span><span>✦ SAVE THE STACK</span><span>✦ BEAT YOUR BEST</span></div>
+        </div>
+      </section>
+      <footer class="page-footer"><span>BUILT FOR THE BROS, BY ANWAR</span><span>JUST ONE MORE RUN. PROMISE.</span></footer>
+    </main>
+  </body>
+</html>

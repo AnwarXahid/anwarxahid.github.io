@@ -2,7 +2,7 @@
 layout: lab
 permalink: /lab/
 title: "Unsupervised Lab"
-excerpt: "Useful experiments: Quizora, OpenMath Studio, a QR generator, and the PromptDude extension."
+excerpt: "Useful experiments: Quizora, OpenMath Studio, a QR generator, PromptDude, and Carry My Bro."
 body_class: lab-page
 lab_showcase: true
 redirect_from:
@@ -13,15 +13,16 @@ redirect_from:
   <div class="lab-hero-copy">
     <p class="lab-overline"><span class="lab-live-dot" aria-hidden="true"></span> {% t "lab.overline" %}Side projects / useful experiments{% endt %}</p>
     <h1 id="lab-title" lang="en">Unsupervised <span>Lab.</span></h1>
-    <p class="lab-lede">{% t "lab.lede" %}A place for ideas that escaped the notebook and became tools you can use. Four projects are ready to try.{% endt %}</p>
+    <p class="lab-lede">{% t "lab.lede" %}A place for ideas that escaped the notebook and became things you can use or play. Five projects are ready to try.{% endt %}</p>
     <a class="lab-hero-link" href="#projects">{% t "lab.explore" %}Explore the projects{% endt %} <span aria-hidden="true">↘</span></a>
   </div>
   <div class="lab-index" aria-hidden="true">
-    <div class="lab-index-top"><span>{% t "lab.index.notes" %}FIELD NOTES{% endt %}</span><span>{% t "lab.index.count" %}4 PROJECTS{% endt %}</span></div>
+    <div class="lab-index-top"><span>{% t "lab.index.notes" %}FIELD NOTES{% endt %}</span><span>{% t "lab.index.count" %}5 PROJECTS{% endt %}</span></div>
     <div class="lab-index-row"><span>01</span><strong>Quizora</strong><i></i></div>
     <div class="lab-index-row"><span>02</span><strong>{% t "lab.index.qr" %}QR Generator{% endt %}</strong><i></i></div>
     <div class="lab-index-row"><span>03</span><strong>PromptDude</strong><i></i></div>
     <div class="lab-index-row"><span>04</span><strong>OpenMath</strong><i></i></div>
+    <div class="lab-index-row"><span>05</span><strong>Carry My Bro</strong><i></i></div>
     <div class="lab-index-bottom">{% t "lab.index.motto" %}Build · try · improve{% endt %} <span>↗</span></div>
   </div>
 </section>
@@ -29,7 +30,7 @@ redirect_from:
 <section class="lab-projects" id="projects" aria-labelledby="projects-title">
   <div class="lab-section-heading">
     <div><p class="lab-overline">{% t "lab.selected" %}Selected work{% endt %}</p><h2 id="projects-title">{% t "lab.title" %}Explore the lab{% endt %}</h2></div>
-    <p>{% t "lab.intro" %}Small tools with a clear purpose.{% endt %}</p>
+    <p>{% t "lab.intro" %}Tools and experiments you can try in your browser.{% endt %}</p>
   </div>
 
   <div class="lab-grid">
@@ -85,6 +86,23 @@ redirect_from:
     <article class="lab-next" aria-labelledby="openmath-title">
       <div><span class="lab-next-plus" aria-hidden="true">∑</span><h3 id="openmath-title">OpenMath Studio</h3><p>{% t "lab.math.text" %}Solve checked algebra, graph in 2D and 3D, extract printed text, and keep local math notes.{% endt %}</p></div>
       <a class="lab-card-link" href="{{ '/math/' | relative_url }}">{% t "lab.math.link" %}Open the studio{% endt %} <span aria-hidden="true">↗</span></a>
+    </article>
+
+    <article class="lab-card lab-card-game" aria-labelledby="game-title">
+      <div class="lab-game-copy">
+        <div class="lab-card-meta"><span class="lab-number">{% t "lab.game.kind" %}05 / ENDLESS RUNNER{% endt %}</span><span class="lab-status"><span aria-hidden="true"></span> {% t "lab.live" %}Live{% endt %}</span></div>
+        <h3 id="game-title">Carry My Bro</h3>
+        <p>{% t "lab.game.text" %}Pick up bros to build a human tower. Switch lanes, dodge barriers, and duck beneath bridges before the stack gets clipped.{% endt %}</p>
+        <div class="lab-tags"><span>{% t "lab.game.tag1" %}Three lanes{% endt %}</span><span>{% t "lab.game.tag2" %}Save your crew{% endt %}</span><span>{% t "lab.game.tag3" %}Original music{% endt %}</span></div>
+        <a class="lab-card-link" href="{{ '/game/' | relative_url }}">{% t "lab.game.link" %}Play Carry My Bro{% endt %} <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="lab-game-preview" aria-hidden="true">
+        <span class="lab-game-sun"></span><span class="lab-game-cloud cloud-one"></span><span class="lab-game-cloud cloud-two"></span>
+        <div class="lab-game-road"><i></i><i></i></div>
+        <div class="lab-game-bridge"><span>DUCK!</span></div>
+        <div class="lab-game-bro bro-bottom"><i></i></div><div class="lab-game-bro bro-middle"><i></i></div><div class="lab-game-bro bro-top"><i></i></div>
+        <span class="lab-game-score">BROS ON BOARD <strong>03</strong></span>
+      </div>
     </article>
   </div>
 </section>

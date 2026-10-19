@@ -172,15 +172,15 @@ ui:
   notFound.notes: "Notas"
 
   lab.overline: "Proyectos paralelos / experimentos útiles"
-  lab.lede: "Un lugar para las ideas que se escaparon del cuaderno y se convirtieron en herramientas que puedes usar. Hay cuatro proyectos listos para probar."
+  lab.lede: "Un lugar para ideas que salieron del cuaderno y se convirtieron en herramientas o juegos. Hay cinco proyectos listos para probar."
   lab.explore: "Ver los proyectos"
   lab.index.notes: "NOTAS DE CAMPO"
-  lab.index.count: "4 PROYECTOS"
+  lab.index.count: "5 PROYECTOS"
   lab.index.qr: "Generador QR"
   lab.index.motto: "Crear · probar · mejorar"
   lab.selected: "Trabajo seleccionado"
   lab.title: "Recorre el laboratorio"
-  lab.intro: "Herramientas pequeñas con un propósito claro."
+  lab.intro: "Herramientas y experimentos para probar en el navegador."
   lab.live: "Disponible"
   lab.quizora.kind: "01 / EDUCACIÓN"
   lab.quizora.previewKicker: "PREGUNTA 01 / 04"
@@ -209,6 +209,12 @@ ui:
   lab.prompt.source: "Ver el código"
   lab.math.text: "Resuelve álgebra con comprobación, grafica en 2D y 3D, extrae texto impreso y guarda notas de matemáticas en tu dispositivo."
   lab.math.link: "Abrir el estudio (en inglés)"
+  lab.game.kind: "05 / CARRERA INFINITA"
+  lab.game.text: "Recoge amigos para formar una torre humana. Cambia de carril, esquiva obstáculos y agáchate bajo los puentes para mantener unido al equipo. El juego está en inglés."
+  lab.game.tag1: "Tres carriles"
+  lab.game.tag2: "Salva a tu equipo"
+  lab.game.tag3: "Música original"
+  lab.game.link: "Jugar Carry My Bro (en inglés)"
 
 records:
   about:
@@ -226,7 +232,7 @@ records:
     title: "Trabajos"
     excerpt: "Artículos de investigación, sistemas y proyectos de software de Anwar Hossain Zahid."
   unsupervised-lab:
-    excerpt: "Experimentos útiles: Quizora, OpenMath Studio, un generador de QR y la extensión PromptDude."
+    excerpt: "Experimentos y juegos: Quizora, OpenMath Studio, un generador de QR, PromptDude y Carry My Bro."
   "404":
     title: "Página no encontrada"
     excerpt: "La página solicitada no existe."

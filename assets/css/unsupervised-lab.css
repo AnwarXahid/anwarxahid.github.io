@@ -78,3 +78,30 @@
 .lab-next-label { font: 600 .66rem var(--f-mono); letter-spacing: .1em; white-space: nowrap; }
 @media (max-width: 850px) { .lab-hero { grid-template-columns: 1fr; padding-top: 160px; }.lab-index { max-width: 500px; transform: none; }.lab-grid { grid-template-columns: 1fr; }.lab-card-prompt { grid-template-columns: 1fr; }.lab-card-prompt h3 { margin-top: 25px; } }
 @media (max-width: 640px) { .lab-hero { padding-top: 175px; padding-bottom: 65px; min-height: 0; }.lab-hero h1 { font-size: clamp(3rem, 14vw, 4.6rem); }.lab-projects { padding-top: 55px; }.lab-section-heading { display: block; }.lab-section-heading>p { margin-top: 12px; }.lab-quiz-preview, .lab-qr-preview { height: 190px; }.lab-card-prompt { padding: 22px; }.lab-next { align-items: flex-start; flex-direction: column; }.lab-next>div { align-items: flex-start; flex-direction: column; gap: 8px; } }
+
+/* Carry My Bro: a small illustrated view of the actual three-lane runner. */
+.lab-card-game { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, .84fr) minmax(0, 1.16fr); gap: clamp(24px, 5vw, 64px); padding: clamp(24px, 4vw, 44px); }
+.lab-card-game .lab-card-meta { margin-bottom: 42px; }
+.lab-card-game h3 { margin: 0 0 15px; font-size: clamp(2.2rem, 4.8vw, 4rem); }
+.lab-card-game .lab-game-copy { min-width: 0; display: flex; flex-direction: column; }
+.lab-card-game .lab-card-link { margin-top: auto; }
+.lab-game-preview { position: relative; overflow: hidden; min-height: 315px; border: 1px solid #b5d8d8; border-radius: 15px; background: linear-gradient(#8bcfdc 0%, #c4e8d4 55%, #84bea5 56%); isolation: isolate; }
+.lab-game-preview::before { content: ""; position: absolute; inset: 54% -5% 0; background: #72b69a; clip-path: polygon(0 40%, 12% 20%, 27% 34%, 42% 9%, 60% 33%, 79% 8%, 100% 33%, 100% 100%, 0 100%); }
+.lab-game-sun { position: absolute; width: 90px; height: 90px; border-radius: 50%; top: 30px; right: 13%; background: #ffe5a0; }
+.lab-game-cloud { position: absolute; width: 62px; height: 19px; border-radius: 99px; background: #fff9e6; opacity: .8; }
+.lab-game-cloud::before { content: ""; position: absolute; width: 30px; height: 28px; border-radius: 50%; left: 15px; bottom: 7px; background: inherit; }
+.lab-game-cloud.cloud-one { top: 61px; left: 12%; }.lab-game-cloud.cloud-two { top: 113px; right: 27%; transform: scale(.65); }
+.lab-game-road { position: absolute; inset: 38% -13% -2%; background: #425b69; clip-path: polygon(44% 0, 56% 0, 100% 100%, 0 100%); border-bottom: 8px solid #e7c181; }
+.lab-game-road i { position: absolute; top: 16%; bottom: 0; width: 3px; background: repeating-linear-gradient(to bottom, #eaf0df 0 17px, transparent 17px 32px); opacity: .8; transform-origin: top; }
+.lab-game-road i:first-child { left: 47%; transform: rotate(13deg); }.lab-game-road i:last-child { right: 47%; transform: rotate(-13deg); }
+.lab-game-bridge { position: absolute; z-index: 2; top: 51%; left: 26%; right: 26%; height: 18px; border-radius: 3px; background: #f7cc83; border-top: 4px solid #ffe5ab; box-shadow: 0 4px 0 #c48d59; text-align: center; }
+.lab-game-bridge::before,.lab-game-bridge::after { content: ""; position: absolute; top: 14px; width: 9px; height: 85px; background: #e3a767; }.lab-game-bridge::before { left: 0; }.lab-game-bridge::after { right: 0; }
+.lab-game-bridge span { display: inline-block; padding: 2px 9px; border-radius: 3px; background: #233746; color: #fff; font: 800 .59rem var(--f-mono); letter-spacing: .09em; transform: translateY(-3px); }
+.lab-game-bro { position: absolute; z-index: 3; left: calc(50% - 17px); width: 34px; height: 37px; border-radius: 11px 11px 5px 5px; background: #ed7851; box-shadow: inset 0 -4px #c85a3f; }
+.lab-game-bro::before { content: ""; position: absolute; left: 7px; top: -20px; width: 20px; height: 22px; border-radius: 50%; background: #a86d4f; box-shadow: inset 0 6px #292a38; }
+.lab-game-bro::after { content: ""; position: absolute; left: 3px; bottom: -17px; width: 7px; height: 20px; background: #27364a; box-shadow: 21px 0 #27364a; border-radius: 3px; }
+.lab-game-bro i::before,.lab-game-bro i::after { content: ""; position: absolute; top: 6px; width: 6px; height: 22px; background: #a86d4f; border-radius: 6px; }.lab-game-bro i::before { left: -5px; transform: rotate(16deg); }.lab-game-bro i::after { right: -5px; transform: rotate(-16deg); }
+.lab-game-bro.bro-bottom { bottom: 32px; }.lab-game-bro.bro-middle { bottom: 73px; background: #e2ad48; transform: scale(.88); }.lab-game-bro.bro-top { bottom: 108px; background: #4aa0a9; transform: scale(.76); }
+.lab-game-score { position: absolute; z-index: 4; top: 17px; left: 17px; padding: 8px 11px; border-radius: 8px; background: #fff9e9; color: #273c49; box-shadow: 0 3px 0 #24455430; font: 800 .58rem var(--f-mono); letter-spacing: .07em; }.lab-game-score strong { font-size: 1rem; margin-left: 5px; color: #bd4d29; }
+@media (max-width: 850px) { .lab-card-game { grid-template-columns: 1fr; }.lab-card-game .lab-card-meta { margin-bottom: 20px; }.lab-card-game .lab-card-link { margin-top: 0; }.lab-game-preview { min-height: 270px; } }
+@media (max-width: 640px) { .lab-card-game { padding: 22px; }.lab-game-preview { min-height: 235px; } }

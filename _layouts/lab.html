@@ -105,6 +105,29 @@
       }
     </script>
     {% endif %}
+    {% if page.lab_showcase %}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": {{ page.title | jsonify }},
+        "description": {{ page.excerpt | strip_html | normalize_whitespace | jsonify }},
+        "url": "{{ canonical | absolute_url }}",
+        "inLanguage": "{{ lmeta.lang }}",
+        "mainEntity": {
+          "@type": "ItemList",
+          "numberOfItems": 5,
+          "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Quizora", "url": "https://anwarxahid.github.io/exam/"},
+            {"@type": "ListItem", "position": 2, "name": "QR Code Generator", "url": "https://anwarxahid.github.io/exam/qr/"},
+            {"@type": "ListItem", "position": 3, "name": "PromptDude", "url": "https://anwarxahid.github.io/PromptDude/"},
+            {"@type": "ListItem", "position": 4, "name": "OpenMath Studio", "url": "https://anwarxahid.github.io/math/"},
+            {"@type": "ListItem", "position": 5, "name": "Carry My Bro", "url": "https://anwarxahid.github.io/game/"}
+          ]
+        }
+      }
+    </script>
+    {% endif %}
   </head>
   <body class="{{ page.body_class | default: 'personal-page' }}">
     <a class="skip-link" href="#main">{% t "common.skip" %}Skip to content{% endt %}</a>

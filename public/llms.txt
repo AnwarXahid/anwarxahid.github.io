@@ -1,0 +1,23 @@
+# Anwar Hossain Zahid's site
+
+> Research, software projects, and browser experiences by Anwar Hossain Zahid.
+
+## Start here
+
+- [Homepage](https://anwarxahid.github.io/): Research and project overview.
+- [Unsupervised Lab](https://anwarxahid.github.io/lab/): Browser tools, experiments, and games.
+- [Sitemap](https://anwarxahid.github.io/sitemap.xml): All public page URLs.
+
+## Carry My Bro
+
+- [Play Carry My Bro](https://anwarxahid.github.io/game/): A free, single-player endless runner that works in a browser on desktop and mobile. The game interface is in English.
+- Collect brothers to build a taller crew, change between three lanes to dodge barriers, and duck beneath bridges to keep the crew together.
+- Controls: left/right arrow keys or A/D to change lanes; Space or down arrow to duck; P to pause. On touch devices, swipe or use the on-screen controls.
+- The soundtrack and sound effects are optional and start only when the player turns sound on.
+
+## Other Lab projects
+
+- [Quizora](https://anwarxahid.github.io/exam/): Create and share quizzes.
+- [OpenMath Studio](https://anwarxahid.github.io/math/): Solve, graph, scan, and keep math notes.
+- [QR generator](https://anwarxahid.github.io/exam/qr/): Create QR codes in the browser.
+- [PromptDude](https://anwarxahid.github.io/PromptDude/): Browser extension for composing prompts.

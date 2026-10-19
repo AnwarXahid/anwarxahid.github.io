@@ -1,7 +1,4 @@
----
-layout: null
----
 User-agent: *
 Allow: /
 
-Sitemap: {{ '/sitemap.xml' | absolute_url }}
+Sitemap: https://anwarxahid.github.io/sitemap.xml

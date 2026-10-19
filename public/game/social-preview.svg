@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Carry My Bro browser game preview">
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#8bd1de"/><stop offset="1" stop-color="#e5ecd2"/></linearGradient>
+    <clipPath id="scene"><rect x="649" y="48" width="507" height="534" rx="31"/></clipPath>
+  </defs>
+  <rect width="1200" height="630" fill="#f7f4ea"/>
+  <rect x="37" y="37" width="1126" height="556" rx="33" fill="none" stroke="#152238" stroke-width="3"/>
+  <rect x="78" y="78" width="239" height="38" rx="19" fill="#f8ddcd"/>
+  <text x="102" y="103" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" font-weight="700" letter-spacing="2" fill="#a74722">FREE BROWSER GAME</text>
+  <text x="78" y="240" font-family="DejaVu Sans,Arial,sans-serif" font-size="105" font-weight="900" letter-spacing="-9" fill="#10192d">CARRY</text>
+  <text x="78" y="346" font-family="DejaVu Sans,Arial,sans-serif" font-size="97" font-weight="900" letter-spacing="-8" fill="#d05a2a">MY BRO.</text>
+  <text x="81" y="410" font-family="DejaVu Sans,Arial,sans-serif" font-size="27" font-weight="600" fill="#42515a">Pick up bros. Build a tower.</text>
+  <text x="81" y="449" font-family="DejaVu Sans,Arial,sans-serif" font-size="27" font-weight="600" fill="#42515a">Duck under bridges. Keep running.</text>
+  <rect x="78" y="506" width="525" height="48" rx="13" fill="#152238"/>
+  <text x="102" y="537" font-family="DejaVu Sans,Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="1" fill="#fffaf0">PLAY AT ANWARXAHID.GITHUB.IO/GAME/</text>
+  <g clip-path="url(#scene)">
+    <rect x="649" y="48" width="507" height="534" fill="url(#sky)"/>
+    <circle cx="1043" cy="158" r="65" fill="#ffe19a"/>
+    <path d="M649 285 Q760 246 850 279 Q974 244 1156 279 L1156 582 L649 582Z" fill="#8bc7a7"/>
+    <path d="M649 361 Q756 300 871 358 Q1037 284 1156 355 L1156 582 L649 582Z" fill="#68b290"/>
+    <path d="M825 259 L974 259 L1235 614 L568 614Z" fill="#efc785"/>
+    <path d="M832 259 L967 259 L1209 614 L591 614Z" fill="#425b69"/>
+    <path d="M876 279 L733 611 M922 279 L1068 611" fill="none" stroke="#e3e9de" stroke-width="5" stroke-dasharray="24 30"/>
+    <rect x="732" y="288" width="20" height="218" rx="4" fill="#e4a667"/>
+    <rect x="1048" y="288" width="20" height="218" rx="4" fill="#e4a667"/>
+    <rect x="723" y="276" width="353" height="34" rx="7" fill="#f4c581" stroke="#b98050" stroke-width="4"/>
+    <rect x="849" y="282" width="99" height="24" rx="5" fill="#223647"/>
+    <text x="870" y="300" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" font-weight="900" fill="#fffaf0">DUCK!</text>
+    <ellipse cx="902" cy="555" rx="65" ry="16" fill="#243642" opacity=".25"/>
+    <g transform="translate(902 493)">
+      <path d="M-13 14 L-19 54 M13 14 L19 54" stroke="#263548" stroke-width="12" stroke-linecap="round"/>
+      <rect x="-28" y="-18" width="56" height="45" rx="15" fill="#ed7851"/>
+      <path d="M-25 -8 L-43 22 M25 -8 L43 22" stroke="#a96b4e" stroke-width="12" stroke-linecap="round"/>
+      <circle cy="-37" r="22" fill="#a96b4e"/>
+      <path d="M-21 -42 Q-18 -66 0 -59 Q19 -65 22 -42" fill="#2c2937"/>
+      <circle cx="-7" cy="-35" r="2" fill="#22303d"/><circle cx="7" cy="-35" r="2" fill="#22303d"/>
+    </g>
+    <g transform="translate(902 422)">
+      <path d="M-10 12 L-13 44 M10 12 L13 44" stroke="#263548" stroke-width="10" stroke-linecap="round"/>
+      <rect x="-25" y="-15" width="50" height="40" rx="13" fill="#e5ac45"/>
+      <path d="M-24 -3 L-36 20 M24 -3 L36 20" stroke="#704a3a" stroke-width="10" stroke-linecap="round"/>
+      <circle cy="-33" r="19" fill="#704a3a"/>
+      <path d="M-19 -37 Q-15 -57 0 -53 Q15 -58 19 -37" fill="#162238"/>
+    </g>
+    <g transform="translate(902 360)">
+      <path d="M-9 9 L-11 34 M9 9 L11 34" stroke="#263548" stroke-width="8" stroke-linecap="round"/>
+      <rect x="-21" y="-13" width="42" height="34" rx="11" fill="#49a1aa"/>
+      <path d="M-20 -3 L-30 16 M20 -3 L30 16" stroke="#df9d71" stroke-width="8" stroke-linecap="round"/>
+      <circle cy="-28" r="16" fill="#df9d71"/>
+      <path d="M-16 -32 Q-12 -49 0 -45 Q14 -49 16 -32" fill="#4d3930"/>
+    </g>
+    <rect x="671" y="68" width="193" height="47" rx="12" fill="#fffaf0"/>
+    <text x="687" y="88" font-family="DejaVu Sans,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1" fill="#53635d">BROS ON BOARD</text>
+    <text x="687" y="108" font-family="DejaVu Sans,Arial,sans-serif" font-size="24" font-weight="900" fill="#d05a2a">03</text>
+  </g>
+  <rect x="649" y="48" width="507" height="534" rx="31" fill="none" stroke="#152238" stroke-width="3"/>
+</svg>

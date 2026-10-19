@@ -169,15 +169,15 @@ ui:
   notFound.notes: "नोट्स"
 
   lab.overline: "साइड प्रोजेक्ट / काम के प्रयोग"
-  lab.lede: "उन आइडिया का ठिकाना जो नोटबुक से निकलकर इस्तेमाल लायक टूल बन गए। चार प्रोजेक्ट आज़माने के लिए तैयार हैं।"
+  lab.lede: "नोटबुक से निकले वे विचार जो अब इस्तेमाल करने लायक टूल या खेलने लायक गेम बन गए हैं। पाँच प्रोजेक्ट आज़माने के लिए तैयार हैं।"
   lab.explore: "प्रोजेक्ट देखें"
   lab.index.notes: "फ़ील्ड नोट्स"
-  lab.index.count: "4 प्रोजेक्ट"
+  lab.index.count: "5 प्रोजेक्ट"
   lab.index.qr: "QR जनरेटर"
   lab.index.motto: "बनाओ · आज़माओ · निखारो"
   lab.selected: "चुनिंदा काम"
   lab.title: "लैब की सैर करें"
-  lab.intro: "साफ़ मकसद वाले छोटे-छोटे टूल।"
+  lab.intro: "ब्राउज़र में आज़माने लायक टूल और प्रयोग।"
   lab.live: "लाइव"
   lab.quizora.kind: "01 / शिक्षा"
   lab.quizora.previewKicker: "सवाल 01 / 04"
@@ -206,6 +206,12 @@ ui:
   lab.prompt.source: "सोर्स कोड देखें"
   lab.math.text: "जाँचे हुए बीजगणित के हल, 2D और 3D ग्राफ़, छपे टेक्स्ट को स्कैन करके निकालना, और अपने डिवाइस पर गणित के नोट्स।"
   lab.math.link: "स्टूडियो खोलें (अंग्रेज़ी में)"
+  lab.game.kind: "05 / एंडलेस रनर"
+  lab.game.text: "दोस्तों को साथ लेकर ऊँचा टॉवर बनाएँ, लेन बदलकर बाधाओं से बचें और पुलों के नीचे झुककर पूरी टोली को सुरक्षित रखें। गेम अभी अंग्रेज़ी में है।"
+  lab.game.tag1: "तीन लेन"
+  lab.game.tag2: "दोस्तों को बचाएँ"
+  lab.game.tag3: "मौलिक संगीत"
+  lab.game.link: "Carry My Bro खेलें (अंग्रेज़ी में)"
 
 records:
   about:
@@ -223,7 +229,7 @@ records:
     title: "काम"
     excerpt: "Anwar Hossain Zahid के शोध पत्र, सिस्टम और सॉफ़्टवेयर प्रोजेक्ट।"
   unsupervised-lab:
-    excerpt: "काम के प्रयोग: Quizora, OpenMath Studio, QR जनरेटर और PromptDude एक्सटेंशन।"
+    excerpt: "उपयोगी प्रयोग और गेम: Quizora, OpenMath Studio, QR जनरेटर, PromptDude और Carry My Bro।"
   "404":
     title: "पेज नहीं मिला"
     excerpt: "माँगा गया पेज मौजूद नहीं है।"

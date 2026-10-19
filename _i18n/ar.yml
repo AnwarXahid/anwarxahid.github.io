@@ -170,15 +170,15 @@ ui:
   notFound.notes: "ملاحظات"
 
   lab.overline: "مشاريع جانبية / تجارب مفيدة"
-  lab.lede: "مكان للأفكار التي خرجت من دفتر الملاحظات وأصبحت أدوات يمكنك استخدامها. أربعة مشاريع جاهزة للتجربة."
+  lab.lede: "مكان لأفكار خرجت من دفتر الملاحظات وأصبحت أدوات أو ألعابًا. خمسة مشاريع جاهزة للتجربة."
   lab.explore: "استكشف المشاريع"
   lab.index.notes: "ملاحظات ميدانية"
-  lab.index.count: "4 مشاريع"
+  lab.index.count: "5 مشاريع"
   lab.index.qr: "مولّد QR"
   lab.index.motto: "ابنِ · جرّب · حسّن"
   lab.selected: "أعمال مختارة"
   lab.title: "تجوّل في المختبر"
-  lab.intro: "أدوات صغيرة لكل منها غاية واضحة."
+  lab.intro: "أدوات وتجارب يمكنك تجربتها في المتصفح."
   lab.live: "متاح"
   lab.quizora.kind: "01 / التعليم"
   lab.quizora.previewKicker: "السؤال 01 / 04"
@@ -207,6 +207,12 @@ ui:
   lab.prompt.source: "اطّلع على الشيفرة"
   lab.math.text: "حلول جبرية مُتحقَّق منها، ورسوم بيانية ثنائية وثلاثية الأبعاد، واستخراج النص المطبوع، وملاحظات رياضية محفوظة على جهازك."
   lab.math.link: "افتح الاستوديو (بالإنجليزية)"
+  lab.game.kind: "05 / ركض لا نهائي"
+  lab.game.text: "اجمع أصدقاءك لتبني برجًا بشريًا. بدّل المسارات وتجنب الحواجز وانحنِ تحت الجسور لتحافظ على الفريق. اللعبة متاحة حاليًا بالإنجليزية."
+  lab.game.tag1: "ثلاثة مسارات"
+  lab.game.tag2: "أنقذ فريقك"
+  lab.game.tag3: "موسيقى أصلية"
+  lab.game.link: "العب Carry My Bro (بالإنجليزية)"
 
 records:
   about:
@@ -224,7 +230,7 @@ records:
     title: "الأعمال"
     excerpt: "أوراق بحثية وأنظمة ومشاريع برمجية لـ Anwar Hossain Zahid."
   unsupervised-lab:
-    excerpt: "تجارب مفيدة: Quizora وOpenMath Studio ومولّد رموز QR وإضافة PromptDude."
+    excerpt: "تجارب وألعاب: Quizora وOpenMath Studio ومولّد رموز QR وPromptDude وCarry My Bro."
   "404":
     title: "الصفحة غير موجودة"
     excerpt: "الصفحة المطلوبة غير موجودة."
