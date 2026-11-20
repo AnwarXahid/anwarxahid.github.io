@@ -21,21 +21,21 @@ test('Lab card opens Save My Bro with a 10-bro first stage', async ({ page }) =>
   await page.goto('/lab/');
   await page.evaluate(() => document.fonts.ready);
 
-  const cards = await page.locator('.lab-grid > .lab-card').evaluateAll((nodes) =>
+  const cards = await page.locator('#games .lab-grid > .lab-card').evaluateAll((nodes) =>
     nodes.map((node) => ({
       width: Math.round(node.getBoundingClientRect().width),
       height: Math.round(node.getBoundingClientRect().height),
     })),
   );
-  expect(cards).toHaveLength(6);
+  expect(cards).toHaveLength(2);
   expect(cards.every((card) => card.height === cards[0].height)).toBe(true);
   for (let index = 0; index < cards.length; index += 2) {
     expect(cards[index].width).toBe(cards[index + 1].width);
     expect(cards[index].height).toBe(cards[index + 1].height);
   }
 
-  await page.getByRole('navigation', { name: 'Jump to a project' }).getByRole('link', { name: /Save My Bro/ }).click();
-  await expect(page).toHaveURL(/#save-project$/);
+  await page.getByRole('navigation', { name: 'Lab categories' }).getByRole('link', { name: /Games/ }).click();
+  await expect(page).toHaveURL(/#games$/);
   await page.locator('#save-project').click({ position: { x: 20, y: 90 } });
   await expect(page).toHaveURL(/\/game\/save-my-bro\/$/);
 

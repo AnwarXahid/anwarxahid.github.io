@@ -1,6 +1,6 @@
 # Anwar Zahid's portfolio + Quizora
 
-An Astro static portfolio with an Unsupervised Lab at `/lab/`. The Lab features Quizora at `/exam/`, a browser-only QR tool at `/exam/qr/`, and [PromptDude](https://anwarxahid.github.io/PromptDude/), a browser extension available to download. Published quizzes show a scannable participant link. Quizora's Hono Worker and Cloudflare D1 backend store quizzes and submissions. AI is optional and hidden in the pilot build. No public deployment is performed by installing or running this repository.
+An Astro static portfolio with an Unsupervised Lab at `/lab/`. The Lab groups browser services, games, and other tools. Services include Text Compare at `/services/text-compare/` and the QR generator at `/exam/qr/`. Games contains Carry My Bro and Save My Bro; Others contains [PromptDude](https://anwarxahid.github.io/PromptDude/). Projects, Papers, and Apps are intentionally empty. Text Compare processes plain text locally, supports file import and download, and never stores the input. Quizora (`/exam/`) and OpenMath (`/math/`) remain accessible by their existing URLs but are no longer featured in the Lab. Published quizzes show a scannable participant link. Quizora's Hono Worker and Cloudflare D1 backend store quizzes and submissions. AI is optional and hidden in the pilot build. No public deployment is performed by installing or running this repository.
 
 ## Local development
 

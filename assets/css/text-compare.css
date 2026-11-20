@@ -1,0 +1,360 @@
+:root {
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  color: #192234;
+  background: #f6f8fc;
+  color-scheme: light;
+  --surface: #fff;
+  --line: #dce2ed;
+  --muted: #536079;
+  --accent: #315cdb;
+  --soft: #edf2ff;
+  --added: #e3f6eb;
+  --removed: #ffe9e9;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+a {
+  color: inherit;
+  text-underline-offset: 4px;
+}
+button,
+input,
+textarea {
+  font: inherit;
+}
+button,
+.file-button {
+  cursor: pointer;
+}
+button {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: inherit;
+  padding: 10px 15px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+button:hover,
+.file-button:hover {
+  border-color: var(--accent);
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+button.primary {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+:focus-visible {
+  outline: 3px solid #829eff;
+  outline-offset: 3px;
+}
+.tool-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px max(24px, calc((100vw - 1240px) / 2));
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+  gap: 20px;
+}
+.tool-header a {
+  text-decoration: none;
+  font-weight: 650;
+}
+.tool-header span {
+  font-weight: 400;
+  color: var(--muted);
+  margin-left: 8px;
+}
+.tool-header > a:last-child {
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+main {
+  max-width: 1288px;
+  margin: auto;
+  padding: 55px 24px;
+}
+.eyebrow {
+  font:
+    600 0.875rem ui-monospace,
+    monospace;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+}
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  letter-spacing: -0.06em;
+  margin: 16px 0 12px;
+}
+h1 span {
+  color: var(--accent);
+}
+.tool-intro > p:last-child {
+  color: var(--muted);
+  font-size: 1.125rem;
+  margin: 0 0 35px;
+}
+.compare-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.text-panel {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface);
+}
+.panel-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+  font-weight: 650;
+}
+.file-button {
+  font-size: 0.875rem;
+  color: var(--accent);
+  position: relative;
+  border: 1px solid var(--line);
+  padding: 6px 10px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.file-button:focus-within {
+  outline: 3px solid #829eff;
+}
+.file-button input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+textarea {
+  display: block;
+  resize: vertical;
+  border: 0;
+  width: 100%;
+  min-height: 290px;
+  padding: 20px;
+  background: var(--surface);
+  color: inherit;
+  line-height: 1.7;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.95rem;
+  border-radius: 0;
+}
+textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+textarea::placeholder {
+  color: var(--muted);
+}
+.text-count {
+  text-align: right;
+  padding: 10px 20px;
+  color: var(--muted);
+  font-size: 0.875rem;
+  border-top: 1px solid var(--line);
+}
+.compare-controls,
+.result-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  margin-top: 22px;
+}
+.options,
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+label {
+  font-size: 0.9rem;
+}
+input[type="checkbox"] {
+  accent-color: var(--accent);
+  margin-right: 7px;
+}
+.tool-note {
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-top: 20px;
+}
+.compare-empty {
+  text-align: center;
+  margin-top: 40px;
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  padding: 35px 20px;
+}
+.compare-empty > span {
+  display: block;
+  color: var(--accent);
+  font:
+    2rem ui-monospace,
+    monospace;
+}
+.compare-empty h2 {
+  font-size: 1.15rem;
+  margin: 15px 0 8px;
+}
+.compare-empty p {
+  color: var(--muted);
+}
+.compare-empty button {
+  margin-top: 8px;
+}
+.diff-result {
+  margin-top: 45px;
+}
+.result-heading h2 {
+  font-size: 1.4rem;
+  margin: 0;
+}
+.result-heading p,
+.diff-legend {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+.diff-legend {
+  margin: 20px 0 12px;
+}
+.diff-lines {
+  overflow: auto;
+  max-height: 650px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+}
+.diff-line {
+  display: flex;
+  min-width: max-content;
+  line-height: 1.7;
+  font-size: 0.9rem;
+  padding: 3px 12px;
+}
+.diff-line code {
+  white-space: pre;
+  tab-size: 4;
+  flex: 1;
+  padding-right: 15px;
+}
+.line-no {
+  width: 45px;
+  flex-shrink: 0;
+  text-align: right;
+  padding-right: 12px;
+  color: var(--muted);
+  user-select: none;
+  font-family: ui-monospace, monospace;
+}
+.line-sign {
+  width: 28px;
+  flex-shrink: 0;
+  font-weight: bold;
+}
+.added {
+  background: var(--added);
+}
+.removed {
+  background: var(--removed);
+}
+.no-changes {
+  padding: 20px;
+  color: var(--muted);
+}
+.error {
+  background: var(--removed);
+  padding: 16px;
+  border-radius: 8px;
+}
+footer {
+  padding: 25px;
+  text-align: center;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+.skip-link {
+  position: absolute;
+  top: -80px;
+}
+.skip-link:focus {
+  top: 10px;
+  left: 10px;
+  z-index: 5;
+  background: var(--surface);
+  padding: 12px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    color: #e6eaf5;
+    background: #0b101b;
+    --surface: #121b2a;
+    --line: #2b364b;
+    --muted: #a4b0c6;
+    --accent: #97b0ff;
+    --soft: #1b2948;
+    --added: #15372b;
+    --removed: #40252e;
+  }
+  button.primary {
+    background: #5278ed;
+  }
+}
+@media (max-width: 700px) {
+  .tool-header {
+    padding: 20px;
+  }
+  .tool-header span {
+    display: block;
+    margin: 5px 0 0;
+    font-size: 0.875rem;
+  }
+  main {
+    padding: 35px 16px;
+  }
+  .compare-inputs {
+    grid-template-columns: 1fr;
+  }
+  .compare-controls,
+  .result-heading {
+    align-items: start;
+    flex-direction: column;
+  }
+  textarea {
+    min-height: 210px;
+  }
+  .actions {
+    gap: 10px;
+  }
+  .panel-top {
+    padding: 12px 16px;
+  }
+  .line-no {
+    width: 34px;
+  }
+}
