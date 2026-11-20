@@ -25,16 +25,231 @@ redirect_from:
 </nav>
 <section class="lab-section" id="services" aria-labelledby="services-title">
 <div class="lab-section-heading"><div><p class="lab-overline">{% t "lab.services.kicker" %}Less friction, more done{% endt %}</p><h2 id="services-title">{% t "lab.category.services" %}Services{% endt %}</h2></div><p>{% t "lab.services.intro" %}Simple tools. No account needed.{% endt %}</p></div>
-<div class="lab-service-list">
-<a class="service-row" href="/services/pdf-tools/"><span class="service-icon" aria-hidden="true">▤</span><div><h3 lang="en">PDF Tools</h3><p>{% t "lab.tool.pdf" %}Put PDF files in the right order and combine them into one document.{% endt %}</p><span class="service-detail">{% t "lab.tools.local" %}Runs locally · No uploads{% endt %} · PDF Merge</span></div><span class="service-open">{% t "lab.open" %}Open tool{% endt %}</span></a>
-<a class="service-row" href="/services/image-compress/"><span class="service-icon" aria-hidden="true">▧</span><div><h3 lang="en">Image Compressor &amp; Resizer</h3><p>{% t "lab.tool.image" %}Make a JPG, PNG, or WebP smaller. Preview the result and download it.{% endt %}</p><span class="service-detail">{% t "lab.tools.local" %}Runs locally · No uploads{% endt %}</span></div><span class="service-open">{% t "lab.open" %}Open tool{% endt %}</span></a>
-<a class="service-row" href="/services/file-converter/"><span class="service-icon" aria-hidden="true">⇄</span><div><h3 lang="en">File Format Converter</h3><p>{% t "lab.tool.converter" %}Convert images between WebP, PNG, and JPG, or extract audio tracks to WAV.{% endt %}</p><span class="service-detail">{% t "lab.tools.local" %}Runs locally · No uploads{% endt %}</span></div><span class="service-open">{% t "lab.open" %}Open tool{% endt %}</span></a>
-<a class="service-row" href="/services/text-compare/"><span class="service-icon" aria-hidden="true">±</span><div><h3>{% t "lab.compare.title" %}Text Compare{% endt %}</h3><p>{% t "lab.compare.text" %}Two texts, one clear view of what changed. Compare lines, ignore whitespace, and download the result.{% endt %}</p><span class="service-detail">{% t "lab.compare.detail" %}Runs locally · Text &amp; files{% endt %}</span></div><span class="service-open">{% t "lab.open" %}Open tool{% endt %}</span></a>
-<a class="service-row" href="/services/text-clean/"><span class="service-icon" aria-hidden="true">≋</span><div><h3 lang="en">Scratchpad / Text Clean</h3><p>{% t "lab.tool.clean" %}Trim lines, remove extra spaces, and clean up pasted text.{% endt %}</p><span class="service-detail">{% t "lab.tools.local" %}Runs locally · No uploads{% endt %}</span></div><span class="service-open">{% t "lab.open" %}Open tool{% endt %}</span></a>
-<a class="service-row" href="/exam/qr/"><span class="service-icon" aria-hidden="true">▦</span><div><h3>{% t "lab.qr.title" %}QR Code Generator{% endt %}</h3><p>{% t "lab.qr.text" %}Turn a link or text into a custom QR code. Choose a color, adjust the size, and download a crisp PNG, all in your browser.{% endt %}</p><span class="service-detail">{% t "lab.qr.detail" %}Custom colors · PNG download{% endt %}</span></div><span class="service-open">{% t "lab.open" %}Open tool{% endt %}</span></a>
-<a class="service-row" href="/services/background-remover/"><span class="service-icon" aria-hidden="true">◫</span><div><h3 lang="en">Background Remover</h3><p>{% t "lab.tool.bg" %}Remove solid or uniform image backgrounds and export clean transparent PNGs.{% endt %}</p><span class="service-detail">{% t "lab.tools.local" %}Runs locally · No uploads{% endt %}</span></div><span class="service-open">{% t "lab.open" %}Open tool{% endt %}</span></a>
-<a class="service-row" href="/services/ocr/"><span class="service-icon" aria-hidden="true">⚲</span><div><h3 lang="en">OCR / Image to Text</h3><p>{% t "lab.tool.ocr" %}Extract selectable text from uploaded images or pasted clipboard screenshots.{% endt %}</p><span class="service-detail">{% t "lab.tools.local" %}Runs locally · No uploads{% endt %}</span></div><span class="service-open">{% t "lab.open" %}Open tool{% endt %}</span></a>
-<a class="service-row" href="/services/json-format/"><span class="service-icon" aria-hidden="true">{}</span><div><h3 lang="en">JSON Formatter &amp; Validator</h3><p>{% t "lab.tool.json" %}Validate, format, or minify JSON while keeping number precision intact.{% endt %}</p><span class="service-detail">{% t "lab.tools.local" %}Runs locally · No uploads{% endt %}</span></div><span class="service-open">{% t "lab.open" %}Open tool{% endt %}</span></a>
+
+<div class="lab-controls-bar">
+  <div class="lab-search-wrap">
+    <span class="lab-search-icon" aria-hidden="true">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+    </span>
+    <input type="search" id="lab-search" class="lab-search-input" placeholder="Search by name, format, or task (e.g. PDF, compress, audio, diff, OCR)..." aria-label="Search tools in Unsupervised Lab" />
+    <span id="lab-search-badge" class="lab-search-badge">9 tools</span>
+  </div>
+  <div class="lab-filter-pills" role="tablist" aria-label="Filter tools by category">
+    <button type="button" class="lab-pill-btn active" data-filter="all">All</button>
+    <button type="button" class="lab-pill-btn" data-filter="documents">Documents</button>
+    <button type="button" class="lab-pill-btn" data-filter="media">Media &amp; Images</button>
+    <button type="button" class="lab-pill-btn" data-filter="text">Text &amp; Code</button>
+    <button type="button" class="lab-pill-btn" data-filter="security">Security</button>
+  </div>
+</div>
+
+<div class="lab-service-list lab-service-grid">
+<a class="service-row service-card" href="/services/pdf-tools/" data-category="documents" data-keywords="pdf merge split extract compress documents local pages flate">
+  <div class="card-head">
+    <span class="service-icon" aria-hidden="true">▤</span>
+    <div class="card-badges">
+      <span class="card-category">DOCUMENTS</span>
+      <span class="card-runtime">100% In-Browser</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <h3 lang="en">PDF Tools</h3>
+    <p>{% t "lab.tool.pdf" %}Put PDF files in the right order and combine them into one document.{% endt %}</p>
+    <div class="card-features">
+      <span>Merge PDFs</span>
+      <span>Extract &amp; Split</span>
+      <span>Flate Compress</span>
+    </div>
+  </div>
+  <div class="card-foot">
+    <span class="service-detail">{% t "lab.tools.local" %}Runs locally · No uploads{% endt %} · PDF Merge</span>
+    <span class="service-open">{% t "lab.open" %}Open tool{% endt %} <span class="arrow" aria-hidden="true">→</span></span>
+  </div>
+</a>
+
+<a class="service-row service-card" href="/services/image-compress/" data-category="media" data-keywords="image compress resize jpg png webp lossy lossless dimension photo quality">
+  <div class="card-head">
+    <span class="service-icon" aria-hidden="true">▧</span>
+    <div class="card-badges">
+      <span class="card-category">IMAGE OPTIMIZATION</span>
+      <span class="card-runtime">100% In-Browser</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <h3 lang="en">Image Compressor &amp; Resizer</h3>
+    <p>{% t "lab.tool.image" %}Make a JPG, PNG, or WebP smaller. Preview the result and download it.{% endt %}</p>
+    <div class="card-features">
+      <span>Quality Slider</span>
+      <span>Exact Resize</span>
+      <span>WebP · JPG · PNG</span>
+    </div>
+  </div>
+  <div class="card-foot">
+    <span class="service-detail">{% t "lab.tools.local" %}Runs locally · No uploads{% endt %} · Image Compress</span>
+    <span class="service-open">{% t "lab.open" %}Open tool{% endt %} <span class="arrow" aria-hidden="true">→</span></span>
+  </div>
+</a>
+
+<a class="service-row service-card" href="/services/file-converter/" data-category="media" data-keywords="file convert converter image format audio video wav mp4 webm transcode rasterize">
+  <div class="card-head">
+    <span class="service-icon" aria-hidden="true">⇄</span>
+    <div class="card-badges">
+      <span class="card-category">MEDIA CONVERSION</span>
+      <span class="card-runtime">100% In-Browser</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <h3 lang="en">File Format Converter</h3>
+    <p>{% t "lab.tool.converter" %}Convert images between WebP, PNG, and JPG, or extract audio tracks to WAV.{% endt %}</p>
+    <div class="card-features">
+      <span>Rasterize WebP/JPG/PNG</span>
+      <span>Video to WAV Audio</span>
+      <span>Zero Uploads</span>
+    </div>
+  </div>
+  <div class="card-foot">
+    <span class="service-detail">{% t "lab.tools.local" %}Runs locally · No uploads{% endt %}</span>
+    <span class="service-open">{% t "lab.open" %}Open tool{% endt %} <span class="arrow" aria-hidden="true">→</span></span>
+  </div>
+</a>
+
+<a class="service-row service-card" href="/services/text-compare/" data-category="text" data-keywords="text compare diff difference compare lines whitespace words monaco git side-by-side">
+  <div class="card-head">
+    <span class="service-icon" aria-hidden="true">±</span>
+    <div class="card-badges">
+      <span class="card-category">CODE &amp; TEXT</span>
+      <span class="card-runtime">100% In-Browser</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <h3>{% t "lab.compare.title" %}Text Compare{% endt %}</h3>
+    <p>{% t "lab.compare.text" %}Two texts, one clear view of what changed. Compare lines, ignore whitespace, and download the result.{% endt %}</p>
+    <div class="card-features">
+      <span>Word-Level Diffs</span>
+      <span>Whitespace Exposure</span>
+      <span>Split &amp; Unified</span>
+    </div>
+  </div>
+  <div class="card-foot">
+    <span class="service-detail">{% t "lab.compare.detail" %}Runs locally · Text &amp; files{% endt %}</span>
+    <span class="service-open">{% t "lab.open" %}Open tool{% endt %} <span class="arrow" aria-hidden="true">→</span></span>
+  </div>
+</a>
+
+<a class="service-row service-card" href="/services/text-clean/" data-category="text" data-keywords="scratchpad text clean trim spaces case uppercase lowercase csv xml formatter beautify">
+  <div class="card-head">
+    <span class="service-icon" aria-hidden="true">≋</span>
+    <div class="card-badges">
+      <span class="card-category">TEXT UTILITY</span>
+      <span class="card-runtime">100% In-Browser</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <h3 lang="en">Scratchpad / Text Clean</h3>
+    <p>{% t "lab.tool.clean" %}Trim lines, remove extra spaces, and clean up pasted text.{% endt %}</p>
+    <div class="card-features">
+      <span>Case Converter</span>
+      <span>CSV &amp; XML Formatter</span>
+      <span>Live Statistics</span>
+    </div>
+  </div>
+  <div class="card-foot">
+    <span class="service-detail">{% t "lab.tools.local" %}Runs locally · No uploads{% endt %} · Text Clean</span>
+    <span class="service-open">{% t "lab.open" %}Open tool{% endt %} <span class="arrow" aria-hidden="true">→</span></span>
+  </div>
+</a>
+
+<a class="service-row service-card" href="/exam/qr/" data-category="text" data-keywords="qr code generator wifi vcard contact link svg png vector custom color barcode">
+  <div class="card-head">
+    <span class="service-icon" aria-hidden="true">▦</span>
+    <div class="card-badges">
+      <span class="card-category">QR &amp; IDENTIFIERS</span>
+      <span class="card-runtime">100% In-Browser</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <h3>{% t "lab.qr.title" %}QR Code Generator{% endt %}</h3>
+    <p>{% t "lab.qr.text" %}Turn a link or text into a custom QR code. Choose a color, adjust the size, and download a crisp PNG, all in your browser.{% endt %}</p>
+    <div class="card-features">
+      <span>Wi-Fi Network QR</span>
+      <span>vCard Contact</span>
+      <span>Crisp PNG &amp; SVG</span>
+    </div>
+  </div>
+  <div class="card-foot">
+    <span class="service-detail">{% t "lab.qr.detail" %}Custom colors · PNG download{% endt %}</span>
+    <span class="service-open">{% t "lab.open" %}Open tool{% endt %} <span class="arrow" aria-hidden="true">→</span></span>
+  </div>
+</a>
+
+<a class="service-row service-card" href="/services/background-remover/" data-category="media" data-keywords="background remove remover transparent png alpha matte color tolerance eyedropper photo cut">
+  <div class="card-head">
+    <span class="service-icon" aria-hidden="true">◫</span>
+    <div class="card-badges">
+      <span class="card-category">COMPUTER VISION</span>
+      <span class="card-runtime">100% In-Browser</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <h3 lang="en">Background Remover</h3>
+    <p>{% t "lab.tool.bg" %}Remove solid or uniform image backgrounds and export clean transparent PNGs.{% endt %}</p>
+    <div class="card-features">
+      <span>Color Eyedropper</span>
+      <span>Edge Feathering</span>
+      <span>Transparent PNG</span>
+    </div>
+  </div>
+  <div class="card-foot">
+    <span class="service-detail">{% t "lab.tools.local" %}Runs locally · No uploads{% endt %}</span>
+    <span class="service-open">{% t "lab.open" %}Open tool{% endt %} <span class="arrow" aria-hidden="true">→</span></span>
+  </div>
+</a>
+
+<a class="service-row service-card" href="/services/ocr/" data-category="media" data-keywords="ocr optical character recognition image to text tesseract paste screenshot scan extract">
+  <div class="card-head">
+    <span class="service-icon" aria-hidden="true">⚲</span>
+    <div class="card-badges">
+      <span class="card-category">INTELLIGENT OCR</span>
+      <span class="card-runtime">100% In-Browser</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <h3 lang="en">OCR / Image to Text</h3>
+    <p>{% t "lab.tool.ocr" %}Extract selectable text from uploaded images or pasted clipboard screenshots.{% endt %}</p>
+    <div class="card-features">
+      <span>Tesseract.js Wasm</span>
+      <span>Paste Clipboard</span>
+      <span>One-Click Export</span>
+    </div>
+  </div>
+  <div class="card-foot">
+    <span class="service-detail">{% t "lab.tools.local" %}Runs locally · No uploads{% endt %}</span>
+    <span class="service-open">{% t "lab.open" %}Open tool{% endt %} <span class="arrow" aria-hidden="true">→</span></span>
+  </div>
+</a>
+
+<a class="service-row service-card" href="/services/json-format/" data-category="text" data-keywords="json format validator format json minify big int 64-bit precision validate syntax">
+  <div class="card-head">
+    <span class="service-icon" aria-hidden="true">{}</span>
+    <div class="card-badges">
+      <span class="card-category">DEVELOPER TOOLS</span>
+      <span class="card-runtime">100% In-Browser</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <h3 lang="en">JSON Formatter &amp; Validator</h3>
+    <p>{% t "lab.tool.json" %}Validate, format, or minify JSON while keeping number precision intact.{% endt %}</p>
+    <div class="card-features">
+      <span>Large Number Precision</span>
+      <span>Format &amp; Minify</span>
+      <span>Syntax Validation</span>
+    </div>
+  </div>
+  <div class="card-foot">
+    <span class="service-detail">{% t "lab.tools.local" %}Runs locally · No uploads{% endt %} · JSON Format</span>
+    <span class="service-open">{% t "lab.open" %}Open tool{% endt %} <span class="arrow" aria-hidden="true">→</span></span>
+  </div>
+</a>
 </div></section>
 <section class="lab-section" id="games" aria-labelledby="games-title"><div class="lab-section-heading"><div><p class="lab-overline">{% t "lab.games.kicker" %}Take a little break{% endt %}</p><h2 id="games-title">{% t "lab.category.games" %}Games{% endt %}</h2></div><p>{% t "lab.games.intro" %}Two games. Straight into your browser.{% endt %}</p></div><div class="lab-grid">    <article class="lab-card lab-card-game" id="carry-project" aria-labelledby="game-title">
       <div class="lab-game-copy">
@@ -65,9 +280,9 @@ redirect_from:
       <div class="lab-tags"><span>{% t "lab.save.tag1" %}Three rounds{% endt %}</span><span>{% t "lab.save.tag2" %}Sky rescue{% endt %}</span><span>{% t "lab.save.tag3" %}Original music{% endt %}</span></div>
       <a class="lab-card-link" href="{{ '/game/save-my-bro/' | relative_url }}">{% t "lab.save.link" %}Play Save My Bro{% endt %}</a>
     </article></div></section>
-<div class="lab-empty-grid"><section class="lab-empty" id="projects" aria-labelledby="projects-title"><h2 id="projects-title">{% t "lab.category.projects" %}Projects{% endt %}</h2><p>{% t "lab.empty" %}Nothing here yet.{% endt %}</p></section>
-<section class="lab-empty" id="papers" aria-labelledby="papers-title"><h2 id="papers-title">{% t "lab.category.papers" %}Papers{% endt %}</h2><p>{% t "lab.empty" %}Nothing here yet.{% endt %}</p></section>
-<section class="lab-empty" id="apps" aria-labelledby="apps-title"><h2 id="apps-title">{% t "lab.category.apps" %}Apps{% endt %}</h2><p>{% t "lab.empty" %}Nothing here yet.{% endt %}</p></section></div>
+<div class="lab-empty-grid"><section class="lab-empty" id="projects" aria-labelledby="projects-title"><div class="lab-empty-head"><span class="empty-icon">⚗️</span><h2 id="projects-title">{% t "lab.category.projects" %}Projects{% endt %}</h2></div><p>{% t "lab.empty" %}Nothing here yet.{% endt %}</p><span class="roadmap-badge">In Research Pipeline</span></section>
+<section class="lab-empty" id="papers" aria-labelledby="papers-title"><div class="lab-empty-head"><span class="empty-icon">📄</span><h2 id="papers-title">{% t "lab.category.papers" %}Papers{% endt %}</h2></div><p>{% t "lab.empty" %}Nothing here yet.{% endt %}</p><span class="roadmap-badge">Peer Review Submissions</span></section>
+<section class="lab-empty" id="apps" aria-labelledby="apps-title"><div class="lab-empty-head"><span class="empty-icon">📱</span><h2 id="apps-title">{% t "lab.category.apps" %}Apps{% endt %}</h2></div><p>{% t "lab.empty" %}Nothing here yet.{% endt %}</p><span class="roadmap-badge">Standalone Prototypes</span></section></div>
 <section class="lab-section" id="others" aria-labelledby="others-title"><div class="lab-section-heading"><div><p class="lab-overline">{% t "lab.others.kicker" %}Beyond the browser tab{% endt %}</p><h2 id="others-title">{% t "lab.category.others" %}Others{% endt %}</h2></div></div><div class="lab-grid lab-others-grid">    <article class="lab-card lab-card-prompt" id="prompt-project" aria-labelledby="prompt-title">
       <div class="lab-prompt-copy">
         <div class="lab-card-meta"><span class="lab-status"><span aria-hidden="true"></span> {% t "lab.prompt.status" %}Download available{% endt %}</span></div>

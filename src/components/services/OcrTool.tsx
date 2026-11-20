@@ -6,6 +6,7 @@ export default function OcrTool() {
   const [previewUrl, setPreviewUrl] = useState<string>("");
   const [extractedText, setExtractedText] = useState<string>("");
   const [progress, setProgress] = useState<number | null>(null);
+  const [isDragging, setIsDragging] = useState<boolean>(false);
   const [busy, setBusy] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
   const [message, setMessage] = useState<string>("");
@@ -135,7 +136,20 @@ export default function OcrTool() {
       </div>
 
       <div className="file-workspace">
-        <div className="upload-zone">
+        <div
+          className={`upload-zone ${isDragging ? "dragover" : ""}`}
+          onDragOver={(e) => {
+            e.preventDefault();
+            setIsDragging(true);
+          }}
+          onDragLeave={() => setIsDragging(false)}
+          onDrop={(e) => {
+            e.preventDefault();
+            setIsDragging(false);
+            const candidate = e.dataTransfer.files?.[0];
+            if (candidate) handleImageSelected(candidate);
+          }}
+        >
           <span className="upload-symbol" aria-hidden="true">
             🖹
           </span>
@@ -159,7 +173,7 @@ export default function OcrTool() {
             />
           </label>
           <small>
-            Up to 20 MB · Supports screenshot paste (Ctrl+V) · Language: English
+            Up to 20 MB · Supports screenshot paste (Ctrl+V) · Language: English · 100% In-Browser
           </small>
         </div>
 

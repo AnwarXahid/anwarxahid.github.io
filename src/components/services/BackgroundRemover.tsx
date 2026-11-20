@@ -16,6 +16,7 @@ export default function BackgroundRemover() {
 
   const [outputBlob, setOutputBlob] = useState<Blob | null>(null);
   const [outputUrl, setOutputUrl] = useState<string>("");
+  const [isDragging, setIsDragging] = useState<boolean>(false);
   const [busy, setBusy] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
   const [message, setMessage] = useState<string>("");
@@ -23,6 +24,24 @@ export default function BackgroundRemover() {
   const originalCanvasRef = useRef<HTMLCanvasElement>(null);
   const outputCanvasRef = useRef<HTMLCanvasElement>(null);
   const revision = useRef(0);
+
+  useEffect(() => {
+    const handlePaste = (e: ClipboardEvent) => {
+      const items = e.clipboardData?.items;
+      if (!items) return;
+      for (const item of items) {
+        if (item.type.startsWith("image/")) {
+          const pasted = item.getAsFile();
+          if (pasted) {
+            void handleFileSelect(pasted);
+            break;
+          }
+        }
+      }
+    };
+    window.addEventListener("paste", handlePaste);
+    return () => window.removeEventListener("paste", handlePaste);
+  }, []);
 
   useEffect(
     () => () => {
@@ -176,7 +195,20 @@ export default function BackgroundRemover() {
       </div>
 
       <div className="file-workspace">
-        <div className="upload-zone">
+        <div
+          className={`upload-zone ${isDragging ? "dragover" : ""}`}
+          onDragOver={(e) => {
+            e.preventDefault();
+            setIsDragging(true);
+          }}
+          onDragLeave={() => setIsDragging(false)}
+          onDrop={(e) => {
+            e.preventDefault();
+            setIsDragging(false);
+            const candidate = e.dataTransfer.files?.[0];
+            if (candidate) void handleFileSelect(candidate);
+          }}
+        >
           <span className="upload-symbol" aria-hidden="true">
             ✂
           </span>
@@ -184,7 +216,7 @@ export default function BackgroundRemover() {
           <p>
             {file
               ? "Adjust tolerance, optionally click the image to sample the background, then remove."
-              : "Upload an image. Background is replaced with real alpha transparency."}
+              : "Drag & drop, paste from clipboard (Ctrl+V), or upload an image."}
           </p>
           <label className="upload-button">
             {file ? "Choose another image" : "Choose image"}
@@ -199,7 +231,7 @@ export default function BackgroundRemover() {
               }}
             />
           </label>
-          <small>Up to 25 MB · Generates real 32-bit PNG alpha channel</small>
+          <small>Up to 25 MB · Generates real 32-bit PNG alpha channel · 100% In-Browser</small>
         </div>
 
         {file && (

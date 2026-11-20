@@ -20,15 +20,44 @@ const { title, description, tagline, category } = Astro.props;
   <body>
     <a class="skip-link" href="#main">Skip to tool</a>
     <header class="tool-header">
-      <a class="tool-brand" href="/lab/"><span class="brand-mark" aria-hidden="true">[ / ]</span><span class="brand-name">Anwar Zahid <small>Unsupervised Lab</small></span></a>
-      <nav aria-label="Tool navigation"><a href="/lab/#services">All services</a><button id="tool-theme" type="button" aria-label="Use dark theme" aria-pressed="false">Dark mode</button></nav>
+      <div class="tool-header-inner">
+        <div class="tool-breadcrumbs">
+          <a class="tool-brand" href="/lab/"><span class="brand-mark" aria-hidden="true">[ / ]</span><span class="brand-name">Anwar Zahid <small>Unsupervised Lab</small></span></a>
+          <span class="breadcrumb-separator" aria-hidden="true">/</span>
+          <span class="breadcrumb-current">{title}</span>
+        </div>
+        <nav aria-label="Tool navigation">
+          <span class="privacy-pill" title="Runs strictly inside your local browser runtime"><span class="privacy-dot" aria-hidden="true"></span> 100% In-Browser</span>
+          <a href="/lab/#services" class="back-link">All tools</a>
+          <button id="tool-theme" type="button" aria-label="Use dark theme" aria-pressed="false">Dark mode</button>
+        </nav>
+      </div>
     </header>
     <main id="main">
-      <div class="tool-intro"><div><p class="eyebrow">THE EVERYDAY TOOLKIT / {category}</p><h1>{title}<span>.</span></h1><p>{tagline}</p></div><span class="tool-badge">Free · No account</span></div>
+      <div class="tool-intro">
+        <div class="tool-intro-text">
+          <div class="eyebrow-wrap">
+            <span class="category-pill">{category}</span>
+            <span class="local-pill">Local Runtime</span>
+          </div>
+          <h1>{title}<span>.</span></h1>
+          <p class="tool-tagline">{tagline}</p>
+        </div>
+        <div class="tool-meta-card" aria-label="Tool specifications">
+          <div class="meta-item"><span class="meta-label">Storage</span><strong class="meta-value">Zero Uploads</strong></div>
+          <div class="meta-item"><span class="meta-label">Processing</span><strong class="meta-value">Client-Side</strong></div>
+          <div class="meta-item"><span class="meta-label">Access</span><strong class="meta-value">Free · No Account</strong></div>
+        </div>
+      </div>
       <slot />
       <noscript>This tool needs JavaScript to process your files locally in your browser.</noscript>
     </main>
-    <footer>Built by <a href="/">Anwar Zahid</a> · A small tool for everyday work.</footer>
+    <footer class="tool-footer">
+      <div class="footer-wrap">
+        <p>Built by <a href="/">Anwar Zahid</a> · Part of <a href="/lab/">Unsupervised Lab</a>.</p>
+        <p class="footer-note">All processing occurs strictly in your local browser runtime. Zero tracking, zero storage.</p>
+      </div>
+    </footer>
     <script>
       const toggle = document.querySelector<HTMLButtonElement>('#tool-theme');
       const media = window.matchMedia('(prefers-color-scheme: dark)');

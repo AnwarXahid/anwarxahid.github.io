@@ -168,3 +168,234 @@
 /* Make the collection read as a directory, with the tools close to the top. */
 .lab-hero { min-height:0; padding:82px 0 45px; gap:48px; }.lab-hero h1 { font-size:clamp(3.4rem,6.4vw,5.6rem); }.lab-lede { font-size:1.125rem; max-width:52ch; margin:22px 0 25px; }.lab-manifest { padding:28px; border-radius:16px; box-shadow:none; }.manifest-symbol { font-size:3.5rem; padding-bottom:22px; }.manifest-note { margin-top:22px; }.lab-categories { gap:10px; padding:20px 0; }.lab-categories a { background:var(--surface); border-radius:9px; }.lab-categories a:first-child { background:color-mix(in srgb,var(--accent) 9%,var(--surface)); border-color:color-mix(in srgb,var(--accent) 40%,var(--line)); }.lab-section { padding-top:50px; }.lab-section-heading h2 { font-size:clamp(2rem,3.5vw,2.8rem); }.lab-section-heading { margin-bottom:24px; }.service-row { padding:27px 28px; gap:22px; }.service-row:focus-visible { outline:3px solid var(--accent); outline-offset:-4px; }.service-row h3 { font-size:1.3rem; }.service-icon { border-radius:12px; }.service-open { border:1px solid var(--line); border-radius:7px; padding:9px 13px; background:var(--surface); }.lab-grid > .lab-card { box-shadow:none; min-height:490px; }.lab-others-grid .lab-card-prompt { min-height:0; }.lab-empty-grid { margin-top:50px; }.lab-empty { padding:24px; }.lab-others-grid .lab-prompt-preview { max-width:100%; }.lab-page .lab-card-link { min-height:44px; align-items:center; }.lab-page .lab-overline { font-size:.8125rem; }.lab-page .lab-tags span { font-size:.8125rem; }
 @media(max-width:700px){.lab-hero { padding-top:60px; gap:25px; }.lab-manifest { padding:22px; }.manifest-symbol { font-size:2.6rem; padding-bottom:15px; }.lab-categories { gap:8px; }.lab-categories a { flex:1 0 28%; justify-content:space-between; padding:10px 12px; }.service-row { padding:22px 18px; gap:15px; }.service-open { justify-self:start; }.lab-section { padding-top:40px; }.lab-empty-grid { margin-top:40px; gap:12px; }.lab-empty { padding:20px; }.lab-page .lab-grid>.lab-card { min-height:0; }.lab-page .lab-card-prompt .lab-prompt-links { flex-wrap:wrap; gap:15px; }}
+
+/* SOTA Lab Directory Controls & Responsive Cards Grid */
+.lab-controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.lab-search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 260px;
+  padding: 8px 16px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.lab-search-wrap:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+.lab-search-icon {
+  color: var(--muted);
+  display: grid;
+  place-items: center;
+}
+.lab-search-input {
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.9375rem;
+  width: 100%;
+  outline: none;
+}
+.lab-search-input::placeholder {
+  color: var(--muted);
+  opacity: 0.7;
+}
+.lab-search-badge {
+  font: 600 0.75rem var(--f-mono, ui-monospace, monospace);
+  color: var(--muted);
+  background: color-mix(in srgb, var(--accent) 8%, var(--bg));
+  border: 1px solid var(--line);
+  padding: 3px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.lab-filter-pills {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.lab-pill-btn {
+  padding: 7px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--muted);
+  font: 600 0.8125rem var(--f-mono, ui-monospace, monospace);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.lab-pill-btn:hover {
+  color: var(--text);
+  border-color: color-mix(in srgb, var(--accent) 50%, var(--line));
+}
+.lab-pill-btn.active {
+  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.lab-service-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)) !important;
+  gap: 20px !important;
+  border: none !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+}
+.service-card {
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 24px !important;
+  background: var(--surface) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03) !important;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s, border-color 0.2s !important;
+  position: relative !important;
+  text-decoration: none !important;
+  color: var(--text) !important;
+}
+.service-card:hover,
+.service-card:focus-visible {
+  transform: translateY(-4px) !important;
+  border-color: color-mix(in srgb, var(--accent) 60%, var(--line)) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08) !important;
+}
+.service-card.is-hidden {
+  display: none !important;
+}
+.service-card .card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.service-card .service-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  font-size: 1.5rem;
+  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, var(--line));
+  color: var(--accent);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--accent) 15%, transparent);
+}
+.service-card .card-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.card-category {
+  font: 700 0.625rem var(--f-mono, ui-monospace, monospace);
+  padding: 3px 8px;
+  border-radius: 5px;
+  background: color-mix(in srgb, var(--accent) 10%, var(--bg));
+  border: 1px solid color-mix(in srgb, var(--accent) 20%, var(--line));
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.card-runtime {
+  font: 500 0.6875rem var(--f-mono, ui-monospace, monospace);
+  color: #10b981;
+  background: color-mix(in srgb, #10b981 10%, var(--bg));
+  padding: 3px 7px;
+  border-radius: 5px;
+  border: 1px solid color-mix(in srgb, #10b981 25%, var(--line));
+}
+.service-card .card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.service-card h3 {
+  margin: 0 0 8px !important;
+  font-size: 1.25rem !important;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.service-card p {
+  margin: 0 0 16px !important;
+  color: var(--muted) !important;
+  font-size: 0.9375rem !important;
+  line-height: 1.55 !important;
+}
+.card-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+  margin-bottom: 20px;
+}
+.card-features span {
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font: 500 0.6875rem var(--f-mono, ui-monospace, monospace);
+}
+.service-card .card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-size: 0.8125rem;
+}
+.service-card .service-detail {
+  margin-top: 0 !important;
+  font-size: 0.75rem !important;
+  opacity: 0.8;
+}
+.service-card .service-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--accent);
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+.service-card .service-open .arrow {
+  transition: transform 0.15s;
+}
+.service-card:hover .service-open .arrow {
+  transform: translateX(4px);
+}
+.lab-empty-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.empty-icon {
+  font-size: 1.2rem;
+}
+.roadmap-badge {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--accent) 20%, var(--line));
+  color: var(--accent);
+  font: 600 0.6875rem var(--f-mono, ui-monospace, monospace);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}

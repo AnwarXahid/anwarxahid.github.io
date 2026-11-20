@@ -1,4 +1,146 @@
-/* Shared task controls for the four single-purpose services. */
+/* Shared task controls for the single-purpose services. */
+/* SOTA Standalone Tool Layout & Header */
+.tool-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+}
+.tool-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.breadcrumb-separator {
+  color: var(--muted);
+  opacity: 0.5;
+  font-size: 0.9rem;
+}
+.breadcrumb-current {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+.privacy-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: color-mix(in srgb, #10b981 12%, var(--surface));
+  border: 1px solid color-mix(in srgb, #10b981 35%, var(--line));
+  color: color-mix(in srgb, #10b981 90%, var(--text));
+  font: 600 0.75rem var(--f-mono, ui-monospace, monospace);
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+.privacy-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 0 3px color-mix(in srgb, #10b981 25%, transparent);
+}
+.back-link {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+.back-link:hover {
+  color: var(--accent);
+}
+
+/* SOTA Tool Intro & Metadata Card */
+.tool-intro {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 32px;
+  margin-bottom: 36px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+}
+.eyebrow-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.category-pill {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 5px;
+  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--line));
+  color: var(--accent);
+  font: 700 0.6875rem var(--f-mono, ui-monospace, monospace);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.local-pill {
+  color: var(--muted);
+  font: 500 0.75rem var(--f-mono, ui-monospace, monospace);
+  letter-spacing: 0.04em;
+}
+.tool-tagline {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 8px 0 0;
+  max-width: 65ch;
+}
+.tool-meta-card {
+  display: flex;
+  gap: 20px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.meta-label {
+  font: 600 0.6875rem var(--f-mono, ui-monospace, monospace);
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.meta-value {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+/* SOTA Tool Footer */
+.tool-footer {
+  margin-top: 64px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+  color: var(--text);
+  font-size: 0.875rem;
+}
+.footer-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-note {
+  font: 400 0.8125rem var(--f-mono, ui-monospace, monospace);
+  color: var(--text);
+  margin: 0;
+}
+
 select {
   font: inherit;
   color: var(--text);
@@ -52,26 +194,43 @@ input:disabled {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 38px 24px;
+  padding: 44px 28px;
   background: radial-gradient(
     ellipse at 50% 0,
-    color-mix(in srgb, var(--accent) 7%, transparent),
-    transparent 65%
+    color-mix(in srgb, var(--accent) 9%, transparent),
+    transparent 70%
   );
+  border: 2px dashed transparent;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.upload-zone.dragover {
+  border-color: var(--accent);
+  background: radial-gradient(
+    ellipse at 50% 20%,
+    color-mix(in srgb, var(--accent) 20%, transparent),
+    transparent 80%
+  );
+  transform: scale(0.995);
 }
 .upload-symbol {
   display: grid;
   place-items: center;
-  width: 62px;
-  height: 62px;
-  border-radius: 15px;
-  border: 1px solid var(--line);
-  background: var(--surface);
+  width: 68px;
+  height: 68px;
+  border-radius: 18px;
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--line));
+  background: color-mix(in srgb, var(--accent) 8%, var(--surface));
   color: var(--accent);
   font:
-    2rem ui-monospace,
+    2.2rem ui-monospace,
     monospace;
-  margin-bottom: 17px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--accent) 15%, transparent);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.upload-zone.dragover .upload-symbol {
+  transform: scale(1.1);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--accent) 30%, transparent);
 }
 .upload-zone h2 {
   font-size: 1.35rem;
@@ -98,13 +257,20 @@ input:disabled {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 44px;
-  border-radius: 8px;
+  min-height: 46px;
+  border-radius: 10px;
   background: #3156ce;
-  color: white;
-  padding: 11px 20px;
+  color: #ffffff;
+  padding: 12px 24px;
   font-weight: 600;
   cursor: pointer;
+  box-shadow: 0 4px 14px rgba(49, 86, 206, 0.35);
+  transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
+}
+.upload-button:hover {
+  filter: brightness(1.12);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(49, 86, 206, 0.45);
 }
 .upload-button input {
   position: absolute;
@@ -149,24 +315,101 @@ input:disabled {
 .quality-control span {
   color: var(--muted);
 }
+/* Workspace Bar & Segmented Tabs */
+.workspace-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 20px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.tab-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.tab-group .tab {
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  font: 600 0.8125rem var(--f-mono, ui-monospace, monospace);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.tab-group .tab:hover {
+  background: color-mix(in srgb, var(--text) 8%, transparent);
+  border-color: color-mix(in srgb, var(--text) 30%, var(--line));
+}
+.tab-group .tab.active,
+.tab-group .tab[aria-selected="true"] {
+  background: #3156ce;
+  border-color: #3156ce;
+  color: #ffffff;
+}
+.workspace-private {
+  font: 500 0.75rem var(--f-mono, ui-monospace, monospace);
+  color: #047857;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.workspace-private::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #047857;
+}
+
+[data-theme="dark"] .workspace-private {
+  color: #34d399;
+}
+[data-theme="dark"] .workspace-private::before {
+  background: #34d399;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .workspace-private {
+    color: #34d399;
+  }
+  :root:not([data-theme="light"]) .workspace-private::before {
+    background: #34d399;
+  }
+}
+
 .image-previews {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 24px;
   margin-top: 26px;
 }
 .preview-panel {
   min-width: 0;
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: 14px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 .preview-panel > div:first-child {
-  padding: 20px;
+  padding: 18px 22px;
   border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 .preview-panel h2 {
   font-size: 1.05rem;
@@ -275,6 +518,29 @@ input:disabled {
   }
   .settings-strip > label {
     flex-basis: 100%;
+  }
+  .tool-header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .tool-breadcrumbs {
+    gap: 8px;
+    font-size: 0.85rem;
+  }
+  .tool-intro {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+  }
+  .tool-meta-card {
+    flex-wrap: wrap;
+    gap: 16px;
+    width: 100%;
+  }
+  .meta-item {
+    flex: 1 1 30%;
   }
   .settings-strip > button {
     width: 100%;
