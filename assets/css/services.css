@@ -1,0 +1,322 @@
+/* Shared task controls for the four single-purpose services. */
+select {
+  font: inherit;
+  color: var(--text);
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  min-height: 42px;
+  padding: 9px 34px 9px 12px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='m1 1 5 5 5-5' fill='none' stroke='%2375829b' stroke-width='2'/%3E%3C/svg%3E");
+  background-position: right 12px center;
+  background-repeat: no-repeat;
+}
+select:disabled,
+input:disabled {
+  opacity: 0.55;
+}
+.select-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.secondary-label {
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+.tool-result-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 70px;
+  margin-top: 18px;
+}
+.tool-result-bar > p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.tool-result-bar .actions {
+  gap: 10px;
+}
+.file-workspace {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.upload-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 38px 24px;
+  background: radial-gradient(
+    ellipse at 50% 0,
+    color-mix(in srgb, var(--accent) 7%, transparent),
+    transparent 65%
+  );
+}
+.upload-symbol {
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 15px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--accent);
+  font:
+    2rem ui-monospace,
+    monospace;
+  margin-bottom: 17px;
+}
+.upload-zone h2 {
+  font-size: 1.35rem;
+  letter-spacing: -0.03em;
+  margin: 0 0 10px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.upload-zone p {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 0 22px;
+  max-width: 50ch;
+}
+.upload-zone small {
+  color: var(--muted);
+  font-size: 0.8125rem;
+  margin-top: 15px;
+}
+.upload-button {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border-radius: 8px;
+  background: #3156ce;
+  color: white;
+  padding: 11px 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.upload-button input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  width: 100%;
+  cursor: pointer;
+}
+.upload-button:focus-within {
+  outline: 3px solid #829eff;
+  outline-offset: 3px;
+}
+.upload-button:has(input:disabled) {
+  opacity: 0.5;
+  cursor: default;
+}
+.settings-strip {
+  display: flex;
+  align-items: end;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding: 24px;
+  border-top: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg) 35%, var(--surface));
+}
+.settings-strip > label {
+  display: grid;
+  gap: 10px;
+  font-size: 0.875rem;
+  flex: 1;
+  min-width: 150px;
+}
+.settings-strip .quality-control {
+  grid-template-columns: 1fr auto;
+}
+.quality-control input {
+  grid-column: 1/-1;
+  width: 100%;
+  height: 25px;
+  accent-color: var(--accent);
+}
+.quality-control span {
+  color: var(--muted);
+}
+.image-previews {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 26px;
+}
+.preview-panel {
+  min-width: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.preview-panel > div:first-child {
+  padding: 20px;
+  border-bottom: 1px solid var(--line);
+}
+.preview-panel h2 {
+  font-size: 1.05rem;
+  margin: 0 0 8px;
+}
+.preview-panel p {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0;
+}
+.preview-panel img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+  background: repeating-conic-gradient(var(--bg) 0% 25%, var(--surface) 0% 50%)
+    50%/20px 20px;
+}
+.preview-panel button {
+  margin: 16px;
+  align-self: start;
+}
+.preview-placeholder {
+  display: grid;
+  place-items: center;
+  height: 300px;
+  color: var(--line);
+  font-size: 5rem;
+}
+.pdf-file-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+.pdf-file-list li {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--line);
+}
+.pdf-file-icon {
+  font:
+    600 0.8125rem ui-monospace,
+    monospace;
+  color: var(--accent);
+  padding: 12px 8px;
+  background: var(--soft);
+  border-radius: 7px;
+}
+.pdf-file-info {
+  flex: 1;
+  min-width: 0;
+}
+.pdf-file-info strong {
+  display: block;
+  overflow-wrap: anywhere;
+  font-size: 0.95rem;
+}
+.pdf-file-info small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  margin-top: 7px;
+}
+.pdf-file-list .actions {
+  gap: 8px;
+}
+.pdf-file-list button {
+  font-size: 0.8125rem;
+  min-height: 40px;
+  padding: 8px 10px;
+}
+.pdf-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 24px;
+}
+.pdf-actions > p {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+.pdf-actions .actions {
+  gap: 10px;
+}
+@media (max-width: 700px) {
+  .tool-result-bar {
+    align-items: start;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .upload-zone {
+    padding: 28px 20px;
+  }
+  .upload-zone h2 {
+    font-size: 1.2rem;
+  }
+  .settings-strip {
+    padding: 20px;
+    gap: 20px;
+  }
+  .settings-strip > label {
+    flex-basis: 100%;
+  }
+  .settings-strip > button {
+    width: 100%;
+  }
+  .image-previews {
+    grid-template-columns: 1fr;
+  }
+  .preview-panel img,
+  .preview-placeholder {
+    height: 240px;
+  }
+  .pdf-file-list li {
+    padding: 18px;
+    flex-wrap: wrap;
+  }
+  .pdf-file-list .actions {
+    width: 100%;
+    padding-left: 48px;
+    flex-wrap: wrap;
+  }
+  .pdf-file-info {
+    flex-basis: calc(100% - 65px);
+  }
+  .pdf-actions {
+    padding: 18px;
+    align-items: start;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .pdf-actions .actions {
+    width: 100%;
+  }
+  .pdf-actions .primary {
+    margin-left: auto;
+  }
+  .select-label {
+    flex-wrap: wrap;
+  }
+  .compare-controls .options {
+    row-gap: 14px;
+  }
+  .tool-result-bar .actions {
+    flex-wrap: wrap;
+  }
+}

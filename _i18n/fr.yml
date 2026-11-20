@@ -213,6 +213,12 @@ ui:
   lab.empty: "Rien ici pour le moment."
   lab.others.kicker: "Au-delà de l’onglet"
 
+  lab.tool.image: "Réduisez une image JPG, PNG ou WebP. Vérifiez le résultat et téléchargez-le."
+  lab.tool.pdf: "Classez vos fichiers PDF et réunissez-les en un document."
+  lab.tool.clean: "Nettoyez les lignes et supprimez les espaces superflus du texte collé."
+  lab.tool.json: "Validez, formatez ou compactez du JSON en préservant la précision des nombres."
+  lab.tools.local: "Fonctionne localement · Aucun envoi"
+
 records:
   about:
     excerpt: "Recherche sur l’IA, le génie logiciel et la fiabilité des LLM."

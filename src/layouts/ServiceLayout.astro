@@ -1,0 +1,51 @@
+---
+import '../../assets/css/text-compare.css';
+import '../../assets/css/services.css';
+interface Props { title: string; description: string; tagline: string; category: string; }
+const { title, description, tagline, category } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} — Unsupervised Lab</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="icon" href="/images/favicon.svg" type="image/svg+xml" />
+    <script is:inline>
+      try { const theme = localStorage.getItem('theme'); if (theme === 'light' || theme === 'dark') document.documentElement.dataset.theme = theme; } catch {}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to tool</a>
+    <header class="tool-header">
+      <a class="tool-brand" href="/lab/"><span class="brand-mark" aria-hidden="true">[ / ]</span><span class="brand-name">Anwar Zahid <small>Unsupervised Lab</small></span></a>
+      <nav aria-label="Tool navigation"><a href="/lab/#services">All services</a><button id="tool-theme" type="button" aria-label="Use dark theme" aria-pressed="false">Dark mode</button></nav>
+    </header>
+    <main id="main">
+      <div class="tool-intro"><div><p class="eyebrow">THE EVERYDAY TOOLKIT / {category}</p><h1>{title}<span>.</span></h1><p>{tagline}</p></div><span class="tool-badge">Free · No account</span></div>
+      <slot />
+      <noscript>This tool needs JavaScript to process your files locally in your browser.</noscript>
+    </main>
+    <footer>Built by <a href="/">Anwar Zahid</a> · A small tool for everyday work.</footer>
+    <script>
+      const toggle = document.querySelector<HTMLButtonElement>('#tool-theme');
+      const media = window.matchMedia('(prefers-color-scheme: dark)');
+      function syncTheme() {
+        const dark = (document.documentElement.dataset.theme || (media.matches ? 'dark' : 'light')) === 'dark';
+        toggle?.setAttribute('aria-pressed', String(dark));
+        toggle?.setAttribute('aria-label', dark ? 'Use light theme' : 'Use dark theme');
+        if(toggle) toggle.textContent = dark ? 'Light mode' : 'Dark mode';
+      }
+      toggle?.addEventListener('click', () => {
+        const next = toggle.getAttribute('aria-pressed') === 'true' ? 'light' : 'dark';
+        document.documentElement.dataset.theme = next;
+        try { localStorage.setItem('theme', next); } catch {}
+        syncTheme();
+      });
+      media.addEventListener('change', syncTheme);
+      syncTheme();
+    </script>
+  </body>
+</html>

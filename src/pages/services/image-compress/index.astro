@@ -1,0 +1,7 @@
+---
+import ServiceLayout from '../../../layouts/ServiceLayout.astro';
+import ImageCompress from '../../../components/services/ImageCompress';
+---
+<ServiceLayout title="Image Compress" category="IMAGES" tagline="Less file size. More room for what matters." description="Compress a JPG, PNG, or WebP image locally, preview the result, and download it. No uploads or account needed.">
+  <ImageCompress client:only="react"><p slot="fallback" role="status">Loading the tool…</p></ImageCompress>
+</ServiceLayout>

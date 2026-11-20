@@ -1,0 +1,7 @@
+---
+import ServiceLayout from '../../../layouts/ServiceLayout.astro';
+import TextTools from '../../../components/services/TextTools';
+---
+<ServiceLayout title="JSON Format" category="DATA" tagline="Make sense of your JSON. Keep every value." description="Validate, format, or minify JSON locally without changing number precision. Copy or download the result.">
+  <TextTools mode="json" client:only="react"><p slot="fallback" role="status">Loading the tool…</p></TextTools>
+</ServiceLayout>

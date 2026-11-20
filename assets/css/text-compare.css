@@ -533,7 +533,6 @@ textarea {
 button {
   min-height: 42px;
   transition:
-    background 0.15s,
     border-color 0.15s;
 }
 .primary {

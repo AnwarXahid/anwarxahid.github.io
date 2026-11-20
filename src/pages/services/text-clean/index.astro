@@ -1,0 +1,7 @@
+---
+import ServiceLayout from '../../../layouts/ServiceLayout.astro';
+import TextTools from '../../../components/services/TextTools';
+---
+<ServiceLayout title="Text Clean" category="TEXT" tagline="Messy spacing in. Clean text out." description="Remove extra spaces, trim lines, and clean pasted plain text locally. Copy or download the result.">
+  <TextTools mode="clean" client:only="react"><p slot="fallback" role="status">Loading the tool…</p></TextTools>
+</ServiceLayout>

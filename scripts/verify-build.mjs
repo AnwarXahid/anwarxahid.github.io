@@ -15,3 +15,5 @@ for(const locale of locales){for(const page of inventory.pages){const file=page.
 if(!(await readFile('dist/i18n.js','utf8')).includes('Asia/Dhaka'))throw Error('Language script missing');
 const homepage=await readFile('dist/index.html','utf8');if(homepage.includes('astro-island'))throw Error('Portfolio unexpectedly hydrated');
 console.log(`Verified ${inventory.pages.length} content routes in ${locales.length+1} languages, redirects, 8 exam routes and ${Object.keys(inventory.assets).length} unchanged assets.`);
+
+for(const route of ["image-compress","pdf-merge","text-clean","json-format","text-compare"]){await stat(`dist/services/${route}/index.html`);if(!(await readFile("dist/sitemap.xml","utf8")).includes(`/services/${route}/`))throw Error(`Service missing from sitemap: ${route}`);}
