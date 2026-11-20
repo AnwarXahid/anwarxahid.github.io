@@ -1,65 +1,100 @@
-# Anwar Zahid's portfolio + Quizora
+# Anwar Zahid
 
-An Astro static portfolio with an Unsupervised Lab at `/lab/`. The Lab groups browser services, games, and other tools. Services include Text Compare at `/services/text-compare/` and the QR generator at `/exam/qr/`. Games contains Carry My Bro and Save My Bro; Others contains [PromptDude](https://anwarxahid.github.io/PromptDude/). Projects, Papers, and Apps are intentionally empty. Text Compare processes plain text locally, supports file import and download, and never stores the input. Quizora (`/exam/`) and OpenMath (`/math/`) remain accessible by their existing URLs but are no longer featured in the Lab. Published quizzes show a scannable participant link. Quizora's Hono Worker and Cloudflare D1 backend store quizzes and submissions. AI is optional and hidden in the pilot build. No public deployment is performed by installing or running this repository.
+My personal website: research, publications, experience, teaching, writing, and things I build.
 
-## Local development
+**[Visit the portfolio](https://anwarxahid.github.io/)** · **[Explore the Lab](https://anwarxahid.github.io/lab/)**
 
-Node 22.12+ and npm 9.6.5+ are required by Astro. Use the checked-in lockfile.
+## Unsupervised Lab
+
+The Lab is a collection of small, focused tools and original browser games. Each service has its own page and processes your input on your device, without uploading it to a server or requiring an account.
+
+### Services
+
+| Tool | What it does |
+| --- | --- |
+| [Image Compress](https://anwarxahid.github.io/services/image-compress/) | Compress JPG, PNG, or WebP images, preview the result, and download a JPEG or WebP. |
+| [PDF Merge](https://anwarxahid.github.io/services/pdf-merge/) | Arrange PDF files and combine their pages into one document. |
+| [Text Clean](https://anwarxahid.github.io/services/text-clean/) | Trim lines, collapse extra spaces, remove empty lines, or join wrapped text. |
+| [JSON Format](https://anwarxahid.github.io/services/json-format/) | Validate, format, or minify JSON while preserving the original number precision. |
+| [Text Compare](https://anwarxahid.github.io/services/text-compare/) | Compare two versions line by line, then copy or download the differences. |
+| [QR Code Generator](https://anwarxahid.github.io/exam/qr/) | Create a QR code from a link or text and download the image. |
+
+Image Compress exports still images. PDF Merge supports up to 20 files, 50 MB combined, and 500 pages; it flattens form values and does not preserve interactive forms, bookmarks, or digital signatures. File and input limits are shown on each tool's page.
+
+### Games
+
+- **[Carry My Bro](https://anwarxahid.github.io/game/)** — collect your crew, switch lanes, and dodge obstacles.
+- **[Save My Bro](https://anwarxahid.github.io/game/save-my-bro/)** — rescue falling friends across three skydiving rounds.
+
+### Others
+
+- **[PromptDude](https://anwarxahid.github.io/PromptDude/)** — a browser extension for choosing the depth, tone, and format of prompts on supported AI chat sites. Its source lives in the [PromptDude repository](https://github.com/AnwarXahid/PromptDude).
+
+The Lab also has **Projects**, **Papers**, and **Apps** sections. These are intentionally empty until there is work to add. The portfolio's research and publication sections remain separate from these Lab categories.
+
+## Development
+
+The website uses **Astro, React, and TypeScript**, builds to static files, and is hosted on GitHub Pages. Portfolio content comes from the repository's Markdown, HTML, YAML, and Liquid templates. Interactive services and games run in the browser.
+
+Use a current **Node.js 22.x** release and npm, then:
 
 ```sh
 npm ci
-cp .env.example .env
-npm run db:migrate
-npm run worker:dev
-# second terminal
 npm run dev
 ```
 
-Open `http://127.0.0.1:4321/exam/`. Create questions manually or open a labeled sample, customize, review and publish. Save the private management recovery record. Participants can join by QR code, link, or code. The QR tool works entirely in the browser. Local D1 persists in ignored Wrangler state; browser drafts and tab-scoped pending-answer recovery are not the authoritative submission store.
+Open `http://127.0.0.1:4321/` for the portfolio or `/lab/` for the tools. The portfolio, browser services, and games do not need a database or API server.
+
+### Checks
 
 ```sh
 npm run check
 npm test
 npm run build
-npm run ai:schema
 npm run inventory
 node scripts/verify-build.mjs
 npx playwright install chromium
 npm run test:e2e
-npm run load
 ```
 
-See [implementation progress](docs/PROGRESS.md) for actual verification results and remaining gates. This is an implementation under review, not a claim of production readiness or unlimited free capacity.
+The browser suite also starts a local Worker for the older quiz application's regression tests. Its test configuration supplies the local API settings.
 
-## Deploying: just push
+### Repository map
 
-`.github/workflows/ship.yml` tests every push and puts it live on GitHub Pages; nothing needs to be clicked.
-
-| You push to | What happens |
+| Location | Contents |
 | --- | --- |
-| `master` | type check, unit tests, build + build verification, browser tests → deploy |
-| any other branch | the same tests → merged into `master` (fast-forward when possible) → deploy |
-| `wip/<name>` | the same tests only; never merged or deployed |
+| `_pages/`, `_posts/`, `_publications/`, `_data/` | Portfolio content and structured data |
+| `_layouts/`, `_includes/`, `_i18n/` | Portfolio templates and translations |
+| `src/pages/services/` | Individual service routes |
+| `src/components/services/` | Browser tool interfaces and processing logic |
+| `src/layouts/ServiceLayout.astro` | Shared tool page layout and theme controls |
+| `src/pages/game/`, `public/game/` | Game pages and assets |
+| `assets/` | Shared styles and scripts |
+| `tests/` | Unit, API, and browser tests |
+| `.github/workflows/ship.yml` | Test, build, and GitHub Pages deployment pipeline |
 
-A failing test stops the run before anything is merged or deployed. GitHub does not let Actions push changes to `.github/workflows/`, so a branch that edits the pipeline itself must be pushed with `git push origin <branch>:master`; the run says so if this happens. To redeploy without a change, use **Actions → Test and deploy → Run workflow** on `master`. The Cloudflare Worker and D1 database are still deployed separately (see [operations](docs/OPERATIONS.md)).
+## Deployment
+
+Pushes are handled by the repository's existing **Test and deploy** workflow:
+
+| Branch | Behavior |
+| --- | --- |
+| `master` | Run checks, build, verify, and deploy to GitHub Pages. |
+| Other branches | Run checks, merge passing changes into `master`, and trigger deployment. |
+| `wip/*` | Run checks only, without automatic merging or deployment. Use this for changes awaiting review. |
+
+A failed check stops publication. Workflow file changes need to be merged or pushed directly to `master`, because the built-in Actions token cannot push workflow edits. Cloudflare services are deployed separately from the static website.
 
 ## Languages
 
-The portfolio and Lab are available in the ten most spoken languages: English (default, at `/`), 简体中文 `/zh/`, हिन्दी `/hi/`, Español `/es/`, العربية `/ar/`, Français `/fr/`, বাংলা `/bn/`, Português `/pt/`, Русский `/ru/` and اردو `/ur/`. Quizora switches in place. Every page has a language menu, and a visitor whose browser languages or time zone point to one of these languages is asked once, in that language, whether to switch. The choice is remembered. Detection runs entirely in the browser; no location lookup or tracking request is made. OpenMath Studio, blog posts and paper pages stay in English and say so.
+The portfolio and Lab directory support English, Chinese, Hindi, Spanish, Arabic, French, Bengali, Portuguese, Russian, and Urdu. Arabic and Urdu use right-to-left layouts. Translation files live in `_i18n/`; tests check for missing and unused translation keys. The standalone services and games currently use English interfaces.
 
-- Page text is written in English inline in the templates as `{% t "key" %}English{% endt %}`; each language's version lives in `_i18n/<code>.yml` under the same key. Front-matter text (`records`), news items (keyed by date) and experience entries (keyed by `id`) are translated in the same files.
-- Translations are written for readers of that language, not word for word. Personal names, paper titles, course codes and product names are left as published, and first-person text avoids grammatical gender.
-- `npm test` fails if any page in any language is missing a translation or carries an unused one. Locale names, text direction, the suggestion prompt and the time-zone map are in `src/i18n/locales.ts`; Quizora's interface strings are in `src/i18n/index.ts`.
+## Older applications
 
-## Documentation
+The repository also retains **Quizora** at `/exam/` and **OpenMath Studio** at `/math/`. They are not featured in the current Lab directory. The QR generator retains its existing `/exam/qr/` address.
 
-- [Architecture, state, authorization and privacy](docs/ARCHITECTURE.md)
-- [Local setup, deployment, AI and troubleshooting](docs/OPERATIONS.md)
-- [Pilot go-live steps](docs/GO-LIVE.md)
-- [Portfolio preservation and rollback](docs/MIGRATION.md)
-- [Free-tier calculations, references and staging testing](docs/COSTS.md)
-- [Measured local load data](docs/load-results.json) (generated by `npm run load`)
+Quizora's optional backend uses a Cloudflare Worker and D1. To work on it locally, copy `.env.example` to `.env`, run `npm run db:migrate`, and start `npm run worker:dev` alongside the site. Its optional AI integration is disabled by default. Backend details and older implementation notes are in [operations](docs/OPERATIONS.md) and [architecture](docs/ARCHITECTURE.md).
 
-The optional `local-ai/` service uses FastAPI and Ollama on loopback, plus an outbound HTTPS agent. It requires a locally installed model and provisioned secrets. Set `PUBLIC_ENABLE_AI=true` only after configuring that service and the Worker; the pilot defaults to `false`. Manual creation, QR codes, and participation work without AI. Uploaded originals are not retained; only selected source text is transmitted after consent when AI is enabled. Quizzes expire within 90 days, responses within 30 days after closure (capped by quiz expiry), and temporary AI data within an hour or acknowledged retrieval. Backups have separate retention.
+## License
 
-Cloudflare account/database IDs, private secrets, Turnstile and the public API URL must be configured separately. Paid resources, remote load tests and public publication require authorization. The old Fun URL redirects to the Lab; the arcade source was removed from the active site.
+See [LICENSE](LICENSE).
