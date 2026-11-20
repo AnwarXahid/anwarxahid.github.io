@@ -2,75 +2,74 @@
 layout: lab
 permalink: /lab/
 title: "Unsupervised Lab"
-excerpt: "Useful experiments and games: Quizora, OpenMath Studio, a QR generator, PromptDude, Carry My Bro, and Save My Bro."
+excerpt: "Small tools that do one thing well. Free browser services, original games, and a browser extension."
 body_class: lab-page
 lab_showcase: true
 redirect_from:
   - /fun/
 ---
-
 <section class="lab-hero" aria-labelledby="lab-title">
-  <div class="lab-hero-copy">
-    <p class="lab-overline"><span class="lab-live-dot" aria-hidden="true"></span> {% t "lab.overline" %}Side projects / useful experiments{% endt %}</p>
-    <h1 id="lab-title" lang="en">Unsupervised <span>Lab.</span></h1>
-    <p class="lab-lede">{% t "lab.lede" %}A place for ideas that escaped the notebook and became things you can use or play. Six projects are ready to try.{% endt %}</p>
-    <a class="lab-hero-link" href="#projects">{% t "lab.explore" %}Explore the projects{% endt %} <span aria-hidden="true">↘</span></a>
-  </div>
-  <nav class="lab-index" aria-label="Jump to a project">
-    <div class="lab-index-top"><span>{% t "lab.index.notes" %}FIELD NOTES{% endt %}</span><span>{% t "lab.index.count" %}6 PROJECTS{% endt %}</span></div>
-    <a class="lab-index-row" href="#quizora-project"><span>01</span><strong>Quizora</strong><i aria-hidden="true"></i></a>
-    <a class="lab-index-row" href="#qr-project"><span>02</span><strong>{% t "lab.index.qr" %}QR Generator{% endt %}</strong><i aria-hidden="true"></i></a>
-    <a class="lab-index-row" href="#prompt-project"><span>03</span><strong>PromptDude</strong><i aria-hidden="true"></i></a>
-    <a class="lab-index-row" href="#math-project"><span>04</span><strong>OpenMath</strong><i aria-hidden="true"></i></a>
-    <a class="lab-index-row" href="#carry-project"><span>05</span><strong>Carry My Bro</strong><i aria-hidden="true"></i></a>
-    <a class="lab-index-row" href="#save-project"><span>06</span><strong>Save My Bro</strong><i aria-hidden="true"></i></a>
-    <div class="lab-index-bottom">{% t "lab.index.motto" %}Build · try · improve{% endt %} <span>↗</span></div>
-  </nav>
+  <div><p class="lab-overline">{% t "lab.overline" %}A personal collection{% endt %}</p>
+  <h1 id="lab-title" lang="en">Small tools.<br><span>Real use.</span></h1>
+  <p class="lab-lede">{% t "lab.lede" %}Things I build to make everyday work a little easier. Pick a tool, play a game, or see what’s next.{% endt %}</p>
+  <a class="lab-hero-link" href="#services">{% t "lab.explore" %}Explore the services{% endt %}</a></div>
+  <div class="lab-manifest"><span class="manifest-symbol" aria-hidden="true">[ / ]</span><strong>Unsupervised Lab</strong><p>{% t "lab.manifest" %}One tool. One purpose. Ready when you need it.{% endt %}</p><span class="manifest-note">{% t "lab.manifest.note" %}Built by Anwar Zahid{% endt %}</span></div>
 </section>
-
-<section class="lab-projects" id="projects" aria-labelledby="projects-title">
-  <div class="lab-section-heading">
-    <div><p class="lab-overline">{% t "lab.selected" %}Selected work{% endt %}</p><h2 id="projects-title">{% t "lab.title" %}Explore the lab{% endt %}</h2></div>
-    <p>{% t "lab.intro" %}Tools and experiments you can try in your browser.{% endt %}</p>
-  </div>
-
-  <div class="lab-grid">
-    <article class="lab-card lab-card-quizora" id="quizora-project" aria-labelledby="quizora-title">
-      <div class="lab-card-meta"><span class="lab-number">{% t "lab.quizora.kind" %}01 / EDUCATION{% endt %}</span><span class="lab-status"><span aria-hidden="true"></span> {% t "lab.live" %}Live{% endt %}</span></div>
-      <div class="lab-quiz-preview" aria-hidden="true">
-        <div class="lab-preview-bar"><span></span><span></span><span></span><b>QUIZORA</b></div>
-        <div class="lab-preview-body"><span class="lab-preview-kicker">{% t "lab.quizora.previewKicker" %}QUESTION 01 / 04{% endt %}</span><strong>{% t "lab.quizora.previewQ" %}What will you learn today?{% endt %}</strong><div class="lab-answer"><i></i><span>{% t "lab.quizora.previewA1" %}Something worth sharing{% endt %}</span></div><div class="lab-answer selected"><i></i><span>{% t "lab.quizora.previewA2" %}Everything above{% endt %}</span><b>✓</b></div></div>
+<nav class="lab-categories" aria-label="Lab categories">
+<a href="#services">{% t "lab.category.services" %}Services{% endt %} <span>2</span></a>
+<a href="#games">{% t "lab.category.games" %}Games{% endt %} <span>2</span></a>
+<a href="#projects">{% t "lab.category.projects" %}Projects{% endt %} <span>0</span></a>
+<a href="#papers">{% t "lab.category.papers" %}Papers{% endt %} <span>0</span></a>
+<a href="#apps">{% t "lab.category.apps" %}Apps{% endt %} <span>0</span></a>
+<a href="#others">{% t "lab.category.others" %}Others{% endt %} <span>1</span></a>
+</nav>
+<section class="lab-section" id="services" aria-labelledby="services-title">
+<div class="lab-section-heading"><div><p class="lab-overline">{% t "lab.services.kicker" %}Less friction, more done{% endt %}</p><h2 id="services-title">{% t "lab.category.services" %}Services{% endt %}</h2></div><p>{% t "lab.services.intro" %}Simple tools. No account needed.{% endt %}</p></div>
+<div class="lab-service-list">
+<a class="service-row" href="/services/text-compare/"><span class="service-icon" aria-hidden="true">±</span><div><h3>{% t "lab.compare.title" %}Text Compare{% endt %}</h3><p>{% t "lab.compare.text" %}Two texts, one clear view of what changed. Compare lines, ignore whitespace, and download the result.{% endt %}</p><span class="service-detail">{% t "lab.compare.detail" %}Runs locally · Text &amp; files{% endt %}</span></div><span class="service-open">{% t "lab.open" %}Open tool{% endt %}</span></a>
+<a class="service-row" href="/exam/qr/"><span class="service-icon" aria-hidden="true">▦</span><div><h3>{% t "lab.qr.title" %}QR Code Generator{% endt %}</h3><p>{% t "lab.qr.text" %}Turn a link or text into a custom QR code. Choose a color, adjust the size, and download a crisp PNG, all in your browser.{% endt %}</p><span class="service-detail">{% t "lab.qr.detail" %}Custom colors · PNG download{% endt %}</span></div><span class="service-open">{% t "lab.open" %}Open tool{% endt %}</span></a>
+</div></section>
+<section class="lab-section" id="games" aria-labelledby="games-title"><div class="lab-section-heading"><div><p class="lab-overline">{% t "lab.games.kicker" %}Take a little break{% endt %}</p><h2 id="games-title">{% t "lab.category.games" %}Games{% endt %}</h2></div><p>{% t "lab.games.intro" %}Two games. Straight into your browser.{% endt %}</p></div><div class="lab-grid">    <article class="lab-card lab-card-game" id="carry-project" aria-labelledby="game-title">
+      <div class="lab-game-copy">
+        <div class="lab-card-meta"><span class="lab-status"><span aria-hidden="true"></span> {% t "lab.live" %}Live{% endt %}</span></div>
+        <h3 id="game-title">Carry My Bro</h3>
+        <p>{% t "lab.game.text" %}Pick up bros to build a human tower. Switch lanes, dodge barriers, and duck beneath bridges before the stack gets clipped.{% endt %}</p>
+        <div class="lab-tags"><span>{% t "lab.game.tag1" %}Three lanes{% endt %}</span><span>{% t "lab.game.tag2" %}Save your crew{% endt %}</span><span>{% t "lab.game.tag3" %}Original music{% endt %}</span></div>
+        <a class="lab-card-link" href="{{ '/game/' | relative_url }}">{% t "lab.game.link" %}Play Carry My Bro{% endt %}</a>
       </div>
-      <h3 id="quizora-title">Quizora</h3>
-      <p>{% t "lab.quizora.text" %}Create a quiz, share it by link or QR code, and see how learners respond. Built for practical teaching and practice.{% endt %}</p>
-      <div class="lab-tags"><span>{% t "lab.quizora.tag1" %}Quiz creation{% endt %}</span><span>{% t "lab.quizora.tag2" %}Live responses{% endt %}</span><span>{% t "lab.quizora.tag3" %}Share by QR{% endt %}</span></div>
-      <a class="lab-card-link" href="{{ '/exam/' | relative_url }}">{% t "lab.quizora.link" %}Open Quizora{% endt %} <span aria-hidden="true">↗</span></a>
-    </article>
-
-    <article class="lab-card lab-card-qr" id="qr-project" aria-labelledby="qr-title">
-      <div class="lab-card-meta"><span class="lab-number">{% t "lab.qr.kind" %}02 / UTILITY{% endt %}</span><span class="lab-status"><span aria-hidden="true"></span> {% t "lab.live" %}Live{% endt %}</span></div>
-      <div class="lab-qr-preview" aria-hidden="true">
-        <div class="lab-qr-grid">
-          <span class="finder one"></span><span class="finder two"></span><span class="finder three"></span>
-          <span class="pixel p1"></span><span class="pixel p2"></span><span class="pixel p3"></span><span class="pixel p4"></span><span class="pixel p5"></span><span class="pixel p6"></span><span class="pixel p7"></span><span class="pixel p8"></span>
-        </div>
-        <span class="lab-qr-download">PNG <span>↓</span></span>
+      <div class="lab-game-preview" aria-hidden="true">
+        <span class="lab-game-sun"></span><span class="lab-game-cloud cloud-one"></span><span class="lab-game-cloud cloud-two"></span>
+        <div class="lab-game-road"><i></i><i></i></div>
+        <div class="lab-game-bridge"><span>DUCK!</span></div>
+        <div class="lab-game-bro bro-bottom"><i></i></div><div class="lab-game-bro bro-middle"><i></i></div><div class="lab-game-bro bro-top"><i></i></div>
+        <span class="lab-game-score">BROS ON BOARD <strong>03</strong></span>
       </div>
-      <h3 id="qr-title">{% t "lab.qr.title" %}QR Code Generator{% endt %}</h3>
-      <p>{% t "lab.qr.text" %}Turn a link or text into a custom QR code. Choose a color, adjust the size, and download a crisp PNG, all in your browser.{% endt %}</p>
-      <div class="lab-tags"><span>{% t "lab.qr.tag1" %}Custom colors{% endt %}</span><span>{% t "lab.qr.tag2" %}Instant preview{% endt %}</span><span>{% t "lab.qr.tag3" %}PNG export{% endt %}</span></div>
-      <a class="lab-card-link" href="{{ '/exam/qr/' | relative_url }}">{% t "lab.qr.link" %}Make a QR code{% endt %} <span aria-hidden="true">↗</span></a>
-    </article>
-
-    <article class="lab-card lab-card-prompt" id="prompt-project" aria-labelledby="prompt-title">
+    </article>    <article class="lab-card lab-card-save" id="save-project" aria-labelledby="save-title">
+      <div class="lab-card-meta"><span class="lab-status"><span aria-hidden="true"></span> {% t "lab.live" %}Live{% endt %}</span></div>
+      <div class="lab-save-preview" aria-hidden="true">
+        <span class="lab-save-sun"></span><span class="lab-save-cloud cloud-a"></span><span class="lab-save-cloud cloud-b"></span>
+        <span class="lab-save-plane">✈</span>
+        <span class="lab-save-chute chute-a"><i></i></span><span class="lab-save-chute chute-b"><i></i></span>
+        <span class="lab-save-hero"><i></i></span>
+        <span class="lab-save-badge">02 / 03 SAVED</span>
+      </div>
+      <h3 id="save-title">Save My Bro</h3>
+      <p>{% t "lab.save.text" %}Jump from a plane, catch falling friends, and help them float home. Three short rounds, one big rescue mission.{% endt %}</p>
+      <div class="lab-tags"><span>{% t "lab.save.tag1" %}Three rounds{% endt %}</span><span>{% t "lab.save.tag2" %}Sky rescue{% endt %}</span><span>{% t "lab.save.tag3" %}Original music{% endt %}</span></div>
+      <a class="lab-card-link" href="{{ '/game/save-my-bro/' | relative_url }}">{% t "lab.save.link" %}Play Save My Bro{% endt %}</a>
+    </article></div></section>
+<div class="lab-empty-grid"><section class="lab-empty" id="projects" aria-labelledby="projects-title"><h2 id="projects-title">{% t "lab.category.projects" %}Projects{% endt %}</h2><p>{% t "lab.empty" %}Nothing here yet.{% endt %}</p></section>
+<section class="lab-empty" id="papers" aria-labelledby="papers-title"><h2 id="papers-title">{% t "lab.category.papers" %}Papers{% endt %}</h2><p>{% t "lab.empty" %}Nothing here yet.{% endt %}</p></section>
+<section class="lab-empty" id="apps" aria-labelledby="apps-title"><h2 id="apps-title">{% t "lab.category.apps" %}Apps{% endt %}</h2><p>{% t "lab.empty" %}Nothing here yet.{% endt %}</p></section></div>
+<section class="lab-section" id="others" aria-labelledby="others-title"><div class="lab-section-heading"><div><p class="lab-overline">{% t "lab.others.kicker" %}Beyond the browser tab{% endt %}</p><h2 id="others-title">{% t "lab.category.others" %}Others{% endt %}</h2></div></div><div class="lab-grid lab-others-grid">    <article class="lab-card lab-card-prompt" id="prompt-project" aria-labelledby="prompt-title">
       <div class="lab-prompt-copy">
-        <div class="lab-card-meta"><span class="lab-number">{% t "lab.prompt.kind" %}03 / BROWSER EXTENSION{% endt %}</span><span class="lab-status"><span aria-hidden="true"></span> {% t "lab.prompt.status" %}Download available{% endt %}</span></div>
+        <div class="lab-card-meta"><span class="lab-status"><span aria-hidden="true"></span> {% t "lab.prompt.status" %}Download available{% endt %}</span></div>
         <h3 id="prompt-title">PromptDude</h3>
         <p>{% t "lab.prompt.text" %}Choose the depth, tone, and format you want, then enhance and send your prompt on supported AI chat sites. Install the free Chromium extension from its download page.{% endt %}</p>
         <div class="lab-tags"><span>{% t "lab.prompt.tag1" %}Word budget{% endt %}</span><span>{% t "lab.prompt.tag2" %}Tone &amp; format{% endt %}</span><span>{% t "lab.prompt.tag3" %}Quick boosters{% endt %}</span></div>
         <div class="lab-prompt-links">
-          <a class="lab-card-link" href="https://anwarxahid.github.io/PromptDude/">{% t "lab.prompt.get" %}Get PromptDude{% endt %} <span aria-hidden="true">↗</span></a>
-          <a class="lab-card-link lab-card-link-secondary" href="https://github.com/AnwarXahid/PromptDude">{% t "lab.prompt.source" %}View source{% endt %} <span aria-hidden="true">↗</span></a>
+          <a class="lab-card-link" href="https://anwarxahid.github.io/PromptDude/">{% t "lab.prompt.get" %}Get PromptDude{% endt %}</a>
+          <a class="lab-card-link lab-card-link-secondary" href="https://github.com/AnwarXahid/PromptDude">{% t "lab.prompt.source" %}View source{% endt %}</a>
         </div>
       </div>
       <div class="lab-prompt-preview" role="group" aria-label="Preview of PromptDude settings" lang="en" dir="ltr">
@@ -82,47 +81,4 @@ redirect_from:
         <div class="lab-prompt-group"><small>QUICK BOOSTERS</small><div><span>No Fluff</span><span>Examples</span><span>Trade-offs</span></div></div>
         <div class="lab-prompt-actions"><span>✨ Enhance &amp; Send ↵</span><span>Clear</span></div>
       </div>
-    </article>
-
-    <article class="lab-card lab-card-math" id="math-project" aria-labelledby="openmath-title">
-      <div class="lab-card-meta"><span class="lab-number">{% t "lab.math.kind" %}04 / MATH TOOL{% endt %}</span><span class="lab-status"><span aria-hidden="true"></span> {% t "lab.live" %}Live{% endt %}</span></div>
-      <div class="lab-math-preview" aria-hidden="true"><span class="lab-math-formula">y = x² + 2x</span><span class="lab-math-graph"><i></i><b></b></span><span class="lab-math-check">✓ VERIFIED</span></div>
-      <h3 id="openmath-title">OpenMath Studio</h3>
-      <p>{% t "lab.math.text" %}Solve checked algebra, graph in 2D and 3D, extract printed text, and keep local math notes.{% endt %}</p>
-      <div class="lab-tags"><span>{% t "lab.math.tag1" %}Verified steps{% endt %}</span><span>{% t "lab.math.tag2" %}2D &amp; 3D graphs{% endt %}</span><span>{% t "lab.math.tag3" %}Local notes{% endt %}</span></div>
-      <a class="lab-card-link" href="{{ '/math/' | relative_url }}">{% t "lab.math.link" %}Open the studio{% endt %} <span aria-hidden="true">↗</span></a>
-    </article>
-
-    <article class="lab-card lab-card-game" id="carry-project" aria-labelledby="game-title">
-      <div class="lab-game-copy">
-        <div class="lab-card-meta"><span class="lab-number">{% t "lab.game.kind" %}05 / ENDLESS RUNNER{% endt %}</span><span class="lab-status"><span aria-hidden="true"></span> {% t "lab.live" %}Live{% endt %}</span></div>
-        <h3 id="game-title">Carry My Bro</h3>
-        <p>{% t "lab.game.text" %}Pick up bros to build a human tower. Switch lanes, dodge barriers, and duck beneath bridges before the stack gets clipped.{% endt %}</p>
-        <div class="lab-tags"><span>{% t "lab.game.tag1" %}Three lanes{% endt %}</span><span>{% t "lab.game.tag2" %}Save your crew{% endt %}</span><span>{% t "lab.game.tag3" %}Original music{% endt %}</span></div>
-        <a class="lab-card-link" href="{{ '/game/' | relative_url }}">{% t "lab.game.link" %}Play Carry My Bro{% endt %} <span aria-hidden="true">↗</span></a>
-      </div>
-      <div class="lab-game-preview" aria-hidden="true">
-        <span class="lab-game-sun"></span><span class="lab-game-cloud cloud-one"></span><span class="lab-game-cloud cloud-two"></span>
-        <div class="lab-game-road"><i></i><i></i></div>
-        <div class="lab-game-bridge"><span>DUCK!</span></div>
-        <div class="lab-game-bro bro-bottom"><i></i></div><div class="lab-game-bro bro-middle"><i></i></div><div class="lab-game-bro bro-top"><i></i></div>
-        <span class="lab-game-score">BROS ON BOARD <strong>03</strong></span>
-      </div>
-    </article>
-
-    <article class="lab-card lab-card-save" id="save-project" aria-labelledby="save-title">
-      <div class="lab-card-meta"><span class="lab-number">{% t "lab.save.kind" %}06 / SKY RESCUE{% endt %}</span><span class="lab-status"><span aria-hidden="true"></span> {% t "lab.live" %}Live{% endt %}</span></div>
-      <div class="lab-save-preview" aria-hidden="true">
-        <span class="lab-save-sun"></span><span class="lab-save-cloud cloud-a"></span><span class="lab-save-cloud cloud-b"></span>
-        <span class="lab-save-plane">✈</span>
-        <span class="lab-save-chute chute-a"><i></i></span><span class="lab-save-chute chute-b"><i></i></span>
-        <span class="lab-save-hero"><i></i></span>
-        <span class="lab-save-badge">02 / 03 SAVED</span>
-      </div>
-      <h3 id="save-title">Save My Bro</h3>
-      <p>{% t "lab.save.text" %}Jump from a plane, catch falling friends, and help them float home. Three short rounds, one big rescue mission.{% endt %}</p>
-      <div class="lab-tags"><span>{% t "lab.save.tag1" %}Three rounds{% endt %}</span><span>{% t "lab.save.tag2" %}Sky rescue{% endt %}</span><span>{% t "lab.save.tag3" %}Original music{% endt %}</span></div>
-      <a class="lab-card-link" href="{{ '/game/save-my-bro/' | relative_url }}">{% t "lab.save.link" %}Play Save My Bro{% endt %} <span aria-hidden="true">↗</span></a>
-    </article>
-  </div>
-</section>
+    </article></div></section>
