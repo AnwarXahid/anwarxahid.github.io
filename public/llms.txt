@@ -22,9 +22,17 @@
 - Reach each round's rescue target before the ground arrives. Debris costs a heart; a missed target or empty health meter lets the player retry that round.
 - Controls: left/right arrow keys or A/D; drag across the game area or use the on-screen arrow buttons on touch devices. P pauses. Original music starts with the game and can be toggled.
 
-## Other Lab projects
+## Browser services
 
-- [Quizora](https://anwarxahid.github.io/exam/): Create and share quizzes.
-- [OpenMath Studio](https://anwarxahid.github.io/math/): Solve, graph, scan, and keep math notes.
+These services process input locally in the browser. Interfaces are in English.
+
+- [Image Compress](https://anwarxahid.github.io/services/image-compress/): Make a JPG, PNG, or WebP smaller. Preview the result and download it.
+- [PDF Merge](https://anwarxahid.github.io/services/pdf-merge/): Put PDF files in the right order and combine them into one document.
+- [Text Clean](https://anwarxahid.github.io/services/text-clean/): Trim lines, remove extra spaces, and clean up pasted text.
+- [JSON Format](https://anwarxahid.github.io/services/json-format/): Validate, format, or minify JSON while keeping number precision intact.
+- [Text Compare](https://anwarxahid.github.io/services/text-compare/): Compare two texts line by line.
 - [QR generator](https://anwarxahid.github.io/exam/qr/): Create QR codes in the browser.
+
+## Others
+
 - [PromptDude](https://anwarxahid.github.io/PromptDude/): Browser extension for composing prompts.

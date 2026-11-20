@@ -210,6 +210,12 @@ ui:
   lab.empty: "暂时没有内容。"
   lab.others.kicker: "浏览器标签页之外"
 
+  lab.tool.image: "缩小 JPG、PNG 或 WebP 图片。预览结果并下载。"
+  lab.tool.pdf: "按需要排列 PDF 文件，合并为一个文档。"
+  lab.tool.clean: "整理每行文字，去掉多余空格，清理粘贴的文本。"
+  lab.tool.json: "验证、美化或压缩 JSON，保持数字精度。"
+  lab.tools.local: "本地运行 · 无需上传"
+
 records:
   about:
     excerpt: "研究 AI、软件工程与大语言模型可靠性的博士研究者。"
