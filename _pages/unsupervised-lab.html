@@ -34,12 +34,12 @@ redirect_from:
     <input type="search" id="lab-search" class="lab-search-input" placeholder="Search by name, format, or task (e.g. PDF, compress, audio, diff, OCR)..." aria-label="Search tools in Unsupervised Lab" />
     <span id="lab-search-badge" class="lab-search-badge">9 tools</span>
   </div>
-  <div class="lab-filter-pills" role="tablist" aria-label="Filter tools by category">
-    <button type="button" class="lab-pill-btn active" data-filter="all">All</button>
-    <button type="button" class="lab-pill-btn" data-filter="documents">Documents</button>
-    <button type="button" class="lab-pill-btn" data-filter="media">Media &amp; Images</button>
-    <button type="button" class="lab-pill-btn" data-filter="text">Text &amp; Code</button>
-    <button type="button" class="lab-pill-btn" data-filter="security">Security</button>
+  <div class="lab-filter-pills" role="group" aria-label="Filter tools by category">
+    <button type="button" class="lab-pill-btn active" data-filter="all" aria-pressed="true">All</button>
+    <button type="button" class="lab-pill-btn" data-filter="documents" aria-pressed="false">Documents</button>
+    <button type="button" class="lab-pill-btn" data-filter="media" aria-pressed="false">Media &amp; Images</button>
+    <button type="button" class="lab-pill-btn" data-filter="text" aria-pressed="false">Text &amp; Code</button>
+    <button type="button" class="lab-pill-btn" data-filter="security" aria-pressed="false">Security</button>
   </div>
 </div>
 

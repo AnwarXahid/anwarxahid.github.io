@@ -215,8 +215,8 @@
 }
 .lab-search-badge {
   font: 600 0.75rem var(--f-mono, ui-monospace, monospace);
-  color: var(--muted);
-  background: color-mix(in srgb, var(--accent) 8%, var(--bg));
+  color: var(--text);
+  background: color-mix(in srgb, var(--text) 8%, var(--bg));
   border: 1px solid var(--line);
   padding: 3px 8px;
   border-radius: 999px;
@@ -233,19 +233,19 @@
   border-radius: 8px;
   border: 1px solid var(--line);
   background: var(--surface);
-  color: var(--muted);
+  color: var(--text);
   font: 600 0.8125rem var(--f-mono, ui-monospace, monospace);
   cursor: pointer;
   transition: all 0.15s;
 }
 .lab-pill-btn:hover {
-  color: var(--text);
-  border-color: color-mix(in srgb, var(--accent) 50%, var(--line));
+  background: color-mix(in srgb, var(--text) 8%, var(--surface));
+  border-color: color-mix(in srgb, var(--text) 30%, var(--line));
 }
 .lab-pill-btn.active {
-  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
-  border-color: var(--accent);
-  color: var(--accent);
+  background: #3156ce;
+  border-color: #3156ce;
+  color: #ffffff;
 }
 .lab-service-grid {
   display: grid !important;
@@ -289,10 +289,16 @@
   height: 48px;
   border-radius: 12px;
   font-size: 1.5rem;
-  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
-  border: 1px solid color-mix(in srgb, var(--accent) 25%, var(--line));
-  color: var(--accent);
-  box-shadow: 0 4px 12px color-mix(in srgb, var(--accent) 15%, transparent);
+  background: color-mix(in srgb, #1e40af 12%, var(--surface));
+  border: 1px solid color-mix(in srgb, #1e40af 25%, var(--line));
+  color: #1e40af;
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.12);
+}
+[data-theme="dark"] .service-card .service-icon {
+  color: #93c5fd;
+  background: color-mix(in srgb, #93c5fd 14%, var(--surface));
+  border-color: color-mix(in srgb, #93c5fd 30%, var(--line));
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 .service-card .card-badges {
   display: flex;
@@ -303,19 +309,29 @@
   font: 700 0.625rem var(--f-mono, ui-monospace, monospace);
   padding: 3px 8px;
   border-radius: 5px;
-  background: color-mix(in srgb, var(--accent) 10%, var(--bg));
-  border: 1px solid color-mix(in srgb, var(--accent) 20%, var(--line));
-  color: var(--accent);
+  background: color-mix(in srgb, #1e40af 12%, var(--bg));
+  border: 1px solid color-mix(in srgb, #1e40af 25%, var(--line));
+  color: #1e40af;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+[data-theme="dark"] .card-category {
+  color: #93c5fd;
+  background: color-mix(in srgb, #93c5fd 14%, var(--surface));
+  border-color: color-mix(in srgb, #93c5fd 30%, var(--line));
+}
 .card-runtime {
-  font: 500 0.6875rem var(--f-mono, ui-monospace, monospace);
-  color: #10b981;
-  background: color-mix(in srgb, #10b981 10%, var(--bg));
+  font: 600 0.6875rem var(--f-mono, ui-monospace, monospace);
+  color: #065f46;
+  background: color-mix(in srgb, #065f46 12%, var(--bg));
   padding: 3px 7px;
   border-radius: 5px;
-  border: 1px solid color-mix(in srgb, #10b981 25%, var(--line));
+  border: 1px solid color-mix(in srgb, #065f46 25%, var(--line));
+}
+[data-theme="dark"] .card-runtime {
+  color: #34d399;
+  background: color-mix(in srgb, #34d399 14%, var(--surface));
+  border-color: color-mix(in srgb, #34d399 30%, var(--line));
 }
 .service-card .card-body {
   flex: 1;
@@ -346,7 +362,7 @@
   border-radius: 6px;
   background: var(--bg);
   border: 1px solid var(--line);
-  color: var(--muted);
+  color: var(--text);
   font: 500 0.6875rem var(--f-mono, ui-monospace, monospace);
 }
 .service-card .card-foot {
@@ -360,17 +376,21 @@
 .service-card .service-detail {
   margin-top: 0 !important;
   font-size: 0.75rem !important;
-  opacity: 0.8;
+  color: var(--text) !important;
+  opacity: 1 !important;
 }
 .service-card .service-open {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   font-weight: 600;
-  color: var(--accent);
+  color: #1e40af;
   background: transparent !important;
   border: none !important;
   padding: 0 !important;
+}
+[data-theme="dark"] .service-card .service-open {
+  color: #93c5fd;
 }
 .service-card .service-open .arrow {
   transition: transform 0.15s;
@@ -392,10 +412,15 @@
   margin-top: 14px;
   padding: 4px 10px;
   border-radius: 6px;
-  background: color-mix(in srgb, var(--accent) 8%, var(--surface));
-  border: 1px solid color-mix(in srgb, var(--accent) 20%, var(--line));
-  color: var(--accent);
+  background: color-mix(in srgb, #1e40af 10%, var(--surface));
+  border: 1px solid color-mix(in srgb, #1e40af 25%, var(--line));
+  color: #1e40af;
   font: 600 0.6875rem var(--f-mono, ui-monospace, monospace);
   letter-spacing: 0.05em;
   text-transform: uppercase;
+}
+[data-theme="dark"] .roadmap-badge {
+  color: #93c5fd;
+  background: color-mix(in srgb, #93c5fd 14%, var(--surface));
+  border-color: color-mix(in srgb, #93c5fd 30%, var(--line));
 }

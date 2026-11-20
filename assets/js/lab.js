@@ -176,6 +176,8 @@
       const a = nav.querySelector("a.active");
       if (a) movePill(a);
     }, 90);
+  });
+
   /* ---------------- Real-time Lab Services Search & Filter ---------------- */
   safe(() => {
     const searchInput = document.getElementById("lab-search");
@@ -218,8 +220,12 @@
 
     filterButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
-        filterButtons.forEach((b) => b.classList.remove("active"));
+        filterButtons.forEach((b) => {
+          b.classList.remove("active");
+          b.setAttribute("aria-pressed", "false");
+        });
         btn.classList.add("active");
+        btn.setAttribute("aria-pressed", "true");
         activeCategory = btn.dataset.filter || "all";
         applyFilter();
       });
