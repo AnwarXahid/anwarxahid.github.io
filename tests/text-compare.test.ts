@@ -59,3 +59,7 @@ it("rejects inputs exceeding the bounded comparison budget", () => {
     "fewer lines",
   );
 });
+it("bounds one-sided input too, avoiding a very large result rendering", () => {
+  expect(() => compareTexts("a\n".repeat(1400), "")).toThrow("fewer lines");
+  expect(() => compareTexts("", "a\n".repeat(1400))).toThrow("fewer lines");
+});
