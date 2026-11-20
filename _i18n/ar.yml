@@ -215,9 +215,18 @@ ui:
 
   lab.tool.image: "صغّر صورة JPG أو PNG أو WebP. عاين النتيجة ونزّلها."
   lab.tool.pdf: "رتّب ملفات PDF واجمعها في مستند واحد."
+  lab.tool.converter: "تحويل الصور بين WebP و PNG و JPG، أو استخراج الصوت بتنسيق WAV."
+  lab.tool.bg: "إزالة خلفيات الصور وتصدير صور PNG شفافة ونظيفة."
+  lab.tool.ocr: "استخراج نصوص قابلة للتحديد والنسخ من الصور ولقطات الشاشة."
   lab.tool.clean: "نظّف الأسطر وأزل المسافات الزائدة من النص الملصق."
   lab.tool.json: "تحقّق من JSON ونسّقه أو صغّره مع الحفاظ على دقة الأرقام."
   lab.tools.local: "تعمل محليًا · دون رفع الملفات"
+
+  lab.quickpass.text: "نقل نصوص مؤقت ومشفر بين الأجهزة من طرف إلى طرف. محمي بتشفير AES-256-GCM وينتهي تلقائياً خلال 10 دقائق."
+  lab.quickpass.tag1: "تشفير تام"
+  lab.quickpass.tag2: "صلاحية 10 دقائق"
+  lab.quickpass.tag3: "بلا تخزين"
+  lab.quickpass.link: "فتح Quick Pass"
 
 records:
   about:

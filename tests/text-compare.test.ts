@@ -63,3 +63,12 @@ it("bounds one-sided input too, avoiding a very large result rendering", () => {
   expect(() => compareTexts("a\n".repeat(1400), "")).toThrow("fewer lines");
   expect(() => compareTexts("", "a\n".repeat(1400))).toThrow("fewer lines");
 });
+it("computes word-level diffs between modified lines", async () => {
+  const { compareWords, visualizeWhitespace } =
+    await import("../src/components/services/diff");
+  const diff = compareWords("The quick brown fox", "The fast brown fox");
+  expect(diff.oldWords.find((w) => w.kind === "removed")?.text).toBe("quick");
+  expect(diff.newWords.find((w) => w.kind === "added")?.text).toBe("fast");
+
+  expect(visualizeWhitespace("hello world\t")).toBe("hello·world⇥\t");
+});

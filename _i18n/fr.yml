@@ -215,9 +215,18 @@ ui:
 
   lab.tool.image: "Réduisez une image JPG, PNG ou WebP. Vérifiez le résultat et téléchargez-le."
   lab.tool.pdf: "Classez vos fichiers PDF et réunissez-les en un document."
+  lab.tool.converter: "Convertissez des images entre WebP, PNG et JPG, ou extrayez l'audio en WAV."
+  lab.tool.bg: "Supprimez l'arrière-plan d'une image et téléchargez un PNG transparent."
+  lab.tool.ocr: "Extrayez du texte sélectionnable à partir d'images ou de captures d'écran collées."
   lab.tool.clean: "Nettoyez les lignes et supprimez les espaces superflus du texte collé."
   lab.tool.json: "Validez, formatez ou compactez du JSON en préservant la précision des nombres."
   lab.tools.local: "Fonctionne localement · Aucun envoi"
+
+  lab.quickpass.text: "Transfert éphémère de texte chiffré de bout en bout entre appareils. Protégé par AES-256-GCM avec expiration automatique en 10 minutes."
+  lab.quickpass.tag1: "Chiffrement E2E"
+  lab.quickpass.tag2: "Expire en 10 min"
+  lab.quickpass.tag3: "Zéro stockage"
+  lab.quickpass.link: "Ouvrir Quick Pass"
 
 records:
   about:

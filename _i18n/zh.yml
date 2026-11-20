@@ -212,9 +212,18 @@ ui:
 
   lab.tool.image: "缩小 JPG、PNG 或 WebP 图片。预览结果并下载。"
   lab.tool.pdf: "按需要排列 PDF 文件，合并为一个文档。"
+  lab.tool.converter: "在 WebP、PNG 和 JPG 之间转换图像格式，或将音频提取为 WAV。"
+  lab.tool.bg: "去除图像背景并导出高质量透明 PNG。"
+  lab.tool.ocr: "从上传的图片或粘贴的截图中提取可选择的文本。"
   lab.tool.clean: "整理每行文字，去掉多余空格，清理粘贴的文本。"
   lab.tool.json: "验证、美化或压缩 JSON，保持数字精度。"
   lab.tools.local: "本地运行 · 无需上传"
+
+  lab.quickpass.text: "设备间端到端加密的临时文本传输。基于 AES-256-GCM 保护，10 分钟自动过期。"
+  lab.quickpass.tag1: "端到端加密"
+  lab.quickpass.tag2: "10分钟过期"
+  lab.quickpass.tag3: "无持久存储"
+  lab.quickpass.link: "打开 Quick Pass"
 
 records:
   about:

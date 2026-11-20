@@ -1,0 +1,7 @@
+---
+import ServiceLayout from '../../../layouts/ServiceLayout.astro';
+import QuickPass from '../../../components/services/QuickPass';
+---
+<ServiceLayout title="Quick Pass" category="OTHERS" tagline="Send text securely between PCs. Auto-expires in 10 minutes." description="Ephemeral end-to-end encrypted text sharing between devices. Password-protected, searchable, with zero-knowledge encryption and automatic self-destruction.">
+  <QuickPass client:only="react"><p slot="fallback" role="status">Loading the tool…</p></QuickPass>
+</ServiceLayout>

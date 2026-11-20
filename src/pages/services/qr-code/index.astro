@@ -1,0 +1,7 @@
+---
+import ServiceLayout from '../../../layouts/ServiceLayout.astro';
+import QrTool from '../../../components/quizora/QrTool';
+---
+<ServiceLayout title="QR Code Generator" category="TOOLS" tagline="Custom QR codes with colors, Wi-Fi, and vCard support." description="Create QR codes for links, Wi-Fi credentials, and contact cards in your browser. Download as PNG or SVG.">
+  <QrTool client:only="react"><p slot="fallback" role="status">Loading the tool…</p></QrTool>
+</ServiceLayout>

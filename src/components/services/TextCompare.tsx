@@ -1,10 +1,12 @@
 import { useState, useRef } from "react";
-import { compareTexts, type DiffLine } from "./diff";
+import { compareTexts, visualizeWhitespace, type DiffLine } from "./diff";
 export default function TextCompare() {
   const [before, setBefore] = useState(""),
     [after, setAfter] = useState(""),
     [ignoreCase, setIgnoreCase] = useState(false),
     [ignoreWhitespace, setIgnoreWhitespace] = useState(false),
+    [diffWords, setDiffWords] = useState(true),
+    [exposeWhitespace, setExposeWhitespace] = useState(false),
     [changesOnly, setChangesOnly] = useState(false),
     [result, setResult] = useState<DiffLine[] | null>(null),
     [error, setError] = useState("");
@@ -24,7 +26,13 @@ export default function TextCompare() {
   }
   function compare() {
     try {
-      setResult(compareTexts(before, after, { ignoreCase, ignoreWhitespace }));
+      setResult(
+        compareTexts(before, after, {
+          ignoreCase,
+          ignoreWhitespace,
+          diffWords,
+        }),
+      );
       setError("");
     } catch (e) {
       setError((e as Error).message);
@@ -174,6 +182,27 @@ export default function TextCompare() {
             />
             Ignore whitespace
           </label>
+          <label>
+            <input
+              type="checkbox"
+              checked={diffWords}
+              onChange={(e) => {
+                reset();
+                setDiffWords(e.target.checked);
+              }}
+            />
+            Highlight words
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              checked={exposeWhitespace}
+              onChange={(e) => {
+                setExposeWhitespace(e.target.checked);
+              }}
+            />
+            Expose whitespace
+          </label>
         </div>
         <div className="actions">
           <button
@@ -288,7 +317,31 @@ export default function TextCompare() {
                         ? "−"
                         : " "}
                   </span>
-                  <code>{l.text || " "}</code>
+                  <code>
+                    {diffWords && l.words && l.words.length > 0
+                      ? l.words.map((w, wi) => (
+                          <span
+                            key={wi}
+                            style={{
+                              background:
+                                w.kind === "added"
+                                  ? "rgba(34, 197, 94, 0.28)"
+                                  : w.kind === "removed"
+                                    ? "rgba(239, 68, 68, 0.28)"
+                                    : "transparent",
+                              borderRadius: "2px",
+                              padding: "1px 2px",
+                            }}
+                          >
+                            {exposeWhitespace
+                              ? visualizeWhitespace(w.text)
+                              : w.text}
+                          </span>
+                        ))
+                      : exposeWhitespace
+                        ? visualizeWhitespace(l.text || " ")
+                        : l.text || " "}
+                  </code>
                 </div>
               ))}
             {changesOnly && !added && !removed && (
