@@ -16,11 +16,31 @@ export default function FileConverter() {
   } | null>(null);
   const [result, setResult] = useState<Blob | null>(null);
   const [resultName, setResultName] = useState<string>("");
+  const [isDragging, setIsDragging] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
   const [message, setMessage] = useState<string>("");
 
   const abortController = useRef<AbortController | null>(null);
   const revision = useRef(0);
+
+  useEffect(() => {
+    const handlePaste = (e: ClipboardEvent) => {
+      if (mode !== "image") return;
+      const items = e.clipboardData?.items;
+      if (!items) return;
+      for (const item of items) {
+        if (item.type.startsWith("image/")) {
+          const f = item.getAsFile();
+          if (f) {
+            handleFileSelect(f);
+            break;
+          }
+        }
+      }
+    };
+    window.addEventListener("paste", handlePaste);
+    return () => window.removeEventListener("paste", handlePaste);
+  }, [mode]);
 
   useEffect(
     () => () => {
@@ -178,7 +198,20 @@ export default function FileConverter() {
       </div>
 
       <div className="file-workspace">
-        <div className="upload-zone">
+        <div
+          className={`upload-zone ${isDragging ? "dragover" : ""}`}
+          onDragOver={(e) => {
+            e.preventDefault();
+            setIsDragging(true);
+          }}
+          onDragLeave={() => setIsDragging(false)}
+          onDrop={(e) => {
+            e.preventDefault();
+            setIsDragging(false);
+            const candidate = e.dataTransfer.files?.[0];
+            if (candidate) handleFileSelect(candidate);
+          }}
+        >
           <span className="upload-symbol" aria-hidden="true">
             ⇋
           </span>
@@ -193,8 +226,8 @@ export default function FileConverter() {
             {file
               ? `Selected file: ${fileSize(file.size)}.`
               : mode === "image"
-                ? "Convert between WebP, PNG, JPG, and SVG. Genuine pixel re-encoding."
-                : "Extract crisp WAV audio from MP4, WebM, MOV, or OGG videos."}
+                ? "Drag & drop, paste from clipboard (Ctrl+V), or choose a file."
+                : "Drag & drop or choose a video file to extract clean audio."}
           </p>
           <label className="upload-button">
             {file ? "Choose another file" : "Choose file"}

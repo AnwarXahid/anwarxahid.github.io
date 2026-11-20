@@ -29,6 +29,7 @@ export default function ImageCompress() {
     [customWidth, setCustomWidth] = useState<number>(0),
     [customHeight, setCustomHeight] = useState<number>(0),
     [fitMode, setFitMode] = useState<"fit" | "crop" | "stretch">("crop"),
+    [isDragging, setIsDragging] = useState(false),
     [busy, setBusy] = useState(false),
     [error, setError] = useState("");
 
@@ -43,6 +44,24 @@ export default function ImageCompress() {
     },
     [],
   );
+
+  useEffect(() => {
+    const handlePaste = (e: ClipboardEvent) => {
+      const items = e.clipboardData?.items;
+      if (!items) return;
+      for (const item of items) {
+        if (item.type.startsWith("image/")) {
+          const pasted = item.getAsFile();
+          if (pasted) {
+            void load(pasted);
+            break;
+          }
+        }
+      }
+    };
+    window.addEventListener("paste", handlePaste);
+    return () => window.removeEventListener("paste", handlePaste);
+  }, []);
 
   function invalidate() {
     revision.current++;
@@ -195,7 +214,20 @@ export default function ImageCompress() {
   return (
     <>
       <div className="file-workspace">
-        <div className="upload-zone">
+        <div
+          className={`upload-zone ${isDragging ? "dragover" : ""}`}
+          onDragOver={(e) => {
+            e.preventDefault();
+            setIsDragging(true);
+          }}
+          onDragLeave={() => setIsDragging(false)}
+          onDrop={(e) => {
+            e.preventDefault();
+            setIsDragging(false);
+            const candidate = e.dataTransfer.files?.[0];
+            if (candidate) void load(candidate);
+          }}
+        >
           <span className="upload-symbol" aria-hidden="true">
             ▧
           </span>
@@ -203,7 +235,7 @@ export default function ImageCompress() {
           <p>
             {file
               ? "Choose your settings, then compress."
-              : "Choose a JPG, PNG, or WebP. Your image stays on this device."}
+              : "Drag & drop, paste from clipboard (Ctrl+V), or choose a JPG, PNG, or WebP."}
           </p>
           <label className="upload-button">
             {file ? "Choose another image" : "Choose an image"}
@@ -218,7 +250,7 @@ export default function ImageCompress() {
               }}
             />
           </label>
-          <small>Up to 25 MB · 25 million pixels</small>
+          <small>Up to 25 MB · 25 million pixels · 100% In-Browser</small>
         </div>
         <div className="settings-strip">
           <label>

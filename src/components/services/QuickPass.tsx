@@ -158,7 +158,14 @@ export default function QuickPass() {
             `Session name "${name}" is already in use. Please choose another unique name.`,
           );
         }
-        throw new Error("Could not create session. Please try again.");
+        if (errData.error?.code) {
+          throw new Error(
+            `Session creation failed (${errData.error.code}). Please try again.`,
+          );
+        }
+        throw new Error(
+          `Could not create session (${res.status} ${res.statusText || "Error"}). Please try again.`,
+        );
       }
 
       const outcome = (await res.json()) as { name: string; expiresAt: number };

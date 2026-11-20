@@ -30,6 +30,7 @@ export default function PdfMerge() {
   const [compressFile, setCompressFile] = useState<Entry | null>(null);
   const [compressResult, setCompressResult] = useState<Blob | null>(null);
   const [compressionSavings, setCompressionSavings] = useState("");
+  const [isDragging, setIsDragging] = useState(false);
 
   const nextId = useRef(0);
   const revision = useRef(0);
@@ -291,12 +292,25 @@ export default function PdfMerge() {
 
       {mode === "merge" && (
         <div className="file-workspace">
-          <div className="upload-zone">
+          <div
+            className={`upload-zone ${isDragging ? "dragover" : ""}`}
+            onDragOver={(e) => {
+              e.preventDefault();
+              setIsDragging(true);
+            }}
+            onDragLeave={() => setIsDragging(false)}
+            onDrop={(e) => {
+              e.preventDefault();
+              setIsDragging(false);
+              const dt = e.dataTransfer.files;
+              if (dt?.length) void add(dt);
+            }}
+          >
             <span className="upload-symbol" aria-hidden="true">
               ▤
             </span>
             <h2>Separate files. One document.</h2>
-            <p>Add your PDFs, arrange their order, then merge.</p>
+            <p>Drag &amp; drop PDF files or select from your device.</p>
             <label className="upload-button">
               {files.length ? "Add more PDFs" : "Choose PDF files"}
               <input
@@ -311,7 +325,7 @@ export default function PdfMerge() {
                 }}
               />
             </label>
-            <small>Up to 20 files · 50 MB combined · 500 pages</small>
+            <small>Up to 20 files · 50 MB combined · 100% In-Browser</small>
           </div>
           {files.length > 0 && (
             <ol className="pdf-file-list">
