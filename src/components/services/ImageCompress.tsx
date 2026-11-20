@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { downloadFile, fileSize } from "./files";
+
 function useBlobUrl(blob: Blob | null) {
   const [url, setUrl] = useState("");
   useEffect(() => {
@@ -13,6 +14,7 @@ function useBlobUrl(blob: Blob | null) {
   }, [blob]);
   return url;
 }
+
 export default function ImageCompress() {
   const [file, setFile] = useState<File | null>(null),
     [bitmap, setBitmap] = useState<ImageBitmap | null>(null),
@@ -21,11 +23,19 @@ export default function ImageCompress() {
     [quality, setQuality] = useState(80),
     [edge, setEdge] = useState(1920),
     [format, setFormat] = useState("image/jpeg"),
+    [resizeMode, setResizeMode] = useState<"proportional" | "exact">(
+      "proportional",
+    ),
+    [customWidth, setCustomWidth] = useState<number>(0),
+    [customHeight, setCustomHeight] = useState<number>(0),
+    [fitMode, setFitMode] = useState<"fit" | "crop" | "stretch">("crop"),
     [busy, setBusy] = useState(false),
     [error, setError] = useState("");
+
   const revision = useRef(0);
   const originalUrl = useBlobUrl(file),
     resultUrl = useBlobUrl(output);
+
   useEffect(() => () => bitmap?.close(), [bitmap]);
   useEffect(
     () => () => {
@@ -33,12 +43,14 @@ export default function ImageCompress() {
     },
     [],
   );
+
   function invalidate() {
     revision.current++;
     setOutput(null);
     setDimensions("");
     setError("");
   }
+
   async function load(candidate: File | undefined) {
     if (!candidate) return;
     invalidate();
@@ -66,6 +78,8 @@ export default function ImageCompress() {
       }
       setBitmap(decoded);
       setFile(candidate);
+      setCustomWidth(decoded.width);
+      setCustomHeight(decoded.height);
     } catch (e) {
       if (request === revision.current)
         setError(
@@ -77,6 +91,7 @@ export default function ImageCompress() {
       if (request === revision.current) setBusy(false);
     }
   }
+
   async function compress() {
     if (!bitmap) return;
     setBusy(true);
@@ -84,18 +99,65 @@ export default function ImageCompress() {
     setOutput(null);
     const request = ++revision.current;
     try {
-      const scale = Math.min(1, edge / Math.max(bitmap.width, bitmap.height));
       const canvas = document.createElement("canvas");
-      canvas.width = Math.max(1, Math.round(bitmap.width * scale));
-      canvas.height = Math.max(1, Math.round(bitmap.height * scale));
-      const ctx = canvas.getContext("2d");
-      if (!ctx)
-        throw new Error("Image processing is unavailable in this browser.");
-      if (format === "image/jpeg") {
-        ctx.fillStyle = "#ffffff";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      let targetW = bitmap.width;
+      let targetH = bitmap.height;
+
+      if (resizeMode === "proportional") {
+        const scale = Math.min(1, edge / Math.max(bitmap.width, bitmap.height));
+        targetW = Math.max(1, Math.round(bitmap.width * scale));
+        targetH = Math.max(1, Math.round(bitmap.height * scale));
+        canvas.width = targetW;
+        canvas.height = targetH;
+        const ctx = canvas.getContext("2d");
+        if (!ctx)
+          throw new Error("Image processing is unavailable in this browser.");
+        if (format === "image/jpeg") {
+          ctx.fillStyle = "#ffffff";
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+        ctx.drawImage(bitmap, 0, 0, targetW, targetH);
+      } else {
+        targetW = Math.max(1, Math.min(8192, customWidth || bitmap.width));
+        targetH = Math.max(1, Math.min(8192, customHeight || bitmap.height));
+        canvas.width = targetW;
+        canvas.height = targetH;
+        const ctx = canvas.getContext("2d");
+        if (!ctx)
+          throw new Error("Image processing is unavailable in this browser.");
+
+        if (format === "image/jpeg") {
+          ctx.fillStyle = "#ffffff";
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        if (fitMode === "stretch") {
+          ctx.drawImage(bitmap, 0, 0, targetW, targetH);
+        } else if (fitMode === "crop") {
+          const scale = Math.max(
+            targetW / bitmap.width,
+            targetH / bitmap.height,
+          );
+          const drawW = bitmap.width * scale;
+          const drawH = bitmap.height * scale;
+          const offsetX = (targetW - drawW) / 2;
+          const offsetY = (targetH - drawH) / 2;
+          ctx.drawImage(bitmap, offsetX, offsetY, drawW, drawH);
+        } else {
+          // fit (contain)
+          const scale = Math.min(
+            targetW / bitmap.width,
+            targetH / bitmap.height,
+          );
+          const drawW = bitmap.width * scale;
+          const drawH = bitmap.height * scale;
+          const offsetX = (targetW - drawW) / 2;
+          const offsetY = (targetH - drawH) / 2;
+          ctx.drawImage(bitmap, offsetX, offsetY, drawW, drawH);
+        }
       }
-      ctx.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+
+      const qualityParam = format === "image/png" ? undefined : quality / 100;
       const blob = await new Promise<Blob>((resolve, reject) =>
         canvas.toBlob(
           (value) =>
@@ -105,7 +167,7 @@ export default function ImageCompress() {
                   new Error("Could not encode the image. Try a smaller image."),
                 ),
           format,
-          quality / 100,
+          qualityParam,
         ),
       );
       if (blob.type !== format)
@@ -123,8 +185,13 @@ export default function ImageCompress() {
       if (request === revision.current) setBusy(false);
     }
   }
+
   const saving =
     output && file ? Math.round((1 - output.size / file.size) * 100) : 0;
+
+  const ext =
+    format === "image/webp" ? "webp" : format === "image/png" ? "png" : "jpg";
+
   return (
     <>
       <div className="file-workspace">
@@ -166,39 +233,113 @@ export default function ImageCompress() {
             >
               <option value="image/jpeg">JPEG</option>
               <option value="image/webp">WebP</option>
+              <option value="image/png">PNG</option>
             </select>
           </label>
-          <label className="quality-control">
-            Quality <span>{quality}%</span>
-            <input
-              type="range"
-              min="10"
-              max="100"
-              step="1"
-              value={quality}
-              disabled={busy}
-              onChange={(e) => {
-                invalidate();
-                setQuality(Number(e.target.value));
-              }}
-            />
-          </label>
+          {format !== "image/png" ? (
+            <label className="quality-control">
+              Quality <span>{quality}%</span>
+              <input
+                type="range"
+                min="10"
+                max="100"
+                step="1"
+                value={quality}
+                disabled={busy}
+                onChange={(e) => {
+                  invalidate();
+                  setQuality(Number(e.target.value));
+                }}
+              />
+            </label>
+          ) : (
+            <span
+              className="quality-note"
+              style={{ fontSize: "0.85rem", opacity: 0.8 }}
+            >
+              PNG: Lossless compression
+            </span>
+          )}
           <label>
-            Longest edge
+            Resize mode
             <select
-              value={edge}
+              value={resizeMode}
               disabled={busy}
               onChange={(e) => {
                 invalidate();
-                setEdge(Number(e.target.value));
+                setResizeMode(e.target.value as "proportional" | "exact");
               }}
             >
-              <option value="960">Up to 960 px</option>
-              <option value="1920">Up to 1920 px</option>
-              <option value="2560">Up to 2560 px</option>
-              <option value="8192">Up to 8192 px</option>
+              <option value="proportional">Proportional</option>
+              <option value="exact">Exact pixels</option>
             </select>
           </label>
+          {resizeMode === "proportional" ? (
+            <label>
+              Longest edge
+              <select
+                value={edge}
+                disabled={busy}
+                onChange={(e) => {
+                  invalidate();
+                  setEdge(Number(e.target.value));
+                }}
+              >
+                <option value="960">Up to 960 px</option>
+                <option value="1920">Up to 1920 px</option>
+                <option value="2560">Up to 2560 px</option>
+                <option value="8192">Up to 8192 px</option>
+              </select>
+            </label>
+          ) : (
+            <>
+              <label>
+                Width (px)
+                <input
+                  type="number"
+                  min="1"
+                  max="8192"
+                  value={customWidth || ""}
+                  disabled={busy}
+                  style={{ width: "80px" }}
+                  onChange={(e) => {
+                    invalidate();
+                    setCustomWidth(Number(e.target.value));
+                  }}
+                />
+              </label>
+              <label>
+                Height (px)
+                <input
+                  type="number"
+                  min="1"
+                  max="8192"
+                  value={customHeight || ""}
+                  disabled={busy}
+                  style={{ width: "80px" }}
+                  onChange={(e) => {
+                    invalidate();
+                    setCustomHeight(Number(e.target.value));
+                  }}
+                />
+              </label>
+              <label>
+                Fit behavior
+                <select
+                  value={fitMode}
+                  disabled={busy}
+                  onChange={(e) => {
+                    invalidate();
+                    setFitMode(e.target.value as "fit" | "crop" | "stretch");
+                  }}
+                >
+                  <option value="crop">Crop (fill center)</option>
+                  <option value="fit">Fit (preserve ratio)</option>
+                  <option value="stretch">Stretch</option>
+                </select>
+              </label>
+            </>
+          )}
           <button
             className="primary"
             disabled={!bitmap || busy}
@@ -214,8 +355,10 @@ export default function ImageCompress() {
         </p>
       )}
       <p className="tool-note">
-        JPEG places transparent areas on white. WebP keeps transparency. Exports
-        a still image without the original metadata or animation.
+        JPEG fills transparent areas with white. WebP and PNG preserve
+        transparent alpha. Crop fills target dimensions without distortion.
+        Stretch alters aspect ratio. Exports still images without animation or
+        private EXIF metadata.
       </p>
       {file && bitmap && (
         <div className="image-previews">
@@ -235,7 +378,15 @@ export default function ImageCompress() {
               <h2>Compressed</h2>
               <p role="status">
                 {output
-                  ? `${fileSize(output.size)} · ${dimensions} · ${output.size < file.size ? (saving === 0 ? "Less than 1% smaller" : `${Math.min(saving, 99)}% smaller`) : output.size === file.size ? "Same size" : "Not smaller—try lower quality"}`
+                  ? `${fileSize(output.size)} · ${dimensions} · ${
+                      output.size < file.size
+                        ? saving === 0
+                          ? "Less than 1% smaller"
+                          : `${Math.min(saving, 99)}% smaller`
+                        : output.size === file.size
+                          ? "Same size"
+                          : "Not smaller—try lower quality or smaller dimensions"
+                    }`
                   : "Your compressed image will appear here."}
               </p>
             </div>
@@ -252,7 +403,7 @@ export default function ImageCompress() {
                 onClick={() =>
                   downloadFile(
                     output,
-                    `${file.name.replace(/\.[^.]+$/, "")}-compressed.${output.type === "image/webp" ? "webp" : "jpg"}`,
+                    `${file.name.replace(/\.[^.]+$/, "")}-compressed.${ext}`,
                   )
                 }
               >

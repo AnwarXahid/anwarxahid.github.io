@@ -12,14 +12,19 @@ The Lab is a collection of small, focused tools and original browser games. Each
 
 | Tool | What it does |
 | --- | --- |
-| [Image Compress](https://anwarxahid.github.io/services/image-compress/) | Compress JPG, PNG, or WebP images, preview the result, and download a JPEG or WebP. |
-| [PDF Merge](https://anwarxahid.github.io/services/pdf-merge/) | Arrange PDF files and combine their pages into one document. |
-| [Text Clean](https://anwarxahid.github.io/services/text-clean/) | Trim lines, collapse extra spaces, remove empty lines, or join wrapped text. |
-| [JSON Format](https://anwarxahid.github.io/services/json-format/) | Validate, format, or minify JSON while preserving the original number precision. |
-| [Text Compare](https://anwarxahid.github.io/services/text-compare/) | Compare two versions line by line, then copy or download the differences. |
-| [QR Code Generator](https://anwarxahid.github.io/exam/qr/) | Create a QR code from a link or text and download the image. |
+| [PDF Tools](https://anwarxahid.github.io/services/pdf-tools/) | Merge, split, extract page ranges, or compress PDF documents directly in the browser. |
+| [Image Compressor & Resizer](https://anwarxahid.github.io/services/image-compress/) | Compress JPG, PNG, or WebP images, resize to exact pixel dimensions, and download. |
+| [File Format Converter](https://anwarxahid.github.io/services/file-converter/) | Convert images between WebP, PNG, and JPG, or extract audio tracks to 16-bit PCM WAV. |
+| [Text Compare](https://anwarxahid.github.io/services/text-compare/) | Compare texts with line-level and word-level diffs, expose whitespace, and download. |
+| [Text Clean & Scratchpad](https://anwarxahid.github.io/services/text-clean/) | Trim lines, clean whitespace, convert letter case, compute text metrics, and format data. |
+| [QR Code Generator](https://anwarxahid.github.io/exam/qr/) | Generate custom QR codes for text, Wi-Fi networks, and vCards with PNG and SVG export. |
+| [Background Remover](https://anwarxahid.github.io/services/background-remover/) | Remove solid or uniform backgrounds with tolerance and feathering, exporting transparent PNGs. |
+| [OCR / Image to Text](https://anwarxahid.github.io/services/ocr/) | Extract selectable text from uploaded images or pasted clipboard screenshots locally. |
+| [JSON Format](https://anwarxahid.github.io/services/json-format/) | Validate, format, or minify JSON while preserving arbitrary large number precision. |
 
-Image Compress exports still images. PDF Merge supports up to 20 files, 50 MB combined, and 500 pages; it flattens form values and does not preserve interactive forms, bookmarks, or digital signatures. File and input limits are shown on each tool's page.
+All browser services process data entirely on your device without transmitting files to external servers. File and input limits are clearly disclosed on each tool's page.
+
+> **Note on Large-File Drop**: Cross-device temporary file transfers require shared object storage. Because static GitHub Pages cannot store files and Cloudflare R2 is currently disabled on the account, this tool is intentionally omitted from the live directory to prevent deceptive mock links. See [Large-File Drop Architecture](docs/LARGE_FILE_DROP_ARCHITECTURE.md) for technical details and the deployment roadmap.
 
 ### Games
 
@@ -28,6 +33,7 @@ Image Compress exports still images. PDF Merge supports up to 20 files, 50 MB co
 
 ### Others
 
+- **[Quick Pass](https://anwarxahid.github.io/services/quick-pass/)** — end-to-end encrypted ephemeral text transfer between devices. Protected with client-side AES-256-GCM encryption, auto-expiring in 10 minutes with optional burn-after-reading.
 - **[PromptDude](https://anwarxahid.github.io/PromptDude/)** — a browser extension for choosing the depth, tone, and format of prompts on supported AI chat sites. Its source lives in the [PromptDude repository](https://github.com/AnwarXahid/PromptDude).
 
 The Lab also has **Projects**, **Papers**, and **Apps** sections. These are intentionally empty until there is work to add. The portfolio's research and publication sections remain separate from these Lab categories.

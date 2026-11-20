@@ -5,7 +5,13 @@ import {
   formatJson,
   defaultCleanOptions,
 } from "../src/components/services/text-tools";
-import { mergePdfs, inspectPdf } from "../src/components/services/pdf-tools";
+import {
+  mergePdfs,
+  inspectPdf,
+  parsePageRanges,
+  splitPdf,
+  compressPdf,
+} from "../src/components/services/pdf-tools";
 it("cleans selected whitespace while preserving paragraphs, Unicode and words", () => {
   expect(cleanText("  hello   world\r\n\r\n  বাংলা\t text  ")).toBe(
     "hello world\n\nবাংলা text",
@@ -77,4 +83,88 @@ it("rejects invalid, missing and excessive PDF pages", async () => {
   await expect(mergePdfs([await a.save(), await b.save()])).rejects.toThrow(
     "500",
   );
+});
+it("parses page ranges and extracts selected PDF pages in order", async () => {
+  expect(parsePageRanges("1, 3-5, 2", 10)).toEqual([0, 2, 3, 4, 1]);
+  expect(() => parsePageRanges("0", 5)).toThrow("Invalid");
+  expect(() => parsePageRanges("6", 5)).toThrow("exceeds");
+  expect(() => parsePageRanges("5-2", 5)).toThrow("Invalid");
+
+  const doc = await PDFDocument.create();
+  doc.addPage([100, 100]);
+  doc.addPage([200, 200]);
+  doc.addPage([300, 300]);
+  const bytes = await doc.save();
+
+  const extracted = await splitPdf(bytes, [2, 0]);
+  const result = await inspectPdf(extracted);
+  expect(result.getPageCount()).toBe(2);
+  expect(result.getPages().map((p) => p.getWidth())).toEqual([300, 100]);
+});
+it("compresses PDF object streams and reports honest metrics", async () => {
+  const doc = await PDFDocument.create();
+  for (let i = 0; i < 5; i++) {
+    const page = doc.addPage([400, 600]);
+    doc
+      .getForm()
+      .createTextField(`field_${i}`)
+      .addToPage(page, { x: 10, y: 10, width: 100, height: 20 });
+  }
+  const uncompressed = await doc.save();
+  const outcome = await compressPdf(uncompressed);
+  expect(outcome.newSize).toBeGreaterThan(0);
+  expect(outcome.originalSize).toBe(uncompressed.byteLength);
+  expect(outcome.bytes instanceof Uint8Array).toBe(true);
+  const reloaded = await inspectPdf(outcome.bytes);
+  expect(reloaded.getPageCount()).toBe(5);
+});
+
+it("converts letter cases accurately and counts text metrics", async () => {
+  const { convertCase, countTextStats } =
+    await import("../src/components/services/text-tools");
+  expect(convertCase("hello world", "upper")).toBe("HELLO WORLD");
+  expect(convertCase("HELLO WORLD", "lower")).toBe("hello world");
+  expect(convertCase("hello world", "title")).toBe("Hello World");
+  expect(convertCase("hello world", "camel")).toBe("helloWorld");
+  expect(convertCase("hello world", "snake")).toBe("hello_world");
+  expect(convertCase("hello world", "kebab")).toBe("hello-world");
+
+  const stats = countTextStats("First sentence.\n\nSecond paragraph words.");
+  expect(stats.paragraphs).toBe(2);
+  expect(stats.lines).toBe(3);
+  expect(stats.words).toBe(5);
+  expect(stats.chars).toBe(40);
+});
+
+it("formats CSV correctly preserving quotes, delimiters, and embedded newlines", async () => {
+  const { formatCsv } = await import("../src/components/services/text-tools");
+  const source =
+    'id,name,bio\n1,"Zahid, Anwar","Writes code\nand papers"\n2,Alice,Researcher';
+  const formatted = formatCsv(source);
+  expect(formatted).toContain('"Zahid, Anwar"');
+  expect(formatted).toContain('"Writes code\nand papers"');
+
+  const jsonStr = formatCsv(source, "json");
+  const data = JSON.parse(jsonStr);
+  expect(data).toHaveLength(2);
+  expect(data[0].name).toBe("Zahid, Anwar");
+  expect(data[0].bio).toContain("Writes code");
+});
+
+it("validates and formats XML safely without external entity vulnerability", async () => {
+  const { formatXml } = await import("../src/components/services/text-tools");
+  const source =
+    '<catalog><book id="1"><title>Clean Code</title><author>Martin</author></book></catalog>';
+  const formatted = formatXml(source, "2");
+  expect(formatted).toContain("<catalog>\n");
+  expect(formatted).toContain('  <book id="1">\n');
+  expect(formatted).toContain("    <title>Clean Code</title>\n");
+
+  expect(formatXml(source, "minify")).toBe(source);
+  expect(() => formatXml("<root><unclosed></root>")).toThrow();
+  expect(() =>
+    formatXml(
+      '<!DOCTYPE test [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]><root>&xxe;</root>',
+    ),
+  ).toThrow("forbidden");
 });

@@ -1,0 +1,7 @@
+---
+import ServiceLayout from '../../../layouts/ServiceLayout.astro';
+import BackgroundRemover from '../../../components/services/BackgroundRemover';
+---
+<ServiceLayout title="Background Remover" category="IMAGES" tagline="Create transparent PNGs in your browser. Real alpha channel." description="Remove backgrounds from images locally with edge-aware alpha matting. Produces authentic transparent PNGs with no uploads.">
+  <BackgroundRemover client:only="react"><p slot="fallback" role="status">Loading the tool…</p></BackgroundRemover>
+</ServiceLayout>
