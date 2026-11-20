@@ -8,11 +8,19 @@ export default function TextCompare() {
     [changesOnly, setChangesOnly] = useState(false),
     [result, setResult] = useState<DiffLine[] | null>(null),
     [error, setError] = useState("");
+  function lineLabel(text: string) {
+    const count = text.replace(/\r\n?/g, "\n").split("\n").length;
+    return `${count.toLocaleString()} ${count === 1 ? "line" : "lines"}`;
+  }
   const version = useRef(0);
+  const [copied, setCopied] = useState(false);
+  const [copyError, setCopyError] = useState("");
   function reset() {
     version.current++;
     setResult(null);
     setError("");
+    setCopied(false);
+    setCopyError("");
   }
   function compare() {
     try {
@@ -43,14 +51,26 @@ export default function TextCompare() {
       setError("Could not read that file. Try pasting its text.");
     }
   }
-  function download() {
-    if (!result) return;
-    const text = result
+  function resultText() {
+    return (result || [])
       .map(
         (line) =>
           `${line.kind === "added" ? "+" : line.kind === "removed" ? "-" : " "} ${line.text}`,
       )
       .join("\n");
+  }
+  async function copyResult() {
+    try {
+      await navigator.clipboard.writeText(resultText());
+      setCopied(true);
+      setCopyError("");
+    } catch {
+      setCopyError("Clipboard unavailable. Use Download result instead.");
+    }
+  }
+  function download() {
+    if (!result) return;
+    const text = resultText();
     const url = URL.createObjectURL(
       new Blob([text], { type: "text/plain;charset=utf-8" }),
     );
@@ -64,11 +84,24 @@ export default function TextCompare() {
     removed = result?.filter((l) => l.kind === "removed").length || 0;
   return (
     <>
+      <div className="workspace-bar">
+        <span>
+          <span className="workspace-icon" aria-hidden="true">
+            ±
+          </span>{" "}
+          Compare workspace
+        </span>
+        <span className="workspace-private">Private by design</span>
+      </div>
       <div className="compare-inputs">
         {(["before", "after"] as const).map((side) => (
           <section className="text-panel" key={side}>
             <div className="panel-top">
               <label htmlFor={side}>
+                <span
+                  className={`input-marker ${side}`}
+                  aria-hidden="true"
+                ></span>
                 {side === "before" ? "Original text" : "Updated text"}
               </label>
               <label className="file-button">
@@ -100,13 +133,24 @@ export default function TextCompare() {
               }}
             />
             <div className="text-count">
-              {(side === "before" ? before : after).length.toLocaleString()}{" "}
-              characters
+              <span>
+                {(side === "before" ? before : after) === ""
+                  ? "Paste text or import a file"
+                  : lineLabel(side === "before" ? before : after)}
+              </span>
+              <span>
+                {(side === "before" ? before : after).length.toLocaleString()}{" "}
+                characters
+              </span>
             </div>
           </section>
         ))}
       </div>
-      <div className="compare-controls">
+      <div
+        className="compare-controls"
+        role="group"
+        aria-label="Comparison controls"
+      >
         <div className="options">
           <label>
             <input
@@ -160,8 +204,8 @@ export default function TextCompare() {
         </div>
       </div>
       <p className="tool-note">
-        Your text stays in this tab. Nothing is uploaded or saved. Compares
-        plain text, up to 200,000 characters per side.
+        Your text stays in this tab. No uploads or saved copies. Up to 200,000
+        characters and 1,400 lines per side.
       </p>
       {error && (
         <p className="error" role="alert">
@@ -184,7 +228,7 @@ export default function TextCompare() {
                   : ""}
               </p>
             </div>
-            <div className="actions">
+            <div className="actions result-actions">
               <label>
                 <input
                   type="checkbox"
@@ -193,25 +237,48 @@ export default function TextCompare() {
                 />
                 Changes only
               </label>
+              <button onClick={copyResult}>
+                {copied ? "Copied!" : "Copy result"}
+              </button>
               <button onClick={download}>Download result</button>
             </div>
           </div>
+          {copyError && (
+            <p className="error" role="alert">
+              {copyError}
+            </p>
+          )}
+          <p className="sr-only" aria-live="polite">
+            {copied ? "Comparison copied to clipboard." : ""}
+          </p>
           <p className="diff-legend">
             + Added lines · − Removed lines · Unmarked lines are unchanged
           </p>
+          <div className="diff-column-labels" aria-hidden="true">
+            <span>Old</span>
+            <span>New</span>
+            <span>Change</span>
+          </div>
           <div
             className="diff-lines"
             tabIndex={0}
+            role="region"
             aria-label="Line by line comparison"
           >
             {result
               .filter((l) => !changesOnly || l.kind !== "same")
               .map((l, i) => (
                 <div className={`diff-line ${l.kind}`} key={i}>
-                  <span className="line-no" aria-label="Original line">
+                  <span className="line-no">
+                    <span className="sr-only">
+                      {l.oldLine ? "Original line " : ""}
+                    </span>
                     {l.oldLine || ""}
                   </span>
-                  <span className="line-no" aria-label="Updated line">
+                  <span className="line-no">
+                    <span className="sr-only">
+                      {l.newLine ? "Updated line " : ""}
+                    </span>
                     {l.newLine || ""}
                   </span>
                   <span className="line-sign">
@@ -231,9 +298,15 @@ export default function TextCompare() {
         </section>
       ) : (
         <div className="compare-empty">
-          <span aria-hidden="true">±</span>
-          <h2>A clear view of every change.</h2>
-          <p>Paste two versions above, then compare.</p>
+          <div className="empty-diff-art" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div className="empty-copy">
+            <h2>A clear view of every change.</h2>
+            <p>Paste two versions above, then compare.</p>
+          </div>
           <button
             onClick={() => {
               reset();

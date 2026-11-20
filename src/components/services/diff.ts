@@ -20,7 +20,7 @@ export function compareTexts(
   const x = a.map(normalize),
     y = b.map(normalize);
   // Bound the quadratic work to keep the browser responsive on large pastes.
-  if (a.length * b.length > 2000000)
+  if (a.length > 1400 || b.length > 1400)
     throw new Error(
       "Please compare fewer lines (up to 1,400 lines on each side).",
     );
