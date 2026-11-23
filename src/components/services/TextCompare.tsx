@@ -92,15 +92,6 @@ export default function TextCompare() {
     removed = result?.filter((l) => l.kind === "removed").length || 0;
   return (
     <>
-      <div className="workspace-bar">
-        <span>
-          <span className="workspace-icon" aria-hidden="true">
-            ±
-          </span>{" "}
-          Compare workspace
-        </span>
-        <span className="workspace-private">Private by design</span>
-      </div>
       <div className="compare-inputs">
         {(["before", "after"] as const).map((side) => (
           <section className="text-panel" key={side}>
@@ -233,8 +224,8 @@ export default function TextCompare() {
         </div>
       </div>
       <p className="tool-note">
-        Your text stays in this tab. No uploads or saved copies. Up to 200,000
-        characters and 1,400 lines per side.
+        Your text stays in this tab and is never saved. Up to 200,000 characters
+        and 1,400 lines per side.
       </p>
       {error && (
         <p className="error" role="alert">

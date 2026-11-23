@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { downloadFile, fileSize } from "./files";
+import ToolIcon from "./ToolIcon";
 import { removeBackground } from "./bg-tools";
 
 export default function BackgroundRemover() {
@@ -189,11 +190,6 @@ export default function BackgroundRemover() {
 
   return (
     <>
-      <div className="workspace-bar">
-        <span>Background Remover</span>
-        <span className="workspace-private">Processed on your device</span>
-      </div>
-
       <div className="file-workspace">
         <div
           className={`upload-zone ${isDragging ? "dragover" : ""}`}
@@ -209,14 +205,12 @@ export default function BackgroundRemover() {
             if (candidate) void handleFileSelect(candidate);
           }}
         >
-          <span className="upload-symbol" aria-hidden="true">
-            ✂
-          </span>
-          <h2>{file ? file.name : "Create authentic transparent PNGs"}</h2>
+          <ToolIcon name="drop" />
+          <h2>{file ? file.name : "Drop an image here"}</h2>
           <p>
             {file
-              ? "Adjust tolerance, optionally click the image to sample the background, then remove."
-              : "Drag & drop, paste from clipboard (Ctrl+V), or upload an image."}
+              ? "Tip: click the background in the preview to pick its color."
+              : "Or paste one with Ctrl+V. Works best on plain backgrounds."}
           </p>
           <label className="upload-button">
             {file ? "Choose another image" : "Choose image"}
@@ -231,7 +225,7 @@ export default function BackgroundRemover() {
               }}
             />
           </label>
-          <small>Up to 25 MB · Generates real 32-bit PNG alpha channel · 100% In-Browser</small>
+          <small>Up to 25 MB · JPG, PNG or WebP</small>
         </div>
 
         {file && (
@@ -248,7 +242,7 @@ export default function BackgroundRemover() {
               />
             </label>
             <label className="quality-control">
-              Edge Feather <span>{feather}px</span>
+              Edge softness <span>{feather}px</span>
               <input
                 type="range"
                 min="0"
@@ -258,7 +252,7 @@ export default function BackgroundRemover() {
                 onChange={(e) => setFeather(Number(e.target.value))}
               />
             </label>
-            <label>
+            <label className="check-label">
               <input
                 type="checkbox"
                 checked={floodFillOnly}
@@ -321,22 +315,17 @@ export default function BackgroundRemover() {
         <div className="image-previews">
           <section className="preview-panel">
             <div>
-              <h2>Original (Click to sample color)</h2>
-              <p>
-                {file.name} · {fileSize(file.size)}
-              </p>
+              <h2>Original</h2>
+              <p>{fileSize(file.size)} · click to pick the background color</p>
             </div>
-            <canvas
-              ref={originalCanvasRef}
-              style={{
-                maxWidth: "100%",
-                height: "auto",
-                cursor: "crosshair",
-                border: "1px solid var(--line, #e2e8f0)",
-              }}
-              onClick={handleCanvasClick}
-              title="Click anywhere to sample that pixel color as the background"
-            />
+            <div className="canvas-stage">
+              <canvas
+                ref={originalCanvasRef}
+                className="pickable"
+                onClick={handleCanvasClick}
+                title="Click to use this color as the background"
+              />
+            </div>
           </section>
 
           <section className="preview-panel">
@@ -345,42 +334,20 @@ export default function BackgroundRemover() {
               <p role="status">
                 {outputBlob
                   ? `Export ready · ${fileSize(outputBlob.size)}`
-                  : "Result will appear here"}
+                  : "Your transparent PNG will appear here"}
               </p>
             </div>
-            <div
-              style={{
-                background:
-                  "repeating-conic-gradient(#e5e7eb 0% 25%, #ffffff 0% 50%) 50% / 16px 16px",
-                border: "1px solid var(--line, #e2e8f0)",
-                borderRadius: "6px",
-                padding: "8px",
-                textAlign: "center",
-              }}
-            >
-              <canvas
-                ref={outputCanvasRef}
-                style={{
-                  maxWidth: "100%",
-                  height: "auto",
-                  display: outputBlob ? "block" : "none",
-                  margin: "0 auto",
-                }}
-              />
-              {!outputBlob && (
-                <div style={{ padding: "3rem 1rem", opacity: 0.5 }}>
-                  Click "Remove background" to generate transparent PNG
-                </div>
-              )}
+            <div className="canvas-stage">
+              <canvas ref={outputCanvasRef} hidden={!outputBlob} />
+              {!outputBlob && <span>Press “Remove background”</span>}
             </div>
           </section>
         </div>
       )}
 
       <p className="tool-note">
-        Processing executes entirely inside your browser canvas using alpha
-        matting. Produces genuine 32-bit PNGs with true transparency. No server
-        uploads or external data transfers.
+        Works best when the background is one even color. The result is a real
+        PNG with transparency.
       </p>
     </>
   );

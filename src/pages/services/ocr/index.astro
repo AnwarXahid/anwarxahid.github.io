@@ -2,6 +2,6 @@
 import ServiceLayout from '../../../layouts/ServiceLayout.astro';
 import OcrTool from '../../../components/services/OcrTool';
 ---
-<ServiceLayout title="OCR / Image to Text" category="DOCUMENTS" tagline="Extract text from images and screenshots locally in your browser." description="Free browser OCR tool. Convert uploaded images and pasted screenshots to editable text using offline recognition. No account required.">
+<ServiceLayout title="Image to Text" icon="ocr" tone="kraft" tagline="Copy the words out of any picture or screenshot." description="Free browser OCR tool. Convert uploaded images and pasted screenshots to editable text using offline recognition. No account required.">
   <OcrTool client:only="react"><p slot="fallback" role="status">Loading the tool…</p></OcrTool>
 </ServiceLayout>

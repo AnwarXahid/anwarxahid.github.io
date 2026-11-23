@@ -1,0 +1,54 @@
+/* Tool icons and their colour tones, shared by /lab/ and every /services/ page.
+   An icon is a 64×64 SVG from _includes/icons/; these classes paint its parts:
+   .k ink · .m mid tone · .p paper · .s ink line · .ps paper shape with ink edge
+   .pl paper line · .r / .g the red and green of "removed" and "added". */
+
+.ico { display: block; overflow: visible; }
+.ico .k { fill: currentColor; }
+.ico .m { fill: var(--mid); }
+.ico .p { fill: var(--paper); }
+.ico .s { fill: none; stroke: currentColor; stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; }
+.ico .s.w { stroke-width: 4.2; }
+.ico .s.t { stroke-width: 2; }
+.ico .ps { fill: var(--paper); stroke: currentColor; stroke-width: 3.2; stroke-linejoin: round; }
+.ico .pl { fill: none; stroke: var(--paper); stroke-width: 3; stroke-linecap: round; }
+.ico .r { fill: var(--red); }
+.ico .g { fill: var(--green); }
+
+/* Each tone names a light-theme tint and ink, and a dark-theme ink. */
+.tone-clay    { --tone-l: #f4ded3; --ink-l: #a8492a; --ink-d: #eba488; }
+.tone-sky     { --tone-l: #dce8f3; --ink-l: #2f6496; --ink-d: #8db8e2; }
+.tone-heather { --tone-l: #e6e3f1; --ink-l: #5a4f96; --ink-d: #b3a9e6; }
+.tone-cactus  { --tone-l: #d9eae3; --ink-l: #2f735c; --ink-d: #86c9ae; }
+.tone-kraft   { --tone-l: #f2e5cf; --ink-l: #8a5a1c; --ink-d: #ddb877; }
+.tone-fig     { --tone-l: #f3dce4; --ink-l: #9c3f62; --ink-d: #e596b3; }
+.tone-olive   { --tone-l: #e3ead6; --ink-l: #52683a; --ink-d: #a9c27f; }
+.tone-slate   { --tone-l: #e7e5de; --ink-l: #3e3d39; --ink-d: #d3d1c8; }
+
+/* Dark first, matching both page families' defaults; light when asked for. */
+[class*="tone-"] {
+  --ink: var(--ink-d);
+  --tone: color-mix(in srgb, var(--ink-d) 16%, #2a2927);
+  --paper: #232220;
+  --red: #ef8a74;
+  --green: #74c493;
+  --mid: color-mix(in srgb, var(--ink) 42%, var(--tone));
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) [class*="tone-"] {
+    --ink: var(--ink-l);
+    --tone: var(--tone-l);
+    --paper: #ffffff;
+    --red: #d9604a;
+    --green: #3f9466;
+    --mid: color-mix(in srgb, var(--ink) 38%, var(--tone));
+  }
+}
+:root[data-theme="light"] [class*="tone-"] {
+  --ink: var(--ink-l);
+  --tone: var(--tone-l);
+  --paper: #ffffff;
+  --red: #d9604a;
+  --green: #3f9466;
+  --mid: color-mix(in srgb, var(--ink) 38%, var(--tone));
+}

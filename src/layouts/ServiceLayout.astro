@@ -1,8 +1,20 @@
 ---
-import '../../assets/css/text-compare.css';
+import '../../assets/css/tool-icons.css';
 import '../../assets/css/services.css';
-interface Props { title: string; description: string; tagline: string; category: string; }
-const { title, description, tagline, category } = Astro.props;
+type Tone = 'clay' | 'sky' | 'heather' | 'cactus' | 'kraft' | 'fig' | 'olive' | 'slate';
+interface Props {
+  title: string;
+  description: string;
+  tagline: string;
+  /** File name in _includes/icons/, shared with the Lab page tile. */
+  icon: string;
+  tone: Tone;
+  /** Quick Pass stores encrypted text on the server; everything else never leaves the browser. */
+  privacy?: 'local' | 'encrypted';
+}
+const { title, description, tagline, icon, tone, privacy = 'local' } = Astro.props;
+const icons = import.meta.glob<string>('../../_includes/icons/*.svg', { query: '?raw', import: 'default', eager: true });
+const art = icons[`../../_includes/icons/${icon}.svg`] ?? '';
 ---
 <!doctype html>
 <html lang="en">
@@ -13,50 +25,41 @@ const { title, description, tagline, category } = Astro.props;
     <meta name="description" content={description} />
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
     <link rel="icon" href="/images/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#faf9f5" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1f1e1d" media="(prefers-color-scheme: dark)" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chivo:wght@700;800&family=JetBrains+Mono:wght@400;500&family=Source+Sans+3:wght@400;600;700&display=swap" />
     <script is:inline>
       try { const theme = localStorage.getItem('theme'); if (theme === 'light' || theme === 'dark') document.documentElement.dataset.theme = theme; } catch {}
     </script>
   </head>
-  <body>
+  <body class={`tone-${tone}`}>
     <a class="skip-link" href="#main">Skip to tool</a>
-    <header class="tool-header">
-      <div class="tool-header-inner">
-        <div class="tool-breadcrumbs">
-          <a class="tool-brand" href="/lab/"><span class="brand-mark" aria-hidden="true">[ / ]</span><span class="brand-name">Anwar Zahid <small>Unsupervised Lab</small></span></a>
-          <span class="breadcrumb-separator" aria-hidden="true">/</span>
-          <span class="breadcrumb-current">{title}</span>
-        </div>
-        <nav aria-label="Tool navigation">
-          <span class="privacy-pill" title="Runs strictly inside your local browser runtime"><span class="privacy-dot" aria-hidden="true"></span> 100% In-Browser</span>
-          <a href="/lab/#services" class="back-link">All tools</a>
-          <button id="tool-theme" type="button" aria-label="Use dark theme" aria-pressed="false">Dark mode</button>
-        </nav>
+    <header class="svc-bar">
+      <a class="svc-back" href="/lab/">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>All tools</span>
+      </a>
+      <div class="svc-bar-end">
+        <span class="svc-chip"><span class="svc-dot" aria-hidden="true"></span>{privacy === 'encrypted' ? 'End-to-end encrypted' : 'Stays on your device'}</span>
+        <button id="tool-theme" class="svc-icon-btn" type="button" aria-label="Use dark theme" aria-pressed="false">
+          <svg class="moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          <svg class="sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
       </div>
     </header>
     <main id="main">
-      <div class="tool-intro">
-        <div class="tool-intro-text">
-          <div class="eyebrow-wrap">
-            <span class="category-pill">{category}</span>
-            <span class="local-pill">Local Runtime</span>
-          </div>
-          <h1>{title}<span>.</span></h1>
-          <p class="tool-tagline">{tagline}</p>
-        </div>
-        <div class="tool-meta-card" aria-label="Tool specifications">
-          <div class="meta-item"><span class="meta-label">Storage</span><strong class="meta-value">Zero Uploads</strong></div>
-          <div class="meta-item"><span class="meta-label">Processing</span><strong class="meta-value">Client-Side</strong></div>
-          <div class="meta-item"><span class="meta-label">Access</span><strong class="meta-value">Free · No Account</strong></div>
-        </div>
+      <div class="svc-intro">
+        <span class="svc-art" aria-hidden="true" set:html={art} />
+        <h1>{title}</h1>
+        <p>{tagline}</p>
       </div>
       <slot />
-      <noscript>This tool needs JavaScript to process your files locally in your browser.</noscript>
+      <noscript><p class="tool-note">This tool needs JavaScript to run in your browser.</p></noscript>
     </main>
-    <footer class="tool-footer">
-      <div class="footer-wrap">
-        <p>Built by <a href="/">Anwar Zahid</a> · Part of <a href="/lab/">Unsupervised Lab</a>.</p>
-        <p class="footer-note">All processing occurs strictly in your local browser runtime. Zero tracking, zero storage.</p>
-      </div>
+    <footer class="svc-foot">
+      <p>Made by <a href="/">Anwar Zahid</a> · <a href="/lab/">Unsupervised Lab</a></p>
     </footer>
     <script>
       const toggle = document.querySelector<HTMLButtonElement>('#tool-theme');
@@ -65,7 +68,6 @@ const { title, description, tagline, category } = Astro.props;
         const dark = (document.documentElement.dataset.theme || (media.matches ? 'dark' : 'light')) === 'dark';
         toggle?.setAttribute('aria-pressed', String(dark));
         toggle?.setAttribute('aria-label', dark ? 'Use light theme' : 'Use dark theme');
-        if(toggle) toggle.textContent = dark ? 'Light mode' : 'Dark mode';
       }
       toggle?.addEventListener('click', () => {
         const next = toggle.getAttribute('aria-pressed') === 'true' ? 'light' : 'dark';

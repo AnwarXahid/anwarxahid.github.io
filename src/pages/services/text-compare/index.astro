@@ -2,6 +2,6 @@
 import ServiceLayout from '../../../layouts/ServiceLayout.astro';
 import TextCompare from '../../../components/services/TextCompare';
 ---
-<ServiceLayout title="Text Compare" category="TEXT" tagline="Two versions. Every difference, in plain sight." description="Compare two texts line by line, see added and removed lines, and download the differences. Free, private, and entirely in your browser.">
+<ServiceLayout title="Text Compare" icon="compare" tone="fig" tagline="Two versions. Every difference, in plain sight." description="Compare two texts line by line, see added and removed lines, and download the differences. Free, private, and entirely in your browser.">
   <TextCompare client:only="react"><p slot="fallback" role="status">Loading the comparison tool…</p></TextCompare>
 </ServiceLayout>

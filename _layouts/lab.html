@@ -31,7 +31,8 @@
     {% if lmeta.fonts != "" %}<link rel="stylesheet" href="https://fonts.googleapis.com/css2?{{ lmeta.fonts }}&display=swap">{% endif %}
     <link rel="stylesheet" href="{{ '/assets/css/lab.css' | relative_url }}">
     {% if page.body_class == 'home' %}<link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url }}">{% endif %}
-    {% if page.lab_showcase %}<link rel="stylesheet" href="{{ '/assets/css/unsupervised-lab.css' | relative_url }}">{% endif %}
+    {% if page.lab_showcase %}<link rel="stylesheet" href="{{ '/assets/css/tool-icons.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/unsupervised-lab.css' | relative_url }}">{% endif %}
     <link rel="stylesheet" href="{{ '/assets/css/i18n.css' | relative_url }}">
 
     <!-- Applied before first paint so a saved theme preference doesn't flash. -->
@@ -116,17 +117,21 @@
         "inLanguage": "{{ lmeta.lang }}",
         "mainEntity": {
           "@type": "ItemList",
-          "numberOfItems": 9,
+          "numberOfItems": 13,
           "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Image Compress", "url": "https://anwarxahid.github.io/services/image-compress/"},
-            {"@type": "ListItem", "position": 2, "name": "PDF Merge", "url": "https://anwarxahid.github.io/services/pdf-merge/"},
-            {"@type": "ListItem", "position": 3, "name": "Text Clean", "url": "https://anwarxahid.github.io/services/text-clean/"},
-            {"@type": "ListItem", "position": 4, "name": "JSON Format", "url": "https://anwarxahid.github.io/services/json-format/"},
-            {"@type": "ListItem", "position": 5, "name": "Text Compare", "url": "https://anwarxahid.github.io/services/text-compare/"},
-            {"@type": "ListItem", "position": 6, "name": "QR Code Generator", "url": "https://anwarxahid.github.io/exam/qr/"},
-            {"@type": "ListItem", "position": 7, "name": "PromptDude", "url": "https://anwarxahid.github.io/PromptDude/"},
-            {"@type": "ListItem", "position": 8, "name": "Carry My Bro", "url": "https://anwarxahid.github.io/game/"},
-            {"@type": "ListItem", "position": 9, "name": "Save My Bro", "url": "https://anwarxahid.github.io/game/save-my-bro/"}
+            {"@type": "ListItem", "position": 2, "name": "File Converter", "url": "https://anwarxahid.github.io/services/file-converter/"},
+            {"@type": "ListItem", "position": 3, "name": "Background Remover", "url": "https://anwarxahid.github.io/services/background-remover/"},
+            {"@type": "ListItem", "position": 4, "name": "Image to Text", "url": "https://anwarxahid.github.io/services/ocr/"},
+            {"@type": "ListItem", "position": 5, "name": "PDF Tools", "url": "https://anwarxahid.github.io/services/pdf-tools/"},
+            {"@type": "ListItem", "position": 6, "name": "Text Compare", "url": "https://anwarxahid.github.io/services/text-compare/"},
+            {"@type": "ListItem", "position": 7, "name": "Text Clean", "url": "https://anwarxahid.github.io/services/text-clean/"},
+            {"@type": "ListItem", "position": 8, "name": "JSON Format", "url": "https://anwarxahid.github.io/services/json-format/"},
+            {"@type": "ListItem", "position": 9, "name": "QR Code Generator", "url": "https://anwarxahid.github.io/services/qr-code/"},
+            {"@type": "ListItem", "position": 10, "name": "Quick Pass", "url": "https://anwarxahid.github.io/services/quick-pass/"},
+            {"@type": "ListItem", "position": 11, "name": "PromptDude", "url": "https://anwarxahid.github.io/PromptDude/"},
+            {"@type": "ListItem", "position": 12, "name": "Carry My Bro", "url": "https://anwarxahid.github.io/game/"},
+            {"@type": "ListItem", "position": 13, "name": "Save My Bro", "url": "https://anwarxahid.github.io/game/save-my-bro/"}
           ]
         }
       }

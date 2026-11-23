@@ -262,7 +262,6 @@ export default function QuickPass() {
   return (
     <>
       <div className="workspace-bar">
-        <span>Quick Pass (Ephemeral Text Transfer)</span>
         <div className="tab-group" role="tablist" aria-label="Quick Pass Mode">
           <button
             role="tab"
@@ -273,7 +272,7 @@ export default function QuickPass() {
               setTab("send");
             }}
           >
-            Create / Send
+            Send
           </button>
           <button
             role="tab"
@@ -284,33 +283,27 @@ export default function QuickPass() {
               setTab("receive");
             }}
           >
-            Access / Receive
+            Receive
           </button>
         </div>
-        <span className="workspace-private">End-to-End Encrypted</span>
       </div>
 
       {tab === "send" ? (
         <div className="file-workspace">
-          <div className="upload-zone">
-            <span className="upload-symbol" aria-hidden="true">
-              🔑
-            </span>
-            <h2>Send text securely between PCs</h2>
+          <div className="upload-zone compact">
+            <h2>Send text to another device</h2>
             <p>
-              Your text is encrypted client-side with your password before
-              upload. Sessions auto-destruct after 5–10 minutes.
+              It is locked with your password before it leaves this browser, and
+              deleted when the time runs out.
             </p>
           </div>
 
-          <div
-            className="settings-strip"
-            style={{ flexWrap: "wrap", gap: "1rem" }}
-          >
-            <label style={{ flex: "1 1 200px" }}>
-              Session Name *
-              <div style={{ display: "flex", gap: "4px" }}>
+          <div className="settings-strip field-row">
+            <div className="field">
+              <label htmlFor="qp-send-name">Session name</label>
+              <div className="with-button">
                 <input
+                  id="qp-send-name"
                   type="text"
                   placeholder="e.g. notes-laptop"
                   value={sendName}
@@ -326,10 +319,10 @@ export default function QuickPass() {
                   </button>
                 )}
               </div>
-            </label>
+            </div>
 
-            <label style={{ flex: "1 1 200px" }}>
-              Password / Secret PIN *
+            <label>
+              Password
               <input
                 type="password"
                 placeholder="Choose a password"
@@ -342,8 +335,8 @@ export default function QuickPass() {
               />
             </label>
 
-            <label style={{ flex: "0 0 120px" }}>
-              Self-Destruct
+            <label className="narrow">
+              Expires after
               <select
                 value={duration}
                 disabled={busy || !!createdSession}
@@ -356,88 +349,68 @@ export default function QuickPass() {
             </label>
           </div>
 
-          <div style={{ margin: "1rem 0" }}>
-            <label
-              htmlFor="quickpass-text"
-              style={{
-                display: "block",
-                fontWeight: 600,
-                marginBottom: "0.5rem",
-              }}
-            >
-              Text content to transfer:
-            </label>
+          <div className="pass-body">
+            <label htmlFor="quickpass-text">Text to send</label>
             <textarea
               id="quickpass-text"
               rows={6}
               value={sendText}
               disabled={busy || !!createdSession}
-              placeholder="Paste text, code snippet, token, link, or notes here…"
+              placeholder="Paste a note, link, code or token…"
               onChange={(e) => {
                 resetAlerts();
                 setSendText(e.target.value);
               }}
             />
-          </div>
-
-          <div style={{ textAlign: "right", marginTop: "1rem" }}>
-            {!createdSession ? (
-              <button
-                className="primary"
-                disabled={busy || !sendText.trim()}
-                onClick={handleSend}
-              >
-                {busy ? "Encrypting & Storing…" : "Create Quick Pass"}
-              </button>
-            ) : (
-              <button
-                type="button"
-                onClick={() => {
-                  setCreatedSession(null);
-                  setSendText("");
-                  setSendPassword("");
-                  setSendName("");
-                  resetAlerts();
-                }}
-              >
-                Create another pass
-              </button>
-            )}
+            <div className="pass-submit">
+              {!createdSession ? (
+                <button
+                  className="primary"
+                  disabled={busy || !sendText.trim()}
+                  onClick={handleSend}
+                >
+                  {busy ? "Encrypting…" : "Create Quick Pass"}
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCreatedSession(null);
+                    setSendText("");
+                    setSendPassword("");
+                    setSendName("");
+                    resetAlerts();
+                  }}
+                >
+                  Send something else
+                </button>
+              )}
+            </div>
           </div>
 
           {createdSession && (
-            <div
-              style={{
-                marginTop: "1.5rem",
-                padding: "1.25rem",
-                background: "var(--soft, #f0fdf4)",
-                border: "1px solid var(--accent, #0f766e)",
-                borderRadius: "8px",
-              }}
-            >
-              <h3 style={{ marginTop: 0 }}>
-                Pass is live! Remaining time:{" "}
-                <span style={{ color: "#b45309" }}>{timeLeft}</span>
-              </h3>
+            <div className="pass-live">
+              <h3>Ready · expires in {timeLeft}</h3>
               <p>
-                On your other PC, open Quick Pass, enter session name{" "}
-                <strong>{createdSession.name}</strong> and your password.
+                On your other device, open Quick Pass and enter{" "}
+                <strong>{createdSession.name}</strong> with your password, or
+                open this link:
               </p>
-              <div style={{ display: "flex", gap: "8px", marginTop: "0.5rem" }}>
+              <div className="with-button">
                 <input
                   type="text"
                   readOnly
+                  aria-label="Direct link"
                   value={shareUrl}
-                  style={{ flex: 1 }}
                 />
                 <button
                   type="button"
                   onClick={() => {
                     void navigator.clipboard.writeText(shareUrl);
-                    setMessage("Direct link copied to clipboard!");
+                    setMessage("Link copied.");
                   }}
                 >
-                  Copy Link
+                  Copy link
                 </button>
               </div>
             </div>
@@ -445,23 +418,17 @@ export default function QuickPass() {
         </div>
       ) : (
         <div className="file-workspace">
-          <div className="upload-zone">
-            <span className="upload-symbol" aria-hidden="true">
-              📥
-            </span>
-            <h2>Retrieve transferred text</h2>
+          <div className="upload-zone compact">
+            <h2>Receive text</h2>
             <p>
-              Enter the session name and password to decrypt the text in your
+              Enter the session name and password. The text is unlocked in this
               browser.
             </p>
           </div>
 
-          <div
-            className="settings-strip"
-            style={{ flexWrap: "wrap", gap: "1rem" }}
-          >
-            <label style={{ flex: "1 1 200px" }}>
-              Session Name *
+          <div className="settings-strip field-row">
+            <label>
+              Session name
               <input
                 type="text"
                 placeholder="e.g. notes-laptop"
@@ -475,8 +442,8 @@ export default function QuickPass() {
               />
             </label>
 
-            <label style={{ flex: "1 1 200px" }}>
-              Password *
+            <label>
+              Password
               <input
                 type="password"
                 placeholder="Enter password"
@@ -489,21 +456,14 @@ export default function QuickPass() {
               />
             </label>
 
-            <label
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "6px",
-                marginTop: "1.25rem",
-              }}
-            >
+            <label className="check-label">
               <input
                 type="checkbox"
                 checked={burnAfterRead}
                 disabled={busy}
                 onChange={(e) => setBurnAfterRead(e.target.checked)}
               />
-              Burn after reading (delete immediately)
+              Delete after reading
             </label>
 
             <button
@@ -511,24 +471,17 @@ export default function QuickPass() {
               disabled={busy || !receiveName.trim() || !receivePassword}
               onClick={handleReceive}
             >
-              {busy ? "Decrypting…" : "Decrypt & Receive"}
+              {busy ? "Decrypting…" : "Receive"}
             </button>
           </div>
 
           {activeSessions.length > 0 && (
-            <div
-              style={{ margin: "1rem 0", fontSize: "0.85rem", opacity: 0.85 }}
-            >
-              <span>Recent active sessions: </span>
+            <div className="pass-recent">
+              <span>Recent:</span>
               {activeSessions.map((s) => (
                 <button
                   key={s.name}
                   type="button"
-                  style={{
-                    padding: "2px 8px",
-                    margin: "2px",
-                    fontSize: "0.8rem",
-                  }}
                   onClick={() => setReceiveName(s.name)}
                 >
                   {s.name}
@@ -538,36 +491,22 @@ export default function QuickPass() {
           )}
 
           {decryptedText && (
-            <div style={{ marginTop: "1.5rem" }}>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  marginBottom: "0.5rem",
-                }}
-              >
-                <strong>Decrypted text:</strong>
+            <div className="pass-result">
+              <div className="pass-result-head">
+                <label htmlFor="qp-received">Received text</label>
                 <button type="button" onClick={copyText}>
                   Copy text
                 </button>
               </div>
               <textarea
+                id="qp-received"
                 readOnly
                 rows={6}
                 value={decryptedText}
-                style={{ width: "100%", fontFamily: "monospace" }}
               />
               {burned && (
-                <p
-                  style={{
-                    color: "#b45309",
-                    fontSize: "0.85rem",
-                    marginTop: "0.5rem",
-                  }}
-                >
-                  🔥 This session was burned and permanently erased from the
-                  server.
+                <p className="pass-burned">
+                  This pass has been deleted from the server.
                 </p>
               )}
             </div>
@@ -579,8 +518,8 @@ export default function QuickPass() {
         <p role="status">
           {message ||
             (busy
-              ? "Processing cryptographic payload…"
-              : "Zero-knowledge encryption protects your text.")}
+              ? "Working…"
+              : "Only you and the password holder can read the text.")}
         </p>
       </div>
 
@@ -591,9 +530,8 @@ export default function QuickPass() {
       )}
 
       <p className="tool-note">
-        Quick Pass uses browser-native WebCrypto (PBKDF2 + AES-GCM 256-bit). The
-        server only holds unreadable ciphertext. All sessions are permanently
-        erased after 5–10 minutes via database expiry.
+        Encrypted in your browser with AES-256-GCM (key from PBKDF2). The server
+        only ever stores unreadable data, and deletes it when the pass expires.
       </p>
     </>
   );

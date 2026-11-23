@@ -1,7 +1,9 @@
 import { test, expect, type Download } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { createRequire } from "node:module";
-const { PDFDocument } = createRequire(import.meta.url)("pdf-lib") as typeof import("pdf-lib");
+const { PDFDocument } = createRequire(import.meta.url)(
+  "pdf-lib",
+) as typeof import("pdf-lib");
 async function contents(download: Download) {
   const stream = await download.createReadStream();
   const chunks: Buffer[] = [];
@@ -44,13 +46,11 @@ test("Text Clean applies options, exports actual text and resets stale results",
   await expect(page.getByLabel("Cleaned text", { exact: true })).toHaveValue(
     "First line.\nSecond line.",
   );
-  await page
-    .getByLabel("Import text file")
-    .setInputFiles({
-      name: "notes.txt",
-      mimeType: "text/plain",
-      buffer: Buffer.from(" imported   text "),
-    });
+  await page.getByLabel("Import text file").setInputFiles({
+    name: "notes.txt",
+    mimeType: "text/plain",
+    buffer: Buffer.from(" imported   text "),
+  });
   await expect(page.getByLabel("Original text", { exact: true })).toHaveValue(
     " imported   text ",
   );
@@ -90,13 +90,11 @@ test("JSON Format validates input and preserves large numbers in formatted and m
   await expect(
     page.getByRole("button", { name: "Download result" }),
   ).toBeDisabled();
-  await page
-    .getByLabel("Import text file")
-    .setInputFiles({
-      name: "binary.json",
-      mimeType: "application/json",
-      buffer: Buffer.from("x\0x"),
-    });
+  await page.getByLabel("Import text file").setInputFiles({
+    name: "binary.json",
+    mimeType: "application/json",
+    buffer: Buffer.from("x\0x"),
+  });
   await expect(page.getByRole("alert")).toContainText("binary file");
 });
 
@@ -122,13 +120,11 @@ test("Image Compress produces real JPEG and WebP downloads with an honest size c
     return canvas.toDataURL("image/png").split(",")[1];
   });
   const original = Buffer.from(base64, "base64");
-  await page
-    .getByLabel("Choose image", { exact: true })
-    .setInputFiles({
-      name: "sample.png",
-      mimeType: "image/png",
-      buffer: original,
-    });
+  await page.getByLabel("Choose image", { exact: true }).setInputFiles({
+    name: "sample.png",
+    mimeType: "image/png",
+    buffer: original,
+  });
   await expect(page.getByAltText("Original image preview")).toBeVisible();
   await page.getByRole("slider").fill("50");
   await page
@@ -179,13 +175,11 @@ test("Image Compress produces real JPEG and WebP downloads with an honest size c
     path: "test-results/image-compress-desktop.png",
     fullPage: true,
   });
-  await page
-    .getByLabel("Choose image", { exact: true })
-    .setInputFiles({
-      name: "fake.png",
-      mimeType: "image/png",
-      buffer: Buffer.from("not an image"),
-    });
+  await page.getByLabel("Choose image", { exact: true }).setInputFiles({
+    name: "fake.png",
+    mimeType: "image/png",
+    buffer: Buffer.from("not an image"),
+  });
   await expect(page.getByRole("alert")).toContainText("Could not read");
   await expect(
     page.getByRole("button", { name: "Compress image", exact: true }),
@@ -234,38 +228,38 @@ test("PDF Merge orders actual output pages, rejects bad files and removes stale 
   await expect(
     page.getByRole("button", { name: "Merge PDFs", exact: true }),
   ).toBeDisabled();
-  await page
-    .getByLabel("Choose PDF files", { exact: true })
-    .setInputFiles({
-      name: "broken.pdf",
-      mimeType: "application/pdf",
-      buffer: Buffer.from("no pdf here"),
-    });
+  await page.getByLabel("Choose PDF files", { exact: true }).setInputFiles({
+    name: "broken.pdf",
+    mimeType: "application/pdf",
+    buffer: Buffer.from("no pdf here"),
+  });
   await expect(page.getByRole("alert")).toContainText("could not open");
   await expect(page.locator(".pdf-file-list li")).toHaveCount(1);
   await page.getByRole("button", { name: "Clear all" }).click();
   await expect(page.locator(".pdf-file-list li")).toHaveCount(0);
 });
 
-test("all four services are linked, accessible on mobile, and keep entered content off the network", async ({
+test("every service is linked from the Lab, accessible on mobile, and keeps entered content off the network", async ({
   page,
 }) => {
   await page.goto("/lab/");
-  for (const name of [
-    "Image Compress",
-    "PDF Merge",
-    "Text Clean",
-    "JSON Format",
-  ])
-    await expect(
-      page.getByRole("link", { name: new RegExp(name) }),
-    ).toBeVisible();
-  for (const route of [
+  const linked = [
     "image-compress",
-    "pdf-merge",
+    "file-converter",
+    "background-remover",
+    "ocr",
+    "pdf-tools",
+    "text-compare",
     "text-clean",
     "json-format",
-  ]) {
+    "qr-code",
+    "quick-pass",
+  ];
+  for (const route of linked)
+    await expect(
+      page.locator(`a.tile[href="/services/${route}/"]`),
+    ).toBeVisible();
+  for (const route of [...linked, "pdf-merge"]) {
     await page.goto(`/services/${route}/`);
     await page.locator("astro-island").waitFor({ state: "visible" });
     await expect(page.locator("astro-island")).not.toHaveAttribute("ssr", "");

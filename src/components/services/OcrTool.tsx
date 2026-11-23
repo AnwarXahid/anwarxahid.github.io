@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { downloadFile, fileSize } from "./files";
+import ToolIcon from "./ToolIcon";
 
 export default function OcrTool() {
   const [file, setFile] = useState<File | null>(null);
@@ -130,11 +131,6 @@ export default function OcrTool() {
 
   return (
     <>
-      <div className="workspace-bar">
-        <span>OCR / Image to Text</span>
-        <span className="workspace-private">Processed on your device</span>
-      </div>
-
       <div className="file-workspace">
         <div
           className={`upload-zone ${isDragging ? "dragover" : ""}`}
@@ -150,14 +146,12 @@ export default function OcrTool() {
             if (candidate) handleImageSelected(candidate);
           }}
         >
-          <span className="upload-symbol" aria-hidden="true">
-            🖹
-          </span>
-          <h2>{file ? file.name : "Extract text from images & screenshots"}</h2>
+          <ToolIcon name="drop" />
+          <h2>{file ? file.name : "Drop an image here"}</h2>
           <p>
             {file
-              ? "Image ready for text recognition. Processed with offline English OCR."
-              : "Upload an image, drag & drop, or paste a screenshot directly (Ctrl+V)."}
+              ? "Ready. Press “Extract text”."
+              : "Or paste a screenshot with Ctrl+V."}
           </p>
           <label className="upload-button">
             {file ? "Choose another image" : "Choose image"}
@@ -172,16 +166,14 @@ export default function OcrTool() {
               }}
             />
           </label>
-          <small>
-            Up to 20 MB · Supports screenshot paste (Ctrl+V) · Language: English · 100% In-Browser
-          </small>
+          <small>Up to 20 MB · reads English text</small>
         </div>
 
         {file && (
           <div className="settings-strip">
-            <span style={{ fontSize: "0.85rem", opacity: 0.85 }}>
-              Language: <strong>English (offline local model)</strong>
-            </span>
+            <p>
+              Language: <strong>English</strong>
+            </p>
             <button className="primary" disabled={busy} onClick={runOcr}>
               {busy ? "Recognizing text…" : "Extract text"}
             </button>
@@ -190,31 +182,10 @@ export default function OcrTool() {
       </div>
 
       {progress !== null && (
-        <div
-          style={{
-            maxWidth: "600px",
-            margin: "1rem auto",
-            textAlign: "center",
-          }}
-        >
-          <p>Analyzing characters… {progress}%</p>
-          <div
-            style={{
-              width: "100%",
-              height: "8px",
-              background: "var(--border, #e2e8f0)",
-              borderRadius: "4px",
-              overflow: "hidden",
-            }}
-          >
-            <div
-              style={{
-                width: `${progress}%`,
-                height: "100%",
-                background: "var(--accent, #0f766e)",
-                transition: "width 0.2s ease",
-              }}
-            />
+        <div className="progress">
+          <p>Reading the text… {progress}%</p>
+          <div className="progress-track">
+            <div className="progress-fill" style={{ width: `${progress}%` }} />
           </div>
         </div>
       )}
@@ -255,34 +226,13 @@ export default function OcrTool() {
       )}
 
       {file && (
-        <div className="compare-inputs" style={{ marginTop: "1.5rem" }}>
+        <div className="compare-inputs standalone">
           <section className="text-panel">
             <div className="panel-top">
-              <label>Source image preview</label>
+              <span className="panel-title">Image</span>
             </div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                background: "var(--surface, #f8fafc)",
-                border: "1px solid var(--line, #e2e8f0)",
-                borderRadius: "6px",
-                minHeight: "220px",
-                padding: "8px",
-              }}
-            >
-              {previewUrl && (
-                <img
-                  src={previewUrl}
-                  alt="OCR source preview"
-                  style={{
-                    maxWidth: "100%",
-                    maxHeight: "320px",
-                    objectFit: "contain",
-                  }}
-                />
-              )}
+            <div className="ocr-source">
+              {previewUrl && <img src={previewUrl} alt="OCR source preview" />}
             </div>
           </section>
 
@@ -292,15 +242,14 @@ export default function OcrTool() {
               <span className="secondary-label">
                 {extractedText
                   ? `${extractedText.length} characters`
-                  : "Awaiting extraction"}
+                  : "Not read yet"}
               </span>
             </div>
             <textarea
               id="ocr-result-text"
               readOnly
               value={extractedText}
-              placeholder="Extracted text will appear here. You can select, copy, or download it."
-              style={{ minHeight: "220px" }}
+              placeholder="The text will appear here."
               spellCheck={false}
             />
           </section>
@@ -308,9 +257,8 @@ export default function OcrTool() {
       )}
 
       <p className="tool-note">
-        OCR uses Tesseract.js running in a local Web Worker with offline English
-        weights hosted directly on this site. Images and screenshots are
-        processed locally in your browser and never uploaded.
+        Text recognition runs in your browser with Tesseract.js. Images are
+        never uploaded.
       </p>
     </>
   );

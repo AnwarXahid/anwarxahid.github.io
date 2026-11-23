@@ -2,6 +2,6 @@
 import ServiceLayout from '../../../layouts/ServiceLayout.astro';
 import FileConverter from '../../../components/services/FileConverter';
 ---
-<ServiceLayout title="File Converter" category="MEDIA" tagline="Real in-browser file conversions. No uploads." description="Convert images between WebP, PNG, JPG, and SVG, or extract clean audio from video files locally.">
+<ServiceLayout title="File Converter" icon="convert" tone="heather" tagline="Switch image formats, or pull the audio out of a video." description="Convert images between WebP, PNG, JPG, and SVG, or extract clean audio from video files locally.">
   <FileConverter client:only="react"><p slot="fallback" role="status">Loading the tool…</p></FileConverter>
 </ServiceLayout>

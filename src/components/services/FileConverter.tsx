@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { fileSize, downloadFile } from "./files";
+import ToolIcon from "./ToolIcon";
 import { convertImage, extractAudioToWav } from "./converter-tools";
 
 type Mode = "image" | "media";
@@ -175,7 +176,6 @@ export default function FileConverter() {
   return (
     <>
       <div className="workspace-bar">
-        <span>File Converter</span>
         <div className="tab-group" role="tablist" aria-label="Converter modes">
           <button
             role="tab"
@@ -183,7 +183,7 @@ export default function FileConverter() {
             className={mode === "image" ? "tab active" : "tab"}
             onClick={() => handleModeChange("image")}
           >
-            Image Converter
+            Images
           </button>
           <button
             role="tab"
@@ -191,10 +191,9 @@ export default function FileConverter() {
             className={mode === "media" ? "tab active" : "tab"}
             onClick={() => handleModeChange("media")}
           >
-            Video to Audio
+            Video to audio
           </button>
         </div>
-        <span className="workspace-private">Processed on your device</span>
       </div>
 
       <div className="file-workspace">
@@ -212,22 +211,20 @@ export default function FileConverter() {
             if (candidate) handleFileSelect(candidate);
           }}
         >
-          <span className="upload-symbol" aria-hidden="true">
-            ⇋
-          </span>
+          <ToolIcon name="drop" />
           <h2>
             {file
               ? file.name
               : mode === "image"
-                ? "Convert an image"
-                : "Extract audio from video"}
+                ? "Drop an image here"
+                : "Drop a video here"}
           </h2>
           <p>
             {file
-              ? `Selected file: ${fileSize(file.size)}.`
+              ? fileSize(file.size)
               : mode === "image"
-                ? "Drag & drop, paste from clipboard (Ctrl+V), or choose a file."
-                : "Drag & drop or choose a video file to extract clean audio."}
+                ? "Or paste one with Ctrl+V. JPG, PNG, WebP or SVG."
+                : "You get its sound as a WAV file."}
           </p>
           <label className="upload-button">
             {file ? "Choose another file" : "Choose file"}
@@ -248,11 +245,7 @@ export default function FileConverter() {
               }}
             />
           </label>
-          <small>
-            {mode === "image"
-              ? "Up to 25 MB · Decoded directly in browser"
-              : "Up to 50 MB · 16-bit uncompressed WAV output"}
-          </small>
+          <small>{mode === "image" ? "Up to 25 MB" : "Up to 50 MB"}</small>
         </div>
 
         {file && (
@@ -317,32 +310,14 @@ export default function FileConverter() {
       </div>
 
       {progress && (
-        <div
-          style={{
-            maxWidth: "600px",
-            margin: "1rem auto",
-            textAlign: "center",
-          }}
-        >
+        <div className="progress">
           <p>
             {progress.step} ({progress.percent}%)
           </p>
-          <div
-            style={{
-              width: "100%",
-              height: "8px",
-              background: "var(--border, #e2e8f0)",
-              borderRadius: "4px",
-              overflow: "hidden",
-            }}
-          >
+          <div className="progress-track">
             <div
-              style={{
-                width: `${progress.percent}%`,
-                height: "100%",
-                background: "var(--accent, #0f766e)",
-                transition: "width 0.2s ease",
-              }}
+              className="progress-fill"
+              style={{ width: `${progress.percent}%` }}
             />
           </div>
         </div>
@@ -370,10 +345,8 @@ export default function FileConverter() {
       )}
 
       <p className="tool-note">
-        Conversions happen 100% locally on your device using Web APIs. Files are
-        never uploaded to any server. Extension renaming is never used; images
-        and audio streams are genuinely decoded and re-encoded into valid
-        destination containers.
+        Files are really decoded and re-encoded, not just renamed, and they
+        never leave your device.
       </p>
     </>
   );

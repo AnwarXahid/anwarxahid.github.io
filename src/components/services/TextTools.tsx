@@ -164,9 +164,8 @@ export default function TextTools({ mode }: { mode: "clean" | "json" }) {
 
   return (
     <>
-      <div className="workspace-bar">
-        <span>{json ? "Data workspace" : "Scratchpad & Text workspace"}</span>
-        {json && (
+      {json && (
+        <div className="workspace-bar">
           <div className="tab-group" role="tablist" aria-label="Data format">
             <button
               role="tab"
@@ -202,9 +201,8 @@ export default function TextTools({ mode }: { mode: "clean" | "json" }) {
               XML
             </button>
           </div>
-        )}
-        <span className="workspace-private">Processed on your device</span>
-      </div>
+        </div>
+      )}
 
       <div className="compare-inputs">
         <section className="text-panel">
@@ -340,15 +338,10 @@ export default function TextTools({ mode }: { mode: "clean" | "json" }) {
                   {labels[key as keyof CleanOptions]}
                 </label>
               ))}
-              <label
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "6px",
-                }}
-              >
-                Case:
+              <div className="case-control">
+                <label htmlFor="text-case">Case</label>
                 <select
+                  id="text-case"
                   value={selectedCase}
                   onChange={(e) => setSelectedCase(e.target.value as TextCase)}
                 >
@@ -365,14 +358,14 @@ export default function TextTools({ mode }: { mode: "clean" | "json" }) {
                   disabled={!input}
                   onClick={applyCaseConversion}
                 >
-                  Apply Case
+                  Apply
                 </button>
                 {previousInput !== null && (
                   <button type="button" onClick={undoCaseConversion}>
                     Undo
                   </button>
                 )}
-              </label>
+              </div>
               <label>
                 <input
                   type="checkbox"
@@ -452,9 +445,8 @@ export default function TextTools({ mode }: { mode: "clean" | "json" }) {
 
       <p className="tool-note">
         {json
-          ? "Preserves numeric precision for large integers. CSV parsing handles quotes and embedded newlines. XML external entities are disabled for security."
-          : "Zero automatic cloud or local persistence by default; drafts are only stored in this browser if explicitly enabled above."}{" "}
-        Your input stays on this device.
+          ? "Large numbers keep every digit. CSV quotes and line breaks are handled, and XML external entities are blocked."
+          : "Nothing is saved unless you turn on “Save draft locally”, and then only in this browser."}
       </p>
 
       {output === null && !input && (

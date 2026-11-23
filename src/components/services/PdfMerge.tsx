@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { fileSize, downloadFile } from "./files";
+import ToolIcon from "./ToolIcon";
 
 type Entry = {
   id: number;
@@ -251,7 +252,6 @@ export default function PdfMerge() {
   return (
     <>
       <div className="workspace-bar">
-        <span>PDF Tools workspace</span>
         <div className="tab-group" role="tablist" aria-label="PDF Tools">
           <button
             role="tab"
@@ -262,7 +262,7 @@ export default function PdfMerge() {
               setMode("merge");
             }}
           >
-            Merge PDFs
+            Merge
           </button>
           <button
             role="tab"
@@ -273,7 +273,7 @@ export default function PdfMerge() {
               setMode("split");
             }}
           >
-            Split / Extract
+            Split
           </button>
           <button
             role="tab"
@@ -284,10 +284,9 @@ export default function PdfMerge() {
               setMode("compress");
             }}
           >
-            Compress PDF
+            Compress
           </button>
         </div>
-        <span className="workspace-private">Processed on your device</span>
       </div>
 
       {mode === "merge" && (
@@ -306,11 +305,9 @@ export default function PdfMerge() {
               if (dt?.length) void add(dt);
             }}
           >
-            <span className="upload-symbol" aria-hidden="true">
-              ▤
-            </span>
-            <h2>Separate files. One document.</h2>
-            <p>Drag &amp; drop PDF files or select from your device.</p>
+            <ToolIcon name="drop" />
+            <h2>Drop PDFs here</h2>
+            <p>Put them in order, then merge them into one.</p>
             <label className="upload-button">
               {files.length ? "Add more PDFs" : "Choose PDF files"}
               <input
@@ -325,7 +322,7 @@ export default function PdfMerge() {
                 }}
               />
             </label>
-            <small>Up to 20 files · 50 MB combined · 100% In-Browser</small>
+            <small>Up to 20 files, 50 MB in total</small>
           </div>
           {files.length > 0 && (
             <ol className="pdf-file-list">
@@ -401,14 +398,12 @@ export default function PdfMerge() {
       {mode === "split" && (
         <div className="file-workspace">
           <div className="upload-zone">
-            <span className="upload-symbol" aria-hidden="true">
-              ✂
-            </span>
-            <h2>{splitFile ? splitFile.name : "Extract pages from a PDF"}</h2>
+            <ToolIcon name="drop" />
+            <h2>{splitFile ? splitFile.name : "Pick pages from a PDF"}</h2>
             <p>
               {splitFile
-                ? `${splitFile.pages} pages found. Specify which pages to keep.`
-                : "Choose a PDF file to extract or reorder pages."}
+                ? `${splitFile.pages} pages. Choose the ones to keep.`
+                : "Keep only the pages you need, in any order."}
             </p>
             <label className="upload-button">
               {splitFile ? "Choose another PDF" : "Choose PDF file"}
@@ -423,7 +418,7 @@ export default function PdfMerge() {
                 }}
               />
             </label>
-            <small>Up to 500 pages · Flattens form values</small>
+            <small>Up to 500 pages</small>
           </div>
 
           {splitFile && (
@@ -469,14 +464,12 @@ export default function PdfMerge() {
       {mode === "compress" && (
         <div className="file-workspace">
           <div className="upload-zone">
-            <span className="upload-symbol" aria-hidden="true">
-              ⇲
-            </span>
-            <h2>{compressFile ? compressFile.name : "Compress a PDF"}</h2>
+            <ToolIcon name="drop" />
+            <h2>{compressFile ? compressFile.name : "Shrink a PDF"}</h2>
             <p>
               {compressFile
-                ? `Original size: ${fileSize(compressFile.size)} (${compressFile.pages} pages).`
-                : "Optimize object streams and compress internal structures."}
+                ? `${fileSize(compressFile.size)} · ${compressFile.pages} pages`
+                : "Repack the file without touching how it looks."}
             </p>
             <label className="upload-button">
               {compressFile ? "Choose another PDF" : "Choose PDF file"}
@@ -491,12 +484,12 @@ export default function PdfMerge() {
                 }}
               />
             </label>
-            <small>Lossless object compression · No upload</small>
+            <small>Lossless · scanned PDFs may not get smaller</small>
           </div>
 
           {compressFile && (
             <div className="settings-strip">
-              <p>Ready to optimize streams and prune unused objects.</p>
+              <p>Ready to shrink.</p>
               <button
                 className="primary"
                 disabled={busy}
@@ -558,11 +551,8 @@ export default function PdfMerge() {
       )}
 
       <p className="tool-note">
-        Files stay on this device. Page order is preserved exactly as specified.
-        Form values are flattened; interactive forms, bookmarks, and digital
-        signatures are not preserved. Compression packs PDF object streams and
-        prunes redundancies; pre-compressed or scanned raster PDFs will not see
-        artificial size reductions.
+        Pages keep the order you choose. Form fields are flattened, and
+        bookmarks and digital signatures are not kept.
       </p>
     </>
   );

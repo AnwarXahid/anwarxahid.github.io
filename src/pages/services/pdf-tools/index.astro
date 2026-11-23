@@ -2,6 +2,6 @@
 import ServiceLayout from '../../../layouts/ServiceLayout.astro';
 import PdfMerge from '../../../components/services/PdfMerge';
 ---
-<ServiceLayout title="PDF Tools" category="DOCUMENTS" tagline="Merge, extract, and compress your PDFs in your browser." description="Merge multiple PDFs, split or extract pages, and compress documents locally. No file uploads or account needed.">
+<ServiceLayout title="PDF Tools" icon="pdf" tone="clay" tagline="Merge, split or shrink PDFs, right in your browser." description="Merge multiple PDFs, split or extract pages, and compress documents locally. No file uploads or account needed.">
   <PdfMerge client:only="react"><p slot="fallback" role="status">Loading the tool…</p></PdfMerge>
 </ServiceLayout>

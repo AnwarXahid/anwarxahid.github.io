@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { downloadFile, fileSize } from "./files";
+import ToolIcon from "./ToolIcon";
 
 function useBlobUrl(blob: Blob | null) {
   const [url, setUrl] = useState("");
@@ -228,14 +229,12 @@ export default function ImageCompress() {
             if (candidate) void load(candidate);
           }}
         >
-          <span className="upload-symbol" aria-hidden="true">
-            ▧
-          </span>
-          <h2>{file ? file.name : "Make a little space."}</h2>
+          <ToolIcon name="drop" />
+          <h2>{file ? file.name : "Drop an image here"}</h2>
           <p>
             {file
-              ? "Choose your settings, then compress."
-              : "Drag & drop, paste from clipboard (Ctrl+V), or choose a JPG, PNG, or WebP."}
+              ? "Pick your settings, then compress."
+              : "Or paste one with Ctrl+V. JPG, PNG or WebP."}
           </p>
           <label className="upload-button">
             {file ? "Choose another image" : "Choose an image"}
@@ -250,7 +249,7 @@ export default function ImageCompress() {
               }}
             />
           </label>
-          <small>Up to 25 MB · 25 million pixels · 100% In-Browser</small>
+          <small>Up to 25 MB and 25 million pixels</small>
         </div>
         <div className="settings-strip">
           <label>
@@ -285,12 +284,7 @@ export default function ImageCompress() {
               />
             </label>
           ) : (
-            <span
-              className="quality-note"
-              style={{ fontSize: "0.85rem", opacity: 0.8 }}
-            >
-              PNG: Lossless compression
-            </span>
+            <span className="quality-note">PNG is lossless</span>
           )}
           <label>
             Resize mode
@@ -333,7 +327,6 @@ export default function ImageCompress() {
                   max="8192"
                   value={customWidth || ""}
                   disabled={busy}
-                  style={{ width: "80px" }}
                   onChange={(e) => {
                     invalidate();
                     setCustomWidth(Number(e.target.value));
@@ -348,7 +341,6 @@ export default function ImageCompress() {
                   max="8192"
                   value={customHeight || ""}
                   disabled={busy}
-                  style={{ width: "80px" }}
                   onChange={(e) => {
                     invalidate();
                     setCustomHeight(Number(e.target.value));
@@ -387,10 +379,8 @@ export default function ImageCompress() {
         </p>
       )}
       <p className="tool-note">
-        JPEG fills transparent areas with white. WebP and PNG preserve
-        transparent alpha. Crop fills target dimensions without distortion.
-        Stretch alters aspect ratio. Exports still images without animation or
-        private EXIF metadata.
+        JPEG turns transparent areas white; WebP and PNG keep them. Saved images
+        drop animation and camera (EXIF) data.
       </p>
       {file && bitmap && (
         <div className="image-previews">

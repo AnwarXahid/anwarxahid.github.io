@@ -2,6 +2,6 @@
 import ServiceLayout from '../../../layouts/ServiceLayout.astro';
 import PdfMerge from '../../../components/services/PdfMerge';
 ---
-<ServiceLayout title="PDF Merge" category="DOCUMENTS" tagline="Your documents. Together, in the right order." description="Combine PDF files in your browser, arrange the file order, and download one merged PDF. No uploads or account needed.">
+<ServiceLayout title="PDF Merge" icon="pdf" tone="clay" tagline="Put PDFs in order and join them into one." description="Combine PDF files in your browser, arrange the file order, and download one merged PDF. No uploads or account needed.">
   <PdfMerge client:only="react"><p slot="fallback" role="status">Loading the tool…</p></PdfMerge>
 </ServiceLayout>

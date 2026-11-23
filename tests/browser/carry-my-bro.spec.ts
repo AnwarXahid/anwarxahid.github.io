@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 
 test('Carry My Bro opens from the Lab and the run can be paused', async ({ page }) => {
   await page.goto('/lab/');
-  const gameLink = page.getByRole('link', { name: 'Play Carry My Bro' });
+  const gameLink = page.getByRole('link', { name: /Carry My Bro/ });
   await expect(gameLink).toHaveAttribute('href', '/game/');
   await gameLink.click();
   await expect(page).toHaveURL(/\/game\/$/);
